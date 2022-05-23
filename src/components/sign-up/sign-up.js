@@ -1,11 +1,9 @@
 import { TextInput, Button, Checkbox, Group, Box } from '@mantine/core';
-import { DatePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 
 export const SignUp = () => {
     const form = useForm({
         initialValues: {
-            birthday: '',
             email: '',
             name: '',
             password: '',
@@ -33,12 +31,6 @@ export const SignUp = () => {
                     label="Surname"
                     placeholder="Rossi"
                     {...form.getInputProps('surname')}
-                />
-                <DatePicker 
-                    required
-                    placeholder="Pick date" 
-                    label="Birthday"
-                    {...form.getInputProps('birthday')}
                 />
                 <TextInput
                     required
