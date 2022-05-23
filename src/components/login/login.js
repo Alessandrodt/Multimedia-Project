@@ -4,7 +4,7 @@ import { useForm } from '@mantine/form';
 export const Login = () => {
   const form = useForm({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
       termsOfService: false,
     },
@@ -20,9 +20,9 @@ export const Login = () => {
       <form onSubmit={form.onSubmit((values) => console.log(values))}>
         <TextInput
           required
-          label="username"
-          placeholder="Username"
-          {...form.getInputProps('username')}
+          label="Email"
+          placeholder="Email"
+          {...form.getInputProps('email')}
         />
          <TextInput
           required
@@ -32,7 +32,7 @@ export const Login = () => {
         />
 
         <Group position="right" mt="md">
-          <Button type="submit">Log in</Button>
+          <Button type="submit">Login</Button>
         </Group>
       </form>
     </Box>
