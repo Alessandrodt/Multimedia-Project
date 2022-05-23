@@ -1,17 +1,17 @@
-import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
+import { TextInput, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 export const Login = () => {
   const form = useForm({
     initialValues: {
-      email: '',
+      username: '',
       password: '',
       termsOfService: false,
     },
 
     validate: {
-      email: (value) => (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value) ? null : 'Invalid email'),
-      password: (value) => (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) ? null : 'Invalid password')
+      // email: (value) => (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value) ? null : 'Invalid email'),
+      // password: (value) => (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) ? null : 'Invalid password')
     },
   });
 
@@ -20,9 +20,9 @@ export const Login = () => {
       <form onSubmit={form.onSubmit((values) => console.log(values))}>
         <TextInput
           required
-          label="Email"
-          placeholder="your@email.com"
-          {...form.getInputProps('email')}
+          label="username"
+          placeholder="Username"
+          {...form.getInputProps('username')}
         />
          <TextInput
           required
@@ -31,14 +31,8 @@ export const Login = () => {
           {...form.getInputProps('password')}
         />
 
-        <Checkbox
-          mt="md"
-          label="I agree to sell my privacy"
-          {...form.getInputProps('termsOfService', { type: 'checkbox' })}
-        />
-
         <Group position="right" mt="md">
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Log in</Button>
         </Group>
       </form>
     </Box>
