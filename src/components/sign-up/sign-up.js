@@ -1,5 +1,5 @@
 import { TextInput, Button, Checkbox, Group, Box } from '@mantine/core';
-import { DatePicker, DateRangePicker } from '@mantine/dates';
+import { DatePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 
 export const SignUp = () => {
