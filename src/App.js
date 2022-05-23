@@ -1,5 +1,5 @@
 // Components imports
-import { Home } from "./components/homepage/home";
+import { LandingPage } from "./components/landing-page/landing-page";
 import { Login } from "./components/login/login";
 import { SignUp } from "./components/sign-up/sign-up";
 
@@ -16,7 +16,7 @@ function App() {
      <Routes>
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<SignUp/>}/>
-       <Route path='/' element={<Home/>}/>
+       <Route path='/' element={<LandingPage/>}/>
      </Routes>
   </Router>
   )
