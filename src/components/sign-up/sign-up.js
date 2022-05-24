@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { TextInput, Button, Checkbox, Group, Box } from '@mantine/core';
+import { TextInput, Button, Checkbox, Group, Box, PasswordInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import authServices from "../../services/authservices";
 
 export const SignUp = () => {
     const [user, setUser] = useState([]);
     const [newUsername, setNewUsername] = useState('');
-    const [newPassword, setNewPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('');
 
     const addUser = (event) => {
         event.preventDefault();
@@ -67,7 +67,7 @@ export const SignUp = () => {
                     placeholder="Mario.Rossi@email.com"
                     {...form.getInputProps('email')}
                 />
-                <TextInput
+                <PasswordInput
                     required
                     label="Password"
                     placeholder="YourPasswordHere"
