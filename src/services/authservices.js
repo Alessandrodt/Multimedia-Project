@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const signupUrl = " https://media-backend.fly.dev/signup";
+const signupUrl = "https://localhost:8080/signup";
 
 const createUser = (newUser) => {
    return axios.post(signupUrl, newUser)
