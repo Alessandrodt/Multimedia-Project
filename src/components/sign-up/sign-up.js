@@ -10,18 +10,19 @@ import {
 import { useForm } from "@mantine/form";
 import authServices from "../../services/authservices";
 
+
 export const SignUp = () => {
   const [users, setUser] = useState([]);
-  const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const addUser = (event) => {
-    const isUserAdded = users.map((p) => p.user).includes(newUsername);
-    const existingUser = users.find((p) => newUsername === p.user);
+  const addUser = () => {
+    const isUserAdded = users.map((p) => p.user).includes(newEmail);
+    const existingUser = users.find((p) => newEmail === p.user);
 
     authServices.createUser(newUser).then((response) => {
       setUser(users.concat(response.data));
-      setNewUsername("");
+      setNewEmail("");
       setNewPassword("");
     });
 
@@ -34,7 +35,7 @@ export const SignUp = () => {
   };
 
   const newUser = {
-    username: newUsername,
+    username: newEmail,
     password: newPassword,
   };
 
@@ -48,8 +49,8 @@ export const SignUp = () => {
       termsOfService: false,
     },
     initialErrors: {
-      password:
-        "Password must have at least 1 capital letter, a number and be 8 characters long",
+      password: 
+        "Password must have at least 1 capital letter, a number and be 8 characters long"
     },
     validate: {
       email: (value) =>
@@ -67,6 +68,7 @@ export const SignUp = () => {
     },
   });
   
+
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <form onSubmit={form.onSubmit(addUser)}>
@@ -90,7 +92,7 @@ export const SignUp = () => {
           {...form.getInputProps("email")}
           onChange={(event) =>
             {form.setFieldValue("email", event.currentTarget.value)
-            setNewUsername(event.target.value)}
+            setNewEmail(event.target.value)}
           }
         />
         <PasswordInput

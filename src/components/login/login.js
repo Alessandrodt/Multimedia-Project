@@ -1,11 +1,11 @@
-import { TextInput, Button, Group, Box } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { TextInput, Button, Group, Box, PasswordInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
 
 export const Login = () => {
   const form = useForm({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       termsOfService: false,
     },
 
@@ -22,19 +22,24 @@ export const Login = () => {
           required
           label="Email"
           placeholder="Email"
-          {...form.getInputProps('email')}
+          autoComplete="on"
+          {...form.getInputProps("email")}
         />
-         <TextInput
+        <PasswordInput
           required
           label="Password"
           placeholder="password"
-          {...form.getInputProps('password')}
+          autoComplete="on"
+          {...form.getInputProps("password")}
         />
-
+        <a href="/#">Forgot your Password?</a>
+        <div>
+          <a href="/signup">Not a user yet? Register Here!</a>
+        </div>
         <Group position="right" mt="md">
           <Button type="submit">Login</Button>
         </Group>
       </form>
     </Box>
   );
-}
+};
