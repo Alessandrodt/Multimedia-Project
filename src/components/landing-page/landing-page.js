@@ -7,6 +7,7 @@ export const LandingPage = () => {
             <li> LandingPage (This one) == / .</li>
             <li> Signup == /signup .</li>
             <li> Login == /login .</li>
+            <li> Groups == /groups </li>
         </ul>
         </>
     )
