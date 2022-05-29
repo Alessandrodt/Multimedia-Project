@@ -1,7 +1,15 @@
 import { TextInput, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+  let path = `/home`; 
+  navigate(path);
+}
+
   const form = useForm({
     initialValues: {
       email: '',

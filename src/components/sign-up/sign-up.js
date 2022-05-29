@@ -1,7 +1,14 @@
 import { TextInput, Button, Checkbox, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useNavigate } from "react-router-dom"
 
 export const SignUp = () => {
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `/home`; 
+    navigate(path);
+  }
+  
     const form = useForm({
         initialValues: {
             email: '',
@@ -51,7 +58,7 @@ export const SignUp = () => {
                 />
 
                 <Group position="right" mt="md">
-                    <Button type="submit">Sign-Up</Button>
+                    <Button onSubmit={routeChange} type="submit">Sign-Up</Button>
                 </Group>
             </form>
         </Box>
