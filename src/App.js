@@ -1,4 +1,6 @@
+import React from "react";
 // Components imports
+import { Groups } from "./components/groups/Groups"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/login";
 import { SignUp } from "./components/sign-up/sign-up";
@@ -10,7 +12,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom"
-import React from "react";
+
 
 
 const App = () => {
