@@ -1,5 +1,5 @@
 // Components imports
-import { LandingPage } from "./components/landing-page/landingPage";
+import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/login";
 import { SignUp } from "./components/sign-up/sign-up";
 
