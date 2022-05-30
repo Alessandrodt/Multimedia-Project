@@ -1,14 +1,16 @@
 // Components imports
 import { LandingPage } from "./components/landing-page/LandingPage";
-import { Login } from "./components/login/Login";
-import { SignUp } from "./components/sign-up/Sign-up";
-import { Groups } from "./components/groups/Groups";
+import { Login } from "./components/login/login";
+import { SignUp } from "./components/sign-up/sign-up";
+import { HomePage } from "./components/home-page/HomePage";
+
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom"
+import React from "react";
 
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
        <Route path='/groups' element={<Groups/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<SignUp/>}/>
+       <Route path='/home' element={<HomePage/>}/>
        <Route path='/' element={<LandingPage/>}/>
      </Routes>
   </Router>
