@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import landingPageServices  from "../../services/landingPageServices";
+=======
+import React, { useState, useEffect } from "react";
+import landingPageServices from "../../services/landingPageServices";
+>>>>>>> 7f5117fce0d238646874f98f983d74c912a3ab0b
 
 export const LandingPage = () => {
     
-    // const [ gallery, setGallery ] = useState([]);
+    const [ gallery, setGallery ] = useState([]);
 
-    // const populateGallery = "la chiamata in get"
+    useEffect(() => {
+        //
+    })
 
     return (
         <>
@@ -17,6 +24,9 @@ export const LandingPage = () => {
             <li> Login == /login .</li>
             
         </ul>
+        <div>
+            <></>
+        </div>
         </>
     )
 }
