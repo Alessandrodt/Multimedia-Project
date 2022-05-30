@@ -5,6 +5,7 @@ import {
   Group,
   Text,
   ScrollArea,
+  Button,
 } from '@mantine/core';
 
 const data = [
@@ -53,11 +54,14 @@ export const Groups = () => {
           <Text size="sm" weight={500}>
             {item.email}
           </Text>
+          <Button> Delete </Button>
         </Group>
       </td>
     </tr>
     </>
   ));
+
+
 
   return (
     <>
@@ -68,7 +72,14 @@ export const Groups = () => {
                     <th> Group 1 </th>
                 </tr>
                 </thead>
-                <tbody>{rows}</tbody>
+                <tbody>
+                  {rows}
+                  <tr>
+                    <Button >
+                      Add
+                    </Button>
+                  </tr>
+                </tbody>
             </Table>
         </ScrollArea>
         <div>
