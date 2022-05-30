@@ -2,6 +2,7 @@
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/login";
 import { SignUp } from "./components/sign-up/sign-up";
+import { HomePage } from "./components/home-page/home-page";
 
 
 import {
@@ -9,6 +10,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom"
+import React from "react";
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
      <Routes>
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<SignUp/>}/>
+       <Route path='/home' element={<HomePage/>}/>
        <Route path='/' element={<LandingPage/>}/>
      </Routes>
   </Router>
