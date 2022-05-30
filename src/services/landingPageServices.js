@@ -6,7 +6,7 @@ const UNSPLASH_KEY = "Ji_F7pcWeS4AvsuieRjBupXzCoUNsD-eZdnLMnVjZ_8";
 const landingImg = `https://api.unsplash.com/photos/?client_id=${UNSPLASH_KEY}`;
 
 const createGallery = (newGallery) => {
-    return axios.post(landingImg, newGallery)
+    return axios.get(landingImg, newGallery)
  }
  
  const landingPageServices = {createGallery}

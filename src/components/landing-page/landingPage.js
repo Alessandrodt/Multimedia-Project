@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import landingPageServices from "../../services/landingPageServices";
 
 export const LandingPage = () => {
     
-    // const [ gallery, setGallery ] = useState([]);
+    const [ gallery, setGallery ] = useState([]);
 
-    // const populateGallery = "la chiamata in get"
+    useEffect(() => {
+        //
+    })
 
     return (
         <>
@@ -16,6 +18,9 @@ export const LandingPage = () => {
             <li> Signup == /signup .</li>
             <li> Login == /login .</li>
         </ul>
+        <div>
+            <></>
+        </div>
         </>
     )
 }
