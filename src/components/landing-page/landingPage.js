@@ -1,6 +1,16 @@
+import React, { useState } from "react";
+import landingPageServices from "../../services/landingPageServices";
+
 export const LandingPage = () => {
+<<<<<<< HEAD
 
 
+=======
+    
+    // const [ gallery, setGallery ] = useState([]);
+
+    // const populateGallery = "la chiamata in get"
+>>>>>>> origin/landing-page-env
 
     return (
         <>
