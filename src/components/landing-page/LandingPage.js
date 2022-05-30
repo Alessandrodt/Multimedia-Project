@@ -1,4 +1,10 @@
+import React, { useEffect } from "react";
+
 export const LandingPage = () => {
+  useEffect(() => {
+    //
+  });
+
   return (
     <>
       <h1> Hi, welcome to this project!</h1>
@@ -8,6 +14,9 @@ export const LandingPage = () => {
         <li> Signup == /signup .</li>
         <li> Login == /login .</li>
       </ul>
+      <div>
+        <></>
+      </div>
     </>
   );
 };
