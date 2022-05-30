@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Avatar,
   Table,
@@ -8,52 +8,59 @@ import {
   Button,
 } from '@mantine/core';
 
-const data = [
-  {
-    avatar: "pic.png",
-    name: "Alberto",
-    email: "testemail@gmail.com",
-  },
-  {
-    avatar: "pic.png",
-    name: "Alessandro",
-    email: "testemail@gmail.com",
-  },
-  {
-    avatar: "pic.png",
-    name: "Alessandro2",
-    email: "testemail@gmail.com",
-  },
-  {
-    avatar: "pic.png",
-    name: "Arianna",
-    email: "testemail@gmail.com",
-  },
-  {
-    avatar: "pic.png",
-    name: "Gerardo",
-    email: "testemail@gmail.com",
-  },
-  {
-    avatar: "pic.png",
-    name: "Johanna",
-    email: "testemail@gmail.com",
-  },
-];
-
 export const Groups = () => {
-  const rows = data.map((item) => (
-    <tr key={item.name}>
-      <td key={item.name}>
+  const [groups, setGroup] = useState([
+    {
+      avatar: "pic.png",
+      name: "Alberto",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Alessandro",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Alessandro2",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Arianna",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Gerardo",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Johanna",
+      email: "testemail@gmail.com",
+    },
+  ]);
+
+
+  // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
+  const deleteUser = (user) => {
+    let filteredGroup = groups.filter((u) => u.name !== user.name);
+    setGroup(filteredGroup);
+  }
+
+  const rows = groups.map((user) => (
+    <tr key={user.name}>
+      <td key={user.name}>
         <Group spacing="sm">
-          <Avatar size={30} src={item.avatar} radius={30} />
+          <Avatar size={30} src={user.avatar} radius={30} />
           <Text size="sm" weight={500}>
-            {item.name}
+            {user.name}
           </Text>
           <Text size="sm" weight={500}>
-            {item.email}
+            {user.email}
           </Text>
-          <Button onClick={() => data.splice(item.name)}> Delete </Button>
+          <Button onClick={() => deleteUser(user)}> Delete </Button>
         </Group>
       </td>
     </tr>
