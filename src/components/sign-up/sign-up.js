@@ -80,7 +80,7 @@ export const SignUp = () => {
                 />
 
                 <Group position="right" mt="md">
-                    <Button onSubmit={routeChange} type="submit">Sign-Up</Button>
+                    {/* <Button onSubmit={routeChange} type="submit">Sign-Up</Button> */}
                 </Group>
             </form>
         </Box>
