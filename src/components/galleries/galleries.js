@@ -55,16 +55,11 @@ export function Galleries() {
                 </Grid>
                 <Grid gutter="md">
                 <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
                 </Grid.Col>
-                <Grid.Col span={6}>
+                <Grid.Col className='vertical' span={6}>
                     <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    <Skeleton className='smalbox' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
                 </Grid.Col>
                 </Grid>
                 <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
@@ -83,6 +78,30 @@ export function Galleries() {
                 </Grid.Col>
                 <Grid.Col span={6}>
                     <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                </Grid>
+
+                <Grid gutter="md">
+                <Grid.Col span={6}>
+                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                <Grid.Col span={6}>
+                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                </Grid>
+                <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
+                <Grid gutter="md">
+                <Grid.Col span={6}>
+                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                <Grid.Col span={6}>
+                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                <Grid.Col span={6}>
+                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                </Grid.Col>
+                <Grid.Col span={6}>
+                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
                 </Grid.Col>
                 </Grid>
             </SimpleGrid>

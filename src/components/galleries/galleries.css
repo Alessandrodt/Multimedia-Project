@@ -17,3 +17,10 @@
 .box {
    height: 418px;
    }
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+.smalbox {
+    margin-top: 18px;
+}
