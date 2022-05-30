@@ -21,7 +21,7 @@ const data = [
   },
   {
     avatar: "pic.png",
-    name: "Alessandro",
+    name: "Alessandro2",
     email: "testemail@gmail.com",
   },
   {
@@ -43,9 +43,8 @@ const data = [
 
 export const Groups = () => {
   const rows = data.map((item) => (
-    <>
     <tr key={item.name}>
-      <td>
+      <td key={item.name}>
         <Group spacing="sm">
           <Avatar size={30} src={item.avatar} radius={30} />
           <Text size="sm" weight={500}>
@@ -54,11 +53,10 @@ export const Groups = () => {
           <Text size="sm" weight={500}>
             {item.email}
           </Text>
-          <Button> Delete </Button>
+          <Button onClick={() => data.splice(item.name)}> Delete </Button>
         </Group>
       </td>
     </tr>
-    </>
   ));
 
 

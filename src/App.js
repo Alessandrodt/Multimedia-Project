@@ -1,8 +1,8 @@
 // Components imports
-import { LandingPage } from "./components/landing-page/landingPage";
-import { Login } from "./components/login/login";
-import { SignUp } from "./components/sign-up/sign-up";
-import { Groups } from "./components/groups/groups";
+import { LandingPage } from "./components/landing-page/LandingPage";
+import { Login } from "./components/login/Login";
+import { SignUp } from "./components/sign-up/Sign-up";
+import { Groups } from "./components/groups/Groups";
 
 import {
   BrowserRouter as Router,
