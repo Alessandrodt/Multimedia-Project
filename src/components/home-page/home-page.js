@@ -1,9 +1,14 @@
 import { Button } from '@mantine/core';
-import './homepage.css'
-import { InputWithButton } from './serch/serch';
+import './Homepage.css'
+import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
 import { Galleries } from '../galleries/Galleries';
+import AddTripButton from '../button/Button'
+import { Login } from '../login/login';
+import { useState } from 'react';
+
 export const HomePage = () => {
+  const [state, setState] = useState('start')
 
   return (
     <div>
@@ -23,6 +28,13 @@ export const HomePage = () => {
         </Button>
         
       </div>
+      <div>
+      {state === 'start' && (
+        <AddTripButton addTrip={() => setState('add-trip') } />
+      )}
+
+      {state === 'add-trip' && <Login />}
+    </div>
       <Galleries></Galleries>
     </div>
 
