@@ -1,10 +1,15 @@
 import axios from "axios";
 
-const signupUrl = "https://localhost:8080/signup";
+const signupUrl = "http://smear-backend.test/api/v1/users";
+const avatarUrl = "http://smear-backend.test/api/v1/avatars";
 
 const createUser = (newUser) => {
-   return axios.post(signupUrl, newUser)
-}
+   return axios.post(signupUrl, newUser);
+};
 
-const authServices = {createUser}
+const getAvatar = () => {
+   return axios.get(avatarUrl);
+};
+
+const authServices = {createUser, getAvatar}
 export default authServices;
