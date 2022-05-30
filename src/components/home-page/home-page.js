@@ -2,9 +2,9 @@ import { Button } from '@mantine/core';
 import './homepage.css'
 import { InputWithButton } from './serch/serch';
 import { Upload } from 'tabler-icons-react';
-import { Galleries } from '../galleries/galleries';
-
+import { Galleries } from '../galleries/Galleries';
 export const HomePage = () => {
+
   return (
     <div>
       <div className='navbar'>
