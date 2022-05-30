@@ -1,14 +1,36 @@
-import { TextInput, Button, Checkbox, Group, Box } from '@mantine/core';
+import React, { useState } from "react";
+import { TextInput, Button, Checkbox, Group, Box, PasswordInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { useNavigate } from "react-router-dom"
+import authServices from "../../services/authservices";
 
 export const SignUp = () => {
-    let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-    let path = `/home`; 
-    navigate(path);
-  }
-  
+    const [user, setUser] = useState([]);
+    const [newUsername, setNewUsername] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+
+    const addUser = (event) => {
+        event.preventDefault();
+        const isUserAdded = user.map((p) => p.user).includes(newUsername);
+        const existingUser = user.find((p) => newUsername === p.user);
+
+        if(isUserAdded === true) {
+            window.alert(`${newUser.user} was added `)
+        } else if(existingUser) {
+            window.alert(`user already exists`)
+        }
+    }
+
+    const newUser = {
+        user: newUsername,
+        password: newPassword,
+    };
+    
+    authServices.createUser(newUser).then((response) => {
+        setUser(user.concat(response.data))
+        setNewUsername('');
+        setNewPassword('');
+    });
+
     const form = useForm({
         initialValues: {
             email: '',
@@ -26,7 +48,7 @@ export const SignUp = () => {
 
     return (
         <Box sx={{ maxWidth: 300 }} mx="auto">
-            <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <form onSubmit={form.onSubmit(addUser)}>
                 <TextInput
                     required
                     label="Name"
@@ -45,7 +67,7 @@ export const SignUp = () => {
                     placeholder="Mario.Rossi@email.com"
                     {...form.getInputProps('email')}
                 />
-                <TextInput
+                <PasswordInput
                     required
                     label="Password"
                     placeholder="YourPasswordHere"
