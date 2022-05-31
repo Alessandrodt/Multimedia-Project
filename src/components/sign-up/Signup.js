@@ -39,7 +39,9 @@ export const SignUp = () => {
         <div>
           {avatars.map((avatar) => {
             return (
-              <Button onClick={() => console.log(setProfilePic(avatar.name))} key={avatar.id} src={`${avatar.name.png}`}>{avatar.id}</Button>
+              <Button onClick={() => console.log(setProfilePic(avatar.link)) } key={avatar.id}>
+                <img src={`http://smear-backend.test${avatar.link}`} alt={''} width={50} height={150}></img>
+              </Button>
             );
           })}
         </div>
@@ -114,7 +116,7 @@ export const SignUp = () => {
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <form onSubmit={form.onSubmit(addUser)}>
-        <Avatar src={profilePic} size={50} />
+        <Avatar src={`http://smear-backend.test${profilePic}`} size={150} />
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <TextInput
           required
