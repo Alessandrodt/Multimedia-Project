@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Avatar,
   Table,
@@ -6,8 +6,8 @@ import {
   Text,
   ScrollArea,
   Button,
-  Input
-} from '@mantine/core';
+  Input,
+} from "@mantine/core";
 
 export const Groups = () => {
   const [groups, setGroup] = useState([
@@ -54,8 +54,8 @@ export const Groups = () => {
       name: "Omar",
       email: "testemail@gmail.com",
     },
-  ]
-  
+  ];
+
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
@@ -71,7 +71,7 @@ export const Groups = () => {
   const deleteUser = (user) => {
     let filteredGroup = groups.filter((u) => u.name !== user.name);
     setGroup(filteredGroup);
-  }
+  };
 
   const rows = groups.map((user) => (
     <tr key={user.name}>
@@ -90,42 +90,44 @@ export const Groups = () => {
     </tr>
   ));
 
-
-
   return (
     <>
-        <ScrollArea>
-            <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
-                <thead>
-                <tr>
-                    <th> Group 1 </th>
-                </tr>
-                </thead>
-                <tbody>
-                  {rows}
-                  <tr>
-                    <Text>
-                      <Input placeholder='Add an user' value={searchInput} onChange={handleSearch}/>
-                      <ul
-          style={
-            searchResult.length === 0
-              ? { display: "none" }
-              : { display: "block" }
-          }
-        >
-          {searchResult.length > 0
-            ? searchResult.map((u) => <li key={u.name}>{u.name}</li>)
-            : ""}
-        </ul>
-                    </Text>
-                    <Button> Add </Button>
-                  </tr>
-                </tbody>
-            </Table>
-        </ScrollArea>
-        <div>
-            <p> Test for the ScrollArea</p>
-        </div>
+      <ScrollArea>
+        <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
+          <thead>
+            <tr>
+              <th> Group 1 </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
+            <tr>
+              <Text>
+                <Input
+                  placeholder="Add an user"
+                  value={searchInput}
+                  onChange={handleSearch}
+                />
+                <ul
+                  style={
+                    searchResult.length === 0
+                      ? { display: "none" }
+                      : { display: "block" }
+                  }
+                >
+                  {searchResult.length > 0
+                    ? searchResult.map((u) => <li key={u.name}>{u.name}</li>)
+                    : ""}
+                </ul>
+              </Text>
+              <Button> Add </Button>
+            </tr>
+          </tbody>
+        </Table>
+      </ScrollArea>
+      <div>
+        <p> Test for the ScrollArea</p>
+      </div>
     </>
   );
-}
+};
