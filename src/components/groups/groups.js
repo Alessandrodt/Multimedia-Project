@@ -82,7 +82,9 @@ export const Groups = () => {
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
     let filteredGroup = groups.filter((u) => u.name !== user.name);
-    setGroup(filteredGroup);
+    if (window.confirm("Delete the user?")) {
+     setGroup(filteredGroup);
+  }
   };
 
   const rows = groups.map((user) => (
