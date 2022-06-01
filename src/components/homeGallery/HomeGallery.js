@@ -2,7 +2,7 @@ import { Card } from "../card/Card"
 
 export function HomeGallery() {
     const styles = {
-        card_container: {
+        container: {
             margin: 0,
             padding: 0,
             width: '90vw',
@@ -17,7 +17,7 @@ export function HomeGallery() {
     }
 
     return (
-        <div style={styles.card_container}>
+        <div style={styles.container}>
             <Card size='small' />
             <Card size='medium' />
             <Card size='large' /> 
