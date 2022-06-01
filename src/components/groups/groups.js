@@ -13,32 +13,32 @@ export const Groups = () => {
   const [groups, setGroup] = useState([
     {
       avatar: "pic.png",
-      name: "Alberto",
+      name: "Alberto Mastromonaco",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Alessandro",
+      name: "Alessandro Catucci",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Alessandro2",
+      name: "Alessandro De Tommasi",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Arianna",
+      name: "Arianna Poverini",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Gerardo",
+      name: "Gerardo De Blasio",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Johanna",
+      name: "Johanna Sonsini",
       email: "testemail@gmail.com",
     },
   ]);
@@ -46,16 +46,15 @@ export const Groups = () => {
   const notGroupPeople = [
     {
       avatar: "pic.png",
-      name: "Adelina",
+      name: "Adelina Darie",
       email: "testemail@gmail.com",
     },
     {
       avatar: "pic.png",
-      name: "Omar",
+      name: "Omar Habib",
       email: "testemail@gmail.com",
     },
   ];
-
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
@@ -66,6 +65,19 @@ export const Groups = () => {
     });
     setSearchResult(searchUsers);
   };
+
+  const addUser = (user) => {
+    const existingUser = groups.find(u => u.name === user.name);
+
+    if (existingUser) {
+      alert(`${user.name} is already in the group!`)
+    } else {
+      const updatedGroup = groups.concat(user);
+      setSearchInput("");
+      setSearchResult("");
+      setGroup(updatedGroup);
+    }
+  }
 
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
@@ -116,17 +128,19 @@ export const Groups = () => {
                   }
                 >
                   {searchResult.length > 0
-                    ? searchResult.map((u) => <li key={u.name}>{u.name}</li>)
+                    ? searchResult.map((user) => 
+                      <li key={user.name}>  
+                        <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button onClick={() => addUser(user)}> Add </Button>
+                      </li>)
                     : ""}
                 </ul>
               </Text>
-              <Button> Add </Button>
             </tr>
           </tbody>
         </Table>
       </ScrollArea>
       <div>
-        <p> Test for the ScrollArea</p>
+        <p> Test for the ScrollArea </p>
       </div>
     </>
   );
