@@ -1,11 +1,12 @@
 import { Button } from '@mantine/core';
+import { useState } from 'react';
+import { AddTripButton } from 'react'
+import { Login } from 'tabler-icons-react';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
-import { Subgrid } from '../galleries/Galleries';
-import AddTripButton from '../button/Button'
-import { Login } from '../login/login';
-import { useState } from 'react';
+import { HomeGallery } from '../homeGallery/HomeGallery';
+import randomImagesServices from '../../services/randomImagesServices';
 
 export const HomePage = () => {
   const [state, setState] = useState('start')
@@ -26,7 +27,6 @@ export const HomePage = () => {
           color={'black'}
         />
         </Button>
-        
       </div>
       <div>
       {state === 'start' && (
@@ -35,7 +35,7 @@ export const HomePage = () => {
 
       {state === 'add-trip' && <Login />}
     </div>
-      <Galleries></Galleries>
+      <HomeGallery/>
     </div>
 
   );
