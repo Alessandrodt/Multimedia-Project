@@ -5,81 +5,78 @@ import { Container, Grid, SimpleGrid, Skeleton, useMantineTheme } from '@mantine
 const PRIMARY_COL_HEIGHT = 300;
 
 
-export function Galleries() {
+export function Galleries(images) {
     const theme = useMantineTheme();
     const SECONDARY_COL_HEIGHT = PRIMARY_COL_HEIGHT / 2 - theme.spacing.md / 2;
 
-      return (
+    return (
        <div>
            <Container my="md">
             <SimpleGrid cols={3} spacing="md" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+                <Grid gutter="md">
+                    <Grid.Col>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />                        
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                </Grid>
+                <Grid gutter="md">
+                    <Grid.Col span={6}>
+                        <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col className='vertical' span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                        <Skeleton className='smalbox' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                </Grid>
                 <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
                 <Grid gutter="md">
-                <Grid.Col>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
+                    <Grid.Col>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
                 </Grid>
                 <Grid gutter="md">
-                <Grid.Col span={6}>
-                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col className='vertical' span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                    <Skeleton className='smalbox' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                </Grid>
-                <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
-                <Grid gutter="md">
-                <Grid.Col>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-        
-                </Grid>
-                <Grid gutter="md">
-                <Grid.Col span={6}>
-                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
                 </Grid>
 
                 <Grid gutter="md">
-                <Grid.Col span={6}>
-                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton className='box' height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
                 </Grid>
                 <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
                 <Grid gutter="md">
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-                </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
+                    </Grid.Col>
                 </Grid>
             </SimpleGrid>
             </Container>
        </div>
-            
-      
+
       );
   }

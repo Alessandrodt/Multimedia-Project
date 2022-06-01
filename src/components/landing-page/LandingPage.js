@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from "react";
-import landingPageServices from "../../services/landingPageServices";
+import React from "react";
 
 export const LandingPage = () => {
-    
-    const [ gallery, setGallery ] = useState([]);
-
-    useEffect(() => {
-        //
-    })
 
     return (
         <>
