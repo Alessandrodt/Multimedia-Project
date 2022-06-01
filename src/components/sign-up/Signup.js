@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-
-import { Avatar } from "@mantine/core";
-import authServices from "../../services/authservices";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+
 import {
+  Avatar,
   Box,
   Button,
   Checkbox,
@@ -13,23 +12,47 @@ import {
   TextInput,
 } from "@mantine/core";
 
+import authServices from "../../services/authservices";
+import { ErrorMessage } from "../error-message/ErrorMessage";
+
 export const SignUp = () => {
-  const [users, setUser] = useState([]);
-  const [newName, setNewName] = useState("");
-  const [newLastName, setNewLastName] = useState("");
-  const [privacy, setPrivacy] = useState(false);
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newConfPassword, setNewConfPassword] = useState("");
   const [avatars, setAvatar] = useState([]);
-  const [profilePic, setProfilePic] = useState("")
+  const [newConfPassword, setNewConfPassword] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newLastName, setNewLastName] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [privacy, setPrivacy] = useState(false);
+  const [profilePic, setProfilePic] = useState({});
+  const [users, setUser] = useState([]);
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [color, setColor] = useState("");
+
+  const errorStyle = {
+    color: color,
+    background: "lightgrey",
+    fontSize: "20px",
+    borderStyle: "solid",
+    borderRadius: "5px",
+    padding: "10px",
+    marginBottom: "10px",
+  };
+
+  const handleMessage = (color, message) => {
+    setColor(color);
+    setErrorMessage(message);
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 5000);
+  };
 
   useEffect(() => {
-   authServices.getAvatar().then(response => {
-     setAvatar(response.data)
-   });
+    authServices.getAvatar().then((response) => {
+      setAvatar(response.data);
+    });
   }, []);
-  
+
   const modals = useModals();
 
   const openContentModal = () => {
@@ -39,31 +62,34 @@ export const SignUp = () => {
         <div>
           {avatars.map((avatar) => {
             return (
-              <Button onClick={() => console.log(setProfilePic(avatar.link)) } key={avatar.id}>
-                <img src={`http://smear-backend.test${avatar.link}`} alt={''} width={50} height={150}></img>
+              <Button
+                onClick={() => modals.closeModal(setProfilePic(avatar))}
+                key={avatar.id}
+              >
+                <img
+                  src={`http://smear-backend.test${avatar.link}`}
+                  alt={""}
+                  width={50}
+                  height={150}
+                ></img>
               </Button>
             );
           })}
         </div>
-      )
+      ),
     });
   };
 
   const addUser = () => {
-    const isUserAdded = users.map((p) => p.user).includes(newEmail);
-    const existingUser = users.find((p) => newEmail === p.user);
-
-    authServices.createUser(newUser).then((response) => {
-      setUser(users.concat(response.data));
-      setNewEmail("");
-      setNewPassword("");
-    });
-
-    if (isUserAdded === true) {
-      alert(`${newUser.email} was added `);
-    } else if (existingUser) {
-      alert(`user already exists`);
-    }
+    authServices
+      .createUser(newUser)
+      .then((response) => {
+      setUser(users.concat(response.data))
+      handleMessage("green", `A confirmation email was sent to ${newEmail}`)
+      })
+      .catch(() => {
+        handleMessage("red", `${newEmail} is already in use.`);
+      });
     console.log(newUser);
   };
 
@@ -74,6 +100,9 @@ export const SignUp = () => {
     privacy: privacy,
     password: newPassword,
     password_confirmation: newConfPassword,
+    avatar: {
+      id: profilePic.id
+    }
   };
 
   const form = useForm({
@@ -84,10 +113,6 @@ export const SignUp = () => {
       termsOfService: false,
       password: "",
       confirmPassword: "",
-    },
-    initialErrors: {
-      password:
-        "Password must have at least 1 capital letter, a number and be 8 characters long",
     },
     validate: {
       name: (value) =>
@@ -107,7 +132,7 @@ export const SignUp = () => {
       password: (value) =>
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value)
           ? null
-          : "Invalid password",
+          : "Password must have at least 1 capital letter, a number and be 8 characters long",
       confirmPassword: (value, values) =>
         value !== values.password ? "Passwords did not match" : null,
     },
@@ -115,8 +140,9 @@ export const SignUp = () => {
 
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
+      <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
-        <Avatar src={`http://smear-backend.test${profilePic}`} size={150} />
+        <Avatar src={`http://smear-backend.test${profilePic.link}`} size={150} />
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <TextInput
           required
