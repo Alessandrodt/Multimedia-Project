@@ -3,6 +3,8 @@ import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
 import { Galleries } from '../galleries/Galleries';
+import { HomeGallery } from '../homeGallery/HomeGallery';
+import randomImagesServices from '../../services/randomImagesServices';
 
 export const HomePage = () => {
 
@@ -22,9 +24,8 @@ export const HomePage = () => {
           color={'black'}
         />
         </Button>
-        
       </div>
-      <Galleries></Galleries>
+     <HomeGallery></HomeGallery>
     </div>
 
   );
