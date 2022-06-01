@@ -6,6 +6,7 @@ import {
   Text,
   ScrollArea,
   Button,
+  Input
 } from '@mantine/core';
 
 export const Groups = () => {
@@ -42,6 +43,29 @@ export const Groups = () => {
     },
   ]);
 
+  const notGroupPeople = [
+    {
+      avatar: "pic.png",
+      name: "Adelina",
+      email: "testemail@gmail.com",
+    },
+    {
+      avatar: "pic.png",
+      name: "Omar",
+      email: "testemail@gmail.com",
+    },
+  ]
+  
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleSearch = (e) => {
+    setSearchInput(e.target.value);
+    let searchUsers = notGroupPeople.filter((user) => {
+      return e.target.value !== "" && user.name.includes(e.target.value);
+    });
+    setSearchResult(searchUsers);
+  };
 
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
@@ -81,7 +105,18 @@ export const Groups = () => {
                   {rows}
                   <tr>
                     <Text>
-                      <input placeholder='Add an user'/>
+                      <Input placeholder='Add an user' value={searchInput} onChange={handleSearch}/>
+                      <ul
+          style={
+            searchResult.length === 0
+              ? { display: "none" }
+              : { display: "block" }
+          }
+        >
+          {searchResult.length > 0
+            ? searchResult.map((u) => <li key={u.name}>{u.name}</li>)
+            : ""}
+        </ul>
                     </Text>
                     <Button> Add </Button>
                   </tr>

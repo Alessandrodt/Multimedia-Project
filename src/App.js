@@ -2,8 +2,8 @@ import React from "react";
 // Components imports
 import { Groups } from "./components/groups/Groups"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
-import { Login } from "./components/login/login";
-import { SignUp } from "./components/sign-up/sign-up";
+import { Login } from "./components/login/Login";
+import { SignUp } from "./components/sign-up/Sign-up";
 import { HomePage } from "./components/home-page/HomePage";
 
 
