@@ -2,7 +2,7 @@ import { Button } from '@mantine/core';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
-import { Galleries } from '../galleries/Galleries';
+import { Subgrid } from '../galleries/Galleries';
 import AddTripButton from '../button/Button'
 import { Login } from '../login/login';
 import { useState } from 'react';
