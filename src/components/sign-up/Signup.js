@@ -23,7 +23,7 @@ export const SignUp = () => {
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [privacy, setPrivacy] = useState(false);
-  const [profilePic, setProfilePic] = useState({});
+  const [profilePic, setProfilePic] = useState('');
   const [users, setUser] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -63,7 +63,7 @@ export const SignUp = () => {
           {avatars.map((avatar) => {
             return (
               <Button
-                onClick={() => modals.closeModal(setProfilePic(avatar))}
+                onClick={() => modals.closeModal(setProfilePic(avatar.link))}
                 key={avatar.id}
               >
                 <img
@@ -85,7 +85,7 @@ export const SignUp = () => {
       .createUser(newUser)
       .then((response) => {
       setUser(users.concat(response.data))
-      handleMessage("green", `A confirmation email was sent to ${newEmail}`)
+      // handleMessage("green", `A confirmation email was sent to ${newEmail}`)
       })
       .catch(() => {
         handleMessage("red", `${newEmail} is already in use.`);
@@ -100,9 +100,6 @@ export const SignUp = () => {
     privacy: privacy,
     password: newPassword,
     password_confirmation: newConfPassword,
-    avatar: {
-      id: profilePic.id
-    }
   };
 
   const form = useForm({
@@ -142,7 +139,7 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
-        <Avatar src={`http://smear-backend.test${profilePic.link}`} size={150} />
+        <Avatar src={`http://smear-backend.test${profilePic}`} size={150} />
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <TextInput
           required
