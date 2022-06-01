@@ -5,7 +5,6 @@ import { Login } from 'tabler-icons-react';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
-import { HomeGallery } from '../homeGallery/HomeGallery';
 import randomImagesServices from '../../services/randomImagesServices';
 
 export const HomePage = () => {
@@ -35,7 +34,6 @@ export const HomePage = () => {
 
       {state === 'add-trip' && <Login />}
     </div>
-      <HomeGallery/>
     </div>
 
   );
