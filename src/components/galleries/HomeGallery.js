@@ -1,4 +1,4 @@
-import { Card } from "../card/Card"
+import { Card } from "./Card"
 
 export function HomeGallery() {
     const styles = {
