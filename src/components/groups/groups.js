@@ -80,9 +80,10 @@ export const Groups = () => {
                 <tbody>
                   {rows}
                   <tr>
-                    <Button >
-                      Add
-                    </Button>
+                    <Text>
+                      <input placeholder='Add an user'/>
+                    </Text>
+                    <Button> Add </Button>
                   </tr>
                 </tbody>
             </Table>
