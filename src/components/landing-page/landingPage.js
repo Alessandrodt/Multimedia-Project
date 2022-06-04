@@ -1,5 +1,4 @@
 import React from "react";
-import { Navbar } from "./navbar-landing-page/Navbar-landing";
 
 export const LandingPage = () => {
 
