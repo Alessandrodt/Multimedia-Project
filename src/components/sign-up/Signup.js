@@ -17,17 +17,20 @@ import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const SignUp = () => {
   const [avatars, setAvatar] = useState([]);
+  const [isAvatarPicked, setAvatarStatus] = useState(Boolean);
   const [newConfPassword, setNewConfPassword] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [privacy, setPrivacy] = useState(false);
-  const [profilePic, setProfilePic] = useState('');
+  const [profilePic, setProfilePic] = useState({});
   const [users, setUser] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState("");
   const [color, setColor] = useState("");
+
+  let picture = <Avatar src={isAvatarPicked ? `http://smear-backend.test${profilePic.link}`: null} size={150}/>
 
   const errorStyle = {
     color: color,
@@ -63,7 +66,10 @@ export const SignUp = () => {
           {avatars.map((avatar) => {
             return (
               <Button
-                onClick={() => modals.closeModal(setProfilePic(avatar.link))}
+                onClick={() => {
+                  modals.closeModal(setProfilePic(avatar));
+                  setAvatarStatus(true);
+                }}
                 key={avatar.id}
               >
                 <img
@@ -84,8 +90,10 @@ export const SignUp = () => {
     authServices
       .createUser(newUser)
       .then((response) => {
-      setUser(users.concat(response.data))
-      // handleMessage("green", `A confirmation email was sent to ${newEmail}`)
+        if (response.status === 201) {
+          setUser(users.concat(response.data))
+          handleMessage("green", `A confirmation email was sent to ${newEmail}`)
+        }
       })
       .catch(() => {
         handleMessage("red", `${newEmail} is already in use.`);
@@ -100,6 +108,9 @@ export const SignUp = () => {
     privacy: privacy,
     password: newPassword,
     password_confirmation: newConfPassword,
+    avatar: {
+      id: profilePic.id
+    }
   };
 
   const form = useForm({
@@ -139,7 +150,7 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
-        <Avatar src={`http://smear-backend.test${profilePic}`} size={150} />
+       {picture}
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <TextInput
           required
