@@ -1,6 +1,5 @@
 import { Button } from '@mantine/core';
 import { useState } from 'react';
-import { Upload } from 'tabler-icons-react';
 import './Navbar.css'
 
 export const Navbar = () => {
