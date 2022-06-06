@@ -5,10 +5,9 @@ import { Login } from 'tabler-icons-react';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
-import randomImagesServices from '../../services/randomImagesServices';
 
 export const HomePage = () => {
-  const [state, setState] = useState('start')
+  // const [state, setState] = useState('start')
 
   return (
     <div>
@@ -27,13 +26,13 @@ export const HomePage = () => {
         />
         </Button>
       </div>
-      <div>
+      {/* <div>
       {state === 'start' && (
         <AddTripButton addTrip={() => setState('add-trip') } />
       )}
 
       {state === 'add-trip' && <Login />}
-    </div>
+    </div> */}
     </div>
 
   );
