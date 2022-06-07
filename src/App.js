@@ -6,6 +6,8 @@ import { Login } from "./components/login/Login";
 import { SignUp } from "./components/sign-up/Signup";
 import { HomePage } from "./components/home-page/HomePage";
 
+//import style scss
+import './App.scss';
 
 import {
   BrowserRouter as Router,

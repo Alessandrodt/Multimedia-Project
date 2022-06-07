@@ -1,0 +1,79 @@
+// spacers map
+$spacer: 1rem;
+$spacers: (
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer * 1.5,
+  4: $spacer * 3,
+);
+
+/*
+ * variable spacer
+ *
+ */
+
+$s-1: .25rem;
+$s-2: .5rem;
+$s-3: 1.5rem;
+$s-4: 3rem;
+
+
+/*
+ * margin in pixel
+ *
+ */
+
+$m-auto: 0 auto;
+
+$m-10: 10px;
+$m-20: 20px;
+$m-30: 30px;
+$m-40: 40px;
+$m-50: 50px;
+ 
+/*
+ * padding in pixel
+ *
+ */
+ 
+$p-1: 10px;
+$p-2: 20px;
+$p-3: 30px;
+$p-4: 40px;
+$p-5: 50px;
+
+/*
+ * width in percent
+ *
+ */
+
+$w-100: 100%;
+$w-90:  90%;
+$w-80:  80%;
+$w-70:  70%;
+$w-60:  60%;
+$w-50:  50%;
+
+/*
+ * width in percent
+ *
+ */
+
+$w-1: 10px;
+$w-2: 20px;
+$w-3: 30px;
+$w-4: 40px;
+$w-5: 50px;
+$w-6: 60px;
+ 
+/*
+ * height in percent
+ *
+ */
+ 
+$h-100: 100%;
+$h-90:  90%;
+$h-80:  80%;
+$h-70:  70%;
+$h-60:  60%;
+$h-50:  50%;
