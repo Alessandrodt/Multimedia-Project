@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
 //import landingPageServices from "../../services/landingPageServices";
 
 import device from "../../images/device.png";
-import logo from "../../images/picsmi.png";
 import homepage from "../../video/homepage.mp4";
+import { Navbar } from "./navbar-landing-page/Navbar-landing";
 
 // import { Navbar } from "./navbar-landing-page/Navbar-landing";
 
@@ -26,25 +25,11 @@ import homepage from "../../video/homepage.mp4";
 // };
 
 export const LandingPage = () => {
-    useEffect(() => {
-        //
-    })
 
     return (
         <>
             {/* navbar */}
-            <nav>
-                <div className="wrapper-nav">
-                    <div className="logo">
-                        <img src={logo} title="logo smi" alt="company logo" />
-                    </div>
-                    <div className="signUp">
-                        <span>
-                            Login
-                        </span>
-                    </div>
-                </div>
-            </nav>
+         <Navbar/>
             {/* header section.wrapper-review */}
             <header>
                 <section className="wrapper-review">
@@ -81,7 +66,7 @@ export const LandingPage = () => {
                     </div>
                     <div className="video-remember">
                         <div className="shadow">
-                            <video width="500" height="400" muted autoPlay={"autoplay"} preLoad="auto" loop>
+                            <video width="500" height="400" muted autoPlay={"autoplay"} preload="auto" loop>
                                 <source src={homepage} type="video/mp4"></source>
                             </video>
                         </div>

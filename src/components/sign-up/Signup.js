@@ -85,7 +85,14 @@ export const SignUp = () => {
     });
   };
 
-  let picture = <Avatar src={isAvatarPicked ?`http://smear-backend.test${profilePic.link}`: null} size={150} />;
+  let picture = (
+    <Avatar
+      src={
+        isAvatarPicked ? `http://smear-backend.test${profilePic.link}` : null
+      }
+      size={150}
+    />
+  );
 
   const newUser = {
     first_name: newName,
