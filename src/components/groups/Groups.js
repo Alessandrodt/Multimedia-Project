@@ -146,6 +146,7 @@ export const Groups = () => {
           <thead>
             <tr>
             <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
+            
               <th> <Button onClick={()=> setIsReadonly(prevState => !prevState)}> Modify </Button></th>
               <th> <Button> Delete </Button></th>
             </tr>

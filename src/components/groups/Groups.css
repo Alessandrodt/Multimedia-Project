@@ -1,6 +1,11 @@
 input {
-    outline: none;
-    border-width: 1;
-    padding: 8px;
-    border-radius: 10px;
+    
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
 }
+
