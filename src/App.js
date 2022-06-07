@@ -1,6 +1,6 @@
 import React from "react";
 // Components imports
-import { Groups } from "./components/groups/Groups"; 
+import { Groups } from "./components/groups/GroupsDetails"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/Login";
 import { SignUp } from "./components/sign-up/Signup";
