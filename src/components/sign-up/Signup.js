@@ -27,10 +27,14 @@ export const SignUp = () => {
   const [profilePic, setProfilePic] = useState({});
   const [users, setUser] = useState([]);
 
-  const [errorMessage, setErrorMessage] = useState("");
   const [color, setColor] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  let picture = <Avatar src={isAvatarPicked ? `http://smear-backend.test${profilePic.link}`: null} size={150}/>
+  useEffect(() => {
+    authServices.getAvatar().then((response) => {
+      setAvatar(response.data);
+    });
+  }, []);
 
   const errorStyle = {
     color: color,
@@ -50,17 +54,12 @@ export const SignUp = () => {
     }, 5000);
   };
 
-  useEffect(() => {
-    authServices.getAvatar().then((response) => {
-      setAvatar(response.data);
-    });
-  }, []);
-
   const modals = useModals();
 
   const openContentModal = () => {
     modals.openModal({
       title: "Choose your avatar:",
+      centered: true,
       children: (
         <div>
           {avatars.map((avatar) => {
@@ -86,20 +85,7 @@ export const SignUp = () => {
     });
   };
 
-  const addUser = () => {
-    authServices
-      .createUser(newUser)
-      .then((response) => {
-        if (response.status === 201) {
-          setUser(users.concat(response.data))
-          handleMessage("green", `A confirmation email was sent to ${newEmail}`)
-        }
-      })
-      .catch(() => {
-        handleMessage("red", `${newEmail} is already in use.`);
-      });
-    console.log(newUser);
-  };
+  let picture = <Avatar src={isAvatarPicked ?`http://smear-backend.test${profilePic.link}`: null} size={150} />;
 
   const newUser = {
     first_name: newName,
@@ -109,8 +95,26 @@ export const SignUp = () => {
     password: newPassword,
     password_confirmation: newConfPassword,
     avatar: {
-      id: profilePic.id
-    }
+      id: profilePic.id,
+    },
+  };
+
+  const addUser = () => {
+    authServices
+      .createUser(newUser)
+      .then((response) => {
+        if (response.status === 201) {
+          setUser(users.concat(response.data));
+          handleMessage(
+            "green",
+            `A confirmation email was sent to ${newEmail}`
+          );
+        }
+      })
+      .catch(() => {
+        handleMessage("red", `${newEmail} is already in use.`);
+      });
+    console.log(newUser);
   };
 
   const form = useForm({
@@ -150,7 +154,7 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
-       {picture}
+        {picture}
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <TextInput
           required

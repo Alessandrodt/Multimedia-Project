@@ -1,23 +1,23 @@
-import { TextInput, Button, Group, Box, PasswordInput } from "@mantine/core";
 import { useState } from "react";
-import authServices from "../../services/authservices";
+
+import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+
+import authServices from "../../services/authservices";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Login = () => {
-   
-  const [user, setUser] = useState([])
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [errorMessage, setErrorMessage] = useState("");
   const [color, setColor] = useState("");
-
+  const [errorMessage, setErrorMessage] = useState("");
 
   const person = {
     email: email,
-    password: password
-  }
+    password: password,
+  };
 
   const errorStyle = {
     color: color,
@@ -38,11 +38,17 @@ export const Login = () => {
   };
 
   const getUser = () => {
-    authServices.getPerson(person).then((response) => {
-      setUser(user.concat(response.data))
-    }).catch(() => {
-      handleMessage("red", `Go to your email address ${email} and confirm your subscription`);
-    });
+    authServices
+      .getPerson(person)
+      .then((response) => {
+        setUser(user.concat(response.data));
+      })
+      .catch(() => {
+        handleMessage(
+          "red",
+          `Go to your email address ${email} and confirm your subscription`
+        );
+      });
     console.log(person);
   };
 
@@ -54,14 +60,22 @@ export const Login = () => {
     },
 
     validate: {
-      email: (value) => (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value) ? null : 'Invalid email'),
-      password: (value) => (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) ? null : 'Invalid password')
+      email: (value) =>
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          value
+        )
+          ? null
+          : "Invalid email",
+      password: (value) =>
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value)
+          ? null
+          : "Invalid password",
     },
   });
 
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-       <ErrorMessage message={errorMessage} style={errorStyle} />
+      <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(getUser)}>
         <TextInput
           required
@@ -84,7 +98,6 @@ export const Login = () => {
             form.setFieldValue("password", event.currentTarget.value);
             setPassword(event.target.value);
           }}
-          
         />
         <a href="/#">Forgot your Password?</a>
         <Group position="right" mt="md">

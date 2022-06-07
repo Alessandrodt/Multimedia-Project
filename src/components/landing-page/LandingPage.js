@@ -1,22 +1,21 @@
-import { Navbar } from "./navbar-landing-page/Navbar-landing";
 import React from "react";
 
-export const LandingPage = () => {
+import { Navbar } from "./navbar-landing-page/Navbar-landing";
 
-    return (
-        <>
-        <Navbar/>
-        <h1> Hi, welcome to this project!</h1>
-        <p>Current routes enabled:</p>
-        <ul> 
-            <li> LandingPage (This one) == / .</li>
-            <li> Signup == /signup .</li>
-            <li> Login == /login .</li>
-            
-        </ul>
-        <div>
-            <></>
-        </div>
-        </>
-    )
-}
+export const LandingPage = () => {
+  return (
+    <>
+      <Navbar />
+      <h1> Hi, welcome to this project!</h1>
+      <p>Current routes enabled:</p>
+      <ul>
+        <li> LandingPage (This one) == / .</li>
+        <li> Signup == /signup .</li>
+        <li> Login == /login .</li>
+      </ul>
+      <div>
+        <></>
+      </div>
+    </>
+  );
+};
