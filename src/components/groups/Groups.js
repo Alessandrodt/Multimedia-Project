@@ -89,19 +89,19 @@ export const Groups = () => {
 
   const modals = useModals();
 
-  const openDeleteModal = () =>
+  const openDeleteModal = (user) =>
     modals.openConfirmModal({
       title: 'Delete user?',
       centered: true,
       children: (
         <Text size="sm">
-          Are you sure you want to delete this user from the group? You will be able to add them again.
+          Are you sure you want to delete {user.name} from the group? You will be able to add them again.
         </Text>
       ),
       labels: { confirm: 'Delete user', cancel: "Cancel" },
       confirmProps: { color: 'red' },
       onCancel: () => console.log('Cancel'),
-      onConfirm: () => deleteUser(),
+      onConfirm: () => deleteUser(user),
     });
 
 
@@ -116,7 +116,7 @@ export const Groups = () => {
           <Text size="sm" weight={500}>
             {user.email}
           </Text>
-          <Button onClick={() => openDeleteModal()}> Delete </Button>
+          <Button onClick={() => openDeleteModal(user)}> Delete </Button>
         </Group>
       </td>
     </tr>
