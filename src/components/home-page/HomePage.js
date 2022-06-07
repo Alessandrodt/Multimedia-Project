@@ -2,9 +2,7 @@ import { Button } from '@mantine/core';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
-import { Galleries } from '../galleries/Galleries';
 import { HomeGallery } from '../galleries/HomeGallery';
-import randomImagesServices from '../../services/randomImagesServices';
 
 export const HomePage = () => {
 

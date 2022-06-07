@@ -1,27 +1,25 @@
-export function Card(props) {
+export function Card({size, img}) {
     const styles = {
         card: {
             margin: '10px 10px',
             padding: 0,
             borderRadius: '16px',
-            backgroundColor: 'grey'
         },
         small: {
-            gridRowEnd: 'span 26'
+            gridRowEnd: 'span 10'
         },
         medium: {
-            gridRowEnd: 'span 33'
+            gridRowEnd: 'span 25'
         },
         large: {
-            gridRowEnd: 'span 45'
+            gridRowEnd: 'span 26'
         }
     }
 
     return (
-        <div style={{
+    <img src={img} alt="random images" style={{
             ...styles.card,
-            ...styles[props.size]
-        }}>
-        </div>
+            ...styles[size]
+        }} width="90%"/>
     )
 }
