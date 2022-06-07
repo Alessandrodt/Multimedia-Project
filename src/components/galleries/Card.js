@@ -16,10 +16,14 @@ export function Card({size, img}) {
         }
     }
 
+    const detailComponent = () => {
+        console.log("make this component pls")
+    }
+
     return (
     <img src={img} alt="random images" style={{
             ...styles.card,
             ...styles[size]
-        }} width="90%"/>
+        }} width="90%" onClick={detailComponent} />
     )
 }
