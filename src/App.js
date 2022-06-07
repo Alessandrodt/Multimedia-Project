@@ -3,7 +3,7 @@ import React from "react";
 import { Groups } from "./components/groups/Groups"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/Login";
-import { SignUp } from "./components/sign-up/Sign-up";
+import { SignUp } from "./components/sign-up/Signup";
 import { HomePage } from "./components/home-page/HomePage";
 
 
