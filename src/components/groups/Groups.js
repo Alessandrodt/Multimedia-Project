@@ -7,6 +7,7 @@ import {
   ScrollArea,
   Button,
   Input,
+  Modal,
 } from "@mantine/core";
 
 import { useModals } from '@mantine/modals';
@@ -72,7 +73,14 @@ export const Groups = () => {
     const existingUser = groups.find(u => u.name === user.name);
 
     if (existingUser) {
-      alert(`${user.name} is already in the group!`)
+      modals.openModal({
+        title: 'Warning!',
+        centered: true,
+        children: (
+        <Text size="sm">
+          This user already exists in the group.
+        </Text>)
+      })
     } else {
       const updatedGroup = groups.concat(user);
       setSearchInput("");
