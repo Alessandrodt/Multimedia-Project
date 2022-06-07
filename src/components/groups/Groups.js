@@ -12,6 +12,8 @@ import {
 
 import { useModals } from '@mantine/modals';
 
+import './Groups.css';
+
 export const Groups = () => {
   const [groups, setGroup] = useState([
     {
@@ -143,7 +145,7 @@ export const Groups = () => {
         <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
           <thead>
             <tr>
-            <Input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
+            <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
               <th> <Button onClick={()=> setIsReadonly(prevState => !prevState)}> Modify </Button></th>
               <th> <Button> Delete </Button></th>
             </tr>
