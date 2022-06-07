@@ -1,50 +1,13 @@
-import React, { useState, useEffect } from "react";
-//import landingPageServices from "../../services/landingPageServices";
-
 import device from "../../images/device.png";
-import logo from "../../images/picsmi.png";
 import homepage from "../../video/homepage.mp4";
-
-// import { Navbar } from "./navbar-landing-page/Navbar-landing";
-
-// export const LandingPage = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <h1> Hi, welcome to this project!</h1>
-//       <p>Current routes enabled:</p>
-//       <ul>
-//         <li> LandingPage (This one) == / .</li>
-//         <li> Signup == /signup .</li>
-//         <li> Login == /login .</li>
-//       </ul>
-//       <div>
-//         <></>
-//       </div>
-//     </>
-//   );
-// };
+import { Navbar } from "./navbar-landing-page/Navbar-landing";
 
 export const LandingPage = () => {
-    useEffect(() => {
-        //
-    })
 
     return (
         <>
             {/* navbar */}
-            <nav>
-                <div className="wrapper-nav">
-                    <div className="logo">
-                        <img src={logo} title="logo smi" alt="company logo" />
-                    </div>
-                    <div className="signUp">
-                        <span>
-                            Login
-                        </span>
-                    </div>
-                </div>
-            </nav>
+         <Navbar/>
             {/* header section.wrapper-review */}
             <header>
                 <section className="wrapper-review">

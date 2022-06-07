@@ -1,11 +1,10 @@
 import { Button } from '@mantine/core';
-import './Homepage.css'
+import './Homepage.css';
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
 import { HomeGallery } from '../galleries/HomeGallery';
 
 export const HomePage = () => {
-
 
   return (
     <div>
