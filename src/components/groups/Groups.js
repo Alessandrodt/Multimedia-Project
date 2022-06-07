@@ -65,6 +65,8 @@ export const Groups = () => {
   ];
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [isReadonly, setIsReadonly] = useState(true);
+
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
@@ -141,8 +143,8 @@ export const Groups = () => {
         <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
           <thead>
             <tr>
-              <th> Group 1 </th>
-              <th> <Button> Modify </Button></th>
+            <Input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
+              <th> <Button onClick={()=> setIsReadonly(prevState => !prevState)}> Modify </Button></th>
               <th> <Button> Delete </Button></th>
             </tr>
           </thead>
