@@ -1,0 +1,9 @@
+// import map website
+@import './color-map';
+@import './font-map';
+@import './reset';
+@import './responsive-map';
+@import './space-map';
+
+// import all component scss style
+@import "../components/landing-page/LandingPage.scss";

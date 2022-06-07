@@ -5,8 +5,8 @@
   "dependencies": {
     "@mantine/core": "^4.2.7",
     "@mantine/form": "^4.2.6",
-    "@mantine/hooks": "^4.2.7",
-    "@mantine/modals": "^4.2.7",
+    "@mantine/hooks": "^4.2.8",
+    "@mantine/modals": "^4.2.8",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -16,6 +16,9 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-stack-grid": "^0.7.1",
+    "sass": "^1.52.2",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
     "tabler-icons-react": "^1.48.0",
     "web-vitals": "^2.1.4"
   },

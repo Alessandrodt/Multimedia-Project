@@ -2,6 +2,7 @@ import { Button } from '@mantine/core';
 import './Homepage.css'
 import { InputWithButton } from './search/Search';
 import { Upload } from 'tabler-icons-react';
+import { HomeGallery } from '../galleries/HomeGallery';
 
 export const HomePage = () => {
 
@@ -21,6 +22,7 @@ export const HomePage = () => {
           />
         </Button>
       </div>
+      <HomeGallery/>
     </div>
   );
 }
