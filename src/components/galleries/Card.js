@@ -6,7 +6,7 @@ export function Card({size, img}) {
             borderRadius: '16px',
         },
         small: {
-            gridRowEnd: 'span 10'
+            gridRowEnd: 'span 100'
         },
         medium: {
             gridRowEnd: 'span 25'
