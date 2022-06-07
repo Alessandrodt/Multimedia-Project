@@ -9,6 +9,8 @@ import {
   Input,
 } from "@mantine/core";
 
+import { useModals } from '@mantine/modals';
+
 export const Groups = () => {
   const [groups, setGroup] = useState([
     {
@@ -82,10 +84,26 @@ export const Groups = () => {
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
     let filteredGroup = groups.filter((u) => u.name !== user.name);
-    if (window.confirm("Delete the user?")) {
      setGroup(filteredGroup);
-  }
   };
+
+  const modals = useModals();
+
+  const openDeleteModal = () =>
+    modals.openConfirmModal({
+      title: 'Delete user?',
+      centered: true,
+      children: (
+        <Text size="sm">
+          Are you sure you want to delete this user from the group? You will be able to add them again.
+        </Text>
+      ),
+      labels: { confirm: 'Delete user', cancel: "Cancel" },
+      confirmProps: { color: 'red' },
+      onCancel: () => console.log('Cancel'),
+      onConfirm: () => deleteUser(),
+    });
+
 
   const rows = groups.map((user) => (
     <tr key={user.name}>
@@ -98,7 +116,7 @@ export const Groups = () => {
           <Text size="sm" weight={500}>
             {user.email}
           </Text>
-          <Button onClick={() => deleteUser(user)}> Delete </Button>
+          <Button onClick={() => openDeleteModal()}> Delete </Button>
         </Group>
       </td>
     </tr>

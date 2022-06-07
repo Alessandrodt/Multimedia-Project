@@ -11,12 +11,15 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-} from "react-router-dom"
+} from "react-router-dom";
+
+import { ModalsProvider } from '@mantine/modals';
 
 
 
 const App = () => {
   return (
+    <ModalsProvider>
   <Router>
      <Routes>
        <Route path='/groups' element={<Groups/>}/>
@@ -26,6 +29,7 @@ const App = () => {
        <Route path='/' element={<LandingPage/>}/>
      </Routes>
   </Router>
+  </ModalsProvider>
   )
 }
 
