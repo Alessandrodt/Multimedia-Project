@@ -57,6 +57,11 @@ export const Groups = () => {
       name: "Omar Habib",
       email: "testemail@gmail.com",
     },
+    {
+      avatar: "pic.png",
+      name: "Chiara Gobbi",
+      email: "testemail@gmail.com",
+    },
   ];
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -137,6 +142,8 @@ export const Groups = () => {
           <thead>
             <tr>
               <th> Group 1 </th>
+              <th> <Button> Modify </Button></th>
+              <th> <Button> Delete </Button></th>
             </tr>
           </thead>
           <tbody>
