@@ -1,0 +1,39 @@
+.wrapper-nav {
+    display: flex;
+    padding: $s-2;
+    width: 1440px;
+
+    @mixin width {
+        width: 25%;
+        margin: $s-2;
+    }
+
+    .logo {
+        width: 13%;
+
+        img {
+            width: ($w-6) * 2;
+        }
+    }
+
+    .signUp {
+        @include width;
+        text-align: end;
+        margin-top: $m-20;
+
+        span {
+            background: $_primary;
+            border-radius: 2rem;
+            padding: $s-2 $s-4;
+            margin-left: $m-40;
+        }
+    }
+}
+
+.srcnav {
+    width: 72%;
+}
+.bar {
+    margin-top: $m-10;
+    width: $w-100;
+}
