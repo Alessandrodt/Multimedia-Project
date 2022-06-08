@@ -6,14 +6,14 @@ export const Navbar = () => {
     return (
         <>
             <nav>
-                <div className="wrapper-nav">
-                    <div className="logo">
-                        <img src={logo} title="logo smi" alt="company logo" />
+                <div className="wrapper-na">
+                    <div className="log">
+                        <img src={logo} title="logo smi" alt="company log" />
                     </div>
                     <div className="srcnav">
                         <InputWithButton className="bar"/>
                     </div>
-                    <div className="signUp">
+                    <div className="sign">
                         <span>
                             Profilo
                         </span>

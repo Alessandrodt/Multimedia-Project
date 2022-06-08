@@ -1,4 +1,4 @@
-.wrapper-nav {
+.wrapper-na {
     display: flex;
     padding: $s-2;
     width: 1440px;
@@ -8,7 +8,7 @@
         margin: $s-2;
     }
 
-    .logo {
+    .log {
         width: 13%;
 
         img {
@@ -16,7 +16,7 @@
         }
     }
 
-    .signUp {
+    .sign {
         @include width;
         text-align: end;
         margin-top: $m-20;
