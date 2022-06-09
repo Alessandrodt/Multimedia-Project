@@ -9,11 +9,6 @@ export function InputWithButton(props) {
     <TextInput
       radius="xl"
       size="md"
-      rightSection={
-        <ActionIcon size={40}  radius="xl" color={theme.primaryColor} variant="filled">
-          <Search size={25} />
-        </ActionIcon>
-      }
       placeholder="Search"
       rightSectionWidth={42}
       {...props}
