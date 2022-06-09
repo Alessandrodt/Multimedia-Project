@@ -8,6 +8,7 @@ import {
   Button,
   Input,
 } from "@mantine/core";
+import { Search } from 'tabler-icons-react';
 
 import { useModals } from '@mantine/modals';
 
@@ -62,6 +63,7 @@ export const GroupsDetails = () => {
       email: "testemail@gmail.com",
     },
   ];
+
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
@@ -94,7 +96,7 @@ export const GroupsDetails = () => {
       setGroup(updatedGroup);
     }
   }
-
+  
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
     let filteredGroup = groups.filter((u) => u.name !== user.name);
@@ -120,7 +122,7 @@ export const GroupsDetails = () => {
 
 
   const rows = groups.map((user) => (
-    <tr key={user.name}>
+    <tr>
       <td key={user.name}>
         <Group spacing="sm">
           <Avatar size={30} src={user.avatar} radius={30} />
@@ -144,8 +146,8 @@ export const GroupsDetails = () => {
             <tr>
             <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
             
-              <th> <Button onClick={()=> setIsReadonly(prevState => !prevState)}> Modify </Button></th>
-              <th> <Button> Delete </Button></th>
+              <Button ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
+               <Button ml={10} onClick={() => setGroup(setGroup => !setGroup)  }> Delete group </Button>
             </tr>
           </thead>
           <tbody>
@@ -153,6 +155,7 @@ export const GroupsDetails = () => {
             <tr>
               <Text>
                 <Input
+                  icon={<Search size={20} />}
                   placeholder="Add an user"
                   value={searchInput}
                   onChange={handleSearch}
@@ -167,7 +170,7 @@ export const GroupsDetails = () => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.name}>  
-                        <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button onClick={() => addUser(user)}> Add </Button>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.name} </p> <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
                       </li>)
                     : ""}
                 </ul>
@@ -176,9 +179,6 @@ export const GroupsDetails = () => {
           </tbody>
         </Table>
       </ScrollArea>
-      <div>
-        <p> Test for the ScrollArea </p>
-      </div>
     </>
   );
 };
