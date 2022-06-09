@@ -3,23 +3,19 @@ body {
 }
 
 input {
-    width: 40%;
+    width: 35%;
     border: 0;
     border-bottom: 2px solid gray;
     outline: 0;
     font-size: 1.3rem;
     margin: 2% 2% 1.5% 0;
-    background: transparent;
-  }
+}
   
   td {
   margin: 0 0 25px 0;
   width: 100%;
   display: table;
-
-  @media screen and (max-width: 580px) {
-    display: block;
-  }}
+  }
 
   li {
     list-style: none;
