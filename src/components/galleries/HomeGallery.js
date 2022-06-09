@@ -1,6 +1,7 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import { Card } from "./Card" 
+import React from "react";
+import { useState, useEffect } from "react";
+import { Card } from "./Card";
+import Masonry from '@mui/lab/Masonry';
 import randomImagesServices from "../../services/randomImagesServices";
 
 export function HomeGallery() {
@@ -10,13 +11,10 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
         container: {
             margin: 0,
             padding: 0,
-            width: '90vw',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, 250px)',
+            width: '80vw',
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
-            justifyContent: 'center',
         }
     }
 
@@ -37,11 +35,12 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
             setNewGalleryImages(galleryImages)
         })
     }, []);
-    
 
-    return (
-        <div style={styles.container}>
-                {galleryImages.map(e => <Card size={e.size} img={e.urls.regular} key={e.id} />)}
-        </div>
+return (
+     <div>
+             <Masonry columns={5} spacing={2} style={styles.container}>
+                    {galleryImages.map(e => <Card size={e.size} img={e.urls.regular} key={e.id} />)}
+                </Masonry>
+     </div>
     )
 }
