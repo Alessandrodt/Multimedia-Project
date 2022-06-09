@@ -11,8 +11,6 @@ import {
 
 import { useModals } from '@mantine/modals';
 
-import './GroupsDetails.css';
-
 export const GroupsDetails = () => {
   const [groups, setGroup] = useState([
     {

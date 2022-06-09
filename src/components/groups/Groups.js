@@ -9,12 +9,17 @@ import {
   Input,
 } from "@mantine/core";
 
+import { GroupsDetails } from "./GroupsDetails";
+
+
 export const Groups = () => {
 
 
     return (
         <>
-         Ciaooo questi sono i Groups
+        <h2>
+            This is all your groups!
+        </h2>
         </>
     
     )
