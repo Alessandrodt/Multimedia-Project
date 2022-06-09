@@ -7,14 +7,13 @@ import {
   ScrollArea,
   Button,
   Input,
-  Modal,
 } from "@mantine/core";
 
 import { useModals } from '@mantine/modals';
 
 import './GroupsDetails.css';
 
-export const Groups = () => {
+export const GroupsDetails = () => {
   const [groups, setGroup] = useState([
     {
       avatar: "pic.png",

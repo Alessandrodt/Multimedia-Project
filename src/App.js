@@ -1,6 +1,7 @@
 import React from "react";
 // Components imports
-import { Groups } from "./components/groups/GroupsDetails"; 
+import { Groups } from "./components/groups/Groups";
+import { GroupsDetails } from "./components/groups/GroupsDetails"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/Login";
 import { SignUp } from "./components/sign-up/Signup";
@@ -25,6 +26,7 @@ const App = () => {
   <Router>
      <Routes>
        <Route path='/groups' element={<Groups/>}/>
+       <Route path='/groups/details' element={<GroupsDetails/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/home' element={<HomePage/>}/>
