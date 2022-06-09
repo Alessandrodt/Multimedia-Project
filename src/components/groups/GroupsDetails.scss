@@ -1,5 +1,8 @@
+body {
+  padding-left: 1%;
+}
+
 input {
-    
     width: 40%;
     border: 0;
     border-bottom: 2px solid gray;
@@ -40,5 +43,11 @@ input {
 }
 
 p {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding-top: 1%;
+}
+
+.search {
+  width: 25%;
 }

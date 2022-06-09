@@ -62,6 +62,11 @@ export const GroupsDetails = () => {
       name: "Chiara Gobbi",
       email: "testemail@gmail.com",
     },
+    {
+      avatar: "pic.png",
+      name: "Alessio Tizio",
+      email: "testemail@gmail.com",
+    },
   ];
 
   const [searchInput, setSearchInput] = useState("");
@@ -147,19 +152,21 @@ export const GroupsDetails = () => {
             <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
             
               <Button ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
-               <Button ml={10} onClick={() => setGroup(setGroup => !setGroup)  }> Delete group </Button>
+               <Button ml={10}> Delete group </Button>
             </tr>
           </thead>
           <tbody>
             {rows}
             <tr>
               <Text>
+                <div className="search">
                 <Input
                   icon={<Search size={20} />}
-                  placeholder="Add an user"
+                  placeholder="Search users..."
                   value={searchInput}
                   onChange={handleSearch}
                 />
+                </div>
                 <ul
                   style={
                     searchResult.length === 0
@@ -170,7 +177,7 @@ export const GroupsDetails = () => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.name}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.name} </p> <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>
