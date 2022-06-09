@@ -5,7 +5,7 @@ import { LandingPage } from "./components/landing-page/LandingPage";
 import { Login } from "./components/login/Login";
 import { SignUp } from "./components/sign-up/Signup";
 import { HomePage } from "./components/home-page/HomePage";
-
+import { EmailVerify } from "./components/verify-user/VerifyUser";
 //import style scss
 import './App.scss';
 
@@ -29,6 +29,7 @@ const App = () => {
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/home' element={<HomePage/>}/>
        <Route path='/' element={<LandingPage/>}/>
+       <Route path='users/:id/verify/:token' element={<EmailVerify/>}/>
      </Routes>
   </Router>
   </ModalsProvider>

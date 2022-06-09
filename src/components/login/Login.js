@@ -14,6 +14,7 @@ export const Login = () => {
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+ 
   const person = {
     email: email,
     password: password,
@@ -37,7 +38,7 @@ export const Login = () => {
     }, 5000);
   };
 
-  const getUser = () => {
+  const getUser = (id) => 
     authServices
       .getPerson(person)
       .then((response) => {
@@ -47,10 +48,9 @@ export const Login = () => {
         handleMessage(
           "red",
           `Go to your email address ${email} and confirm your subscription`
-        );
-      });
+        ); 
     console.log(person);
-  };
+  });
 
   const form = useForm({
     initialValues: {
