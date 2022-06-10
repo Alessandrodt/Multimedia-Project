@@ -42,15 +42,21 @@ export const Login = () => {
       .getPerson(person)
       .then((response) => {
         setUser(user.concat(response.data));
+        console.log(person);
       })
-      .catch(() => {
-        handleMessage(
-          "red",
-          `Go to your email address ${email} and confirm your subscription`
-        );
+      .catch((error) => {
+        if (error.response.status === 401) {
+          handleMessage("red", `email or password are invalid`);
+        } else {
+          handleMessage(
+            "red",
+            `Go to your email address ${email} and confirm your subscription`
+          );
+        }
       });
     console.log(person);
   };
+
 
   const form = useForm({
     initialValues: {
@@ -99,7 +105,6 @@ export const Login = () => {
             setPassword(event.target.value);
           }}
         />
-        <a href="/#">Forgot your Password?</a>
         <Group position="right" mt="md">
           <Button type="submit">Login</Button>
         </Group>

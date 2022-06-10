@@ -44,7 +44,7 @@ export const LandingPage = () => {
                     </div>
                     <div className="video-remember">
                         <div className="shadow">
-                            <video width="500" height="400" muted autoPlay={"autoplay"} preLoad="auto" loop>
+                            <video width="500" height="400" muted autoPlay={"autoplay"} preload="auto" loop>
                                 <source src={homepage} type="video/mp4"></source>
                             </video>
                         </div>
