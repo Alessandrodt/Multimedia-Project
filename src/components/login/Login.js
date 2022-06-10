@@ -42,6 +42,7 @@ export const Login = () => {
       .getPerson(person)
       .then((response) => {
         setUser(user.concat(response.data));
+        sessionStorage.setItem('Auth Token', response.data.token)
         console.log(person);
       })
       .catch((error) => {
@@ -54,7 +55,6 @@ export const Login = () => {
           );
         }
       });
-    console.log(person);
   };
 
 
