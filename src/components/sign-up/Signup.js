@@ -72,7 +72,7 @@ export const SignUp = () => {
                 key={avatar.id}
               >
                 <img
-                  src={`http://smear-backend.test${avatar.link}`}
+                  src={`${avatar.link}`}
                   alt={""}
                   width={50}
                   height={150}
@@ -88,7 +88,7 @@ export const SignUp = () => {
   let picture = (
     <Avatar
       src={
-        isAvatarPicked ? `http://smear-backend.test${profilePic.link}` : null
+        isAvatarPicked ? `${profilePic.link}` : null
       }
       size={150}
     />

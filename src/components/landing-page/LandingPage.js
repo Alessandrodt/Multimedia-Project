@@ -1,28 +1,7 @@
-//import landingPageServices from "../../services/landingPageServices";
-
 import device from "../../images/device.png";
 import homepage from "../../video/homepage.mp4";
+
 import { Navbar } from "./navbar-landing-page/Navbar-landing";
-
-// import { Navbar } from "./navbar-landing-page/Navbar-landing";
-
-// export const LandingPage = () => {
-//   return (
-//     <>
-//       <Navbar />
-//       <h1> Hi, welcome to this project!</h1>
-//       <p>Current routes enabled:</p>
-//       <ul>
-//         <li> LandingPage (This one) == / .</li>
-//         <li> Signup == /signup .</li>
-//         <li> Login == /login .</li>
-//       </ul>
-//       <div>
-//         <></>
-//       </div>
-//     </>
-//   );
-// };
 
 export const LandingPage = () => {
 

@@ -1,19 +1,15 @@
 import authServices from "../../services/authservices";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState,  } from "react";
+import { Link, useParams } from "react-router-dom";
 
 export const EmailVerify = () => {
   const [validUrl, setValidUrl] = useState(false);
-  const [ketchum, setKetchum] = useState("");
 
-  const verifyUser = {
-    hash: ketchum,
-  };
+  const {userId, hash} = useParams();
 
   const verifyEmailUrl = () => {
     try {
-      authServices.confirmUser(verifyUser).then((response) => {
-        setKetchum(response.data);
+      authServices.confirmUser(userId, hash).then(() => {
         setValidUrl(true);
       });
     } catch (error) {
@@ -22,23 +18,6 @@ export const EmailVerify = () => {
     }
   };
   verifyEmailUrl();
-
-  //   const verifyEmailUrl = async () => {
-  //     try {
-  //       const url = `http://smear-backend.test/api/v1/${param.id}/verify/${param.token}`;
-  //       const {
-  //         data = {
-  //           hash: "string",
-  //         },
-  //       } = await axios.patch(url);
-  //       console.log(data);
-  //       setValidUrl(true);
-  //     } catch (error) {
-  //       console.log(error);
-  //       setValidUrl(false);
-  //     }
-  //   };
-  //   verifyEmailUrl();
 
   return (
     <>
