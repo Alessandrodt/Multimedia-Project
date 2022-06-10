@@ -1,6 +1,7 @@
 import authServices from "../../services/authservices";
 import { useState,  } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Loader } from "@mantine/core";
 
 export const EmailVerify = () => {
   const [validUrl, setValidUrl] = useState(false);
@@ -29,7 +30,7 @@ export const EmailVerify = () => {
           </Link>
         </div>
       ) : (
-        <h1>404 not found</h1>
+        <Loader/>
       )}
     </>
   );
