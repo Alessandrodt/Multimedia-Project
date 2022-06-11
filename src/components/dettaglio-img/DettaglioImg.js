@@ -1,4 +1,3 @@
-import { FileUploadButton } from "../button-upload/ButtonUpload"
 import close from "../../images/close.png";
 
 export const DettagioImg = () => {

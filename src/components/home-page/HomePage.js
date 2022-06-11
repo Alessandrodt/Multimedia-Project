@@ -1,14 +1,14 @@
 import { Navbar } from '../navbar/Navbar';
-
+import { ButtonChange } from "../open-detail-button/OpenDetailButton"
 import { HomeGallery } from '../galleries/HomeGallery';
-import { DettagioImg } from '../dettaglio-img/DettagioImg';
+
 
 export const HomePage = () => {
 
   return (
     <div>
+      <ButtonChange/> 
       <Navbar/> 
-      <DettagioImg/>
       <HomeGallery/>
     </div>
   );

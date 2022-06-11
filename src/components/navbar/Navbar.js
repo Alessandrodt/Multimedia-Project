@@ -3,8 +3,10 @@ import { InputWithButton } from "../search/Srcbar";
 import avatar from "../../images/avatar.svg";
 import group from "../../images/group.svg";
 
-export const Navbar = () => {
 
+
+export const Navbar = () => {
+ 
     return (
         <>
             <nav>
