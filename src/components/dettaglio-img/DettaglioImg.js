@@ -1,6 +1,6 @@
 import close from "../../images/close.png";
 
-export const DettagioImg = () => {
+export const DettaglioImg = () => {
 
     return (
         <>

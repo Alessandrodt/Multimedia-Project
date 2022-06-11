@@ -18,7 +18,6 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
         }
     }
 
-
     useEffect(() => {
         randomImagesServices.createGallery()
         .then((galleryImages) => {
@@ -44,3 +43,5 @@ return (
      </div>
     )
 }
+
+
