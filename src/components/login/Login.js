@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { ErrorMessage } from "../error-message/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 import authServices from "../../services/authservices";
-import { ErrorMessage } from "../error-message/ErrorMessage";
 
-export const Login = () => {
+
+export const Login = (props) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +41,11 @@ export const Login = () => {
   };
 
   const getUser = () => {
-    authServices
-      .getPerson(person)
+    authServices.getPerson(person)
       .then((response) => {
         setUser(user.concat(response.data));
         sessionStorage.setItem('Auth Token', response.data.token)
-        console.log(person);
+        navigate('/home');
       })
       .catch((error) => {
         if (error.response.status === 401) {

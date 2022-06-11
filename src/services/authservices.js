@@ -1,4 +1,4 @@
-import axios from "axios"; 
+import axios from './axios';
 
 const signupUrl = "http://smear-backend.test/api/v1/users";
 const avatarUrl = "http://smear-backend.test/api/v1/avatars";
