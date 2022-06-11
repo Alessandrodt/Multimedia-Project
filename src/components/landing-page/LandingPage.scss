@@ -1,49 +1,55 @@
 nav {
+    background: $_white;
+    box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
+    position: fixed;
+    top: 0;
     width: $w-100;
-}
 
-// menu
-.wrapper-nav {
-    display: flex;
-    margin: $m-auto;
-    padding: $s-2;
-    width: 1440px;
-
-    @mixin width {
-        width: $w-50;
-        margin: $s-2;
-    }
-
-    .logo {
-        @include width;
-
-        img {
-            width: ($w-6) * 2;
+    //menu
+    .wrapper-nav {
+        align-items: center;
+        display: flex;
+        margin: $m-auto;
+        padding: $s-2;
+        width: 1440px;
+    
+        @mixin width {
+            width: $w-50;
+            margin: $s-2;
+        }
+    
+        .logo {
+            @include width;
+    
+            img {
+                width: ($w-6) * 2;
+            }
+        }
+    
+        .signUp {
+            @include width;
+            text-align: end;
+    
+            span {
+                background: $_primary;
+                border-radius: 2rem;
+                padding: $s-2 $s-3;
+            }
         }
     }
-
-    .signUp {
-        @include width;
-        text-align: end;
-
-        span {
-            background: $_primary;
-            border-radius: 2rem;
-            padding: $s-2 $s-3;
-        }
-    }
 }
+
+//main
 
 // first part
 
 header {
-    width: $w-100;
     background: $_bg;
+    margin-top: 75px;
+    height: 100vh;
+    width: $w-100;
 }
 
-section.wrapper-review {
-    width: $w-100;
-}
 
 article.review {
     display: grid;
@@ -88,18 +94,14 @@ article.review {
     }
 }
 
-section.wrapper-memories {
-    width: $w-100;
-}
-
 article.memories {
     display: flex;
     margin: $m-auto;
-    padding: $p-4 0 $p-4 8%;
-    width: 1440px;
+    padding: ($p-5 * 2) 0 ($p-5 * 2) 0;
+    width: 1260px;
 
     .text {
-        width: $w-50; 
+        width: calc(100% / 2); 
 
         h2 {
             padding-top: $p-2;
@@ -110,12 +112,76 @@ article.memories {
         }
     }
 
+    .end {
+        text-align: end;
+    }
+
     .video-remember {
-        width: $w-50;
+        width: calc(100% / 2);
 
         .shadow {
             box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
-            width: 74%;
+            width: 100%;
         }
     }
 }
+
+section.wrapper-memories {
+    width: $w-100;
+}
+
+section.wrapper-review {
+    width: $w-100;
+}
+
+.wrapper-signUp {
+    width: $w-100;
+
+    .signUp {
+        display: flex;
+        margin: $m-auto;
+        padding-top: $s-4;
+        width: 1260px;
+
+        .text-signUp {
+            width: 50%;
+        }
+    
+        .sign-up {
+            border-radius: 20px;
+            box-shadow: 4px 4px 10px rgba($color: $_black, $alpha: .25);
+            margin: $m-auto;
+            width: 35%;
+        }
+    }
+}
+
+.wrapper-img {
+    padding-bottom: $s-4;
+    text-align: center;
+
+    p {
+        font-size: $f-1;
+    }
+
+    p.font-size {
+        font-size: $f-3;
+    }
+
+    svg {
+        margin: $s-2 0;
+        circle {
+            fill: $_primary;
+        }
+    }
+
+}
+
+.wireframe {
+    width: $w-100;
+
+    img {
+        width: $w-100;
+    }
+}
+

@@ -49,19 +49,34 @@ export const SignUp = () => {
     return (
         <Box sx={{ maxWidth: 300 }} mx="auto">
             <form onSubmit={form.onSubmit(addUser)}>
-                <TextInput
-                    required
-                    label="Name"
-                    placeholder="Mario"
-                    {...form.getInputProps('name')}
-                />
-                <TextInput
-                    required
-                    label="Surname"
-                    placeholder="Rossi"
-                    {...form.getInputProps('surname')}
-                />
-                <TextInput
+                <div className="wrapper-input">
+                    <div className="input-flex">
+                        <label>
+                            Name <span>*</span>
+                        </label>
+                        <input
+                            required
+                            label="Name"
+                            placeholder="Mario"
+                            {...form.getInputProps('name')}
+                        />
+                    </div>
+                    <div className="input-flex text-align">
+                        <label>
+                            Surname <span>*</span>
+                        </label>
+                        <input
+                            required
+                            label="Surname"
+                            placeholder="Rossi"
+                            {...form.getInputProps('surname')}
+                        />
+                    </div>
+                </div>
+                <label>
+                    Email <span>*</span>
+                </label>
+                <input
                     required
                     label="Email"
                     placeholder="Mario.Rossi@email.com"

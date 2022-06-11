@@ -3,6 +3,7 @@ $_black:     #000000 !default;
 $_bg:        #F3F3F3 !default;
 $_blue:      #00D1E0 !default;
 $_dark-blue: #008993 !default;
+$_input:     #b3bcc3 !default;
 $_white:     #ffffff !default;
 
 // scss-docs-start colors-map
@@ -12,6 +13,7 @@ $colors: (
   "_bg":          $_bg,
   "_dark-blue":   $_dark-blue,
   "_hover":       $_dark-blue,
+  "_input":       $_input,
   "_white":       $_white,
 ) !default;
 
