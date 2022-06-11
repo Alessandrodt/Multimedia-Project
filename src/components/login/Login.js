@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useModals } from "@mantine/modals";
+
 
 import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
@@ -8,8 +10,9 @@ import { useNavigate } from "react-router-dom";
 import authServices from "../../services/authservices";
 
 
-export const Login = (props) => {
+export const Login = () => {
   const navigate = useNavigate();
+  const modals = useModals();
   const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,6 +48,7 @@ export const Login = (props) => {
       .then((response) => {
         setUser(user.concat(response.data));
         sessionStorage.setItem('Auth Token', response.data.token)
+        modals.closeModal()
         navigate('/home');
       })
       .catch((error) => {

@@ -6,6 +6,7 @@ import { useLocation, Navigate, Outlet } from "react-router-dom";
 export const RequireAuth = () => {
     const location = useLocation()
 
+    // Check if the interceptor has a functional redirect.
     return (
         sessionStorage.getItem('Auth Token')
         ? <Outlet />

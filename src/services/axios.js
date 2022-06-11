@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// window could be omitted but React throws an error.
+const currentLocation = window.location
 // Standard axios instance creation
 const axiosInstance = axios.create({
   baseURL: 'http://smear-backend.test/api/v1/login'
@@ -21,10 +23,9 @@ axiosInstance.interceptors.request.use(function (req) {
 
 // This function checks the presence of the token, responding with a status code 401
 // if the token is not present. This redirects the user to the login page.
-
-/** @todo Add a control to the if block to check the user's current route */
+// window.location.pathname is suboptimal and should not be used 
 axiosInstance.interceptors.response.use(function (res) {
-  if (res.status === 401) {
+  if (res.status === 401 && currentLocation.pathname !== '/') {
     useNavigate()('/');
   }
 
