@@ -7,11 +7,10 @@ import { Button, Box, Group, LoadingOverlay, PasswordInput, TextInput } from "@m
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
-// Message Handler
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 // Services
-import authServices from "../../services/authservices";
+import authServices from "../../services/authServices";
 
 export const Login = () => {
   const modals = useModals();
@@ -51,7 +50,7 @@ export const Login = () => {
   const getUser = () => {
     setVisible(true);
     authServices
-    .getPerson(person)
+      .getUser(person)
       .then((response) => {
         setUser(user.concat(response.data));
         sessionStorage.setItem('Auth Token', response.data.token)
@@ -71,7 +70,6 @@ export const Login = () => {
         setVisible(false);
       });
   };
-
 
   const form = useForm({
     initialValues: {

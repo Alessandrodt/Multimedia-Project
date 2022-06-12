@@ -1,12 +1,12 @@
-import authServices from "../../services/authservices";
-import { useState,  } from "react";
+import authServices from "../../services/authServices";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "@mantine/core";
 
 export const EmailVerify = () => {
-  const [validUrl, setValidUrl] = useState(false);
-
   const {userId, hash} = useParams();
+
+  const [validUrl, setValidUrl] = useState(false);
 
   const verifyEmailUrl = () => {
     try {

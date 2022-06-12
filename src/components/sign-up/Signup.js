@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+import { LoadingOverlay } from "@mantine/core";
 
 import {
   Avatar,
@@ -12,7 +13,8 @@ import {
   TextInput,
 } from "@mantine/core";
 
-import authServices from "../../services/authservices";
+import avatarServices from "../../services/avatarServices";
+import authServices from "../../services/authServices";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const SignUp = () => {
@@ -23,15 +25,16 @@ export const SignUp = () => {
   const [newLastName, setNewLastName] = useState("");
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [privacy, setPrivacy] = useState(false);
+  const [privacy, setPrivacy] = useState(true);
   const [profilePic, setProfilePic] = useState({});
   const [users, setUser] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    authServices.getAvatar().then((response) => {
+    avatarServices.getAvatar().then((response) => {
       setAvatar(response.data);
     });
   }, []);
@@ -86,12 +89,7 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar
-      src={
-        isAvatarPicked ? `${profilePic.link}` : null
-      }
-      size={150}
-    />
+    <Avatar src={isAvatarPicked ? `${profilePic.link}` : null} size={150} />
   );
 
   const newUser = {
@@ -107,11 +105,13 @@ export const SignUp = () => {
   };
 
   const addUser = () => {
+    setVisible(true)
     authServices
       .createUser(newUser)
       .then((response) => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
+          setVisible(false)
           handleMessage(
             "green",
             `A confirmation email was sent to ${newEmail}`
@@ -119,9 +119,10 @@ export const SignUp = () => {
         }
       })
       .catch(() => {
+        setVisible(false)
         handleMessage("red", `${newEmail} is already in use.`);
       });
-    console.log(newUser);
+      
   };
 
   const form = useForm({
@@ -205,6 +206,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          required
           mt="sm"
           label="Confirm password"
           autoComplete="on"
@@ -216,6 +218,7 @@ export const SignUp = () => {
           }}
         />
         <Checkbox
+          required
           mt="md"
           label="I agree to the Terms of Condition and Service."
           {...form.getInputProps("termsOfService", { type: "input" })}
@@ -224,8 +227,11 @@ export const SignUp = () => {
             setPrivacy(Boolean(event.target.value));
           }}
         />
+        <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">Sign-Up</Button>
+          <Button type="submit">
+            Sign-Up
+          </Button>
         </Group>
       </form>
     </Box>
