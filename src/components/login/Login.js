@@ -1,21 +1,26 @@
+// React imports
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+// Mantine imports
+import { Button, Box, Group, LoadingOverlay, PasswordInput, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
-
-import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
-import { useForm } from "@mantine/form";
+// Message Handler
 import { ErrorMessage } from "../error-message/ErrorMessage";
-import { useNavigate } from "react-router-dom";
 
+// Services
 import authServices from "../../services/authservices";
 
-
 export const Login = () => {
-  const navigate = useNavigate();
   const modals = useModals();
+  const navigate = useNavigate();
+
   const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -44,11 +49,14 @@ export const Login = () => {
   };
 
   const getUser = () => {
-    authServices.getPerson(person)
+    setVisible(true);
+    authServices
+    .getPerson(person)
       .then((response) => {
         setUser(user.concat(response.data));
         sessionStorage.setItem('Auth Token', response.data.token)
-        modals.closeModal()
+        setVisible(false);
+        modals.closeModal();
         navigate('/home');
       })
       .catch((error) => {
@@ -60,6 +68,7 @@ export const Login = () => {
             `Go to your email address ${email} and confirm your subscription`
           );
         }
+        setVisible(false);
       });
   };
 
@@ -111,6 +120,7 @@ export const Login = () => {
             setPassword(event.target.value);
           }}
         />
+        <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
           <Button type="submit">Login</Button>
         </Group>

@@ -23,20 +23,20 @@ const App = () => {
     <MantineProvider>
       <Router>
         <ModalsProvider>
-
           <Routes>
+            {/* These routes are not guarded */}
+            <Route path='/home' element={<HomePage />} />
             <Route path='/groups' element={<Groups />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
             <Route path='users/:userId/verify/:hash' element={<EmailVerify />} />
-
+            
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
-              <Route path='/home' element={<HomePage />} />
+            {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
           </Routes>
         </ModalsProvider>
-
       </Router>
     </MantineProvider>
   )
