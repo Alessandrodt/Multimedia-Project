@@ -1,9 +1,9 @@
 import { useState } from "react";
+import authServices from "../../services/authServices";
 
 import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
-import authServices from "../../services/authservices";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Login = () => {
@@ -39,7 +39,7 @@ export const Login = () => {
 
   const getUser = () => {
     authServices
-      .getPerson(person)
+      .getUser(user)
       .then((response) => {
         setUser(user.concat(response.data));
         console.log(person);
@@ -56,7 +56,6 @@ export const Login = () => {
       });
     console.log(person);
   };
-
 
   const form = useForm({
     initialValues: {
