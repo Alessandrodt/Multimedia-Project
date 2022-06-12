@@ -20,7 +20,7 @@ import { MantineProvider } from "@mantine/styles";
 
 const App = () => {
   return (
-    <MantineProvider>
+    <MantineProvider theme={{ loader: 'bars' }}>
       <Router>
         <ModalsProvider>
           <Routes>
