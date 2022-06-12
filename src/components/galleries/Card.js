@@ -6,13 +6,10 @@ export function Card({size, img}) {
             borderRadius: '16px',
         },
         small: {
-            // gridRowEnd: 'span 26'
         },
         medium: {
-            // gridRowEnd: 'span 33'
         },
         large: {
-            // gridRowEnd: 'span 45'
         }
     }
 
@@ -24,6 +21,6 @@ export function Card({size, img}) {
             <img src={img} alt="random images" style={{
                     ...styles.card,
                     ...styles[size]
-                }} width="90%" onClick={detailComponent} />
+                }} onClick={detailComponent} />
     )
 }
