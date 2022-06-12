@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
-import { LoadingOverlay } from "@mantine/core";
+import { Loader, LoadingOverlay } from "@mantine/core";
 
 import {
   Avatar,
@@ -27,6 +27,7 @@ export const SignUp = () => {
   const [newPassword, setNewPassword] = useState("");
   const [privacy, setPrivacy] = useState(true);
   const [profilePic, setProfilePic] = useState({});
+  const [showAvatar, setShowAvatar] = useState(false);
   const [users, setUser] = useState([]);
   const [visible, setVisible] = useState(false);
 
@@ -34,9 +35,10 @@ export const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    avatarServices.getAvatar().then((response) => {
-      setAvatar(response.data);
-    });
+      avatarServices.getAvatar().then((response) => {
+        setAvatar(response.data);
+        setShowAvatar(true);
+      });
   }, []);
 
   const errorStyle = {
@@ -64,26 +66,32 @@ export const SignUp = () => {
       title: "Choose your avatar:",
       centered: true,
       children: (
-        <div>
-          {avatars.map((avatar) => {
-            return (
-              <Button
-                onClick={() => {
-                  modals.closeModal(setProfilePic(avatar));
-                  setAvatarStatus(true);
-                }}
-                key={avatar.id}
-              >
-                <img
-                  src={`${avatar.link}`}
-                  alt={""}
-                  width={50}
-                  height={150}
-                ></img>
-              </Button>
-            );
-          })}
-        </div>
+        <>
+          {showAvatar ? (
+            <div>
+              {avatars.map((avatar) => {
+                return (
+                  <Button
+                    onClick={() => {
+                      modals.closeModal(setProfilePic(avatar));
+                      setAvatarStatus(true);
+                    }}
+                    key={avatar.id}
+                  >
+                    <img
+                      src={`${avatar.link}`}
+                      alt={""}
+                      width={50}
+                      height={150}
+                    ></img>
+                  </Button>
+                );
+              })}
+            </div>
+          ) : (
+            <Loader />
+          )}
+        </>
       ),
     });
   };
