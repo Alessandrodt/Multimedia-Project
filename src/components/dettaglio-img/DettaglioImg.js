@@ -7,7 +7,6 @@ export const DettaglioImg = () => {
 
     return (
         <main>
-                <div className="external-box">
                 <div className="inner-box">
                     <div className="img-box">
                     </div>
@@ -38,7 +37,6 @@ export const DettaglioImg = () => {
                                 <button className="button-action">Delete</button>
                             </div>
                         </div>
-                </div>
         </main>
     )
 }
