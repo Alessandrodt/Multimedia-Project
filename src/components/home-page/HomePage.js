@@ -1,3 +1,5 @@
+
+// components
 import { Navbar } from '../navbar/Navbar';
 import { HomeGallery } from '../galleries/HomeGallery';
 
