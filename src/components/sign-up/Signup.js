@@ -68,10 +68,10 @@ export const SignUp = () => {
       children: (
         <>
           {showAvatar ? (
-            <div>
+            <div className="wrapper-avatar">
               {avatars.map((avatar) => {
                 return (
-                  <Button
+                  <button className="custom-width"
                     onClick={() => {
                       modals.closeModal(setProfilePic(avatar));
                       setAvatarStatus(true);
@@ -82,9 +82,8 @@ export const SignUp = () => {
                       src={`${avatar.link}`}
                       alt={""}
                       width={50}
-                      height={150}
                     ></img>
-                  </Button>
+                  </button>
                 );
               })}
             </div>
