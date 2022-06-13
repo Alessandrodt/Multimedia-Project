@@ -5,7 +5,7 @@ import { Login } from "../../login/Login";
 
 import "./Navbar.css";
 
-export const Navbar = () => {
+export const NavbarLanding = () => {
   const modals = useModals();
 
   const openContentModal = () => {

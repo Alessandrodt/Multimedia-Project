@@ -1,14 +1,6 @@
-.external-box {
-    width: $w-100;
-    height: 700px;
-    background-color: rgb(244, 241, 241);
-    display: flex;
-    flex-direction: column;
-}
-
 .inner-box {
-    height: 70%;
-    width: 70%;
+    width: 1000px;
+    height: 600px;
     margin: auto;
     display: flex;
     border-radius: 20px;
@@ -57,13 +49,14 @@
 .button-box {
     width: $w-50;
     height: $h-100;
-
     border-radius: 0  0 20px 0;
+    margin-top: 60px;
 }
 
 .button-box-sx {
     width: $w-50;
     height: $h-100;
+    margin-top: 60px;
 }
 
 .gutter-box {
@@ -95,10 +88,13 @@
 .button-action {
     background: $_primary;
     border-radius: 2rem;
-    padding: $s-2 $s-3;
+    padding: $s-2 $s-4;
     border: 0;
     font-size: 16px;
     margin-left: 34%;
     margin-top: 2%;
     cursor: pointer;
+}
+.mantine-1abbsss {
+    width: auto;
 }

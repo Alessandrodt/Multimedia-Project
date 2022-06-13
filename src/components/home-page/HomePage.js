@@ -5,6 +5,7 @@ import { HomeGallery } from '../galleries/HomeGallery';
 
 
 export const HomePage = () => {
+  
 
   return (
     <div>

@@ -2,6 +2,7 @@ import logo from "../../images/picsmi.png";
 import { InputWithButton } from "../search/Srcbar";
 import avatar from "../../images/avatar.svg";
 import group from "../../images/group.svg";
+import { DettaglioImg } from "../dettaglio-img/DettaglioImg";
 
 
 

@@ -1,12 +1,12 @@
 import device from "../../images/device.png";
 import homepage from "../../video/homepage.mp4";
-import { Navbar } from "./navbar-landing-page/Navbar-landing";
+import { NavbarLanding } from "./navbar-landing-page/Navbar-landing";
 
 export const LandingPage = () => {
   return (
     <>
       {/* navbar */}
-      <Navbar />
+      <NavbarLanding />
       {/* header section.wrapper-review */}
       <header>
         <section className="wrapper-review">

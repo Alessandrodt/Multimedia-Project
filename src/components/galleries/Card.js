@@ -1,3 +1,6 @@
+import { DettaglioImg } from "../dettaglio-img/DettaglioImg";
+import { useModals } from "@mantine/modals";
+
 export function Card({size, img}) {
     const styles = {
         card: {
@@ -10,11 +13,18 @@ export function Card({size, img}) {
         medium: {
         },
         large: {
-        }
+        },
+
     }
 
+
+ const modals = useModals();
+
     const detailComponent = () => {
-        console.log("make this component pls")
+        console.log(    
+            modals.openModal( {
+            children: <DettaglioImg />,
+          }))
     }
 
     return (

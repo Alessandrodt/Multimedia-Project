@@ -1,20 +1,17 @@
+import React from "react";
 import close from "../../images/close.png";
+import { Badge }  from '@mantine/core';
 
 export const DettaglioImg = () => {
 
+
     return (
-        <>
-            <div className="external-box">
-                <div className="gutter-box"></div>
+        <main>
+                <div className="external-box">
                 <div className="inner-box">
                     <div className="img-box">
                     </div>
                     <div className="info-external-box">
-                        <div className="exit-button-box">
-                            <button className="exit-button">
-                            <img className="icong" src={close} title="Profilo" alt="company logo" />
-                            </button>
-                        </div>
                         <div className="tag-box">
                             <div className="text-box">
                              <div className="title-box">
@@ -31,7 +28,9 @@ export const DettaglioImg = () => {
                             
                              </div>
                         </div>
-                        <div className="external-button-box">
+                    </div>
+                </div>
+                <div className="external-button-box">
                             <div className="button-box-sx">
                                 <button className="button-action">Modify</button>
                             </div>  
@@ -39,10 +38,7 @@ export const DettaglioImg = () => {
                                 <button className="button-action">Delete</button>
                             </div>
                         </div>
-                    </div>
                 </div>
-                <div className="gutter-box"></div>
-            </div>
-        </>
+        </main>
     )
 }
