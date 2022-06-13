@@ -145,6 +145,7 @@ export const GroupsDetails = () => {
 
   return (
     <>
+    <div className="wrapper-groups">
       <ScrollArea>
         <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
           <thead>
@@ -186,6 +187,7 @@ export const GroupsDetails = () => {
           </tbody>
         </Table>
       </ScrollArea>
+      </div>
     </>
   );
 };
