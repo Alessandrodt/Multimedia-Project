@@ -10,7 +10,7 @@ import logo from "../../images/picsmi.png";
 import wireframe from "../../images/Wireframe.png";
 //import video
 import group from "../../video/Group.mp4";
-import homepage from "../../video/Homepage.mp4";
+import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
 
 
