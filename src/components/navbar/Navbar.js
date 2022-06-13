@@ -1,10 +1,11 @@
-import logo from "../../images/picsmi.png";
-import { InputWithButton } from "../search/Srcbar";
-import avatar from "../../images/avatar.svg";
-import group from "../../images/group.svg";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
+import { InputWithButton } from "../search/Srcbar";
+
+import logo from "../../images/picsmi.png";
+// import avatar from "../../images/avatar.svg";
+import group from "../../images/group.svg";
 
 import profileServices from "../../services/profileServices";
 export const Navbar = () => {
@@ -27,12 +28,18 @@ export const Navbar = () => {
                     <div className="srcnav">
                         <InputWithButton className="bar"/>
                     </div>
+                    {users.map((user) => {
+                        return (
+                            <div>
+                            <Link to={`/users/${user.id}`}>
+                            <button>
+                                <img className="icong" src={user.avatar.id} title="Profilo" alt="company logo" />
+                            </button>
+                            </Link>
+                            </div>
+                        )
+                    })}
                     <div className="sign">
-                        <Link to={`/users/:userId`}>
-                        <button>
-                        <img className="icong" src={avatar} title="Profilo" alt="company logo" />
-                        </button>
-                        </Link>
                         <button>
                         <img className="icong" src={group} title="Groups" alt="company logo" />
                         </button>
