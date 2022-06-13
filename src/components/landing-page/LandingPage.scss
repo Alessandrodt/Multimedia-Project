@@ -1,9 +1,21 @@
+//main
+
+// first part
+
+header {
+    background: $_bg;
+    margin-top: 75px;
+    height: 80vh;
+    width: $w-100;
+}
+
 nav {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
     position: fixed;
     top: 0;
     width: $w-100;
+    z-index: 9999;
 
     //menu
     .wrapper-nav {
@@ -11,7 +23,7 @@ nav {
         display: flex;
         margin: $m-auto;
         padding: $s-2;
-        width: 1440px;
+        width: $w_90;
     
         @mixin width {
             width: $w-50;
@@ -33,30 +45,24 @@ nav {
             span {
                 background: $_primary;
                 border-radius: 2rem;
+                color: $_white;
                 padding: $s-2 $s-3;
             }
         }
+
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth", ){
+            width: 100%;
+        }
     }
 }
-
-//main
-
-// first part
-
-header {
-    background: $_bg;
-    margin-top: 75px;
-    height: 100vh;
-    width: $w-100;
-}
-
 
 article.review {
     display: grid;
     margin: $m-auto;
     grid-template-columns: 8% 30% 10% 45% auto;
     grid-template-rows: 90px 125px auto;
-    width: 1440px;
+    width: 1024px;
 
     h1 {
         font-size: $f-4;
@@ -91,6 +97,22 @@ article.review {
             padding: $s-2 $s-3;
             box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
         }
+
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth" ){
+            padding-top: ($p-2) * 3;
+        }
+    }
+
+    //responsive
+    @include media( "screen", ">minWidth", "<maxWidth" ){
+        width: 100%;
+        grid-template-columns: 8% 40% 10% 35% auto;
+    }
+
+    @include media( "screen", ">minWidth", "<bp2Width") {
+        display: block;
+        width: 90%;
     }
 }
 
@@ -98,10 +120,11 @@ article.memories {
     display: flex;
     margin: $m-auto;
     padding: ($p-5 * 2) 0 ($p-5 * 2) 0;
-    width: 1260px;
+    width: 1024px;
 
     .text {
-        width: calc(100% / 2); 
+        width: calc(100% / 2);
+        padding: 0 $s-3; 
 
         h2 {
             padding-top: $p-2;
@@ -116,6 +139,10 @@ article.memories {
         text-align: end;
     }
 
+    video {
+        width: 100%;
+    }
+
     .video-remember {
         width: calc(100% / 2);
 
@@ -123,6 +150,11 @@ article.memories {
             box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
             width: 100%;
         }
+    }
+
+    //responsive
+    @include media( "screen", ">minWidth", "<maxWidth", ){
+        width: 90%;
     }
 }
 
@@ -134,14 +166,22 @@ section.wrapper-review {
     width: $w-100;
 }
 
+.wireframe {
+    width: $w-100;
+
+    img {
+        width: $w-100;
+    }
+}
+
 .wrapper-signUp {
     width: $w-100;
 
     .signUp {
         display: flex;
         margin: $m-auto;
-        padding-top: $s-4;
-        width: 1260px;
+        padding: 10rem 0;
+        width: 1024px;
 
         .text-signUp {
             width: 50%;
@@ -153,6 +193,12 @@ section.wrapper-review {
             margin: $m-auto;
             width: 35%;
         }
+
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth", ){
+            width: 100%;
+        }
+        
     }
 }
 
@@ -177,11 +223,39 @@ section.wrapper-review {
 
 }
 
-.wireframe {
-    width: $w-100;
+.wrapper-footer {
+    bottom: 150px;
+    display: flex;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 1024px;
+    justify-content: space-evenly;
 
-    img {
-        width: $w-100;
+    .about {
+        border-right: 1px solid $_white;
+        padding: $s-2;
+    
+        p {
+            margin-top: $s-3;
+        }
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    //responsive
+    @include media( "screen", ">minWidth", "<maxWidth", ){
+        width: 100%;
     }
 }
 
+footer {
+    background: $_black;
+    color: $_white;
+    height: 50vh;
+    position: relative;
+    width: $w-100;
+    z-index: -1;
+}

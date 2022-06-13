@@ -55,11 +55,16 @@ export const LandingPage = () => {
                             <img src={devices} title="more devices" alt="see the application to join" />
                         </div>
                         <div className="signUp">
-                            <span>Get started it's free</span>
+                            <span>
+                                <a href="#signUp">
+                                    Get started it's free
+                                </a>
+                            </span>
                         </div>
                     </article>
                 </section>
             </header>
+            {/* main & section */}
             <main>
                 {/* Relive your emotions */}
                 <section className="wrapper-memories">
@@ -74,7 +79,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="video-remember">
                             <div className="shadow">
-                                <video width="600" height="500" muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={homepage} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -84,7 +89,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="video-remember">
                             <div className="shadow">
-                                <video width="600" height="500" muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={search} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -110,7 +115,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="video-remember">
                             <div className="shadow">
-                                <video width="600" height="500" muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={group} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -122,7 +127,7 @@ export const LandingPage = () => {
                     <img src={wireframe} title="pages website" alt="rewiev all website pages" />
                 </div>
                 {/* signUp */}
-                <article className="wrapper-signUp">
+                <article className="wrapper-signUp" id="signUp">
                     <div className="signUp">
                         <div className="text-signUp">
                             <p>hello</p>
@@ -143,10 +148,43 @@ export const LandingPage = () => {
                     </div>
                 </article>
             </main>
+            {/* footer */}
             <footer>
-
+                <div className="wrapper-footer">
+                    <div className="about">
+                        <h3>About PicSmi</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. 
+                            Morbi quis metus purus.
+                        </p>
+                    </div>
+                    <div className="about">
+                        <h3>Contact Us</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. 
+                            Morbi quis metus purus.
+                        </p>
+                    </div>
+                    <div className="about">
+                        <h3>Social</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. 
+                            Morbi quis metus purus.
+                        </p>
+                    </div>
+                    <div className="about">
+                        <h3>Newsletter</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. 
+                            Morbi quis metus purus.
+                        </p>
+                    </div>
+                </div>
             </footer>
-
         </>
     )
 }
