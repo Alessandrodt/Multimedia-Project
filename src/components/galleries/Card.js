@@ -4,12 +4,6 @@ export function Card({size, img}) {
             margin: '10px 10px',
             padding: 0,
             borderRadius: '16px',
-        },
-        small: {
-        },
-        medium: {
-        },
-        large: {
         }
     }
 
@@ -18,9 +12,6 @@ export function Card({size, img}) {
     }
 
     return (
-            <img src={img} alt="random images" style={{
-                    ...styles.card,
-                    ...styles[size]
-                }} onClick={detailComponent} />
+            <img src={img} alt="random images" style={{ ...styles.card }} onClick={detailComponent} />
     )
 }

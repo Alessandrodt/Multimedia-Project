@@ -26,12 +26,9 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
     useEffect(() => {
         randomImagesServices.createGallery()
         .then((galleryImages) => {
-            const sizes = [ "small", "medium", "large" ];
         
-            galleryImages = galleryImages.map(function(e, i) {
-                return { 
-                    "urls":  e.urls, 
-                    "size" : sizes[i % 3] ,
+            galleryImages = galleryImages.map(function(e) { return { 
+                    "urls":  e.urls,
                     "id" : e.id
                 };
               })
@@ -43,7 +40,7 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
 return (
      <div>
              <Masonry columns={[1, 2, 3, 4]} spacing={2} style={styles.container}>
-                    {galleryImages.map(e => <Card size={e.size} img={e.urls.regular} key={e.id} />)}
+                    {galleryImages.map(e => <Card img={e.urls.regular} key={e.id} />)}
                 </Masonry>
      </div>
     )

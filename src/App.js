@@ -17,6 +17,7 @@ import {
 
 import { ModalsProvider } from '@mantine/modals';
 import { MantineProvider } from "@mantine/styles";
+import { Upload } from "./components/home-page/Upload";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
             <Route path='users/:userId/verify/:hash' element={<EmailVerify />} />
+            <Route path='/upload' element={<Upload />} />
             
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
