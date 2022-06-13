@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import {
-  Avatar,
-  Table,
-  Group,
-  Text,
-  ScrollArea,
-  Button,
-  Input,
-} from "@mantine/core";
+// import React, { useState } from "react";
+// import {
+//   Avatar,
+//   Table,
+//   Group,
+//   Text,
+//   ScrollArea,
+//   Button,
+//   Input,
+// } from "@mantine/core";
 
-import { GroupsDetails } from "./GroupsDetails";
+// import { GroupsDetails } from "./GroupsDetails";
 
 
 export const Groups = () => {

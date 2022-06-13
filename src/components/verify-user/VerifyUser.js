@@ -30,7 +30,7 @@ export const EmailVerify = () => {
           </Link>
         </div>
       ) : (
-        <Loader/>
+        <Loader className="wrapper-center"/>
       )}
     </>
   );

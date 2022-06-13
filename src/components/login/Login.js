@@ -110,7 +110,7 @@ export const Login = () => {
         <PasswordInput
           required
           label="Password"
-          placeholder="password"
+          placeholder="Password"
           autoComplete="on"
           {...form.getInputProps("password")}
           onChange={(event) => {
