@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const userImages = ``;
+// const userImages = ``;
 
-const createGallery = (newGallery) => {
-    return axios.get(userImages, newGallery)
-    .then((x) => {
-        console.log(x.data);
-        return x.data;
-    }).catch((error) => console.log(error));
- }
+// const createGallery = (newGallery) => {
+//     return axios.get(userImages, newGallery)
+//     .then((x) => {
+//         console.log(x.data);
+//         return x.data;
+//     }).catch((error) => console.log(error));
+//  }
 
  const uploadUrl = `http://smear-backend.test/api/v1/folders/{folder}/uploads`;
 
- const uploadImage = (newUpload) => {
+ const uploadImage = async (newUpload) => {
      return axios.post(uploadUrl, newUpload)
      .then((y) => {
          console.log(y.data);
@@ -21,6 +21,6 @@ const createGallery = (newGallery) => {
    }
  
 
- const imagesServices = {createGallery, uploadImage}
+ const imagesServices = { uploadImage }
 
  export default imagesServices;
