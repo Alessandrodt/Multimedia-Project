@@ -1,6 +1,7 @@
 import React from "react";
 // Components imports
-import { Groups } from "./components/groups/GroupsDetails";
+import { Groups } from "./components/groups/Groups";
+import { GroupsDetails } from "./components/groups/GroupsDetails"; 
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { SignUp } from "./components/sign-up/Signup";
 import { HomePage } from "./components/home-page/HomePage";
@@ -27,6 +28,7 @@ const App = () => {
             {/* These routes are not guarded */}
             <Route path='/home' element={<HomePage />} />
             <Route path='/groups' element={<Groups />} />
+            <Route path='/groups/details' element={<GroupsDetails />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
             <Route path='users/:userId/verify/:hash' element={<EmailVerify />} />
