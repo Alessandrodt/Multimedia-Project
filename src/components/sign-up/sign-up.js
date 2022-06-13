@@ -51,9 +51,6 @@ export const SignUp = () => {
             <form onSubmit={form.onSubmit(addUser)}>
                 <div className="wrapper-input">
                     <div className="input-flex">
-                        <label>
-                            Name <span>*</span>
-                        </label>
                         <input
                             required
                             label="Name"
@@ -62,10 +59,7 @@ export const SignUp = () => {
                         />
                     </div>
                     <div className="input-flex text-align">
-                        <label>
-                            Surname <span>*</span>
-                        </label>
-                        <input
+                        <TextInput
                             required
                             label="Surname"
                             placeholder="Rossi"
@@ -73,10 +67,7 @@ export const SignUp = () => {
                         />
                     </div>
                 </div>
-                <label>
-                    Email <span>*</span>
-                </label>
-                <input
+                <TextInput
                     required
                     label="Email"
                     placeholder="Mario.Rossi@email.com"
