@@ -6,20 +6,21 @@ export function Card({size, img}) {
             borderRadius: '16px',
         },
         small: {
-            gridRowEnd: 'span 10'
         },
         medium: {
-            gridRowEnd: 'span 25'
         },
         large: {
-            gridRowEnd: 'span 26'
         }
     }
 
+    const detailComponent = () => {
+        console.log("make this component pls")
+    }
+
     return (
-    <img src={img} alt="random images" style={{
-            ...styles.card,
-            ...styles[size]
-        }} width="90%"/>
+            <img src={img} alt="random images" style={{
+                    ...styles.card,
+                    ...styles[size]
+                }} onClick={detailComponent} />
     )
 }
