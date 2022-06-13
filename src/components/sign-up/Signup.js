@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
-import { Loader, LoadingOverlay } from "@mantine/core";
+import { LoadingOverlay } from "@mantine/core";
 
 import {
   Avatar,
@@ -27,7 +27,6 @@ export const SignUp = () => {
   const [newPassword, setNewPassword] = useState("");
   const [privacy, setPrivacy] = useState(true);
   const [profilePic, setProfilePic] = useState({});
-  const [showAvatar, setShowAvatar] = useState(false);
   const [users, setUser] = useState([]);
   const [visible, setVisible] = useState(false);
 
@@ -37,7 +36,6 @@ export const SignUp = () => {
   useEffect(() => {
       avatarServices.getAvatar().then((response) => {
         setAvatar(response.data);
-        setShowAvatar(true);
       });
   }, []);
 
@@ -67,7 +65,6 @@ export const SignUp = () => {
       centered: true,
       children: (
         <>
-          {showAvatar ? (
             <div className="wrapper-avatar">
               {avatars.map((avatar) => {
                 return (
@@ -87,9 +84,6 @@ export const SignUp = () => {
                 );
               })}
             </div>
-          ) : (
-            <Loader />
-          )}
         </>
       ),
     });
