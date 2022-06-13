@@ -1,27 +1,26 @@
-export function Card(props) {
+export function Card({size, img}) {
     const styles = {
         card: {
             margin: '10px 10px',
             padding: 0,
             borderRadius: '16px',
-            backgroundColor: 'grey'
         },
         small: {
-            gridRowEnd: 'span 26'
         },
         medium: {
-            gridRowEnd: 'span 33'
         },
         large: {
-            gridRowEnd: 'span 45'
         }
     }
 
+    const detailComponent = () => {
+        console.log("make this component pls")
+    }
+
     return (
-        <div style={{
-            ...styles.card,
-            ...styles[props.size]
-        }}>
-        </div>
+            <img src={img} alt="random images" style={{
+                    ...styles.card,
+                    ...styles[size]
+                }} onClick={detailComponent} />
     )
 }

@@ -1,0 +1,29 @@
+.mantine-1fjdtzo {
+    background-color: $_primary;;
+}
+
+.mantine-1fjdtzo:hover {
+    background-color: #008993;
+}
+
+.mantine-1t62jef {
+    height: 50px;
+    border: 0 solid #bababa;
+    background-color: #e1e1e1;
+}
+
+.mantine-1t62jef::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.mantine-1t62jef:hover {
+    background-color: #c2c2c2;
+    cursor: pointer;
+}
+
+.mantine-1c4piau {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, Button, Checkbox, Group, Box, PasswordInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import authServices from "../../services/authservices";
+import authServices from "../../services/authServices";
 
 export const SignUp = () => {
     const [user, setUser] = useState([]);

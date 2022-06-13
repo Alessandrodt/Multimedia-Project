@@ -1,35 +1,50 @@
-import { Card } from "./Card"
+import React from "react";
+import { useState, useEffect } from "react";
+
+// components and library
+import Masonry from '@mui/lab/Masonry';
+import { Card } from "./Card";
+
+// services
+import randomImagesServices from "../../services/randomImagesServices";
 
 export function HomeGallery() {
+const [galleryImages, setNewGalleryImages ] = useState([]);
+
     const styles = {
         container: {
             margin: 0,
             padding: 0,
-            width: '90vw',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, 250px)',
-            gridAutoRows: '10px',
+            width: '80%',
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
-            justifyContent: 'center',
         }
     }
 
-    return (
-        <div style={styles.container}>
-            <Card size='small' />
-            <Card size='medium' />
-            <Card size='large' /> 
-            <Card size='small' />
-            <Card size='medium' />
-            <Card size='large' /> 
-            <Card size='small' />
-            <Card size='medium' />
-            <Card size='large' /> 
-            <Card size='small' />
-            <Card size='medium' />
-            <Card size='small' /> 
-        </div>
+
+    useEffect(() => {
+        randomImagesServices.createGallery()
+        .then((galleryImages) => {
+            const sizes = [ "small", "medium", "large" ];
+        
+            galleryImages = galleryImages.map(function(e, i) {
+                return { 
+                    "urls":  e.urls, 
+                    "size" : sizes[i % 3] ,
+                    "id" : e.id
+                };
+              })
+              console.log(galleryImages);           
+            setNewGalleryImages(galleryImages)
+        })
+    }, []);
+
+return (
+     <div>
+             <Masonry columns={[1, 2, 3, 4]} spacing={2} style={styles.container}>
+                    {galleryImages.map(e => <Card size={e.size} img={e.urls.regular} key={e.id} />)}
+                </Masonry>
+     </div>
     )
 }
