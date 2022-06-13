@@ -23,7 +23,6 @@ export const DetailImg = () => {
                             <div className="title-box">
                                     Description
                                 </div>
-                            
                              </div>
                         </div>
                     </div>
