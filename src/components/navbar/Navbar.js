@@ -2,7 +2,6 @@ import logo from "../../images/picsmi.png";
 import { InputWithButton } from "../search/Srcbar";
 import avatar from "../../images/avatar.svg";
 import group from "../../images/group.svg";
-import { DettaglioImg } from "../dettaglio-img/DettaglioImg";
 
 
 
@@ -19,10 +18,10 @@ export const Navbar = () => {
                         <InputWithButton className="bar"/>
                     </div>
                     <div className="sign">
-                        <button>
+                        <button className="button-action">
                         <img className="icong" src={avatar} title="Profilo" alt="company logo" />
                         </button>
-                        <button>
+                        <button className="button-action">
                         <img className="icong" src={group} title="Groups" alt="company logo" />
                         </button>
                     </div>

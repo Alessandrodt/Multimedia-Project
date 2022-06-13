@@ -1,6 +1,5 @@
 import React from "react";
-import close from "../../images/close.png";
-import { Badge }  from '@mantine/core';
+
 
 export const DettaglioImg = () => {
 
