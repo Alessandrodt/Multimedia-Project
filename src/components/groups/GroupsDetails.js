@@ -7,14 +7,12 @@ import {
   ScrollArea,
   Button,
   Input,
-  Modal,
 } from "@mantine/core";
+import { Search } from 'tabler-icons-react';
 
 import { useModals } from '@mantine/modals';
 
-import './GroupsDetails.css';
-
-export const Groups = () => {
+export const GroupsDetails = () => {
   const [groups, setGroup] = useState([
     {
       avatar: "pic.png",
@@ -64,7 +62,13 @@ export const Groups = () => {
       name: "Chiara Gobbi",
       email: "testemail@gmail.com",
     },
+    {
+      avatar: "pic.png",
+      name: "Alessio Tizio",
+      email: "testemail@gmail.com",
+    },
   ];
+
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
@@ -97,7 +101,7 @@ export const Groups = () => {
       setGroup(updatedGroup);
     }
   }
-
+  
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
     let filteredGroup = groups.filter((u) => u.name !== user.name);
@@ -123,7 +127,7 @@ export const Groups = () => {
 
 
   const rows = groups.map((user) => (
-    <tr key={user.name}>
+    <tr>
       <td key={user.name}>
         <Group spacing="sm">
           <Avatar size={30} src={user.avatar} radius={30} />
@@ -133,7 +137,7 @@ export const Groups = () => {
           <Text size="sm" weight={500}>
             {user.email}
           </Text>
-          <Button onClick={() => openDeleteModal(user)}> Delete </Button>
+          <Button color="red" onClick={() => openDeleteModal(user)}> Delete </Button>
         </Group>
       </td>
     </tr>
@@ -147,19 +151,22 @@ export const Groups = () => {
             <tr>
             <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
             
-              <th> <Button onClick={()=> setIsReadonly(prevState => !prevState)}> Modify </Button></th>
-              <th> <Button> Delete </Button></th>
+              <Button ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
+               <Button color="red" ml={10}> Delete group </Button>
             </tr>
           </thead>
           <tbody>
             {rows}
             <tr>
               <Text>
+                <div className="search">
                 <Input
-                  placeholder="Add an user"
+                  icon={<Search size={20} />}
+                  placeholder="Search users..."
                   value={searchInput}
                   onChange={handleSearch}
                 />
+                </div>
                 <ul
                   style={
                     searchResult.length === 0
@@ -170,7 +177,7 @@ export const Groups = () => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.name}>  
-                        <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button onClick={() => addUser(user)}> Add </Button>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>
@@ -179,9 +186,6 @@ export const Groups = () => {
           </tbody>
         </Table>
       </ScrollArea>
-      <div>
-        <p> Test for the ScrollArea </p>
-      </div>
     </>
   );
 };
