@@ -30,13 +30,13 @@ const App = () => {
             <Route path='/home' element={<HomePage />} />
             <Route path='/groups' element={<Groups />} />
             <Route path='/groups/details' element={<GroupsDetails />} />
+            <Route path='/users/:userId' element={<Profile/>}/>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
             <Route path='users/:userId/verify/:hash' element={<EmailVerify />} />
             
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
-            <Route path='/users/:userId' element={<Profile/>}/>
             {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
           </Routes>

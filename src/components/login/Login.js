@@ -54,9 +54,9 @@ export const Login = () => {
     .then((response) => {
         const singleUser = JSON.stringify(response.data);
         setUser(user.concat(response.data));
-        console.log(response)
-        sessionStorage.setItem('Auth Token', singleUser.token);
-        sessionStorage.setItem('user', singleUser)
+        sessionStorage.setItem('user', singleUser);
+        // Need a more elegant solution to this Auth Token problem with interceptors.
+        sessionStorage.setItem('Auth Token', JSON.parse(singleUser).token);
         setVisible(false);
         modals.closeModal();
         navigate('/home');
