@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-
-import { InputWithButton } from "../search/Srcbar";
-
 import logo from "../../images/picsmi.png";
+import { InputWithButton } from "../search/Srcbar";
 // import avatar from "../../images/avatar.svg";
 import group from "../../images/group.svg";
+import { Link } from "react-router-dom";
 
-import profileServices from "../../services/profileServices";
 export const Navbar = () => {
-    const {userId} = useParams();
-    const [users, setUsers] = useState([]);
-
-    useEffect (() => {
-      profileServices.getUser(userId).then((response) => {
-        setUsers(response.data);
-      });
-    });
+const user = JSON.parse(sessionStorage.getItem('user'));
 
     return (
         <>
@@ -28,18 +17,13 @@ export const Navbar = () => {
                     <div className="srcnav">
                         <InputWithButton className="bar"/>
                     </div>
-                    {users.map((user) => {
-                        return (
-                            <div>
-                            <Link to={`/users/${user.id}`}>
-                            <button>
-                                <img className="icong" src={user.avatar.id} title="Profilo" alt="company logo" />
-                            </button>
-                            </Link>
-                            </div>
-                        )
-                    })}
+                    <h4>Hello {user.first_name} {user.last_name}!</h4>
                     <div className="sign">
+                        <Link to={`/users/${user.id}`}>
+                            <button>
+                                <img className="icong" src={`http://smear-backend.test//images/avatars/${user.avatar.name}`} title="Profilo" alt="company logo" />
+                            </button>
+                        </Link>
                         <button>
                         <img className="icong" src={group} title="Groups" alt="company logo" />
                         </button>

@@ -1,19 +1,18 @@
-import { useParams } from "react-router-dom";
-
-import { Button, Group } from "@mantine/core";
-
+import { Avatar, Button, Group } from "@mantine/core";
 
 export const Profile = () => {
-    const {userId} = useParams();
+  const user = JSON.parse(sessionStorage.getItem('user'));
 
-    return (
-        <>
-          <h1>{userId}</h1>
-        <Group position="center" mt="md">
-        <Button type="submit">
-          Edit Profile
-        </Button>
+  return (
+      <div>
+        <Avatar src={`http://smear-backend.test//images/avatars/${user.avatar.name}`}/>
+        <h2>{user.fisrt_name} {user.last_name}</h2>
+        <p>{user.email}</p>
+      <Group position="center" mt="md">
+          <Button type="submit">
+            Edit Profile
+          </Button>
       </Group>
-      </>
-    )
+    </div>
+  )
 }

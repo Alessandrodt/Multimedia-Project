@@ -50,10 +50,13 @@ export const Login = () => {
   const getUser = () => {
     setVisible(true);
     authServices
-      .getUser(person)
-      .then((response) => {
+    .getUser(person)
+    .then((response) => {
+        const singleUser = JSON.stringify(response.data);
         setUser(user.concat(response.data));
-        sessionStorage.setItem('Auth Token', response.data.token)
+        console.log(response)
+        sessionStorage.setItem('Auth Token', singleUser.token);
+        sessionStorage.setItem('user', singleUser)
         setVisible(false);
         modals.closeModal();
         navigate('/home');
