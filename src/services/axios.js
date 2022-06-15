@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 // window could be omitted but React throws an error.
-const currentLocation = window.location
+const currentLocation = window.location;
 // Standard axios instance creation
 const axiosInstance = axios.create({
   baseURL: 'http://smear-backend.test/api/v1/login'
@@ -26,9 +26,10 @@ axiosInstance.interceptors.request.use(function (req) {
 // window.location.pathname is suboptimal and should not be used 
 axiosInstance.interceptors.response.use(function (res) {
   if (res.status === 401 && currentLocation.pathname !== '/') {
-    useNavigate()('/');
+    return(
+      <Navigate to="/" />
+    )
   }
-
   return res;
 });
 

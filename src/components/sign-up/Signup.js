@@ -165,26 +165,30 @@ export const SignUp = () => {
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
-        <TextInput
-          required
-          label="Name"
-          placeholder="Mario"
-          {...form.getInputProps("name")}
-          onChange={(event) => {
-            form.setFieldValue("name", event.currentTarget.value);
-            setNewName(event.target.value);
-          }}
-        />
-        <TextInput
-          required
-          label="Surname"
-          placeholder="Rossi"
-          {...form.getInputProps("surname")}
-          onChange={(event) => {
-            form.setFieldValue("surname", event.currentTarget.value);
-            setNewLastName(event.target.value);
-          }}
-        />
+        <div className="wrapper-info">
+          <TextInput
+            className="change-width"
+            required
+            label="Name"
+            placeholder="Mario"
+            {...form.getInputProps("name")}
+            onChange={(event) => {
+              form.setFieldValue("name", event.currentTarget.value);
+              setNewName(event.target.value);
+            }}
+          />
+          <TextInput
+            className="change-width"
+            required
+            label="Surname"
+            placeholder="Rossi"
+            {...form.getInputProps("surname")}
+            onChange={(event) => {
+              form.setFieldValue("surname", event.currentTarget.value);
+              setNewLastName(event.target.value);
+            }}
+          />
+        </div>  
         <TextInput
           required
           label="Email"
