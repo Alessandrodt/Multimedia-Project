@@ -1,9 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export function UploadForm() {
-    return(
-        <div>
-            {console.log("lol")}
-        </div>
-    )
+  return <div>{console.log("lol")}</div>;
 }
