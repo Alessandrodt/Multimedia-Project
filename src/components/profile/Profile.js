@@ -13,7 +13,7 @@ export const Profile = () => {
   }
   return (
     <div className="wrapper-user">
-      <Avatar src={`http://smear-backend.test//images/avatars/${user.avatar.name}`} size="xl"/>
+      <Avatar src={`http://smear-backend.test//images/avatars/${user.avatar.name}`} size={150}/>
       <h2>{user.first_name} {user.last_name}</h2>
       <p>{user.email}</p>
       <div className="wrapper-button">
