@@ -90,7 +90,7 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar src={isAvatarPicked ? `${profilePic.link}` : null} size={150} />
+    <Avatar src={isAvatarPicked ? `${profilePic.link}`: null } size={150} />
   );
 
   const newUser = {

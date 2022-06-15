@@ -9,12 +9,12 @@ $mediaMinWidth: 480px;
 		"screen": "only screen",
 		"print": "only print",
 		"retina": "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 120dpi)",
-        ">maxWidth": "(min-width: #{$mediaMaxWidth + 1})",
+    ">maxWidth": "(min-width: #{$mediaMaxWidth + 1})",
 		"<maxWidth": "(max-width: #{$mediaMaxWidth})",
 		">bp1Width": "(min-width: #{$mediaBp1Width + 1})",
 		"<bp1Width": "(max-width: #{$mediaBp1Width})",
-        ">bp2Width": "(min-width: #{$mediaBp2Width})",
-        "<bp2Width": "(max-width: #{$mediaBp2Width + 1})",
+    ">bp2Width": "(min-width: #{$mediaBp2Width})",
+    "<bp2Width": "(max-width: #{$mediaBp2Width + 1})",
 		">minWidth": "(min-width: #{$mediaMinWidth})",
 		"<minWidth": "(max-width: #{$mediaMinWidth})"
 	);
