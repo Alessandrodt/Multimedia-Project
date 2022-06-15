@@ -12,3 +12,12 @@
     margin: 10px;
     width: calc(100% / 3);
 }
+
+.wrapper-info {
+    display: flex;
+    justify-content: space-between;
+
+    .change-width {
+        width: 40%;
+    }
+}
