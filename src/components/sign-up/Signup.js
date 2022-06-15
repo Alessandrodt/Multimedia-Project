@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 import { LoadingOverlay } from "@mantine/core";
+import user from '../../images/user.svg';
 
 import {
   Avatar,
@@ -90,7 +91,7 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar src={isAvatarPicked ? `${profilePic.link}`: null } size={150} />
+    <Avatar src={isAvatarPicked ? `${profilePic.link}`: user } size={150} />
   );
 
   const newUser = {

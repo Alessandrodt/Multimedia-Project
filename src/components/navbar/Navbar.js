@@ -1,10 +1,12 @@
-import logo from "../../images/picsmi.png";
 import { InputWithButton } from "../search/Srcbar";
-import group from "../../images/group.svg";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+import group from "../../images/group.svg";
+import logo from "../../images/picsmi.png";
+import defaultAvatar from '../../images/user.svg';
 
+export const Navbar = () => {
+    
 const user = JSON.parse(sessionStorage.getItem('user'));
 
     return (
@@ -21,7 +23,7 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                     <div className="sign">
                         <Link to={`/users/${user.id}`}>
                             <button>
-                                <img className="icong" src={`http://smear-backend.test//images/avatars/${user.avatar.name}`} title="Profilo" alt="company logo" />
+                                <img className="icong"  src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
                             </button>
                         </Link>
                         <button>
