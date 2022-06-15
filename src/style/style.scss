@@ -8,6 +8,7 @@
 
 
 // import all component scss style
+@import "../components/folders/Folders.scss";
 @import "../components/landing-page/LandingPage.scss";
 @import "../components/groups/GroupsDetails.scss";
 @import "../components/groups/Groups.scss";
@@ -16,4 +17,3 @@
 @import "../components/search/Srcbar.scss";
 @import "../components/sign-up/Signup.scss";
 @import "../components/verify-user/VerifyUser.scss";
-

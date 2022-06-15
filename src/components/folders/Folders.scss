@@ -1,0 +1,22 @@
+.wrapper-folders {
+    padding: $s-3;
+
+    .folder {
+        display: flex;
+        flex-wrap: wrap;
+        width: $w-100;
+
+        span {
+            background: rgba($color: #000000, $alpha: .1);
+            border: .2rem dashed gray;
+            border-radius: $s-2;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 $s-2 $s-2 0;
+    
+            img {
+                padding: ($s-2) + 1;
+            }
+        }
+    }
+}

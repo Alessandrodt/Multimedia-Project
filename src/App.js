@@ -7,6 +7,11 @@ import { SignUp } from "./components/sign-up/Signup";
 import { HomePage } from "./components/home-page/HomePage";
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
+
+//try folder component
+import { Folders } from "./components/folders/Folders";
+// --
+
 //import style scss
 import './App.scss';
 
@@ -31,6 +36,9 @@ const App = () => {
             <Route path='/groups/details' element={<GroupsDetails />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
+            {/* try component folder */}
+            <Route path='/folder' element={<Folders />} />
+            {/* --end-- */}
             <Route path='users/:userId/verify/:hash' element={<EmailVerify />} />
             
             {/* These routes are guarded */}
