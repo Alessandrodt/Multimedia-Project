@@ -29,8 +29,8 @@ const App = () => {
           <Routes>
             {/* These routes are not guarded */}
             <Route path='/home' element={<HomePage />} />
-            <Route path='/groups' element={<Groups />} />
-            <Route path='/groups/details' element={<GroupsDetails />} />
+            <Route path='/users/:userId/groups' element={<Groups />} />
+            <Route path='/users/:userId/groups/details' element={<GroupsDetails />} />
             <Route path='/users/:userId' element={<Profile/>}/>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/' element={<LandingPage />} />
