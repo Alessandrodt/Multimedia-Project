@@ -1,6 +1,7 @@
 import React from "react";
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
+import { Folders } from "./components/folders/Folders";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails"; 
 import { HomePage } from "./components/home-page/HomePage";
@@ -29,6 +30,7 @@ const App = () => {
           <Routes>
             {/* These routes are not guarded */}
             <Route path='/home' element={<HomePage />} />
+            <Route path='users/:userId/folders' element={<Folders/>}/>
             <Route path='/groups' element={<Groups />} />
             <Route path='/groups/details' element={<GroupsDetails />} />
             <Route path='/users/:userId' element={<Profile/>}/>
