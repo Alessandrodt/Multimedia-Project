@@ -204,10 +204,6 @@ article.memories {
     }
 }
 
-section.wrapper-memories {
-    width: $w-100;
-}
-
 section.wrapper-review {
     width: $w-100;
 }
@@ -270,8 +266,12 @@ section.wrapper-review {
 
 }
 
+.wrapper-info {
+    display: flex;
+}
+
 .wrapper-footer {
-    bottom: 150px;
+    bottom: 50px;
     display: flex;
     left: 50%;
     position: fixed;
@@ -279,16 +279,30 @@ section.wrapper-review {
     width: 1024px;
     justify-content: space-evenly;
 
-    .about {
+    .wrapper-about {
         border-right: 1px solid $_white;
+        margin-left: $s-3;
         padding: $s-2;
-    
+        width: calc(100% / 3);
+        
         p {
+            font-size: .9rem;
             margin-top: $s-3;
+            padding: $s-2;
         }
 
         &:last-child {
             border: none;
+        }
+
+        svg {
+            fill: $_white;
+            width: 20px;
+        }
+
+        .about-info {
+            align-items: baseline;
+            display: flex;
         }
     }
 

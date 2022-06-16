@@ -33,11 +33,12 @@ input {
     height: 30px;
     border-radius: 30px;
 }
-
-p {
-  display: flex;
-  align-items: center;
-  padding-top: 1%;
+tbody {
+  p {
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+  }
 }
 
 .search {
