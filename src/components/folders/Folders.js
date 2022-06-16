@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Box, Button, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
@@ -10,7 +10,10 @@ import { Navbar } from "./navbar-folders/Navbar-folders"
 
 import foldersServices from "../../services/foldersServices";
 
+import folderEmpty from "../../images/folder_icon_empty.png"
 import addFolderImage from "../../images/addFolder.svg"
+
+import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
   const modals = useModals();
@@ -19,16 +22,45 @@ export const Folders = () => {
   const [folders, setFolders] = useState([]);
   const [folder, setFolder] = useState('');
 
+  const [color, setColor] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+      foldersServices.getFolder(userId).then((response) => {
+        setFolders(response.data);
+      })
+  },[userId]);
+
   const newFolder = {
     name: folder
+  };
+
+  const errorStyle = {
+    color: color,
+    background: "lightgrey",
+    fontSize: "20px",
+    borderStyle: "solid",
+    borderRadius: "5px",
+    padding: "10px",
+    marginBottom: "10px",
+  };
+
+  const handleMessage = (color, message) => {
+    setColor(color);
+    setErrorMessage(message);
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 5000);
   };
 
   const addFolder = () => {
     foldersServices.createFolder(userId, newFolder).then((response) => {
       setFolders(folders.concat(response.data));
     }).catch((error) => {
-      console.log(error);
-    })
+      if (error.response.status === 422) {
+        handleMessage(`'red', a folder ${newFolder.name} already exists `)
+      }
+    });
   };
 
   const form = useForm({
@@ -68,6 +100,17 @@ export const Folders = () => {
       <button onClick={openContentModal}>
           <img src={addFolderImage} alt=''></img>
       </button>
+      <div className="wrapper-slider">
+      <ErrorMessage message={errorMessage} style={errorStyle} />
+      {folders.map((folder) => {
+        return (
+          <div className="slider" key={folder.id}>
+            <img src={folderEmpty} alt='' />
+            <p>{folder.name}</p>
+          </div>
+        )
+      })}
+      </div>
     </>
   );
 };
