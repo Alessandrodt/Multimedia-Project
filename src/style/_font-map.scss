@@ -5,3 +5,29 @@ $f-2: $base-font * 1.05;
 $f-3: $base-font * 1.75;
 $f-4: $base-font * 2;
 $f-5: $base-font * 2.5;
+
+
+$font-size: (
+    "h1": 26px,
+    "h2": 24px,
+    "h3": 22px,
+    "h4": 20px,
+    "h5": 18px,
+    "h6": 16px,
+);
+
+@each $key, $val in $font-size {
+    #{$key} {
+        font-size: $val
+    }
+}
+
+
+
+// $font-size: (24px, 22px, 20px, 18px);
+
+// @for $i from 1 through 4 {
+//     h#{$i} {
+//         font-size: nth($font-size, $i)
+//     }
+// }
