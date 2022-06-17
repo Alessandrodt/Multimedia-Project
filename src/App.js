@@ -1,4 +1,3 @@
-import React, { Suspense } from "react";
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { Groups } from "./components/groups/Groups";
@@ -23,6 +22,7 @@ import { MantineProvider } from "@mantine/styles";
 
 
 const App = () => {
+  
   return (
     <MantineProvider theme={{ loader: 'bars' }}>
       <Router>

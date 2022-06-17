@@ -10,6 +10,7 @@ export const NavbarLanding = () => {
 
   const openContentModal = () => {
     modals.openModal({
+      centered: true,
       children: <Login />,
     });
   };

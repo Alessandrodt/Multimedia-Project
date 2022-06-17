@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
-import { LoadingOverlay } from "@mantine/core";
+
+import avatarServices from "../../services/avatarServices";
+import authServices from "../../services/authServices";
+
+import { ErrorMessage } from "../error-message/ErrorMessage";
+
+import defaultAvatar from "../../images/user.svg";
 
 import {
   Avatar,
@@ -9,13 +16,10 @@ import {
   Button,
   Checkbox,
   Group,
+  LoadingOverlay,
   PasswordInput,
   TextInput,
 } from "@mantine/core";
-
-import avatarServices from "../../services/avatarServices";
-import authServices from "../../services/authServices";
-import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const SignUp = () => {
   const [avatars, setAvatar] = useState([]);
@@ -90,7 +94,7 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar src={isAvatarPicked ? `${profilePic.link}` : null} size={150} />
+    <Avatar src={isAvatarPicked ? `${profilePic.link}`: defaultAvatar } size={150} />
   );
 
   const newUser = {

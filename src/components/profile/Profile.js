@@ -1,5 +1,7 @@
-import { Avatar, Button, Group } from "@mantine/core";
+import { Avatar } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+
+import defaultAvatar from '../../images/user.svg';
 
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem('user'));
@@ -11,19 +13,20 @@ export const Profile = () => {
     sessionStorage.clear();
     navigate('/')  
   }
+  
   return (
-      <div>
-        <Avatar src={`http://smear-backend.test//images/avatars/${user.avatar.name}`}/>
-        <h2>{user.first_name} {user.last_name}</h2>
-        <p>{user.email}</p>
-      <Group position="center" mt="md">
-          <Button type="submit">
-            Edit Profile
-          </Button>
-          <Button onClick={() => logOut()} color="red">
-            Log out
-          </Button>
-      </Group>
+    <div className="wrapper-user">
+      <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
+      <h2>{user.first_name} {user.last_name}</h2>
+      <p>{user.email}</p>
+      <div className="wrapper-button">
+        <button type="submit" className="primary">
+          <span>Edit Profile</span>
+        </button>
+        <button onClick={() => logOut()} className="delete">
+          <span>Log Out</span>
+        </button>
+      </div>
     </div>
   )
 }
