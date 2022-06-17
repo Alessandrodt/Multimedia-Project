@@ -20,7 +20,6 @@ export const Folders = () => {
   const {userId} = useParams();
 
   const [folders, setFolders] = useState([]);
-  const [folder, setFolder] = useState('');
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -30,10 +29,6 @@ export const Folders = () => {
         setFolders(response.data);
       })
   },[userId]);
-
-  const newFolder = {
-    name: folder
-  };
 
   const errorStyle = {
     color: color,
@@ -53,12 +48,12 @@ export const Folders = () => {
     }, 5000);
   };
 
-  const addFolder = () => {
-    foldersServices.createFolder(userId, newFolder).then((response) => {
+  const addFolder = (values) => {
+    foldersServices.createFolder(userId, values).then((response) => {
       setFolders(folders.concat(response.data));
     }).catch((error) => {
       if (error.response.status === 422) {
-        handleMessage(`'red', a folder ${newFolder.name} already exists `)
+        handleMessage(`'red', a folder ${values.name} already exists `)
       }
     });
   };
@@ -76,16 +71,18 @@ export const Folders = () => {
   const openContentModal = () => {
       modals.openModal({
         title: "Choose your folder's name:",
+        centered: true,
         children: (
           <Box>
-            <form onSubmit={form.onSubmit(() => addFolder())}>
+            <form onSubmit={form.onSubmit((values) => addFolder(values))}>
               <TextInput 
                 required
+                data-autofocus
                 placeholder="name folder"
                 onChange={(event) => {
                   form.setFieldValue("name", event.currentTarget.value);
-                  setFolder(event.target.value)}} />
-              <Button fullWidth onClick={() => modals.closeModal()} type="submit">
+                  }} />
+              <Button fullWidth onClick={() => modals.closeModal()}  type="submit">
                 Create
               </Button>
             </form>
@@ -93,24 +90,24 @@ export const Folders = () => {
         ),
       });
     };    
-
+    
   return (
-    <>
+    <div>
       <Navbar/>
+      <ErrorMessage message={errorMessage} style={errorStyle} />
       <button onClick={openContentModal}>
-          <img src={addFolderImage} alt=''></img>
+        <img src={addFolderImage} alt=''></img>
       </button>
       <div className="wrapper-slider">
-      <ErrorMessage message={errorMessage} style={errorStyle} />
       {folders.map((folder) => {
         return (
-          <div className="slider" key={folder.id}>
-            <img src={folderEmpty} alt='' />
-            <p>{folder.name}</p>
-          </div>
+        <div className="slider" key={folder.id}>
+          <img src={folderEmpty} alt='' />
+          <p>{folder.name}</p>
+        </div>
         )
       })}
       </div>
-    </>
+    </div>
   );
 };

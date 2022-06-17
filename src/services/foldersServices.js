@@ -5,7 +5,7 @@ const createFolder = (id, newFolder) => {
 };
 
 const getFolder = (id) => {
-    return axios.get(`http://smear-backend.test/api/v1/users/${id}/folders`);
+    return axios.get(`http://smear-backend.test/api/v1/users/${id}/folders?filter[folder_id]=null`);
 }
 const foldersServices = { createFolder, getFolder };
 export default foldersServices;
