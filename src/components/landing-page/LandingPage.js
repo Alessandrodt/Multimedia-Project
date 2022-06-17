@@ -1,32 +1,8 @@
 import device from "../../images/device.png";
 import homepage from "../../video/homepage.mp4";
 import { NavbarLanding } from "./navbar-landing-page/Navbar-landing";
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
 
 export const LandingPage = () => {
-  i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    // the translations
-    // (tip move them in a JSON file and import them,
-    // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
-    resources: {
-      en: {
-        translation: {
-          "Welcome to React": "Welcome to React and react-i18next"
-        }
-      }
-    },
-    lng: "en", // if you're using a language detector, do not define the lng option
-    fallbackLng: "en",
-
-    interpolation: {
-      escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
-    }
-  });
-  const { t } = useTranslation();
-
   return (
     <>
       {/* navbar */}
@@ -36,7 +12,6 @@ export const LandingPage = () => {
         <section className="wrapper-review">
           <article className="review">
             <h1>Costruisci il tuo album online.</h1>
-            <h2>{t('Welcome to React')}</h2>;
             <div className="wrapper-text">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
