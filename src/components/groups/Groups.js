@@ -17,20 +17,18 @@ export const Groups = () => {
     : <h2> It seems you have no groups... why don't you create one? </h2>
 
     // useEffect hook, on page load all the grups created by the user are retrieved from the server.
-    // useEffect(() => {
-    //     groupsServices
-    //     .getUserGroups(user.id)
-    //     .then(groups => {
-    //         console.log('Groups Loaded');
-    //         setGroups(groups);
-    //         console.log(setGroups(groups))
-    //     })
-    //     .catch(err => {
-    //         if (err.response.status === 401) {
-    //             console.log('You appear to not be logged in. Please refresh the page and authenticate yourself.');
-    //         };
-    //     });
-    // }, []);
+    useEffect(() => {
+        groupsServices.getUserGroups(user.id)
+        .then(groups => {
+            console.log('Groups Loaded');
+            setGroups(groups.data);
+        })
+        .catch(err => {
+            if (err.response.status === 401) {
+                console.log('You appear to not be logged in. Please refresh the page and authenticate yourself.');
+            };
+        });
+    });
 
     // groupName handler.
     const handleChange = (event) => {
@@ -64,9 +62,7 @@ export const Groups = () => {
     
     // Function responsible for adding a group.
     const createGroup = () => {
-        console.log(groupName)
-        groupsServices
-        .createGroup(user.id, newGroup)
+        groupsServices.createGroup(user.id, newGroup)
         .then(res => {
             setGroups(groups.concat(res.data))
             console.log('Group was created')
