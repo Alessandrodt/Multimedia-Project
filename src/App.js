@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { Groups } from "./components/groups/Groups";
@@ -20,6 +20,7 @@ import {
 
 import { ModalsProvider } from '@mantine/modals';
 import { MantineProvider } from "@mantine/styles";
+
 
 const App = () => {
   return (

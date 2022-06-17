@@ -24,16 +24,12 @@ export const DetailImg = () => {
                             </div>
                             </div>
                     </div>
+                    <div className="external-button-box">
+                            <button className="button-action">Delete</button>
+                    </div>
                 </div>
             </div>
-            <div className="external-button-box">
-                        <div className="button-box-sx">
-                            <button className="button-action">Modify</button>
-                        </div>  
-                        <div className="button-box">
-                            <button className="button-action">Delete</button>
-                        </div>
-                    </div>
+          
         </>
 
     )
