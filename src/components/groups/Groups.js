@@ -6,6 +6,9 @@ import groupsServices from "../../services/groupsServices";
 // Mantine imports
 import { Button, TextInput } from '@mantine/core';
 
+// Components imports
+import { GroupContainer } from "./GroupContainer";
+
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const [groups, setGroups] = useState([]);
@@ -28,12 +31,11 @@ export const Groups = () => {
                 console.log('You appear to not be logged in. Please refresh the page and authenticate yourself.');
             };
         });
-    });
+    }, [user.id]);
 
     // groupName handler.
     const handleChange = (event) => {
         setGroupName(event.target.value);
-        console.log(groupName);
     }
 
     // Function to open the Create Group modal.
@@ -44,12 +46,12 @@ export const Groups = () => {
         }
         }>
         <TextInput 
+            defaultValue={groupName}
             label='Choose a title!'
-            placeholder='Your title here'
-            required
             name='groupName'
             onChange={handleChange}
-            defaultValue={groupName}
+            placeholder='Your title here'
+            required
         />
         <Button fullWidth type="submit"> Create Group </Button>
     </form>
@@ -77,21 +79,25 @@ export const Groups = () => {
         })
     }
 
+    const deleteGroup = () => {
+        alert('This function is not ready yet! Sorry!')
+    }
+
+    const openGroup = () => {
+        alert('This function is not ready yet! Sorry!')
+    }
+
     return (
         <>
          <h1> GROUPS </h1>
          {initialMessage}
          {groupForm}
             {/* A map to create a list item for each group name */}
-            <ul>
+            <>
                 {groups.map(group =>
-                    <>
-                        <li key={group.name}> {group.name} </li>
-                        <Button key={group.id} onClick={() => alert(`This should delete ${group.name} but backend isn't ready yet`)}> Delete </Button>
-                    </>
+                    <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} openGroup={() => openGroup()} />
                 )}
-            </ul>
+            </>
         </>
     )
 };
-
