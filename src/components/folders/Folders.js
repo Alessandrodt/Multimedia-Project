@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import { LoadingOverlay } from "@mantine/core";
 import { useModals } from '@mantine/modals';
 
 import { Navbar } from "./navbar-folders/Navbar-folders"
@@ -10,14 +11,17 @@ import foldersServices from "../../services/foldersServices";
 import folderEmpty from "../../images/folder_icon_empty.png";
 import addFolderImage from "../../images/addFolder.svg"
 
-import { ErrorMessage } from "../error-message/ErrorMessage";
 import AddFolderForm from "../add-folder-form/AddFolderForm";
+import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
+  const user = JSON.parse(sessionStorage.getItem('user'));
+
   const modal = useModals();
-  const { userId } = useParams();
+  const { userId, folderId } = useParams();
 
   const [folders, setFolders] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,12 +33,15 @@ export const Folders = () => {
   }, [userId]);
 
   const addFolder = (userId, values) => {
-    foldersServices.createFolder(userId, values).then((response) => {
+    setVisible(true);
+    foldersServices.createFolder(userId, folderId, values).then((response) => {
       setFolders(folders.concat(response.data));
+      setVisible(false);
     }).catch((error) => {
       if (error.response.status === 422) {
         handleMessage('red', `the folder ${values.name} already exists`)
       }
+      setVisible(false);
     });
   };
 
@@ -71,6 +78,7 @@ export const Folders = () => {
     <div>
       <Navbar />
       <div>
+      <LoadingOverlay visible={visible} />
       <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
       <button onClick={openContentModal}>
@@ -79,10 +87,14 @@ export const Folders = () => {
       <div className="wrapper-slider">
         {folders.map((folder) => {
           return (
-            <div className="slider" key={folder.id}>
+            <Link to={`/users/${user.id}/folders/1`}>
+              <button>
+              <div className="slider" key={folder.id}>
                 <img src={folderEmpty} alt='' />
               <p>{folder.name}</p>
-            </div>
+              </div>
+              </button>
+            </Link>
           )
         })}
       </div>

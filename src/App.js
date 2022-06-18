@@ -30,6 +30,7 @@ const App = () => {
           <Routes>
             {/* These routes are not guarded */}
             <Route path='/home' element={<HomePage />} />
+            <Route path='/users/:userId/folders/:folderId' element={<Folders/>}/>
             <Route path='users/:userId/folders' element={<Folders/>}/>
             <Route path='/groups' element={<Groups />} />
             <Route path='/groups/details' element={<GroupsDetails />} />

@@ -1,12 +1,25 @@
 import axios from "./axios";
 
-const createFolder = (id, newFolder) => {
-    return axios.post(`http://smear-backend.test/api/v1/users/${id}/folders`, newFolder);
+const createFolder = (userId, folderId, newFolder) => {
+    let url = `http://smear-backend.test/api/v1/users/${userId}/folders`;
+
+    if (folderId) {
+        url.concat(folderId);
+    }
+
+    return axios.post(url, newFolder);
 };
 
-const getFolder = (id) => {
-    return axios.get
-    (`http://smear-backend.test/api/v1/users/${id}/folders?filter[folder_id]=null&include=folders`);
-}
+const getFolder = (userId, folderId) => {
+    let url = `http://smear-backend.test/api/v1/users/${userId}/folders/${folderId}?include=folders`;
+
+    if (folderId) {
+        url.concat(folderId);
+    }
+    
+    return axios.get(url);
+};
+
 const foldersServices = { createFolder, getFolder };
+
 export default foldersServices;
