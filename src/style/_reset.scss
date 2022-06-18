@@ -21,3 +21,19 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+
+$font-size: (
+    "h1": 26px,
+    "h2": 24px,
+    "h3": 22px,
+    "h4": 20px,
+    "h5": 18px,
+    "h6": 16px,
+);
+
+@each $key, $val in $font-size {
+    #{$key} {
+        font-size: $val
+    }
+}

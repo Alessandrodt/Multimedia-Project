@@ -12,7 +12,7 @@ nav {
         display: flex;
         margin: $m-auto;
         padding: $s-2;
-        width: $w_90;
+        width: $w-90;
     
         @mixin width {
             width: $w-50;
@@ -26,25 +26,31 @@ nav {
                 width: ($w-6) * 2;
             }
         }
-    
+        
+        //button signUp
         .signUp {
+            cursor: pointer;
             @include width;
             text-align: end;
     
             span {
                 background: $_primary;
                 border-radius: 2rem;
+                box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
                 color: $_white;
                 padding: $s-2 $s-3;
             }
         }
     }
-} 
+}
 
+%width {
+    width: $w-100;
+}
 
 section.wrapper-review {
     background: $_bg;
-    width: $w-100;
+    @extend %width;
 }
 
 article.review {
@@ -123,7 +129,7 @@ article.review {
 }
 
 section.wrapper-memories {
-    width: $w-100;
+    @extend %width;
     padding-bottom: 20px;
 }
 
@@ -204,7 +210,7 @@ article.memories {
 }
 
 section.wrapper-review {
-    width: $w-100;
+    @extend %width;
 }
 
 .wireframe {

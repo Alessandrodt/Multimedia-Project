@@ -17,10 +17,10 @@ export const Navbar = () => {
                     </div>
                     <div className="sign">
                         <button>
-                        <img className="icong" src={avatar} title="Profilo" alt="company logo" />
+                            <img className="icong" src={avatar} title="Profilo" alt="company logo" />
                         </button>
                         <button>
-                        <img className="icong" src={group} title="Groups" alt="company logo" />
+                            <img className="icong" src={group} title="Groups" alt="company logo" />
                         </button>
                     </div>
                 </div>

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import { useModals } from "@mantine/modals";
+import { Login } from "../../components/login/Login";
 //import landingPageServices from "../../services/landingPageServices";
 
 
@@ -15,12 +18,14 @@ import search from "../../video/Search.mp4";
 
 
 export const LandingPage = () => {
-    
-    const [ gallery, setGallery ] = useState([]);
 
-    useEffect(() => {
-        //
-    })
+    const modals = useModals();
+    
+    const openContentModal = () => {
+    modals.openModal({
+      children: <Login />,
+    });
+    };
 
     return (
         <>
@@ -31,7 +36,7 @@ export const LandingPage = () => {
                         <img src={logo} title="logo smi" alt="company logo" />
                     </div>
                     <div className="signUp">
-                        <span>
+                        <span onClick={openContentModal} className="avatar">
                             Login
                         </span>
                     </div>
@@ -79,7 +84,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="video-remember">
                             <div className="shadow">
-                                <video muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video title="homepage" muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={homepage} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -89,7 +94,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="video-remember">
                             <div className="shadow">
-                                <video muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video title="searchbar" muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={search} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -115,7 +120,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="video-remember">
                             <div className="shadow">
-                                <video muted autoPlay={"autoplay"} preload="auto" loop>
+                                <video title="your group" muted autoPlay={"autoplay"} preload="auto" loop>
                                     <source src={group} type="video/mp4"></source>
                                 </video>
                             </div>
