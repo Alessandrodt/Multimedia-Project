@@ -93,7 +93,7 @@ export const Groups = () => {
         const existingGroup = groups.find(g => g.name === groupName);
 
         if (existingGroup) {
-            handleMessage('yellow', `A group with that name already exists!`)
+            handleMessage('yellow', `A group named ${groupName} already exists!`)
         } else {
             groupsServices.createGroup(user.id, newGroup)
             .then(res => {
