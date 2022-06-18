@@ -50,10 +50,13 @@ export const Login = () => {
   const getUser = () => {
     setVisible(true);
     authServices
-      .getUser(person)
-      .then((response) => {
+    .getUser(person)
+    .then((response) => {
+        const singleUser = JSON.stringify(response.data);
         setUser(user.concat(response.data));
-        sessionStorage.setItem('Auth Token', response.data.token)
+        sessionStorage.setItem('user', singleUser);
+        // Need a more elegant solution to this Auth Token problem with interceptors.
+        sessionStorage.setItem('Auth Token', JSON.parse(singleUser).token);
         setVisible(false);
         modals.closeModal();
         navigate('/home');

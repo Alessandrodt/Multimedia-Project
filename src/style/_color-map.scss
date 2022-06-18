@@ -4,17 +4,18 @@ $_bg:        #F3F3F3 !default;
 $_blue:      #00D1E0 !default;
 $_dark-blue: #008993 !default;
 $_input:     #b3bcc3 !default;
+$_red:       #ff0000 !default;
 $_white:     #ffffff !default;
 
 // scss-docs-start colors-map
 $colors: (
-  "black":       $_black,
-  "blue":        $_blue,
-  "bg":          $_bg,
-  "dark-blue":   $_dark-blue,
-  "hover":       $_dark-blue,
-  "input":       $_input,
-  "white":       $_white,
+  "_black":       $_black,
+  "_blue":        $_blue,
+  "_bg":          $_bg,
+  "_dark-blue":   $_dark-blue,
+  "_hover":       $_dark-blue,
+  "_delete":      $_red,
+  "_white":       $_white,
 ) !default;
 
 
@@ -22,3 +23,4 @@ $colors: (
 $_dark:         $_dark-blue;
 $_hover:        $_dark-blue;
 $_primary:      $_blue;
+$_delete:       $_red;

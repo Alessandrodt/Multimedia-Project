@@ -8,6 +8,7 @@ export const Navbar = () => {
 
   const openContentModal = () => {
     modals.openModal({
+      centered: true,
       children: <Login />,
     });
   };
