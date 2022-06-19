@@ -1,8 +1,50 @@
 import device from "../../images/device.png";
 import homepage from "../../video/homepage.mp4";
 import { NavbarLanding } from "./navbar-landing-page/Navbar-landing";
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
+import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpApi from 'i18next-http-backend';
+import i18next from 'i18next'
+import cookies from 'js-cookie'
+import { useEffect } from "react";
+
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector)
+  .use(HttpApi)
+  .init({
+
+    fallbackLng: "en",
+    detection: {
+      order: ['cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
+      caches:['cookie'],
+    },
+
+    backend: {
+      loadPath: 'assets/locales/{{lng}}/translation.json',
+    },
+    react: { useSuspense: false },
+  });
 
 export const LandingPage = () => {
+  const { t } = useTranslation();
+
+  const languages = [
+    {
+      code:'fr',
+      name:'français',
+      country_code:'fr',
+
+  },
+  {
+    code:'en',
+    name:'english',
+    country_code:'gb',
+
+}
+]
+
   return (
     <>
       {/* navbar */}
@@ -12,6 +54,16 @@ export const LandingPage = () => {
         <section className="wrapper-review">
           <article className="review">
             <h1>Costruisci il tuo album online.</h1>
+            <h2>{t("welcome_message")}</h2>;
+            <h2>{t("country")}</h2>;
+            {languages.map(({code, name, country_code})=>
+             <button onClick={()=> i18next.changeLanguage(code)}>cambia</button>
+            )}
+           
+            <div>
+
+            </div>
+
             <div className="wrapper-text">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

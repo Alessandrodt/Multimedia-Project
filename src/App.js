@@ -21,7 +21,9 @@ import {
 import { ModalsProvider } from '@mantine/modals';
 import { MantineProvider } from "@mantine/styles";
 
+
 const App = () => {
+
   return (
     <MantineProvider theme={{ loader: 'bars' }}>
       <Router>
