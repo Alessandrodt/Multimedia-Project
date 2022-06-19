@@ -1,6 +1,6 @@
 import axios from "./axios";
 
-const avatarUrl = "http://smear-backend.test/api/v1/avatars";
+const avatarUrl = "https://smi-laravel.fly.dev/api/v1/avatars";
 
 const getAvatar = () => {
   return axios.get(avatarUrl);
