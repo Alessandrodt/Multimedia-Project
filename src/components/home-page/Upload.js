@@ -42,7 +42,6 @@ export function Upload() {
       >
         upload
       </Button>
-      <Button onClick={() => console.log(selectedTags)}>tags</Button>
     </div>
   );
 }

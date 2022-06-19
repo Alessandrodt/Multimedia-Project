@@ -17,7 +17,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
-import { Upload } from "./components/home-page/Upload";
 
 const App = () => {
   return (
