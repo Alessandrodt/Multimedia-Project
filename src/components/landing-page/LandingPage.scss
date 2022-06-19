@@ -55,9 +55,9 @@ section.wrapper-review {
 
 article.review {
     display: grid;
-    margin: 80px auto;
+    margin: 86px auto;
     grid-template-columns: 8% 20% 10% 10% 42% auto;
-    grid-template-rows: 110px 185px 429px auto;
+    grid-template-rows: 110px 89px 429px 100px;
     width: 1024px;
 
     h1 {
@@ -67,7 +67,7 @@ article.review {
     }
 
     .wrapper-text {
-        grid-column: 2/5;
+        grid-column: 2/6;
         grid-row: 2;
 
         @include media( "screen", ">minWidth", "<bp2Width") {
@@ -232,6 +232,16 @@ section.wrapper-review {
 
         .text-signUp {
             width: 50%;
+
+            p {
+                font-size: $f-1;
+            }
+
+            @include media( "screen", ">minWidth", "<bp2Width", ) {
+                margin: $m-auto;
+                text-align: center;
+                margin-bottom: $s-3;
+            }
         }
     
         .sign-up {
@@ -240,13 +250,21 @@ section.wrapper-review {
             margin: $m-auto;
             padding: $s-2;
             width: 50%;
+
+            @include media( "screen", ">minWidth", "<bp2Width", ) {
+                width: $w-70;
+            }
+
         }
 
         //responsive
         @include media( "screen", ">minWidth", "<maxWidth", ){
-            width: 100%;
+            width: 90%;
         }
-        
+
+        @include media( "screen", ">minWidth", "<bp2Width", ) {
+            display: block;
+        }
     }
 }
 

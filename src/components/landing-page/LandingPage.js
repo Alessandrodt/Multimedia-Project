@@ -54,9 +54,10 @@ export const LandingPage = () => {
                         </h1>
                         <div className="wrapper-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Attraverso quest'App potrai salvare le tue immagini preferite nei nostri server.<br />
+                                Ricercarle più facilemte tamite i tag da te inseriti.<br />
+                                Condividerle con i tuoi amici. <br />
+
                             </p>
                         </div>
                         <div className="image">
@@ -82,7 +83,8 @@ export const LandingPage = () => {
                                 Relive your emotions.
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 
+                                Emozionati rivedendo tue immagini direttamente nella tua Homepage.
+                                Dalla più recente alla più vecchia.
                             </p>
                         </div>
                         <div className="video-remember">
@@ -107,7 +109,7 @@ export const LandingPage = () => {
                                 Search by tag.
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 
+                                Cerca le tue immagini in modo semplice tramite i tag a cui hai assegnato in precedenza.
                             </p>
                         </div>
                     </article>
@@ -118,7 +120,7 @@ export const LandingPage = () => {
                                 Share them with all of yours groups.
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 
+                                Crea gruppi con i tuoi amici e condivi con loro tutte le immagini che vuoi della vostra vacanza.
                             </p>
                         </div>
                         <div className="video-remember">
@@ -138,7 +140,11 @@ export const LandingPage = () => {
                 <article className="wrapper-signUp" id="signUp">
                     <div className="signUp">
                         <div className="text-signUp">
-                            <p>hello</p>
+                        <p>
+                            Welcome to PicSmi <br />
+                            Sign Up to start your <br />
+                            experience.
+                        </p>
                         </div>
                         <div className="sign-up">
                             <SignUp/>
