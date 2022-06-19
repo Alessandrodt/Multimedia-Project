@@ -6,10 +6,6 @@ export function Tags({ tagToUpload, uploadedTags, delfunc }) {
   const [tagNotUploaded, setTagToUpload] = useState([]);
   const [allTags, setAllTags] = useState([]);
 
-  // useEffect(() => {
-  //   tagToUpload(tag);
-  // });
-
   return (
     <div>
       <input
@@ -24,7 +20,7 @@ export function Tags({ tagToUpload, uploadedTags, delfunc }) {
         onClick={() =>
           imagesServices.uploadTag(tagNotUploaded).then((result) => {
             console.log(result);
-            setAllTags([result]);
+            setAllTags(allTags.concat([result]));
           })
         }
         text={"create tag"}
