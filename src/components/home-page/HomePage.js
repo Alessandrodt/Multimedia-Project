@@ -14,10 +14,11 @@ export const HomePage = () => {
 
   const openContentModal = () => {
     modals.openModal({
-      size: "70%",
-      overflow: "inside",
       centered: true,
+      closeOnClickOutside: false,
       children: <Upload />,
+      overflow: "inside",
+      size: "70%",
     });
   };
 
