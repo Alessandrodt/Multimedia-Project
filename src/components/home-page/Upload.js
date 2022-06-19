@@ -11,7 +11,7 @@ import imagesServices from "../../services/imagesServices";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
-  const [tagToUpload, setNewTagToUpload] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
   const [uploadedTags, setUploadedTags] = useState([]);
 
   const delTag = (id, tag) => {
@@ -25,8 +25,8 @@ export function Upload() {
     <div>
       <UploadPreview imagesToUpload={setNewImageUpload} />
       <Tags
-        tagsToUpload={setNewTagToUpload}
-        uploadedTags={uploadedTags}
+        setSelectedTags={setSelectedTags}
+        selectedTags={selectedTags}
         delfunc={delTag}
       />
       <Button
@@ -39,6 +39,7 @@ export function Upload() {
         }
         text={"upload"}
       />
+      <Button onClick={() => console.log(selectedTags)} text={"tags"} />
     </div>
   );
 }

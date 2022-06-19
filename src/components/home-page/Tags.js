@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../utils/Button";
 import imagesServices from "../../services/imagesServices";
+import CreatableSelect from "react-select/creatable";
 
-export function Tags({ tagToUpload, uploadedTags, delfunc }) {
-  const [tagNotUploaded, setTagToUpload] = useState([]);
+export function Tags({ setSelectedTags, selectedTags }) {
   const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
@@ -12,40 +11,32 @@ export function Tags({ tagToUpload, uploadedTags, delfunc }) {
     });
   }, []);
 
+  const handleChange = (newTag, actionMeta) => {
+    console.log(actionMeta.action);
+    if (actionMeta.action === "create-option") {
+      imagesServices
+        .uploadTag(newTag[newTag.length - 1].label)
+        .then((result) => {
+          setAllTags(allTags.concat(result));
+          setSelectedTags(
+            selectedTags.concat({ value: result.id, label: result.name })
+          );
+        })
+        .catch((error) => console.log(error));
+    }
+
+    if (actionMeta.action === "select-option") {
+      setSelectedTags(selectedTags.concat(newTag[newTag.length - 1]));
+    }
+  };
+
   return (
     <div>
-      <input
-        className="form-input"
-        type="text"
-        name="tags"
-        placeholder="type your awesome tags here"
-        value={tagNotUploaded}
-        onChange={(e) => setTagToUpload(e.target.value)}
-      ></input>
-      <Button
-        onClick={() =>
-          imagesServices
-            .uploadTag(tagNotUploaded)
-            .then((result) => setAllTags(allTags.concat([result])))
-        }
-        text={"create tag"}
+      <CreatableSelect
+        isMulti
+        onChange={handleChange}
+        options={allTags.map((tag) => ({ value: tag.id, label: tag.name }))}
       />
-
-      {allTags.length !== 0 && (
-        <ul>
-          {allTags.map((tag) => (
-            <li key={tag.name} style={{ listStyle: "numbers" }}>
-              {tag.name}
-              <Button
-                text="delete"
-                onClick={() => {
-                  delfunc(tag.id, uploadedTags);
-                }}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 }
