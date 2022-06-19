@@ -55,8 +55,8 @@ export function UploadPreview({ imagesToUpload }) {
       ...(isFocused ? focusedStyle : {}),
       ...(isDragAccept ? acceptStyle : {}),
       ...(isDragReject ? rejectStyle : {}),
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isFocused, isDragAccept, isDragReject]
   );
 

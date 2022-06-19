@@ -10,11 +10,24 @@ import axios from "axios";
 //     }).catch((error) => console.log(error));
 //  }
 
-const uploadUrl = `http://smear-backend.test/api/v1/folders/{folder}/uploads`;
+const uploadUrl = (folder) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
 
-const uploadImage = async (newUpload) => {
+const headers = {
+  "Content-Type": "multipart/form-data",
+  Accept: "application/json",
+  Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
+};
+
+const uploadImage = async (folderId, newUpload, tags) => {
+  const formData = new FormData();
+  formData.append("file", newUpload);
+  formData.append("tags", JSON.stringify([2]));
+
+  console.log(formData.getAll("tags"));
+
   return axios
-    .post(uploadUrl, newUpload)
+    .post(uploadUrl("1"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
     .then((y) => {
       console.log(y.data);
       return y.data;
@@ -22,6 +35,25 @@ const uploadImage = async (newUpload) => {
     .catch((error) => console.log(error));
 };
 
-const imagesServices = { uploadImage };
+const createTagUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
+
+const uploadTag = async (tag) => {
+  return axios
+    .post(createTagUrl, { name: tag }, { headers: headers })
+    .then((z) => {
+      console.log(z.data);
+      return z.data;
+    })
+    .catch((error) => console.log(error));
+};
+
+const deleteTagUrl = `do it later`;
+
+const deleteTag = (id) => {
+  const request = axios.delete(`${deleteTagUrl}/${id}`);
+  return request.then((response) => response.data);
+};
+
+const imagesServices = { uploadImage, uploadTag, deleteTag };
 
 export default imagesServices;

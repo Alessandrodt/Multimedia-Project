@@ -1,34 +1,46 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // components
 import { Button } from "../utils/Button";
 import { UploadPreview } from "./UploadPreview";
+import { Tags } from "./Tags";
 
 // services
 import imagesServices from "../../services/imagesServices";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
+  const [tagToUpload, setNewTagToUpload] = useState([]);
+  const [uploadedTags, setUploadedTags] = useState([]);
+
+  const delTag = (id, tag) => {
+    imagesServices.deleteTag(id).then(() => {
+      const tagsWithTagDeleted = tag.filter((t) => t.id !== id);
+      setUploadedTags(tagsWithTagDeleted);
+    });
+  };
 
   return (
     <div>
       <UploadPreview imagesToUpload={setNewImageUpload} />
-      <input placeholder="type your awesome tags here"></input>
-      <Button
-        onClick={() => {
-          console.log("you clicked create tag");
-        }}
-        text={"create tag"}
+      <Tags
+        tagsToUpload={setNewTagToUpload}
+        uploadedTags={uploadedTags}
+        delfunc={delTag}
       />
-      <br />
       <Button
-        onClick={() => imagesServices.uploadImage(imagesToUpload)}
+        onClick={() =>
+          imagesServices.uploadImage(
+            "someFolderId",
+            imagesToUpload[0],
+            "someTag"
+          )
+        }
         text={"upload"}
       />
     </div>
   );
 }
 
-// <Button onClick={imagesServices.uploadImage(uploadNewImage(imagesToUpload))} text={"upload"}/>
 // useparam function from react dom
