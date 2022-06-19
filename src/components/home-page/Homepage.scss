@@ -1,7 +1,3 @@
-* {
-    margin: 0;
-}
-
 .navbar {
     width: 100%;
     background-color: $_white;
@@ -40,4 +36,11 @@
     width: 50px;
     margin: 10px;
     border-radius: 50px;
+}
+
+.upload-btn {
+    padding: 5px;
+    position: absolute;
+    right:    0;
+    bottom:   0;
 }

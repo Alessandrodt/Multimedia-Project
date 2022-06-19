@@ -1,8 +1,8 @@
 // Predefined Break-points
-$mediaMaxWidth: 1260px;
+$mediaMaxWidth: 1024px;
 $mediaBp1Width: 960px;
-$mediaBp2Width: 698px; //added for .work & img
-$mediaMinWidth: 480px;
+$mediaBp2Width: 768px; //added for .work & img
+$mediaMinWidth: 425px;
 
 @function translate-media-condition($c) {
   $condMap: (
