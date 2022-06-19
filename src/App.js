@@ -22,11 +22,7 @@ import { MantineProvider } from "@mantine/styles";
 
 
 const App = () => {
-<<<<<<< HEAD
-
-=======
   
->>>>>>> aca48695447ed3fb1c68355510fd9887e2520180
   return (
     <MantineProvider theme={{ loader: 'bars' }}>
       <Router>
