@@ -1,39 +1,54 @@
 import React from "react";
 // Components imports
-import { Groups } from "./components/groups/GroupsDetails"; 
-import { LandingPage } from "./components/landing-page/LandingPage";
-import { Login } from "./components/login/Login";
-import { SignUp } from "./components/sign-up/Signup";
+import { EmailVerify } from "./components/verify-user/VerifyUser";
+import { Groups } from "./components/groups/Groups";
+import { GroupsDetails } from "./components/groups/GroupsDetails";
 import { HomePage } from "./components/home-page/HomePage";
-
+import { LandingPage } from "./components/landing-page/LandingPage";
+import { NotFound } from "./components/not-found/NotFound";
+import { Profile } from "./components/profile/Profile";
+import { SignUp } from "./components/sign-up/Signup";
+import { RequireAuth } from "./components/require-auth/RequireAuth";
 //import style scss
-import './App.scss';
+import "./App.scss";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { ModalsProvider } from '@mantine/modals';
+import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
+import { Upload } from "./components/home-page/Upload";
 
 const App = () => {
   return (
-    <MantineProvider>
-    <ModalsProvider>
-  <Router>
-     <Routes>
-       <Route path='/groups' element={<Groups/>}/>
-       <Route path='/login' element={<Login/>}/>
-       <Route path='/signup' element={<SignUp/>}/>
-       <Route path='/home' element={<HomePage/>}/>
-       <Route path='/' element={<LandingPage/>}/>
-     </Routes>
-  </Router>
-  </ModalsProvider>
-  </MantineProvider>
-  )
-}
+    <MantineProvider theme={{ loader: "bars" }}>
+      <Router>
+        <ModalsProvider>
+          <Routes>
+            {/* These routes are not guarded */}
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/users/:userId/groups" element={<Groups />} />
+            <Route
+              path="/users/:userId/groups/details"
+              element={<GroupsDetails />}
+            />
+            <Route path="/users/:userId" element={<Profile />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route
+              path="users/:userId/verify/:hash"
+              element={<EmailVerify />}
+            />
+            <Route path="/*" element={<NotFound />} />
+            <Route path="/upload" element={<Upload />} />
+            {/* These routes are guarded */}
+            <Route element={<RequireAuth />}>
+              {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
+            </Route>
+          </Routes>
+        </ModalsProvider>
+      </Router>
+    </MantineProvider>
+  );
+};
 
 export default App;

@@ -1,10 +1,9 @@
 .wrapper-na {
+    align-items: center;
     display: flex;
+    margin: $m-auto;
     padding: $s-2;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 1024px;
 
     @mixin width {
         width: 25%;
@@ -38,6 +37,15 @@
             box-shadow: 0 0 0 6px #f3f3f3;
         }
     }
+
+    h4 {
+        margin-left: $s-3;
+        width: 20%;
+    }
+
+    @include media("retina", ">minWidth", ">maxWidth") {
+        width: $w-100;
+    } 
 }
 
 .srcnav {

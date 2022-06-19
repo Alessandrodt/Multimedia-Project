@@ -4,9 +4,17 @@
 @import './reset';
 @import './responsive-map';
 @import './space-map';
+@import './reset-mantine';
+
 
 // import all component scss style
+@import "../components/groups/GroupsDetails.scss";
+@import "../components/groups/Groups.scss";
 @import "../components/landing-page/LandingPage.scss";
-@import "../components/home-page/Homepage.scss";
 @import "../components/navbar/Navbar.scss";
+@import "../components/profile/Profile.scss";
+@import "../components/home-page/Homepage.scss";
 @import "../components/search/Srcbar.scss";
+@import "../components/sign-up/Signup.scss";
+@import "../components/verify-user/VerifyUser.scss";
+

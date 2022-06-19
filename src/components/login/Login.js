@@ -1,15 +1,25 @@
+// React imports
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Button, Box, Group, PasswordInput, TextInput } from "@mantine/core";
+// Mantine imports
+import { Button, Box, Group, LoadingOverlay, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { useModals } from "@mantine/modals";
 
-import authServices from "../../services/authservices";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
+// Services
+import authServices from "../../services/authServices";
+
 export const Login = () => {
+  const modals = useModals();
+  const navigate = useNavigate();
+
   const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,18 +48,30 @@ export const Login = () => {
   };
 
   const getUser = () => {
+    setVisible(true);
     authServices
-      .getPerson(person)
-      .then((response) => {
+    .getUser(person)
+    .then((response) => {
+        const singleUser = JSON.stringify(response.data);
         setUser(user.concat(response.data));
+        sessionStorage.setItem('user', singleUser);
+        // Need a more elegant solution to this Auth Token problem with interceptors.
+        sessionStorage.setItem('Auth Token', JSON.parse(singleUser).token);
+        setVisible(false);
+        modals.closeModal();
+        navigate('/home');
       })
-      .catch(() => {
-        handleMessage(
-          "red",
-          `Go to your email address ${email} and confirm your subscription`
-        );
+      .catch((error) => {
+        if (error.response.status === 401) {
+          handleMessage("red", `email or password are invalid`);
+        } else {
+          handleMessage(
+            "red",
+            `Go to your email address ${email} and confirm your subscription`
+          );
+        }
+        setVisible(false);
       });
-    console.log(person);
   };
 
   const form = useForm({
@@ -91,7 +113,7 @@ export const Login = () => {
         <PasswordInput
           required
           label="Password"
-          placeholder="password"
+          placeholder="Password"
           autoComplete="on"
           {...form.getInputProps("password")}
           onChange={(event) => {
@@ -99,7 +121,7 @@ export const Login = () => {
             setPassword(event.target.value);
           }}
         />
-        <a href="/#">Forgot your Password?</a>
+        <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
           <Button type="submit">Login</Button>
         </Group>

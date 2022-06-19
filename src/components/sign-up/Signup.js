@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
+
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+
+import avatarServices from "../../services/avatarServices";
+import authServices from "../../services/authServices";
+
+import { ErrorMessage } from "../error-message/ErrorMessage";
+
+import defaultAvatar from "../../images/user.svg";
 
 import {
   Avatar,
@@ -8,12 +16,10 @@ import {
   Button,
   Checkbox,
   Group,
+  LoadingOverlay,
   PasswordInput,
   TextInput,
 } from "@mantine/core";
-
-import authServices from "../../services/authservices";
-import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const SignUp = () => {
   const [avatars, setAvatar] = useState([]);
@@ -23,17 +29,18 @@ export const SignUp = () => {
   const [newLastName, setNewLastName] = useState("");
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [privacy, setPrivacy] = useState(false);
+  const [privacy, setPrivacy] = useState(true);
   const [profilePic, setProfilePic] = useState({});
   const [users, setUser] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    authServices.getAvatar().then((response) => {
-      setAvatar(response.data);
-    });
+      avatarServices.getAvatar().then((response) => {
+        setAvatar(response.data);
+      });
   }, []);
 
   const errorStyle = {
@@ -61,31 +68,34 @@ export const SignUp = () => {
       title: "Choose your avatar:",
       centered: true,
       children: (
-        <div>
-          {avatars.map((avatar) => {
-            return (
-              <Button
-                onClick={() => {
-                  modals.closeModal(setProfilePic(avatar));
-                  setAvatarStatus(true);
-                }}
-                key={avatar.id}
-              >
-                <img
-                  src={`http://smear-backend.test${avatar.link}`}
-                  alt={""}
-                  width={50}
-                  height={150}
-                ></img>
-              </Button>
-            );
-          })}
-        </div>
+        <>
+            <div className="wrapper-avatar">
+              {avatars.map((avatar) => {
+                return (
+                  <button className="custom-width"
+                    onClick={() => {
+                      modals.closeModal(setProfilePic(avatar));
+                      setAvatarStatus(true);
+                    }}
+                    key={avatar.id}
+                  >
+                    <img
+                      src={`${avatar.link}`}
+                      alt={""}
+                      width={50}
+                    ></img>
+                  </button>
+                );
+              })}
+            </div>
+        </>
       ),
     });
   };
 
-  let picture = <Avatar src={isAvatarPicked ?`http://smear-backend.test${profilePic.link}`: null} size={150} />;
+  let picture = (
+    <Avatar src={isAvatarPicked ? `${profilePic.link}`: defaultAvatar } size={150} />
+  );
 
   const newUser = {
     first_name: newName,
@@ -100,11 +110,13 @@ export const SignUp = () => {
   };
 
   const addUser = () => {
+    setVisible(true)
     authServices
       .createUser(newUser)
       .then((response) => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
+          setVisible(false)
           handleMessage(
             "green",
             `A confirmation email was sent to ${newEmail}`
@@ -112,9 +124,10 @@ export const SignUp = () => {
         }
       })
       .catch(() => {
+        setVisible(false)
         handleMessage("red", `${newEmail} is already in use.`);
       });
-    console.log(newUser);
+      
   };
 
   const form = useForm({
@@ -156,26 +169,30 @@ export const SignUp = () => {
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
-        <TextInput
-          required
-          label="Name"
-          placeholder="Mario"
-          {...form.getInputProps("name")}
-          onChange={(event) => {
-            form.setFieldValue("name", event.currentTarget.value);
-            setNewName(event.target.value);
-          }}
-        />
-        <TextInput
-          required
-          label="Surname"
-          placeholder="Rossi"
-          {...form.getInputProps("surname")}
-          onChange={(event) => {
-            form.setFieldValue("surname", event.currentTarget.value);
-            setNewLastName(event.target.value);
-          }}
-        />
+        <div className="wrapper-info">
+          <TextInput
+            className="change-width"
+            required
+            label="Name"
+            placeholder="Mario"
+            {...form.getInputProps("name")}
+            onChange={(event) => {
+              form.setFieldValue("name", event.currentTarget.value);
+              setNewName(event.target.value);
+            }}
+          />
+          <TextInput
+            className="change-width"
+            required
+            label="Surname"
+            placeholder="Rossi"
+            {...form.getInputProps("surname")}
+            onChange={(event) => {
+              form.setFieldValue("surname", event.currentTarget.value);
+              setNewLastName(event.target.value);
+            }}
+          />
+        </div>  
         <TextInput
           required
           label="Email"
@@ -198,6 +215,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          required
           mt="sm"
           label="Confirm password"
           autoComplete="on"
@@ -209,6 +227,7 @@ export const SignUp = () => {
           }}
         />
         <Checkbox
+          required
           mt="md"
           label="I agree to the Terms of Condition and Service."
           {...form.getInputProps("termsOfService", { type: "input" })}
@@ -217,8 +236,11 @@ export const SignUp = () => {
             setPrivacy(Boolean(event.target.value));
           }}
         />
+        <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">Sign-Up</Button>
+          <Button type="submit">
+            Sign-Up
+          </Button>
         </Group>
       </form>
     </Box>
