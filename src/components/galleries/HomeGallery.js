@@ -16,9 +16,10 @@ export function HomeGallery() {
       margin: 0,
       padding: 0,
       width: "80%",
-      position: "absolute",
+      position: "relative",
       left: "50%",
       transform: "translateX(-50%)",
+      top:'100px',
     },
   };
 

@@ -3,7 +3,8 @@
     display: flex;
     margin: $m-auto;
     padding: $s-2;
-    width: 1024px;
+    width: 100%;
+    position: relative;
 
     @mixin width {
         width: 25%;
