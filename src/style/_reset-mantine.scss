@@ -47,6 +47,18 @@ form {
 /*
  * reset button choose avatar
  */
- .mantine-3xbgk5.mantine-Button-inner {
-    padding: 0 $p-1;
+
+.sign-up {
+    
+    button.mantine-Button-filled.mantine-Button-root.mantine-1grzg0q {
+        background: $_primary;
+    }
+    
+    button.mantine-Button-filled.mantine-Button-root.mantine-Group-child.mantine-5q9waz {
+        background: $_primary;
+    }
+    
+    .mantine-3xbgk5.mantine-Button-inner {
+        padding: 0 $p-1;
+    }
 }
