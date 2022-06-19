@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
@@ -33,7 +34,9 @@ export const LandingPage = () => {
             <nav>
                 <div className="wrapper-nav">
                     <div className="logo">
-                        <img src={logo} title="logo smi" alt="company logo" />
+                        <Link to="/">
+                            <img src={logo} title="logo smi" alt="company logo" />
+                        </Link>
                     </div>
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
