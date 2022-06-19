@@ -11,14 +11,11 @@ import wireframe from "../../images/Wireframe.png";
 //import video
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
-import { NavbarLanding } from "./navbar-landing-page/Navbar-landing";
 import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import i18next from "i18next";
-import {cookies} from 'js-cookie';
-import { useEffect } from "react";
 import search from "../../video/Search.mp4";
 
 i18n
@@ -74,9 +71,10 @@ export const LandingPage = () => {
                     </div>
                     <div className="signUp">
                             {languages.map(({code, name, country_code})=>
-                                <button onClick={()=> i18next.changeLanguage(code)}>cambia</button>
+                                <button onClick={()=> i18next.changeLanguage(code)}>{(name)}</button>
                             )}
                     </div>
+            
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
                             Login
@@ -89,7 +87,7 @@ export const LandingPage = () => {
                 <section className="wrapper-review">
                     <article className="review">
                         <h1>
-                            Find your memories.
+                            {t('Welcome')}
                         </h1>
                         <div className="wrapper-text">
                             <p>
