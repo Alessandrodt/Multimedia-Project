@@ -1,7 +1,7 @@
-import axios from './axios';
+import axios from "./axios";
 
 const getUser = (id) => {
-    return axios.get(`http://smear-backend.test/api/v1/users/${id}`);
+  return axios.get(`https://smi-laravel.fly.dev/api/v1/users/${id}`);
 };
 
 const profileServices = { getUser };
