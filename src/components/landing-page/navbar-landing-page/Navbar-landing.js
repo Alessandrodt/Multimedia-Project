@@ -3,8 +3,6 @@ import { useModals } from "@mantine/modals";
 
 import { Login } from "../../login/Login";
 
-import "./Navbar.css";
-
 export const Navbar = () => {
   const modals = useModals();
 
