@@ -28,15 +28,23 @@ const App = () => {
             {/* These routes are not guarded */}
             <Route path="/home" element={<HomePage />} />
             <Route path="/users/:userId/groups" element={<Groups />} />
-            <Route path="/users/:userId/groups/details" element={<GroupsDetails />} />
-            <Route path='/users/:userId/folders/:folderId' element={<Folders/>} />
-            <Route path='users/:userId/folders' element={<Folders/>} />
+            <Route
+              path="/users/:userId/groups/details"
+              element={<GroupsDetails />}
+            />
+            <Route
+              path="/users/:userId/folders/:folderId"
+              element={<Folders />}
+            />
+            <Route path="users/:userId/folders" element={<Folders />} />
             <Route path="/users/:userId" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<LandingPage />} />
-            <Route path="users/:userId/verify/:hash" element={<EmailVerify />} />
+            <Route
+              path="users/:userId/verify/:hash"
+              element={<EmailVerify />}
+            />
             <Route path="/*" element={<NotFound />} />
-            <Route path="/upload" element={<Upload />} />
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
