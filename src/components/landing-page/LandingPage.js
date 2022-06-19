@@ -11,12 +11,14 @@ import wireframe from "../../images/Wireframe.png";
 //import video
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
+import search from "../../video/Search.mp4";
+//import i18n
 import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import i18next from "i18next";
-import search from "../../video/Search.mp4";
+
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -24,7 +26,7 @@ i18n
   .use(HttpApi)
   .init({
 
-    fallbackLng: "en",
+    fallbackLng: "it",
     detection: {
       order: ['cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
       caches:['cookie'],
@@ -40,18 +42,18 @@ export const LandingPage = () => {
     const { t } = useTranslation();
 
     const languages = [
-      {
-        code:'fr',
-        name:'français',
-        country_code:'fr',
-  
+    {
+    code:'it',
+    name:'italiano',
+    country_code:'it',
+    
     },
     {
-      code:'en',
-      name:'english',
-      country_code:'gb',
-  
-  }]
+    code:'en',
+    name:'english',
+    country_code:'gb',
+
+    }];
 
     const modals = useModals();
     
@@ -77,7 +79,7 @@ export const LandingPage = () => {
             
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
-                            Login
+                           {t('login')}
                         </span>
                     </div>
                 </div>
@@ -102,7 +104,7 @@ export const LandingPage = () => {
                         <div className="signUp">
                             <span>
                                 <a href="#signUp">
-                                    Get started it's free
+                                    {t('signupfree')}
                                 </a>
                             </span>
                         </div>

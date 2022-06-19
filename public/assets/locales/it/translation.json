@@ -3,5 +3,8 @@
   "language": "Langue",
   "days_since_release": "ça fait {{number_of_days}} jours depuis la sortie de cette vidéo",
   "country": "France",
-  "Welcome":"Retrouvez vos souvenirs."
+  "Welcome":"Trova i tuoi ricordi.",
+  "signupfree":"Iscriviti Gratis",
+  "login":"Accedi"
+
 }
