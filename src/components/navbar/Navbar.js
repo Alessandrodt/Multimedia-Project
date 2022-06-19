@@ -28,7 +28,7 @@ export const Navbar = () => {
                   className="icong"
                   src={
                     user?.avatar?.name
-                      ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}`
+                      ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
                       : defaultAvatar
                   }
                   title="Profilo"
