@@ -2,17 +2,19 @@ import React from "react";
 import { useState } from "react";
 
 // components
-import { Button } from "../utils/Button";
 import { UploadPreview } from "./UploadPreview";
 import { Tags } from "./Tags";
+
+// libraries
+import { Button } from "@mantine/core";
 
 // services
 import imagesServices from "../../services/imagesServices";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
-  // const [tagToUpload, setNewTagToUpload] = useState([]);
-  const [uploadedTags, setUploadedTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [setUploadedTags] = useState([]);
 
   const delTag = (id, tag) => {
     imagesServices.deleteTag(id).then(() => {
@@ -25,8 +27,8 @@ export function Upload() {
     <div>
       <UploadPreview imagesToUpload={setNewImageUpload} />
       <Tags
-        // tagsToUpload={setNewTagToUpload}
-        uploadedTags={uploadedTags}
+        setSelectedTags={setSelectedTags}
+        selectedTags={selectedTags}
         delfunc={delTag}
       />
       <Button
@@ -37,10 +39,12 @@ export function Upload() {
             "someTag"
           )
         }
-        text={"upload"}
-      />
+      >
+        upload
+      </Button>
+      <Button onClick={() => console.log(selectedTags)}>tags</Button>
     </div>
   );
 }
 
-// useparam function from react dom
+// to console log  <Button onClick={() => console.log(selectedTags)}>tags</Button>
