@@ -12,9 +12,10 @@ const [galleryImages, setNewGalleryImages ] = useState([]);
             margin: 0,
             padding: 0,
             width: '80vw',
-            position: 'absolute',
-            left: '50%',
             transform: 'translateX(-50%)',
+            position: 'relative',
+            top:'100px',
+            left: '50%',
         }
     }
 

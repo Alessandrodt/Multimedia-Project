@@ -1,7 +1,10 @@
 .wrapper-na {
     display: flex;
     padding: $s-2;
-    width: 1440px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     @mixin width {
         width: 25%;
@@ -19,6 +22,8 @@
     .sign {
         @include width;
         text-align: end;
+        display: flex;
+        justify-content: flex-end;
 
         button {
             background-color: #dddcdc;
@@ -26,7 +31,7 @@
             margin-left: $m-40;
             border: 0 ;
             cursor: pointer;
-            padding: 2% 3%;
+            padding: 1% 2%;
 
         }
         button:hover {
@@ -36,11 +41,11 @@
 }
 
 .srcnav {
-    width: 70%;
+    width: 60%;
 }
 .bar {
     margin-top: $m-10;
-    width: $w-100;
+    width: 100%;
 }
 
 .wrapper-na .log {
@@ -49,5 +54,5 @@
 }
 
 .icong {
-width: 30px;
+width: 90%;
 }
