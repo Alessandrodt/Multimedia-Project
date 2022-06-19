@@ -1,6 +1,8 @@
 import { Avatar } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
+import defaultAvatar from "../../images/user.svg";
+
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
@@ -11,11 +13,16 @@ export const Profile = () => {
     sessionStorage.clear();
     navigate("/");
   };
+
   return (
     <div className="wrapper-user">
       <Avatar
-        src={`https://smi-laravel.fly.dev/images/avatars/${user.avatar.name}`}
-        size="xl"
+        src={
+          user?.avatar?.name
+            ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+            : defaultAvatar
+        }
+        size={150}
       />
       <h2>
         {user.first_name} {user.last_name}

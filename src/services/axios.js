@@ -13,6 +13,9 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(function (req) {
   let token = sessionStorage.getItem("Auth Token");
 
+  req.headers['Access-Control-Allow-Origin'] = '*';
+  req.headers['Content-Type'] = 'application/json';
+
   if (token) {
     req.headers["Authorization"] = "Bearer " + token;
   }

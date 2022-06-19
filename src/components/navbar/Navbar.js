@@ -1,8 +1,9 @@
-import logo from "../../images/picsmi.png";
 import { InputWithButton } from "../search/Srcbar";
-// import avatar from "../../images/avatar.svg";
-import group from "../../images/group.svg";
 import { Link } from "react-router-dom";
+
+import defaultAvatar from "../../images/user.svg";
+import group from "../../images/group.svg";
+import logo from "../../images/picsmi.png";
 
 export const Navbar = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
