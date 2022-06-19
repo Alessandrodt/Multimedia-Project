@@ -47,6 +47,18 @@ const uploadTag = async (tag) => {
     .catch((error) => console.log(error));
 };
 
+const allTagsUrl = `http://smi-laravel.fly.dev/api/v1/tags`;
+
+const getAllTags = () => {
+  return axios
+    .get(allTagsUrl, { headers: headers })
+    .then((x) => {
+      console.log(x.data);
+      return x.data;
+    })
+    .catch((error) => console.log(error));
+};
+
 const deleteTagUrl = `do it later`;
 
 const deleteTag = (id) => {
@@ -54,6 +66,6 @@ const deleteTag = (id) => {
   return request.then((response) => response.data);
 };
 
-const imagesServices = { uploadImage, uploadTag, deleteTag };
+const imagesServices = { uploadImage, uploadTag, getAllTags, deleteTag };
 
 export default imagesServices;
