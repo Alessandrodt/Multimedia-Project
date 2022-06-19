@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import imagesServices from "../../services/imagesServices";
+
+// libraries
 import CreatableSelect from "react-select/creatable";
+
+// services
+import imagesServices from "../../services/imagesServices";
 
 export function Tags({ setSelectedTags, selectedTags }) {
   const [allTags, setAllTags] = useState([]);
@@ -25,8 +29,8 @@ export function Tags({ setSelectedTags, selectedTags }) {
         .catch((error) => console.log(error));
     }
 
-    if (actionMeta.action === "select-option") {
-      setSelectedTags(selectedTags.concat(newTag[newTag.length - 1]));
+    if (actionMeta.action === "select-option" || "remove-value") {
+      setSelectedTags(newTag);
     }
   };
 
