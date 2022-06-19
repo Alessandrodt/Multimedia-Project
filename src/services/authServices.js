@@ -1,10 +1,10 @@
-import axios from './axios';
+import axios from "./axios";
 
-const signupUrl = "http://smear-backend.test/api/v1/users";
-const loginUrl = "http://smear-backend.test/api/v1/login";
+const signupUrl = "https://smi-laravel.fly.dev/api/v1/users";
+const loginUrl = "https://smi-laravel.fly.dev/api/v1/login";
 
 const confirmUser = (id, hash) => {
-  return axios.patch(`http://smear-backend.test/api/v1/users/${id}/verify`, {
+  return axios.patch(`https://smi-laravel.fly.dev/api/v1/users/${id}/verify`, {
     hash,
   });
 };

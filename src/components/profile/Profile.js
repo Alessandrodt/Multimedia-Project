@@ -2,19 +2,24 @@ import { Avatar } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
 
   // Simple function that clears the SessionStorage and forces a reload.
   // The guard system redirects the user to the landing page.
   const logOut = () => {
     sessionStorage.clear();
-    navigate('/')  
-  }
+    navigate("/");
+  };
   return (
     <div className="wrapper-user">
-      <Avatar src={`http://smear-backend.test//images/avatars/${user.avatar.name}`} size="xl"/>
-      <h2>{user.first_name} {user.last_name}</h2>
+      <Avatar
+        src={`https://smi-laravel.fly.dev/images/avatars/${user.avatar.name}`}
+        size="xl"
+      />
+      <h2>
+        {user.first_name} {user.last_name}
+      </h2>
       <p>{user.email}</p>
       <div className="wrapper-button">
         <button type="submit" className="primary">
@@ -25,5 +30,5 @@ export const Profile = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
