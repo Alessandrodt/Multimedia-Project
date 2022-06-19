@@ -1,9 +1,9 @@
-import { InputWithButton } from "../search/Srcbar";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { InputWithButton } from '../search/Srcbar';
 
-import defaultAvatar from "../../images/user.svg";
-import group from "../../images/group.svg";
-import logo from "../../images/picsmi.png";
+import logo from '../../images/picsmi.png';
+import group from '../../images/group.svg';
+import defaultAvatar from '../../images/avatar.svg'
 
 export const Navbar = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -28,7 +28,7 @@ export const Navbar = () => {
                   className="icong"
                   src={
                     user?.avatar?.name
-                      ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}`
+                      ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
                       : defaultAvatar
                   }
                   title="Profilo"
