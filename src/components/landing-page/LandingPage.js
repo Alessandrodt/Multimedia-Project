@@ -66,7 +66,7 @@ export const LandingPage = () => {
                         <div className="signUp">
                             <span>
                                 <a href="#signUp">
-                                    Get started it's free
+                                    Get started Sign Up here!
                                 </a>
                             </span>
                         </div>
