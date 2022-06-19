@@ -23,7 +23,7 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                     <div className="sign">
                         <Link to={`/users/${user.id}`}>
                             <button>
-                                <img className="icong" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
+                                <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
                             </button>
                         </Link>
                         <button>
