@@ -26,7 +26,11 @@ export const Navbar = () => {
               <button>
                 <img
                   className="icong"
-                  src={`https://smi-laravel.fly.dev/images/avatars/${user.avatar.name}`}
+                  src={
+                    user?.avatar?.name
+                      ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}`
+                      : defaultAvatar
+                  }
                   title="Profilo"
                   alt="company logo"
                 />
