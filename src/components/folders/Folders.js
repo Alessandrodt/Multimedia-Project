@@ -69,7 +69,6 @@ export const Folders = () => {
   const openContentModal = () => {
     modal.openModal({
       title: "Choose your folder's name:",
-      centered: true,
       children: <AddFolderForm userId={userId} onSubmit={addFolder} />
     });
   };
