@@ -350,4 +350,18 @@ footer {
     position: relative;
     width: $w-100;
     z-index: -1;
+
+    > p {
+        align-items: center;
+        bottom: $s-4;
+        display: flex;
+        position: fixed;
+        left: $s-4;
+
+        svg {
+            fill: $_white;
+            margin: 0 $s-1;
+            width: 1.0rem;
+        }
+    }
 }
