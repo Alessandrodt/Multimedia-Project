@@ -9,6 +9,8 @@ import { Upload } from "./Upload";
 import { Button } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 
+import { t } from "i18next"
+
 
 export const HomePage = () => {
   const modals = useModals();

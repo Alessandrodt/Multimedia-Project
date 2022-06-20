@@ -96,7 +96,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="text">
                             <h2>
-                                Relive your emotions.
+                            {t('emotion')}
                             </h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 
@@ -121,7 +121,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="text end">
                             <h2>
-                                Search by tag.
+                            {t('serch_by_tag')}
                             </h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 
@@ -132,7 +132,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="text">
                             <h2>
-                                Share them with all of yours groups.
+                         {t('share_groups')}
                             </h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis metus purus. 

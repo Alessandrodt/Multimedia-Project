@@ -4,5 +4,11 @@
   "country": "England",
   "Welcome": "Find your memories.",
   "signupfree":"Get started it's free",
-  "login": "Login"
+  "login": "Login",
+  "logout":"Logout",
+  "edit_profile":"Edit Profile",
+  "emotion":"Relive your emotions.",
+  "serch_by_tag":"Search by tag.",
+  "share_groups":"Share them with all of yours groups."
+
 }
