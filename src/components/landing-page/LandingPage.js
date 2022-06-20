@@ -53,7 +53,7 @@ export const LandingPage = () => {
                     </div>
                     <div className="toggle-box">
                             {languages.map(({code, name, country_code})=>
-                                <button className="toggle" onClick={()=> i18next.changeLanguage(code)}><p>{(name)}</p></button>
+                                <button key={name} className="toggle" onClick={()=> i18next.changeLanguage(code)}><p>{(name)}</p></button>
                             )}
                     </div>
             
