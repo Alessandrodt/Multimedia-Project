@@ -1,6 +1,7 @@
 import React from "react";
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
+import { Folders } from "./components/folders/Folders";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
 import { HomePage } from "./components/home-page/HomePage";
@@ -16,7 +17,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
-import { Upload } from "./components/home-page/Upload";
 
 const App = () => {
   return (
@@ -31,6 +31,11 @@ const App = () => {
               path="/users/:userId/groups/details"
               element={<GroupsDetails />}
             />
+            <Route
+              path="/users/:userId/folders/:folderId"
+              element={<Folders />}
+            />
+            <Route path="users/:userId/folders" element={<Folders />} />
             <Route path="/users/:userId" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<LandingPage />} />
@@ -39,7 +44,6 @@ const App = () => {
               element={<EmailVerify />}
             />
             <Route path="/*" element={<NotFound />} />
-            <Route path="/upload" element={<Upload />} />
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}

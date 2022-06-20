@@ -1,5 +1,5 @@
-import React from 'react';
-import { TextInput } from '@mantine/core';
+import React from "react";
+import { TextInput } from "@mantine/core";
 // import { Search, ArrowRight, ArrowLeft } from 'tabler-icons-react';
 
 export function InputWithButton(props) {

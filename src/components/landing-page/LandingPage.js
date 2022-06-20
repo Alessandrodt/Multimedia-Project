@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-
 import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
 //import landingPageServices from "../../services/landingPageServices";
-
 
 import { SignUp } from "../../components/sign-up/Signup";
 
