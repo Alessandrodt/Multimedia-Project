@@ -11,7 +11,7 @@ import foldersServices from "../../services/foldersServices";
 import folderEmpty from "../../images/folder_icon_empty.png";
 import addFolderImage from "../../images/addFolder.svg";
 
-import AddFolderForm from "../add-folder-form/AddFolderForm";
+import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
