@@ -118,12 +118,14 @@ export function UploadPreview({ imagesToUpload }) {
   });
 
   return (
-    <section className="container">
-      <div {...getRootProps({ style })}>
-        <input {...getInputProps()} />
-        <p>Drag and drop some files here, or click to select files</p>
-      </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
-    </section>
+    <div className={"upload-preview"}>
+      <section className="container">
+        <div {...getRootProps({ style })}>
+          <input {...getInputProps()} />
+          <p>Drag and drop some files here, or click to select files</p>
+        </div>
+        <aside style={thumbsContainer}>{thumbs}</aside>
+      </section>
+    </div>
   );
 }
