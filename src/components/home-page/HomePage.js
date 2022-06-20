@@ -17,7 +17,7 @@ export const HomePage = () => {
       centered: true,
       closeOnClickOutside: false,
       children: <Upload />,
-      overflow: "inside",
+      overflow: "outside",
       size: "70%",
     });
   };
