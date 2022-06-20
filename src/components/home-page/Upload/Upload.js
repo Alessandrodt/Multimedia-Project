@@ -36,7 +36,7 @@ export function Upload() {
           imagesServices.uploadImage(
             "someFolderId",
             imagesToUpload[0],
-            "someTag"
+            selectedTags
           )
         }
       >
