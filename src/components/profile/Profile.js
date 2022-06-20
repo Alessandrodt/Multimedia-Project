@@ -2,6 +2,8 @@ import { Avatar } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
 import defaultAvatar from "../../images/user.svg";
+//import Translate
+import { t } from "i18next"
 
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -30,10 +32,10 @@ export const Profile = () => {
       <p>{user.email}</p>
       <div className="wrapper-button">
         <button type="submit" className="primary">
-          <span>Edit Profile</span>
+          <span>{t('edit_profile')}</span>
         </button>
         <button onClick={() => logOut()} className="delete">
-          <span>Log Out</span>
+          <span>{t('logout')}</span>
         </button>
       </div>
     </div>

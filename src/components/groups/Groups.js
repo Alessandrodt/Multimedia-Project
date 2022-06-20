@@ -10,6 +10,7 @@ import { Avatar, Button, Card, SimpleGrid, TextInput } from '@mantine/core';
 import defaultAvatar from '../../images/user.svg';
 import { ErrorMessage } from "../error-message/ErrorMessage";
 import { GroupContainer } from "./GroupContainer";
+import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -121,17 +122,20 @@ export const Groups = () => {
 
     return (
         <>
-         <h1> GROUPS </h1>
-         {initialMessage}
-         <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
-         <ErrorMessage message={errorMessage} style={errorStyle} />
-         {groupForm}
-            {/* A map to create a list item for each group name */}
-            <SimpleGrid cols={3} spacing='md'>
-                {groups.map(group =>
-                    <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} openGroup={() => openGroup()} />
-                )}
-            </SimpleGrid>
+         <NavbarGroups/>
+         <div className="group-box">
+            <h1> GROUPS </h1>
+            {initialMessage}
+            <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
+            <ErrorMessage message={errorMessage} style={errorStyle} />
+            {groupForm}
+                {/* A map to create a list item for each group name */}
+                <SimpleGrid cols={3} spacing='md'>
+                    {groups.map(group =>
+                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} openGroup={() => openGroup()} />
+                    )}
+                </SimpleGrid>
+            </div>
         </>
     )
 };
