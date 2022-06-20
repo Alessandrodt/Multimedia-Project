@@ -80,7 +80,9 @@ export function Upload() {
         selectedTags={selectedTags}
         delfunc={delTag}
       />
-      <Button onClick={handleClick}>upload</Button>
+      <Button onClick={handleClick} class={"upload-preview-btn"}>
+        upload
+      </Button>
     </div>
   );
 }
