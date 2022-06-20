@@ -350,6 +350,19 @@ footer {
     position: relative;
     width: $w-100;
     z-index: -1;
+}
+
+.toggle-box{
+    display: flex;
+    .toggle{
+        border-radius: 20%;
+        border: 0;
+        margin-left: 10%;
+        background-color: rgb(242, 241, 241);
+        padding: 2%;
+        width: 70px;
+    }
+
 
     > p {
         align-items: center;

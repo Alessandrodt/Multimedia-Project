@@ -4,6 +4,7 @@
     margin: $m-auto;
     padding: $s-2;
     width: 1024px;
+    justify-content: space-between;
 
     @mixin width {
         width: 25%;
