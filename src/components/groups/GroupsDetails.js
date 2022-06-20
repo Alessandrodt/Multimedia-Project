@@ -73,7 +73,7 @@ export const GroupsDetails = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
 
-
+  // Implement the search function when the backend is ready.
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
     let searchUsers = notGroupPeople.filter((user) => {
@@ -82,6 +82,7 @@ export const GroupsDetails = () => {
     setSearchResult(searchUsers);
   };
 
+  // Implement the add user to group function when backend is ready.
   const addUser = (user) => {
     const existingUser = groups.find(u => u.name === user.name);
 

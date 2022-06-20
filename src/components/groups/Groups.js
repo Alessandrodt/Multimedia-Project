@@ -116,7 +116,7 @@ export const Groups = () => {
     }
 
     const openGroup = () => {
-        alert('yellow', 'This method is not ready in the backend yet! Sorry!');
+        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
     }
 
     return (

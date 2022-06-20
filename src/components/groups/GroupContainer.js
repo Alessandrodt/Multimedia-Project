@@ -12,9 +12,11 @@ export const GroupContainer = ({ deleteGroup, groupName, openGroup }) => {
       <Text align='center' size='lg' weight={500} mt='md'>
         {groupName}
       </Text>
+      {/* Open Group function must be called here */}
       <Button fullWidth mt='md' onClick={() => {openGroup()}}>
         Open Group
       </Button>
+      {/* Delete Group function must be called here */}
       <Button color='red' fullWidth mt='md' onClick={() => {deleteGroup()}}>
        Delete Group
       </Button>
