@@ -1,9 +1,9 @@
 import React from "react";
 
 // components
-import { Navbar } from "../navbar/Navbar";
+import { NavbarHome } from "./navbar-home-page/NavbarHome";
 import { HomeGallery } from "../galleries/HomeGallery";
-import { Upload } from "./Upload";
+import { Upload } from "./Upload/Upload";
 
 // libraries
 import { Button } from "@mantine/core";
@@ -17,14 +17,14 @@ export const HomePage = () => {
       centered: true,
       closeOnClickOutside: false,
       children: <Upload />,
-      overflow: "inside",
+      overflow: "outside",
       size: "70%",
     });
   };
 
   return (
     <div>
-      <Navbar />
+      <NavbarHome />
       <HomeGallery />
       <Button onClick={openContentModal} className="upload-btn">
         upload

@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import CreatableSelect from "react-select/creatable";
 
 // services
-import imagesServices from "../../services/imagesServices";
+import imagesServices from "../../../services/imagesServices";
 
-export function Tags({ setSelectedTags, selectedTags }) {
+export function UploadTags({ setSelectedTags, selectedTags }) {
   const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
@@ -34,12 +34,20 @@ export function Tags({ setSelectedTags, selectedTags }) {
     }
   };
 
+  const mapOptions = (tags) => {
+    if (tags) {
+      return tags.map((tag) => ({ value: tag.id, label: tag.name }));
+    } else {
+      return [];
+    }
+  };
+
   return (
     <div>
       <CreatableSelect
         isMulti
         onChange={handleChange}
-        options={allTags.map((tag) => ({ value: tag.id, label: tag.name }))}
+        options={mapOptions(allTags)}
       />
     </div>
   );
