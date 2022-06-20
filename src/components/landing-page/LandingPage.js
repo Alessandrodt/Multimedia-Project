@@ -12,34 +12,12 @@ import wireframe from "../../images/Wireframe.png";
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
-//import i18n
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
+//import Translate
 import i18next from "i18next";
+import { t } from "i18next"
 
-
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .use(LanguageDetector)
-  .use(HttpApi)
-  .init({
-
-    fallbackLng: "it",
-    detection: {
-      order: ['cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
-      caches:['cookie'],
-    },
-
-    backend: {
-      loadPath: 'assets/locales/{{lng}}/translation.json',
-    },
-    react: { useSuspense: false },
-  });
 
 export const LandingPage = () => {
-    const { t } = useTranslation();
 
     const languages = [
     {
@@ -71,9 +49,9 @@ export const LandingPage = () => {
                     <div className="logo">
                         <img src={logo} title="logo smi" alt="company logo" />
                     </div>
-                    <div className="signUp">
+                    <div className="toggle-box">
                             {languages.map(({code, name, country_code})=>
-                                <button onClick={()=> i18next.changeLanguage(code)}>{(name)}</button>
+                                <button className="toggle" onClick={()=> i18next.changeLanguage(code)}><p>{(name)}</p></button>
                             )}
                     </div>
             

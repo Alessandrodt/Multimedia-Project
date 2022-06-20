@@ -1,7 +1,6 @@
 {
   "app_title": "Title",
   "language": "Language",
-  "days_since_release": "it's been {{number_of_days}} days since this video was released",
   "country": "England",
   "Welcome": "Find your memories.",
   "signupfree":"Get started it's free",

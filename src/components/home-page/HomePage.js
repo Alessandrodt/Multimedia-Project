@@ -26,7 +26,7 @@ export const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <HomeGallery />
+      <HomeGallery/>
       <Button onClick={openContentModal} className="upload-btn">
         upload
       </Button>
