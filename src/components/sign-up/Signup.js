@@ -94,7 +94,7 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar src={isAvatarPicked ? `${profilePic.link}`: defaultAvatar } size={150} />
+    <Avatar src={isAvatarPicked ? `${profilePic.link}`: defaultAvatar } size={80} mx="auto"/>
   );
 
   const newUser = {
