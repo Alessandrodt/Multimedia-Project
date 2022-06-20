@@ -3,7 +3,7 @@ import React from "react";
 // components
 import { Navbar } from "../navbar/Navbar";
 import { HomeGallery } from "../galleries/HomeGallery";
-import { Upload } from "./Upload";
+import { Upload } from "./Upload/Upload";
 
 // libraries
 import { Button } from "@mantine/core";

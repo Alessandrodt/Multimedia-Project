@@ -22,12 +22,11 @@ const headers = {
 const uploadImage = async (folderId, newUpload, tags) => {
   const formData = new FormData();
   formData.append("file", newUpload);
-  formData.append("tags", JSON.stringify([2]));
 
-  console.log(formData.getAll("tags"));
+  tags.forEach((el) => formData.append("tags[]", el.value));
 
   return axios
-    .post(uploadUrl("2"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
+    .post(uploadUrl("6"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
     .then((y) => {
       console.log(y.data);
       return y.data;
