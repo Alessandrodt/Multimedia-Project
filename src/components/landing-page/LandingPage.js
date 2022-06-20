@@ -52,9 +52,20 @@ export const LandingPage = () => {
                         </a>
                     </div>
                     <div className="toggle-box">
-                        {languages.map(({code, name, country_code})=>
-                            <button key={name} className="toggle" onClick={()=> i18next.changeLanguage(code)}><p>{(name)}</p></button>
-                        )}
+                        <ul className="choose-languages">
+                            <li className="languages">
+                                languages
+                                <ul>
+                                    <li>
+                                        <li>
+                                            {languages.map(({code, name, country_code})=>
+                                                <p key={name} className="toggle" onClick={()=> i18next.changeLanguage(code)}>{(name)}</p>
+                                            )}
+                                        </li>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
             
                     <div className="signUp">
