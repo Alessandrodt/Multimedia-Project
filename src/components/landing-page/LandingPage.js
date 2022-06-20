@@ -54,9 +54,9 @@ export const LandingPage = () => {
                         </h1>
                         <div className="wrapper-text">
                             <p>
-                                Attraverso quest'App potrai salvare le tue immagini preferite nei nostri server.<br />
-                                Ricercarle più facilemte tamite i tag da te inseriti.<br />
-                                Condividerle con i tuoi amici. <br />
+                            Through this App you can save your favorite images in our servers.<br />
+                            Search them more easily through the tags you enter.<br />
+                            Share them with your friends.<br />
 
                             </p>
                         </div>
@@ -66,7 +66,7 @@ export const LandingPage = () => {
                         <div className="signUp">
                             <span>
                                 <a href="#signUp">
-                                    Get started Sign Up here!
+                                    Get started, Sign Up here!
                                 </a>
                             </span>
                         </div>
@@ -83,8 +83,8 @@ export const LandingPage = () => {
                                 Relive your emotions.
                             </h2>
                             <p>
-                                Emozionati rivedendo le tue immagini direttamente nella tua Homepage.
-                                Dalla più recente alla più vecchia.
+                            Thrill yourself by reviewing your images directly on your Homepage.
+                            From the most recent to the oldest.
                             </p>
                         </div>
                         <div className="video-remember">
@@ -109,7 +109,7 @@ export const LandingPage = () => {
                                 Search by tag.
                             </h2>
                             <p>
-                                <strong>Cerca le tue immagini</strong> in modo semplice <strong>tramite i tag</strong> a cui hai assegnato in precedenza.
+                                <strong>Search your images</strong> easily <strong>by the tags</strong> you have previously assigned to them.
                             </p>
                         </div>
                     </article>
@@ -120,8 +120,8 @@ export const LandingPage = () => {
                                 Share them with all of yours groups.
                             </h2>
                             <p>
-                                <strong>Crea gruppi con i tuoi amici</strong>  e condivi con loro tutte le immagini che vuoi della vostra vacanza.
-                            </p>
+                                <strong>Create groups</strong> with your friends and share the most exciting and meaningful images of your life with them.
+                            </p>    
                         </div>
                         <div className="video-remember">
                             <div className="shadow">
@@ -179,7 +179,7 @@ export const LandingPage = () => {
                         {/* facebook */}
                         <div className="about-info">
                             <svg width="13" height="25" viewBox="0 0 13 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_254_341)">
+                                <g clipPath="url(#clip0_254_341)">
                                     <path d="M12.155 13.91L12.805 9.425H8.58V6.5C8.58 5.265 9.165 4.095 11.05 4.095H13V0.325C13 0.325 11.245 0 9.62 0C6.11 0 3.835 2.145 3.835 6.045V9.425H0V13.91H3.835V24.7H8.58V13.91H12.155Z"/>
                                 </g>
                                 <defs>
@@ -193,7 +193,7 @@ export const LandingPage = () => {
                         {/* Twitter */}
                         <div className="about-info">
                             <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_254_343)">
+                                <g clipPath="url(#clip0_254_343)">
                                     <path d="M17.9429 4.05714C17.9429 4.22857 17.9429 4.4 17.9429 4.57143C17.9429 10 13.8286 16.2286 6.28571 16.2286C3.94286 16.2286 1.82857 15.5429 0 14.4C0.342857 14.4571 0.628571 14.4571 0.971429 14.4571C2.91429 14.4571 4.62857 13.8286 6.05714 12.6857C4.22857 12.6286 2.74286 11.4857 2.22857 9.82857C2.45714 9.88571 2.74286 9.88571 3.02857 9.88571C3.37143 9.88571 3.77143 9.82857 4.11429 9.77143C2.22857 9.37143 0.8 7.71429 0.8 5.77143V5.71429C1.37143 6 2 6.22857 2.62857 6.22857C1.54286 5.48571 0.8 4.22857 0.8 2.8C0.8 2.05714 1.02857 1.31429 1.37143 0.742857C3.42857 3.25714 6.45714 4.85714 9.82857 5.02857C9.77143 4.74286 9.71428 4.4 9.71428 4.11429C9.71428 1.82857 11.5429 0 13.8286 0C15.0286 0 16.0571 0.514286 16.8 1.31429C17.7714 1.14286 18.6286 0.8 19.4286 0.285714C19.1429 1.25714 18.4571 2.05714 17.6 2.57143C18.4 2.45714 19.2 2.22857 19.9429 1.94286C19.4286 2.74286 18.7429 3.48571 17.9429 4.05714Z"/>
                                 </g>
                                 <defs>
