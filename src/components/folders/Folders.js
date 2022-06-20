@@ -11,7 +11,7 @@ import foldersServices from "../../services/foldersServices";
 import folderEmpty from "../../images/folder_icon_empty.png";
 import addFolderImage from "../../images/addFolder.svg";
 
-import AddFolderForm from "../add-folder-form/AddFolderForm";
+import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
@@ -63,7 +63,7 @@ export const Folders = () => {
     setErrorMessage(message);
     setTimeout(() => {
       setErrorMessage(null);
-    }, 5000);
+    }, 3000);
   };
 
   const openContentModal = () => {
@@ -77,19 +77,21 @@ export const Folders = () => {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="messageError">
       <LoadingOverlay visible={visible} />
       <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
+      <div className="folderAddButton">
       <button onClick={openContentModal}>
         <img src={addFolderImage} alt=''></img>
       </button>
+      </div>
       <div className="wrapper-slider">
         {folders.map((folder) => {
           return (
-            <Link to={`/users/${user.id}/folders/1`}>
+            <Link key={folder.id} to={`/users/${user.id}/folders/1`}>
               <button>
-              <div className="slider" key={folder.id}>
+              <div className="slider">
                 <img src={folderEmpty} alt='' />
               <p>{folder.name}</p>
               </div>

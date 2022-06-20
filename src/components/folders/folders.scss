@@ -15,8 +15,17 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
 }
 
 button {
     cursor: pointer;
+}
+
+.folderAddButton {
+    margin-top: 100px;
+}
+
+.messageError {
+    margin-top: 90px;
 }
