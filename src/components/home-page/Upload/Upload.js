@@ -3,13 +3,13 @@ import { useState } from "react";
 
 // components
 import { UploadPreview } from "./UploadPreview";
-import { Tags } from "./Tags";
+import { UploadTags } from "./UploadTags";
 
 // libraries
 import { Button } from "@mantine/core";
 
 // services
-import imagesServices from "../../services/imagesServices";
+import imagesServices from "../../../services/imagesServices";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
@@ -26,7 +26,7 @@ export function Upload() {
   return (
     <div>
       <UploadPreview imagesToUpload={setNewImageUpload} />
-      <Tags
+      <UploadTags
         setSelectedTags={setSelectedTags}
         selectedTags={selectedTags}
         delfunc={delTag}
