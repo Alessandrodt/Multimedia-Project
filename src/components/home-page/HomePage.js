@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import { Navbar } from "../navbar/Navbar";
+import { NavbarHome } from "./navbar-home-page/NavbarHome";
 import { HomeGallery } from "../galleries/HomeGallery";
 import { Upload } from "./Upload/Upload";
 
@@ -24,7 +24,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarHome />
       <HomeGallery />
       <Button onClick={openContentModal} className="upload-btn">
         upload

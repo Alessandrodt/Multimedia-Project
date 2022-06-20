@@ -5,7 +5,7 @@ import defaultAvatar from "../../../images/user.svg";
 import group from "../../../images/group.svg";
 import logo from "../../../images/picsmi.png";
 
-export const Navbar = () => {
+export const NavbarHome = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   return (
