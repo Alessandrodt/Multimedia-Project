@@ -26,33 +26,19 @@ export const GroupsDetails = () => {
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
-    let searchUsers = groupsServices.searchUser()
+    let filteredUsers = groupsServices.searchUser(user.email)
     .then(searchResult => {
         setSearchResult(searchResult.data);
-        return e.target.value !== "" && user.email.includes(e.target.value);
     })
-    setSearchResult(searchUsers);
+    setSearchResult(filteredUsers);
 }
 
   const addUser = (user) => {
-    const existingUser = group.find(u => u.name === user.name);
-
-    if (existingUser) {
-      modals.openModal({
-        title: 'Warning!',
-        centered: true,
-        children: (
-        <Text size="sm">
-          This user already exists in the group.
-        </Text>)
-      })
-    } else {
       const updatedGroup = group.concat(user);
       setSearchInput("");
       setSearchResult("");
       setGroup(updatedGroup);
     }
-  }
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
