@@ -1,0 +1,71 @@
+.wrapper-na {
+    align-items: center;
+    display: flex;
+    margin: $m-auto;
+    padding: $s-2;
+    width: 1024px;
+    justify-content: space-between;
+
+    @mixin width {
+        width: 25%;
+        margin: $s-2;
+    }
+
+    .log {
+        width: 13%;
+
+        img {
+            width: ($w-6) * 2;
+            margin-top: 10px;
+
+        }
+    }
+
+    .sign {
+        @include width;
+        text-align: end;
+
+        button {
+            background-color: #dddcdc;
+            border-radius: 2rem;
+            margin-left: $m-40;
+            border: 0 ;
+            cursor: pointer;
+            padding: 2% 3%;
+
+        }
+        button:hover {
+            box-shadow: 0 0 0 6px #f3f3f3;
+        }
+    }
+
+    h4 {
+        margin-left: $s-3;
+        width: 20%;
+    }
+
+    @include media("retina", ">minWidth", ">maxWidth") {
+        width: $w-100;
+    } 
+}
+
+.srcnav {
+    width: 70%;
+}
+.bar {
+    margin-top: $m-10;
+    width: $w-100;
+}
+
+.wrapper-na .log {
+    margin-top: $m-10;
+    margin-left: $m-10;
+}
+
+.icong {
+width: 30px;
+}
+
+.button-action {
+    margin-top: 10px;
+}

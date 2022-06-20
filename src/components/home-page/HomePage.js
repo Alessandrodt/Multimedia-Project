@@ -30,7 +30,7 @@ export const HomePage = () => {
       <Navbar />
       <HomeGallery/>
       <Button onClick={openContentModal} className="upload-btn">
-        upload
+        {t("upload")}
       </Button>
     </div>
   );

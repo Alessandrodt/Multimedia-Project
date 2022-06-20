@@ -5,7 +5,7 @@ import defaultAvatar from "../../../images/user.svg";
 import group from "../../../images/group.svg";
 import logo from "../../../images/picsmi.png";
 
-export const Navbar = () => {
+export const NavbarGroups = () => {
     
 const user = JSON.parse(sessionStorage.getItem('user'));
 
@@ -16,10 +16,6 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                     <div className="log">
                         <img src={logo} title="logo smi" alt="company log" />
                     </div>
-                    <div className="srcnav">
-                        <InputWithButton className="bar"/>
-                    </div>
-                    <h4>Hello {user.first_name} {user.last_name}!</h4>
                     <div className="sign">
                         <Link to={`/users/${user.id}`}>
                             <button>
