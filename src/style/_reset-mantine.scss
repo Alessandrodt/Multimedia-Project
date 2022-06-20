@@ -1,5 +1,8 @@
+/*
+ * reset ::placeholder sign up
+ */
 .mantine-164y8ej {
-    height: 22px;
+    height: 14px;
 }
 
 .mantine-ncrsdl {
@@ -31,4 +34,38 @@ form {
 .mantine-1grzg0q {
     display: block;
     margin: 0 auto !important;
+}
+
+/*
+ * reset div choose avatar sign up
+ */
+.mantine-Paper-root.mantine-Modal-modal.mantine-vos779 {
+    margin-top: 50px;
+    width: 720px;
+}
+
+/*
+ * reset button choose avatar
+ */
+
+.sign-up {
+    
+    button.mantine-Button-filled.mantine-Button-root.mantine-1grzg0q {
+        background: $_primary;
+    }
+    
+    button.mantine-Button-filled.mantine-Button-root.mantine-Group-child.mantine-5q9waz {
+        background: $_primary;
+    }
+    
+    .mantine-3xbgk5.mantine-Button-inner {
+        padding: 0 $p-1;
+    }
+}
+
+/*
+ * reset button login
+ */
+form button.mantine-Button-filled.mantine-Button-root.mantine-Group-child.mantine-5q9waz {
+    background: $_primary;
 }
