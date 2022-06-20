@@ -22,12 +22,11 @@ const headers = {
 const uploadImage = async (folderId, newUpload, tags) => {
   const formData = new FormData();
   formData.append("file", newUpload);
-  formData.append("tags", JSON.stringify([2]));
 
-  console.log(formData.getAll("tags"));
+  tags.forEach((el) => formData.append("tags[]", el.value));
 
   return axios
-    .post(uploadUrl("1"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
+    .post(uploadUrl("6"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
     .then((y) => {
       console.log(y.data);
       return y.data;
@@ -38,6 +37,7 @@ const uploadImage = async (folderId, newUpload, tags) => {
 const createTagUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
 
 const uploadTag = async (tag) => {
+  console.log(tag);
   return axios
     .post(createTagUrl, { name: tag }, { headers: headers })
     .then((z) => {
@@ -59,13 +59,6 @@ const getAllTags = () => {
     .catch((error) => console.log(error));
 };
 
-const deleteTagUrl = `do it later`;
-
-const deleteTag = (id) => {
-  const request = axios.delete(`${deleteTagUrl}/${id}`);
-  return request.then((response) => response.data);
-};
-
-const imagesServices = { uploadImage, uploadTag, getAllTags, deleteTag };
+const imagesServices = { uploadImage, uploadTag, getAllTags };
 
 export default imagesServices;

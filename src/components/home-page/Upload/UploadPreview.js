@@ -21,6 +21,7 @@ export function UploadPreview({ imagesToUpload }) {
       },
     });
 
+  // gallery syling
   const baseStyle = {
     flex: 1,
     display: "flex",

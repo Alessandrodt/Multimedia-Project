@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from "react";
-
 import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
 //import landingPageServices from "../../services/landingPageServices";
-
-import { Link } from "react-router-dom";
 
 import { SignUp } from "../../components/sign-up/Signup";
 
@@ -34,7 +30,7 @@ export const LandingPage = () => {
             <nav>
                 <div className="wrapper-nav">
                     <div className="logo">
-                        <a href="#home">
+                        <a href="#landing-page">
                             <img src={logo} title="logo smi" alt="company logo" />
                         </a>
                     </div>
@@ -46,7 +42,7 @@ export const LandingPage = () => {
                 </div>
             </nav>
             {/* header section.wrapper-review - Find your memories. */}
-            <header id="home">
+            <header id="landing-page">
                 <section className="wrapper-review">
                     <article className="review">
                         <h1>
