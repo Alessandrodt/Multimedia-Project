@@ -37,12 +37,14 @@ export const NavbarHome = () => {
               </button>
             </Link>
             <button>
+            <Link to={`/users/${user.id}/groups`}>
               <img
                 className="icong"
                 src={group}
                 title="Groups"
                 alt="company logo"
               />
+              </Link>
             </button>
             <Link to={`/users/${user.id}/folders`}>
               <button>
