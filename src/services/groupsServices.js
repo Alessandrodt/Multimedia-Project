@@ -12,8 +12,8 @@ const createGroup = (id, newGroup) => {
 };
 
 // Method to search a user via their email address.
-const searchUser = () => {
-    return;
+const searchUser = (email) => {
+    return axios.get(`https://smi-laravel.fly.dev/api/v1/users`, email);
 };
 
 const groupsServices = { getUserGroups, createGroup, searchUser };

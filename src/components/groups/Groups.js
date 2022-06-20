@@ -44,7 +44,7 @@ export const Groups = () => {
     ? <h2> These are your groups! </h2>
     : <h2> It seems you have no groups... why don't you create one? </h2>
 
-    // useEffect hook, on page load all the grups created by the user are retrieved from the server.
+    // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
         groupsServices.getUserGroups(user.id)
         .then(groups => {

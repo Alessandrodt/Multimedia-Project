@@ -8,67 +8,17 @@ import {
   Button,
   Input,
 } from "@mantine/core";
+
 import { Search } from 'tabler-icons-react';
 
 import { useModals } from '@mantine/modals';
 
+import groupsServices from "../../services/groupsServices";
+
 export const GroupsDetails = () => {
-  const [groups, setGroup] = useState([
-    {
-      avatar: "pic.png",
-      name: "Alberto Mastromonaco",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Alessandro Catucci",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Alessandro De Tommasi",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Arianna Poverini",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Gerardo De Blasio",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Johanna Sonsini",
-      email: "testemail@gmail.com",
-    },
-  ]);
-
-  const notGroupPeople = [
-    {
-      avatar: "pic.png",
-      name: "Adelina Darie",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Omar Habib",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Chiara Gobbi",
-      email: "testemail@gmail.com",
-    },
-    {
-      avatar: "pic.png",
-      name: "Alessio Tizio",
-      email: "testemail@gmail.com",
-    },
-  ];
-
+  
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
@@ -76,14 +26,16 @@ export const GroupsDetails = () => {
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
-    let searchUsers = notGroupPeople.filter((user) => {
-      return e.target.value !== "" && user.name.includes(e.target.value);
-    });
+    let searchUsers = groupsServices.searchUser()
+    .then(searchResult => {
+        setSearchResult(searchResult.data);
+        return e.target.value !== "" && user.email.includes(e.target.value);
+    })
     setSearchResult(searchUsers);
-  };
+}
 
   const addUser = (user) => {
-    const existingUser = groups.find(u => u.name === user.name);
+    const existingUser = group.find(u => u.name === user.name);
 
     if (existingUser) {
       modals.openModal({
@@ -95,7 +47,7 @@ export const GroupsDetails = () => {
         </Text>)
       })
     } else {
-      const updatedGroup = groups.concat(user);
+      const updatedGroup = group.concat(user);
       setSearchInput("");
       setSearchResult("");
       setGroup(updatedGroup);
@@ -104,7 +56,7 @@ export const GroupsDetails = () => {
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
-    let filteredGroup = groups.filter((u) => u.name !== user.name);
+    let filteredGroup = group.filter((u) => u.name !== user.name);
      setGroup(filteredGroup);
   };
 
@@ -126,13 +78,13 @@ export const GroupsDetails = () => {
     });
 
 
-  const rows = groups.map((user) => (
+  const rows = group.map((user) => (
     <tr>
       <td key={user.name}>
         <Group spacing="sm">
           <Avatar size={30} src={user.avatar} radius={30} />
           <Text size="sm" weight={500}>
-            {user.name}
+            {user.first_name} {user.last_name}
           </Text>
           <Text size="sm" weight={500}>
             {user.email}
@@ -176,8 +128,8 @@ export const GroupsDetails = () => {
                 >
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
-                      <li key={user.name}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.name} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
+                      <li key={user.first_name}>  
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>
