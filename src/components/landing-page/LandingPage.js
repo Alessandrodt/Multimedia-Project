@@ -34,9 +34,9 @@ export const LandingPage = () => {
             <nav>
                 <div className="wrapper-nav">
                     <div className="logo">
-                        <Link to="/">
+                        <a href="#home">
                             <img src={logo} title="logo smi" alt="company logo" />
-                        </Link>
+                        </a>
                     </div>
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
@@ -46,7 +46,7 @@ export const LandingPage = () => {
                 </div>
             </nav>
             {/* header section.wrapper-review - Find your memories. */}
-            <header>
+            <header id="home">
                 <section className="wrapper-review">
                     <article className="review">
                         <h1>
@@ -83,7 +83,7 @@ export const LandingPage = () => {
                                 Relive your emotions.
                             </h2>
                             <p>
-                                Emozionati rivedendo tue immagini direttamente nella tua Homepage.
+                                Emozionati rivedendo le tue immagini direttamente nella tua Homepage.
                                 Dalla più recente alla più vecchia.
                             </p>
                         </div>
@@ -109,7 +109,7 @@ export const LandingPage = () => {
                                 Search by tag.
                             </h2>
                             <p>
-                                Cerca le tue immagini in modo semplice tramite i tag a cui hai assegnato in precedenza.
+                                <strong>Cerca le tue immagini</strong> in modo semplice <strong>tramite i tag</strong> a cui hai assegnato in precedenza.
                             </p>
                         </div>
                     </article>
@@ -120,7 +120,7 @@ export const LandingPage = () => {
                                 Share them with all of yours groups.
                             </h2>
                             <p>
-                                Crea gruppi con i tuoi amici e condivi con loro tutte le immagini che vuoi della vostra vacanza.
+                                <strong>Crea gruppi con i tuoi amici</strong>  e condivi con loro tutte le immagini che vuoi della vostra vacanza.
                             </p>
                         </div>
                         <div className="video-remember">
@@ -141,7 +141,7 @@ export const LandingPage = () => {
                     <div className="signUp">
                         <div className="text-signUp">
                         <p>
-                            Welcome to PicSmi <br />
+                            <strong>Welcome to PicSmi!</strong> <br />
                             Sign Up to start your <br />
                             experience.
                         </p>

@@ -148,7 +148,11 @@ article.memories {
         }
 
         p {
-            margin-top: $s-3;   
+            margin-top: $s-3;
+            
+            strong {
+                color: $_primary;
+            }
         }
 
         // responsive min-mobile max-tablet
@@ -235,6 +239,10 @@ section.wrapper-review {
 
             p {
                 font-size: $f-1;
+
+                strong {
+                    color: $_primary;
+                }
             }
 
             @include media( "screen", ">minWidth", "<bp2Width", ) {
