@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import defaultAvatar from "../../../images/user.svg";
 import group from "../../../images/group.svg";
 import logo from "../../../images/picsmi.png";
+import { t } from "i18next";
 
 export const Navbar = () => {
     
@@ -19,7 +20,7 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                     <div className="srcnav">
                         <InputWithButton className="bar"/>
                     </div>
-                    <h4>Hello {user.first_name} {user.last_name}!</h4>
+                    <h4>{t("hello")} {user.first_name} {user.last_name}!</h4>
                     <div className="sign">
                         <Link to={`/users/${user.id}`}>
                             <button>
