@@ -12,9 +12,26 @@ import wireframe from "../../images/Wireframe.png";
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
+//import Translate
+import i18next from "i18next";
+import { t } from "i18next"
 
 
 export const LandingPage = () => {
+
+    const languages = [
+    {
+    code:'it',
+    name:'italiano',
+    country_code:'it',
+    
+    },
+    {
+    code:'en',
+    name:'english',
+    country_code:'gb',
+
+    }];
 
     const modals = useModals();
     
@@ -34,9 +51,15 @@ export const LandingPage = () => {
                             <img src={logo} title="logo smi" alt="company logo" />
                         </a>
                     </div>
+                    <div className="toggle-box">
+                            {languages.map(({code, name, country_code})=>
+                                <button key={name} className="toggle" onClick={()=> i18next.changeLanguage(code)}><p>{(name)}</p></button>
+                            )}
+                    </div>
+            
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
-                            Login
+                           {t('login')}
                         </span>
                     </div>
                 </div>
@@ -46,7 +69,7 @@ export const LandingPage = () => {
                 <section className="wrapper-review">
                     <article className="review">
                         <h1>
-                            Find your memories.
+                            {t('Welcome')}
                         </h1>
                         <div className="wrapper-text">
                             <p>
@@ -62,7 +85,7 @@ export const LandingPage = () => {
                         <div className="signUp">
                             <span>
                                 <a href="#signUp">
-                                    Get started, Sign Up here!
+                                    {t('signupfree')}
                                 </a>
                             </span>
                         </div>
@@ -76,7 +99,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="text">
                             <h2>
-                                Relive your emotions.
+                            {t('emotion')}
                             </h2>
                             <p>
                             Thrill yourself by <strong>reviewing your images</strong> directly on your Homepage.
@@ -102,7 +125,7 @@ export const LandingPage = () => {
                         </div>
                         <div className="text end">
                             <h2>
-                                Search by tag.
+                            {t('serch_by_tag')}
                             </h2>
                             <p>
                                 <strong>Search your images</strong> easily <strong>by the tags</strong> you have previously assigned to them.
@@ -113,7 +136,7 @@ export const LandingPage = () => {
                     <article className="memories">
                         <div className="text">
                             <h2>
-                                Share them with all of yours groups.
+                         {t('share_groups')}
                             </h2>
                             <p>
                                 <strong>Create groups</strong> with your friends and share the most exciting and meaningful images of your life with them.

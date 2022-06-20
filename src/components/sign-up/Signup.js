@@ -38,10 +38,11 @@ export const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-      avatarServices.getAvatar().then((response) => {
-        setAvatar(response.data);
-      });
-  }, []);
+    avatarServices.getAvatar().then((response) => {
+      // Our GET call responds with 40 avatars. THIS IS A TEMPORARY FIX TO THIS BACKEND PROBLEM!
+      setAvatar(response.data.slice(0, 10));
+    });
+}, []);
 
   const errorStyle = {
     color: color,
