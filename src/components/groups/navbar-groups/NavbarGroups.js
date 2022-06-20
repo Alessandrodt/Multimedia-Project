@@ -22,9 +22,6 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                                 <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
                             </button>
                         </Link>
-                        <button>
-                            <img className="icong" src={group} title="Groups" alt="company logo" />
-                        </button>
                         <Link to={`/users/${user.id}/folders`}>
                             <button>
                                 <span>Folders</span>
