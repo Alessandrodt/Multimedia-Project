@@ -29,7 +29,7 @@ const uploadImage = async (folderId, newUpload, tags) => {
     .post(uploadUrl("6"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
     .then((y) => {
       console.log(y.data);
-      return y.data;
+      return y;
     })
     .catch((error) => console.log(error));
 };

@@ -8,6 +8,7 @@ import { Upload } from "./Upload/Upload";
 // libraries
 import { Button } from "@mantine/core";
 import { useModals } from "@mantine/modals";
+import { t } from "i18next";
 
 export const HomePage = () => {
   const modals = useModals();
@@ -27,7 +28,7 @@ export const HomePage = () => {
       <NavbarHome />
       <HomeGallery />
       <Button onClick={openContentModal} className="upload-btn">
-        upload
+        {t("upload")}
       </Button>
     </div>
   );

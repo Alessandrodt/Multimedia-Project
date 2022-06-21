@@ -19,6 +19,7 @@ export function HomeGallery() {
       position: "absolute",
       left: "50%",
       transform: "translateX(-50%)",
+      top:"120px"
     },
   };
 
