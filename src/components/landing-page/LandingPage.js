@@ -2,6 +2,7 @@ import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
 //import landingPageServices from "../../services/landingPageServices";
 
+import { LanguageSelect } from "../language-select/LanguageSelect";
 import { SignUp } from "../../components/sign-up/Signup";
 
 //import img
@@ -12,26 +13,11 @@ import wireframe from "../../images/Wireframe.png";
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
-//import Translate
-import i18next from "i18next";
+
+//import Language
 import { t } from "i18next"
 
-
 export const LandingPage = () => {
-
-    const languages = [
-    {
-    code:'it',
-    name:'italiano',
-    country_code:'it',
-    
-    },
-    {
-    code:'en',
-    name:'english',
-    country_code:'gb',
-
-    }];
 
     const modals = useModals();
     
@@ -51,23 +37,7 @@ export const LandingPage = () => {
                             <img src={logo} title="logo smi" alt="company logo" />
                         </a>
                     </div>
-                    <div className="toggle-box">
-                        <ul className="choose-languages">
-                            <li className="languages">
-                                languages
-                                <ul>
-                                    <li>
-                                        <li>
-                                            {languages.map(({code, name, country_code})=>
-                                                <p key={name} className="toggle" onClick={()=> i18next.changeLanguage(code)}>{(name)}</p>
-                                            )}
-                                        </li>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-            
+                    <LanguageSelect />
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
                            {t('login')}
