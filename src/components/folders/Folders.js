@@ -28,7 +28,8 @@ export const Folders = () => {
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
-      setFolders(folderId ? response.data.folders : response.data);
+      setFolders(folderId ? response.data.folders : response.data.filter(f => f.folder_id === null));
+      console.log(folders);
     })
   }, [userId, folderId]);
 
