@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Table,
@@ -23,19 +23,23 @@ export const GroupsDetails = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
 
-
+  
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
-    let filteredUsers = groupsServices.searchUser(user.email)
-    .then(searchResult => {
-      if (e.target.value !== "") /* l'&& con l'includes non funziona qui */ {
-        setSearchResult(searchResult.data);
-      } else {
-        setSearchResult("");
-      } 
-    })
-    setSearchResult(filteredUsers);
-}
+  }
+  const search = searchInput;
+
+  
+  useEffect(() => {
+      groupsServices.searchUser(searchInput)
+      .then(searchResult => {
+        if (searchInput !== "" && searchInput.length >= 2) /* l'&& con l'includes non funziona qui */ {
+          setSearchResult(searchResult.data.filter(u => u.email.includes(searchInput)));
+        } else {
+          setSearchResult("");
+        } 
+      })
+    }, [search, searchInput])
 
   const addUser = (user) => {
       const updatedGroup = group.concat(user);
@@ -69,8 +73,8 @@ export const GroupsDetails = () => {
 
 
   const rows = group.map((user) => (
-    <tr>
-      <td key={user.name}>
+    <tr key={user.id}>
+      <td>
         <Group spacing="sm">
           <Avatar size={30} src={user.avatar} radius={30} />
           <Text size="sm" weight={500}>
@@ -104,8 +108,8 @@ export const GroupsDetails = () => {
                 <div className="search">
                 <Input
                   icon={<Search size={20} />}
-                  placeholder="Search users..."
-                  value={searchInput}
+                  placeholder="Search users (At least 2 characters)"
+                  defaultValue={searchInput}
                   onChange={handleSearch}
                 />
                 </div>
@@ -118,7 +122,7 @@ export const GroupsDetails = () => {
                 >
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
-                      <li key={user.first_name}>  
+                      <li key={user.id}>  
                       <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
