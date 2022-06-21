@@ -27,10 +27,10 @@ export const Folders = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    foldersServices.getFolder(userId).then((response) => {
-      setFolders(response.data);
+    foldersServices.getFolder(userId, folderId).then((response) => {
+      setFolders(folderId ? response.data.folders : response.data);
     })
-  }, [userId]);
+  }, [userId, folderId]);
 
   const addFolder = (userId, values) => {
     setVisible(true);
@@ -86,9 +86,9 @@ export const Folders = () => {
       </button>
       </div>
       <div className="wrapper-slider">
-        {folders.map((folder) => {
+        {(folders || []).map((folder) => {
           return (
-            <Link key={folder.id} to={`/users/${user.id}/folders/1`}>
+            <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
               <button>
               <div className="slider">
                 <img src={folderEmpty} alt='' />
