@@ -18,39 +18,50 @@ export const NavbarHome = () => {
           <div className="srcnav">
             <InputWithButton className="bar" />
           </div>
-          <h4>
-            Hello {user.first_name} {user.last_name}!
-          </h4>
           <div className="sign">
-            <Link to={`/users/${user.id}`}>
+              <div className="hello-box">
+                <h6>
+                  Hello
+                </h6>
+                <h6>
+                 {user.first_name} {user.last_name}!
+                </h6>
+              </div>
+              <div>
+                <Link to={`/users/${user.id}`}>
+                  <button id="button-profile">
+                    <img
+                      className="icong"
+                      src={
+                        user?.avatar?.name
+                          ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+                          : defaultAvatar
+                      }
+                      title="Profilo"
+                      alt="company logo"
+                    />
+                  </button>
+                </Link>
+            </div>
+            <div>
               <button>
+              <Link to={`/users/${user.id}/groups`}>
                 <img
                   className="icong"
-                  src={
-                    user?.avatar?.name
-                      ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
-                      : defaultAvatar
-                  }
-                  title="Profilo"
+                  src={group}
+                  title="Groups"
                   alt="company logo"
                 />
+                </Link>
               </button>
-            </Link>
-            <button>
-            <Link to={`/users/${user.id}/groups`}>
-              <img
-                className="icong"
-                src={group}
-                title="Groups"
-                alt="company logo"
-              />
+            </div>
+            <div className="folders">
+              <Link to={`/users/${user.id}/folders`}>
+                <button>
+                  <span>Folders</span>
+                </button>
               </Link>
-            </button>
-            <Link to={`/users/${user.id}/folders`}>
-              <button>
-                <span>Folders</span>
-              </button>
-            </Link>
+            </div>
           </div>
         </div>
       </nav>

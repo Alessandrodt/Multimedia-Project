@@ -11,7 +11,7 @@
         margin: $s-2;
     }
 
-    .log {
+    .logo {
         width: 13%;
 
         img {
@@ -21,7 +21,7 @@
         }
     }
 
-    .sign {
+    .navig {
         @include width;
         text-align: end;
 
@@ -49,9 +49,7 @@
     } 
 }
 
-.srcnav {
-    width: 70%;
-}
+
 .bar {
     margin-top: $m-10;
     width: $w-100;
