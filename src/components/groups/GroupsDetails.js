@@ -28,7 +28,11 @@ export const GroupsDetails = () => {
     setSearchInput(e.target.value);
     let filteredUsers = groupsServices.searchUser(user.email)
     .then(searchResult => {
+      if (e.target.value !== "") {
         setSearchResult(searchResult.data);
+      } else {
+        setSearchResult("");
+      } 
     })
     setSearchResult(filteredUsers);
 }
