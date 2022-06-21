@@ -28,7 +28,7 @@ export const GroupsDetails = () => {
     setSearchInput(e.target.value);
     let filteredUsers = groupsServices.searchUser(user.email)
     .then(searchResult => {
-      if (e.target.value !== "") {
+      if (e.target.value !== "") /* l'&& con l'includes non funziona qui */ {
         setSearchResult(searchResult.data);
       } else {
         setSearchResult("");
