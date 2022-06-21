@@ -1,37 +1,37 @@
-import React from "react";
-import { useState, useEffect } from "react";
+// import React from "react";
+// import { useState, useEffect } from "react";
 
-export function Search() {
-     // child component
-    // export function Card({size, img}) {
-    //     const styles = {
-    //         card: {
-    //             margin: '10px 10px',
-    //             padding: 0,
-    //             borderRadius: '16px',
-    //         },
-    //         small: {
-                
-    //         },
-    //         medium: {
-    //         },
-    //         large: {
-    //         }
-    //     }
-    
-    //     const detailComponent = () => {
-    //         console.log("make this component pls")
-    //     }
-    
-    //     return (
-    //             <img src={img} alt="random images" style={{
-    //                     ...styles.card,
-    //                     ...styles[size]
-    //                 }} onClick={detailComponent} />
-    //     )
-    // }
+// export function Search() {
+// child component
+// export function Card({size, img}) {
+//     const styles = {
+//         card: {
+//             margin: '10px 10px',
+//             padding: 0,
+//             borderRadius: '16px',
+//         },
+//         small: {
 
-    // father component:
+//         },
+//         medium: {
+//         },
+//         large: {
+//         }
+//     }
+
+//     const detailComponent = () => {
+//         console.log("make this component pls")
+//     }
+
+//     return (
+//             <img src={img} alt="random images" style={{
+//                     ...styles.card,
+//                     ...styles[size]
+//                 }} onClick={detailComponent} />
+//     )
+// }
+
+// father component:
 //     const [galleryImages, setNewGalleryImages ] = useState([]);
 
 //     const styles = {
@@ -45,20 +45,19 @@ export function Search() {
 //         }
 //     }
 
-
 //     useEffect(() => {
 //         randomImagesServices.createGallery()
 //         .then((galleryImages) => {
 //             const sizes = [ "small", "medium", "large" ];
-        
+
 //             galleryImages = galleryImages.map(function(e, i) {
-//                 return { 
-//                     "urls":  e.urls, 
+//                 return {
+//                     "urls":  e.urls,
 //                     "size" : sizes[i % 3] ,
 //                     "id" : e.id
 //                 };
 //               })
-//               console.log(galleryImages);           
+//               console.log(galleryImages);
 //             setNewGalleryImages(galleryImages)
 //         })
 //     }, []);
@@ -70,5 +69,5 @@ export function Search() {
 //                 </Masonry>
 //      </div>
 //     )
-    
-}
+
+// }

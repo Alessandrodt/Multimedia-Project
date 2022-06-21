@@ -39,8 +39,21 @@
 }
 
 .upload-btn {
+    bottom:   0;
     padding: 5px;
     position: absolute;
-    right:    0;
-    bottom:   0;
+    right: 0;
+}
+
+.upload-preview {
+    float: left;
+    height: 600px;
+}
+
+.upload-preview-text {
+    height: 400px;
+}
+
+.upload-preview-btn {
+
 }

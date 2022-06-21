@@ -28,6 +28,7 @@
 
 .wrapper-button {
     button {
+        background: transparent;
         font-size: 14px;
         margin: 10px;
         overflow: hidden;
@@ -55,9 +56,9 @@
         }
 
         &:hover span {
+            color: $_white;
             transition: color 1s;
             -webkit-transition: color 1s;
-            color: $_white;
         }
     }
 }

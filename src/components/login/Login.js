@@ -100,7 +100,6 @@ export const Login = () => {
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(getUser)}>
         <TextInput
-          data-autoFocus
           required
           label="Email"
           placeholder="Email"
