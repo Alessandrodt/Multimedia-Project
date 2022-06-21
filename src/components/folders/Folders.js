@@ -87,7 +87,7 @@ export const Folders = () => {
       </button>
       </div>
       <div className="wrapper-slider">
-        {(folders || []).map((folder) => {
+        {(folders).map((folder) => {
           return (
             <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
               <button>
