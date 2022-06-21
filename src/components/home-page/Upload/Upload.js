@@ -12,6 +12,7 @@ import { useModals } from "@mantine/modals";
 
 // services
 import imagesServices from "../../../services/imagesServices";
+import { getDateRangePickerDayUtilityClass } from "@mui/lab";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
@@ -41,16 +42,21 @@ export function Upload() {
     imagesServices
       .uploadImage("someFolderId", imagesToUpload[0], selectedTags)
       .then((res) => {
-        if (res.status === 201) {
+        if (res && res.status === 201) {
           handleMessage("green", `the upload was successful`);
           console.log("aiuto");
+        } else {
+          handleMessage("red", `the upload was unsuccessful, try again`);
+          console.log("failed");
         }
         setVisible(false);
       })
       .catch((error) => {
-        if (error.res.status >= 400) {
-          handleMessage("red", `the upload was unsuccessful`);
-        }
+        console.log(error);
+        handleMessage(
+          "red",
+          `there was an issue with the serve, try again later`
+        );
         setVisible(false);
       });
   };
