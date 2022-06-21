@@ -32,7 +32,7 @@ i18n
 
     fallbackLng: "it",
     detection: {
-      order: ['cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
+      order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
       caches:['cookie'],
     },
 
