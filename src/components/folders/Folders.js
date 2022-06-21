@@ -28,7 +28,7 @@ export const Folders = () => {
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
-      setFolders(folderId ? response.data.folders : response.data);
+      setFolders(folderId ? response.data.folders : response.data.filter(f => f.folder_id === null));
     })
   }, [userId, folderId]);
 
@@ -86,7 +86,7 @@ export const Folders = () => {
       </button>
       </div>
       <div className="wrapper-slider">
-        {(folders || []).map((folder) => {
+        {(folders).map((folder) => {
           return (
             <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
               <button>
