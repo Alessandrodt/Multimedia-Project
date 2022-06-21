@@ -36,7 +36,9 @@ export const LandingPage = () => {
                             <img src={logo} title="logo smi" alt="company logo" />
                         </a>
                     </div>
+                    <div className="switchlng">
                     <LanguageSelect />
+                    </div>
                     <div className="signUp">
                         <span onClick={openContentModal} className="avatar">
                            {t('login')}

@@ -47,7 +47,7 @@
     border-radius: 50px;
     font-size: 130px;
     background-color: rgba(151, 151, 151, 0.600);
-
+   
     img {
        width: 60px;
     }
@@ -55,7 +55,7 @@
 }
 
 .upload-btn:hover {
-    background-color: rgba(198, 198, 198, 0.5);
+    background-color: #dddcdc65;
 }
 
 .upload-preview {
@@ -67,14 +67,8 @@
     height: 400px;
 }
 
-.upload-preview-btn {
-
-}
-
-#plus:hover {
-    color: #00d5e4d2;
-}
-
 .mantine-16pg774 {
     top: 66px;
 }
+
+

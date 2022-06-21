@@ -3,8 +3,6 @@ import i18next from "i18next";
 import t from "i18next"
 
 //Import Images
-import britishFlag from '../../images/britishFlag.svg';
-import italianFlag from '../../images/italianFlag.svg';
 
 export const LanguageSelect = () => {
     // In these ternary operators 't' is checked to see what is the global language state.
@@ -13,9 +11,6 @@ export const LanguageSelect = () => {
     ? 'it' 
     : 'en'
 
-    const img = t.language === 'en'
-    ? italianFlag
-    : britishFlag
 
     // This function imports changeLanguage from i18next and gives the code in string 
     // format via the lng parameter.
@@ -25,9 +20,12 @@ export const LanguageSelect = () => {
 
     return (
         <>
-            <span onClick={() => languageSwitch(lng)}>
-                <img src={img} alt={'Language Select'} />
+            <label class="switch">
+            <input type="checkbox"></input>
+            <span class="slider round" onClick={() => languageSwitch(lng)}>
+            <p className="lngtext">{t.language}</p>
             </span>
+            </label>
         </>
     )
 }

@@ -20,7 +20,7 @@ nav {
         }
     
         .logo {
-            @include width;
+            width: 17%;
     
             img {
                 width: ($w-6) * 2;
@@ -30,7 +30,7 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            @include width;
+            width: 80%;;
             text-align: end;
     
             span {
@@ -377,4 +377,9 @@ footer {
             width: 1.0rem;
         }
     }
+}
+
+
+.switchlng {
+
 }
