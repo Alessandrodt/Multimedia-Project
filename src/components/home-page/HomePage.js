@@ -8,9 +8,7 @@ import { Upload } from "./Upload/Upload";
 // libraries
 import { Button } from "@mantine/core";
 import { useModals } from "@mantine/modals";
-
-import { t } from "i18next"
-
+import { t } from "i18next";
 
 export const HomePage = () => {
   const modals = useModals();

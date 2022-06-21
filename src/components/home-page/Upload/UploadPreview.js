@@ -122,7 +122,7 @@ export function UploadPreview({ imagesToUpload }) {
       <section className="container">
         <div {...getRootProps({ style })}>
           <input {...getInputProps()} />
-          <p class={"upload-preview-text"}>
+          <p className={"upload-preview-text"}>
             Drag and drop some files here, or click to select files
           </p>
         </div>

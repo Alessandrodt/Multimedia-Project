@@ -43,12 +43,12 @@ export function Upload() {
       .then((res) => {
         if (res.status === 201) {
           handleMessage("green", `the upload was successful`);
+          console.log("aiuto");
         }
         setVisible(false);
-        modal.closeModal();
       })
       .catch((error) => {
-        if (error.response.status === 422) {
+        if (error.res.status >= 400) {
           handleMessage("red", `the upload was unsuccessful`);
         }
         setVisible(false);
@@ -60,6 +60,7 @@ export function Upload() {
     setErrorMessage(message);
     setTimeout(() => {
       setErrorMessage(null);
+      modal.closeModal();
     }, 3000);
   };
 
@@ -80,7 +81,7 @@ export function Upload() {
         selectedTags={selectedTags}
         delfunc={delTag}
       />
-      <Button onClick={handleClick} class={"upload-preview-btn"}>
+      <Button onClick={handleClick} className={"upload-preview-btn"}>
         upload
       </Button>
     </div>
