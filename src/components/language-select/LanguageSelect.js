@@ -1,33 +1,25 @@
-// Import React
-import { useState } from "react";
-
 //Import Translate
 import i18next from "i18next";
+import t from "i18next"
 
 //Import Images
 import britishFlag from '../../images/britishFlag.svg';
 import italianFlag from '../../images/italianFlag.svg';
 
 export const LanguageSelect = () => {
-    // Setting a Boolean state for the ternary operators.
-    // TO CHECK: Maybe moving this state to the App.js file could be a solution in case language doesn't persist.
-    const [language, setLanguage] = useState('Boolean')
-
-    // These ternary operators check the language state and sets the opposite.
-    const lng = language
+    // In these ternary operators 't' is checked to see what is the global language state.
+    // If it's not english, then it's italian and vice versa.
+    const lng = t.language === 'en'
     ? 'it' 
     : 'en'
 
-    const img = language
+    const img = t.language === 'en'
     ? italianFlag
     : britishFlag
 
     // This function imports changeLanguage from i18next and gives the code in string 
-    // format via the lng parameter. setLanguage changes the state to the opposite boolean value,
-    // enabling the ternary operators.
-
+    // format via the lng parameter.
     const languageSwitch = (lng) => {
-        setLanguage(!language)
         i18next.changeLanguage(lng)
     }
 
