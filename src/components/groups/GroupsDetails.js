@@ -29,17 +29,17 @@ export const GroupsDetails = () => {
   }
   const search = searchInput;
 
-  
+  // This is a big problem, 429 errors are getting out of hand.
   useEffect(() => {
-      groupsServices.searchUser(searchInput)
+      groupsServices.searchUser(search)
       .then(searchResult => {
-        if (searchInput !== "" && searchInput.length >= 2) /* l'&& con l'includes non funziona qui */ {
-          setSearchResult(searchResult.data.filter(u => u.email.includes(searchInput)));
+        if (search !== "" && search.length >= 2) /* l'&& con l'includes non funziona qui */ {
+          setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
         } else {
           setSearchResult("");
         } 
       })
-    }, [search, searchInput])
+    }, [search])
 
   const addUser = (user) => {
       const updatedGroup = group.concat(user);
