@@ -66,6 +66,7 @@ export const Folders = () => {
       name,
       href: window.location.href,
     }
+    
     if (!!chrono.forward) {
       setCrumbs(crumbs.concat(folderPath))
     } else if (!!chrono.back) {
