@@ -16,12 +16,14 @@ import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
   const user = JSON.parse(sessionStorage.getItem('user'));
-
   const modal = useModals();
+  const chrono = window.history;
   const { userId, folderId } = useParams();
 
   const [folders, setFolders] = useState([]);
   const [visible, setVisible] = useState(false);
+
+  const [crumbs, setCrumbs] = useState([]);
 
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,6 +31,7 @@ export const Folders = () => {
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
       setFolders(folderId ? response.data.folders : response.data.filter(f => f.folder_id === null));
+      console.log(response.data)
     })
   }, [userId, folderId]);
 
@@ -58,11 +61,27 @@ export const Folders = () => {
     });
   };
 
-  const items = []?.map((item, index) => (
-    <Anchor href={item.href} key={index}>
-      {item.name}
-    </Anchor>
-  ));
+  const folderTracker = (name) => {
+    const folderPath = {
+      name,
+      href: window.location.href,
+    }
+    if (!!chrono.forward) {
+      setCrumbs(crumbs.concat(folderPath))
+    } else if (!!chrono.back) {
+      setCrumbs(crumbs.pop(folderPath))
+    }
+  };
+
+
+  const items = crumbs?.map((item, index) => {
+    console.log(item)
+    return (
+      <Anchor href={item.href} key={index}>
+        {item.name}
+      </Anchor>
+    )
+    });
 
   const errorStyle = {
     color: color,
@@ -106,7 +125,6 @@ export const Folders = () => {
       <LoadingOverlay visible={visible} />
       <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
-      <Breadcrumbs>{items}</Breadcrumbs>
       <Breadcrumbs separator="→">{items}</Breadcrumbs>
       <div className="folderAddButton">
       <button onClick={openContentAddModal}>
@@ -118,7 +136,7 @@ export const Folders = () => {
           return (
             <Card key={folder.id}>
             <Link to={`/users/${user.id}/folders/${folder.id}`}>
-              <button >
+              <button onClick={() => folderTracker(folder.name)}>
               <div className="slider">
                 <img src={folderEmpty} alt='' />
               <p>{folder.name}</p>
