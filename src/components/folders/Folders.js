@@ -1,15 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { LoadingOverlay } from "@mantine/core";
+import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from '@mantine/modals';
 
 import { Navbar } from "./navbar-folders/Navbar-folders"
 
 import foldersServices from "../../services/foldersServices";
 
-import folderEmpty from "../../images/folder_icon_empty.png";
 import addFolderImage from "../../images/addFolder.svg";
+import folderEmpty from "../../images/folder_icon_empty.png";
 
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
@@ -45,6 +45,25 @@ export const Folders = () => {
     });
   };
 
+  const editFolderName = (userId, folderId, values) => {
+    foldersServices.editFolder(userId, folderId, values).then((response) => {
+      let updatedFolders = (r) => folders.filter((f) => f.name.includes(r.data));
+      setFolders(folders.concat(updatedFolders(response.data)));
+    }).catch((error) => {
+      if (error.message.status === 403) {
+        handleMessage('red', `you don't have the rights to modify this folder`)
+      } else if (error.response.status === 422) {
+        handleMessage('red', `the folder ${values.name} already exists`)
+      }
+    });
+  };
+
+  const items = []?.map((item, index) => (
+    <Anchor href={item.href} key={index}>
+      {item.name}
+    </Anchor>
+  ));
+
   const errorStyle = {
     color: color,
     background: "lightgrey",
@@ -66,10 +85,17 @@ export const Folders = () => {
     }, 3000);
   };
 
-  const openContentModal = () => {
+  const openContentAddModal = () => {
     modal.openModal({
       title: "Choose your folder's name:",
       children: <AddFolderForm userId={userId} onSubmit={addFolder} />
+    });
+  };
+
+  const openContentEditModal = (id) => {
+    modal.openModal({
+      title: "Choose your new folder's name:",
+      children: <AddFolderForm userId={userId} folderId={id} onSubmit={editFolderName} />
     });
   };
 
@@ -80,22 +106,32 @@ export const Folders = () => {
       <LoadingOverlay visible={visible} />
       <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
+      <Breadcrumbs>{items}</Breadcrumbs>
+      <Breadcrumbs separator="→">{items}</Breadcrumbs>
       <div className="folderAddButton">
-      <button onClick={openContentModal}>
+      <button onClick={openContentAddModal}>
         <img src={addFolderImage} alt=''></img>
       </button>
       </div>
       <div className="wrapper-slider">
         {(folders).map((folder) => {
           return (
-            <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
-              <button>
+            <Card key={folder.id}>
+            <Link to={`/users/${user.id}/folders/${folder.id}`}>
+              <button >
               <div className="slider">
                 <img src={folderEmpty} alt='' />
               <p>{folder.name}</p>
               </div>
               </button>
-            </Link>
+              </Link>
+              <button onClick={() => openContentEditModal(folder.id)}>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
+              </Card>
           )
         })}
       </div>

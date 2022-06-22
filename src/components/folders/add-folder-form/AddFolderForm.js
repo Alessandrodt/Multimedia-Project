@@ -17,14 +17,14 @@ const AddFolderForm = (props) => {
 
     return (
         <Box>
-            <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, values))}>
+            <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, props.folderId, values))}>
                 <TextInput
                     required
                     data-autofocus
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button fullWidth onClick={() => modal.closeModal()} type="submit">Create</Button>
+                <Button fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
             </form>
         </Box>
     );
