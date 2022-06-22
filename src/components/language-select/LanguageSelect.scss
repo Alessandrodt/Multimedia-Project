@@ -35,7 +35,7 @@
     bottom: 4px;
     -webkit-transition: .4s;
     transition: .4s;
-    background-image: url("../../images/italianFlag_small.svg");
+    // background-image: url("../../images/italianFlag_small.svg");
     background-color: white;
   }
   
@@ -54,14 +54,15 @@
     -webkit-transform: translateX(28px);
     -ms-transform: translateX(30px);
     transform: translateX(26px);
-    background-image: url("../../images/britishFlag_small.svg");
+    // background-image: url("../../images/britishFlag_small.svg");
     background-color: white;
   }
   
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
-    
+
+ 
  }
   
   .slider.round:before {
@@ -76,3 +77,17 @@
 .lngtext {
     margin-left: 30px;
 }
+ .switch-box {
+  display: flex;
+  .switch-img {
+    
+    img {
+      width: 26px;
+      margin-top: 5px;
+      margin-left: 10px;
+
+    }
+   }
+
+ }
+

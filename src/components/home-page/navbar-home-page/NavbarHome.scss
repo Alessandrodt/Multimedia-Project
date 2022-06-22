@@ -34,9 +34,7 @@
             padding: 11% 13%;
 
         }
-        button:hover {
-            box-shadow: 0 0 0 6px #f3f3f3;
-        }
+   
         h6{
             margin-top: 7px;
             text-align: left;
@@ -72,13 +70,27 @@ width: 30px;
 }
 
 .hello-box {
-    width: 22%;
-    display: flex;
-    margin-left: 10%;
+    width: 40%;
 
 }
+
+
 .folders {
-    margin-top: 7px;
+    margin-top: 10px;
+}
+
+.btt-grps {
+    margin-top: 10px;
+}
+
+#button-profile{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.box {
+    display: flex;
+    margin-left: 20%;
 }
 
 
