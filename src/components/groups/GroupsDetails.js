@@ -44,11 +44,20 @@ export const GroupsDetails = () => {
       })
     }, [search])
   
-  // Adds an user to the group. The group id is hard coded for now.
+  // Adds an user to the group. Obviously doesn't allow to add an already existing user. 
   const addUser = (user) => {
     console.log(user)
     groupsServices.addUser(groupId, user.id)
-    setGroup(group.concat(user));
+    .then( res => {
+      setGroup(group.concat(user))
+      console.log(res);
+    })
+    .catch(err => {
+      if (err.response.status === 422) {
+        console.log("This user is already in the group!")
+      }
+    })
+   
   }
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
