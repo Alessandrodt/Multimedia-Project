@@ -110,7 +110,7 @@ export const LandingPage = () => {
                             {t('serch_by_tag')}
                             </h2>
                             <p>
-                                <strong>Search your images</strong> easily <strong>by the tags</strong> you have previously assigned to them.
+                                <strong>{t("search_img")}</strong> {t("easily")} <strong>{t("by_tags")}</strong> {t("assigned")}
                             </p>
                         </div>
                     </article>
@@ -121,7 +121,7 @@ export const LandingPage = () => {
                          {t('share_groups')}
                             </h2>
                             <p>
-                                <strong>Create groups</strong> with your friends and share the most exciting and meaningful images of your life with them.
+                                <strong>{t("create_groups")}</strong>{t("group_friend")}
                             </p>    
                         </div>
                         <div className="video-remember">
