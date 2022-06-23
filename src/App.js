@@ -55,7 +55,7 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/users/:userId/groups" element={<Groups />} />
             <Route
-              path="/users/:userId/groups/details"
+              path="/users/:userId/groups/:groupId"
               element={<GroupsDetails />}
             />
             <Route
