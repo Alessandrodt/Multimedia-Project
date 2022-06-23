@@ -1,16 +1,20 @@
 /*
  * reset ::placeholder sign up
  */
-.mantine-164y8ej {
-    height: 14px;
+.sign-up .mantine-164y8ej {
+    height: 16px;
+}
+
+.mantine-144aj37.mantine-Modal-inner input[type="password"] {
+    height: 18px;
 }
 
 .mantine-ncrsdl {
     max-width: 470px;
 }
 
-
 form {
+
     .mantine-1i843xg {
         margin: 0 auto;
     }
@@ -68,4 +72,8 @@ form {
  */
 form button.mantine-Button-filled.mantine-Button-root.mantine-Group-child.mantine-5q9waz {
     background: $_primary;
+}
+
+.mantine-ncrsdl input#mantine-ejpi5xg04 {
+    height: 19px;
 }
