@@ -10,18 +10,20 @@ import {
 } from "@mantine/core";
 
 import { Search } from 'tabler-icons-react';
+import { useParams } from "react-router-dom";
 
 import { useModals } from '@mantine/modals';
 
 import groupsServices from "../../services/groupsServices";
 
 export const GroupsDetails = () => {
-  
+  const { groupId } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
+  console.log(groupId)
 
   
   // Searches users in the database by their email to add them to the group.
@@ -45,7 +47,7 @@ export const GroupsDetails = () => {
   // Adds an user to the group. The group id is hard coded for now.
   const addUser = (user) => {
     console.log(user)
-    groupsServices.addUser(10, user.id)
+    groupsServices.addUser(groupId, user.id)
     setGroup(group.concat(user));
   }
   
