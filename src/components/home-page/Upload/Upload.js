@@ -86,7 +86,11 @@ export function Upload() {
         selectedTags={selectedTags}
         delfunc={delTag}
       />
-      <Button classNames={'button-upload'} onClick={handleClick} className={"upload-preview-btn"}>
+      <Button
+        classNames={"button-upload"}
+        onClick={handleClick}
+        className={"upload-preview-btn"}
+      >
         upload
       </Button>
     </div>

@@ -11,7 +11,7 @@ export const NavbarHome = () => {
   return (
     <>
       <nav>
-        <div className="wrapper-na">
+        <div className="wrapper-navb">
           <div className="log">
             <img src={logo} title="logo smi" alt="company log" />
           </div>
@@ -20,10 +20,10 @@ export const NavbarHome = () => {
           </div>
           <div className="sign">
             <div className="btt-grps">
-            <Link to={`/users/${user.id}/groups`}>
-              <button>
-              <span>Groups</span>
-              </button>
+              <Link to={`/users/${user.id}/groups`}>
+                <button>
+                  <span>Groups</span>
+                </button>
               </Link>
             </div>
             <div className="folders">
@@ -34,25 +34,24 @@ export const NavbarHome = () => {
               </Link>
             </div>
             <div className="box">
-
-                  <h6 className="hello-box">
-                  {user.first_name} {user.last_name}
-                  </h6>
-                <div className="btt-user">
-                  <Link to={`/users/${user.id}`}>
-                    <button id="button-profile">
-                      <img
-                        className="icong"
-                        src={
-                          user?.avatar?.name
-                            ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
-                            : defaultAvatar
-                        }
-                        title="Profilo"
-                        alt="company logo"
-                      />
-                    </button>
-                  </Link>
+              <h6 className="hello-box">
+                {user.first_name} {user.last_name}
+              </h6>
+              <div className="btt-user">
+                <Link to={`/users/${user.id}`}>
+                  <button id="button-profile">
+                    <img
+                      className="icong"
+                      src={
+                        user?.avatar?.name
+                          ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+                          : defaultAvatar
+                      }
+                      title="Profilo"
+                      alt="company logo"
+                    />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
