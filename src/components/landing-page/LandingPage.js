@@ -55,9 +55,9 @@ export const LandingPage = () => {
                         </h1>
                         <div className="wrapper-text">
                             <p>
-                            Through this App you can save your favorite images in our servers.<br />
-                            Search them more easily through the tags you enter.<br />
-                            Share them with your friends.<br />
+                            {t("find")}<br />
+                            {t("findsecond")}<br />
+                            {t("findthird")}<br />
 
                             </p>
                         </div>
@@ -84,8 +84,8 @@ export const LandingPage = () => {
                             {t('emotion')}
                             </h2>
                             <p>
-                            Thrill yourself by <strong>reviewing your images</strong> directly on your Homepage.
-                            From the most recent to the oldest.
+                            {t("thrill")} <strong>{t("thrillcolor")}</strong>
+                            {t("thrillsecond")}
                             </p>
                         </div>
                         <div className="video-remember">
