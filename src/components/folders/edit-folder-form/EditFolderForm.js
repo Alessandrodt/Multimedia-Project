@@ -2,7 +2,7 @@ import { Box, Button, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
-const AddFolderForm = (props) => {
+const EditFolderForm = (props) => {
   const modal = useModals();
 
   const form = useForm({
@@ -22,7 +22,7 @@ const AddFolderForm = (props) => {
     <Box>
       <form
         onSubmit={form.onSubmit((values) =>
-          props.onSubmit(props.userId, values)
+          props.onSubmit(props.userId, props.folderId, values)
         )}
       >
         <TextInput
@@ -39,4 +39,4 @@ const AddFolderForm = (props) => {
   );
 };
 
-export default AddFolderForm;
+export default EditFolderForm;
