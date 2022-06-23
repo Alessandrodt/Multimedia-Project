@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { Folders } from "./components/folders/Folders";
@@ -9,27 +11,26 @@ import { NotFound } from "./components/not-found/NotFound";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
-//import style scss
+
+// import style scss
 import "./App.scss";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+// import libraries
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
+
 //import i18n
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
-
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-
     fallbackLng: "it",
     detection: {
       order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
@@ -37,14 +38,14 @@ i18n
     },
 
     backend: {
-      loadPath: 'assets/locales/{{lng}}/translation.json',
+      loadPath: "assets/locales/{{lng}}/translation.json",
     },
     react: { useSuspense: false },
   });
 
 const App = () => {
   const { t } = useTranslation();
-  
+
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>

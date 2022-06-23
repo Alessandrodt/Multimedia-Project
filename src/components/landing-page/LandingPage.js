@@ -1,5 +1,6 @@
 import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
+import { Toggle } from "../toggle/Toggle";
 //import landingPageServices from "../../services/landingPageServices";
 
 import { LanguageSelect } from "../language-select/LanguageSelect";
@@ -15,13 +16,12 @@ import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
 
 //import Language
-import { t } from "i18next"
+import { t } from "i18next";
 
 export const LandingPage = () => {
+  const modals = useModals();
 
-    const modals = useModals();
-    
-    const openContentModal = () => {
+  const openContentModal = () => {
     modals.openModal({
       children: <Login />,
     });
