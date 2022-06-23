@@ -12,6 +12,7 @@ import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.png";
 
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
+import EditFolderForm from "./edit-folder-form/EditFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 
 export const Folders = () => {
@@ -62,9 +63,10 @@ export const Folders = () => {
   };
 
   const folderTracker = (name) => {
+    let idCheck = folderId ? `/users/${userId}/folders/${folderId}` : `/users/${userId}/folders`;
     const folderPath = {
       name,
-      href: window.location.href,
+      href: idCheck,
     }
     
     if (!!chrono.forward) {
@@ -73,7 +75,6 @@ export const Folders = () => {
       setCrumbs(crumbs.pop(folderPath))
     }
   };
-
 
   const items = crumbs?.map((item, index) => {
     console.log(item)
@@ -115,7 +116,7 @@ export const Folders = () => {
   const openContentEditModal = (id) => {
     modal.openModal({
       title: "Choose your new folder's name:",
-      children: <AddFolderForm userId={userId} folderId={id} onSubmit={editFolderName} />
+      children: <EditFolderForm userId={userId} folderId={id} onSubmit={editFolderName} />
     });
   };
 
