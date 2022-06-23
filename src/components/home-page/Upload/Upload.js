@@ -12,7 +12,6 @@ import { useModals } from "@mantine/modals";
 
 // services
 import imagesServices from "../../../services/imagesServices";
-import { getDateRangePickerDayUtilityClass } from "@mui/lab";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
