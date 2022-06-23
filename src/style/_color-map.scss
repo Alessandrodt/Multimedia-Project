@@ -3,24 +3,27 @@ $_black:     #000000 !default;
 $_bg:        #F3F3F3 !default;
 $_blue:      #00D1E0 !default;
 $_dark-blue: #008993 !default;
+$_green:     #69BE67 !default;
 $_input:     #b3bcc3 !default;
 $_red:       #ff0000 !default;
 $_white:     #ffffff !default;
 
 // scss-docs-start colors-map
 $colors: (
-  "_black":       $_black,
-  "_blue":        $_blue,
-  "_bg":          $_bg,
-  "_dark-blue":   $_dark-blue,
-  "_hover":       $_dark-blue,
-  "_delete":      $_red,
-  "_white":       $_white,
+  "bg":          $_bg,
+  "black":       $_black,
+  "blue":        $_blue,
+  "dark-blue":   $_dark-blue,
+  "delete":      $_red,
+  "hover":       $_dark-blue,
+  "success":      $_green,
+  "white":       $_white,
 ) !default;
 
 
 // scss-docs-start theme-color-variables
 $_dark:         $_dark-blue;
+$_delete:       $_red;
 $_hover:        $_dark-blue;
 $_primary:      $_blue;
-$_delete:       $_red;
+$_success:      $_green;

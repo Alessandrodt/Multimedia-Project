@@ -25,7 +25,7 @@ export const LanguageSelect = () => {
 
     return (
         <>
-            <span onClick={() => languageSwitch(lng)}>
+            <span className="img-languages" onClick={() => languageSwitch(lng)}>
                 <img src={img} alt={'Language Select'} />
             </span>
         </>

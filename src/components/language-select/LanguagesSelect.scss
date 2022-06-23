@@ -1,0 +1,12 @@
+span.img-languages {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: $s-3;
+    position: relative;
+    top: -7px;
+    width: ($w-2) + 5;
+
+    img {
+        width: $w-100;
+    }
+}
