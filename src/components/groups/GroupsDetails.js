@@ -42,12 +42,11 @@ export const GroupsDetails = () => {
       })
     }, [search])
   
-  
-  const addUser = (email) => {
-    groupsServices.addUser(1, email)
-    .then(res => {
-      setGroup(group.concat(res.data));
-    })
+  // Adds an user to the group. The group id is hard coded for now.
+  const addUser = (user) => {
+    console.log(user)
+    groupsServices.addUser(10, user.id)
+    setGroup(group.concat(user));
   }
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
@@ -125,7 +124,7 @@ export const GroupsDetails = () => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.id}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user.email)}> Add </Button></p>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>

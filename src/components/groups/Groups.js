@@ -21,6 +21,7 @@ export const Groups = () => {
     const [color, setColor] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    console.log(groups)
     const errorStyle = {
         color: color,
         background: "lightgrey",
