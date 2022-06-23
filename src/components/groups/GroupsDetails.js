@@ -24,6 +24,7 @@ export const GroupsDetails = () => {
   const [isReadonly, setIsReadonly] = useState(true);
 
   
+  // Searches users in the database by their email to add them to the group.
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
   }
@@ -33,20 +34,21 @@ export const GroupsDetails = () => {
   useEffect(() => {
       groupsServices.searchUser(search)
       .then(searchResult => {
-        if (search !== "" && search.length >= 2) /* l'&& con l'includes non funziona qui */ {
+        if (search !== "" && search.length >= 2) {
           setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
         } else {
           setSearchResult("");
         } 
       })
     }, [search])
-
-  const addUser = (user) => {
-      const updatedGroup = group.concat(user);
-      setSearchInput("");
-      setSearchResult("");
-      setGroup(updatedGroup);
-    }
+  
+  
+  const addUser = (email) => {
+    groupsServices.addUser(1, email)
+    .then(res => {
+      setGroup(group.concat(res.data));
+    })
+  }
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
@@ -123,7 +125,7 @@ export const GroupsDetails = () => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.id}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user.email)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>

@@ -16,6 +16,11 @@ const searchUser = (email) => {
     return axios.get(`https://smi-laravel.fly.dev/api/v1/users`, email);
 };
 
-const groupsServices = { getUserGroups, createGroup, searchUser };
+// Method to add user to the group. 
+const addUser = (group, user) => {
+    return axios.post(`https://smi-laravel.fly.dev/api/v1/groups/${group}/users/${user}`);
+};
+
+const groupsServices = { getUserGroups, createGroup, searchUser, addUser };
 
 export default groupsServices;
