@@ -62,7 +62,7 @@ export const Folders = () => {
     });
   };
 
-  const folderTracker = (name, index) => {
+  const folderTracker = (name) => {
     const routeTo = 
     folderId ? `/users/${userId}/folders/${folderId}` : `/users/${userId}/folders/`;
     
@@ -71,20 +71,19 @@ export const Folders = () => {
       path: routeTo,
     };
 
-    // if (crumbs.indexOf(folderPath) < index) {
-    //   setCrumbs(crumbs.slice(0, crumbs.indexOf(index)))
-    // } else {
-      setCrumbs(crumbs.concat(folderPath))
-    // };
+    setCrumbs(crumbs.concat(folderPath))
+        
   };
     
     const items = crumbs?.map((item, index) => {
-    
+    // let currentPath = folderId === null
+    // ? -1
+    // : item.name
+
     return (
-      <Anchor onClick={console.log('ciao')} component={Link} to={item.path} key={index}>
+      <Anchor onClick={() => setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))} component={Link} to={item.path} key={index}>
         {item.name}
       </Anchor>
- 
     )
     });
 
