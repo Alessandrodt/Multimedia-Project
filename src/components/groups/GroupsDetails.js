@@ -83,9 +83,19 @@ const handleMessage = (color, message) => {
     .then(res => {
      setGroup(group.filter((u) => u.id !== user.id));
   })
+  .catch(err => {
+    if (err.response.status === 403) {
+      handleMessage("red", "You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
+    }
+  })
+  .catch(err => {
+    if (err.response.status === 404) {
+      handleMessage("red", "Group or user not found.")
+    }
+  })
   };
   
-  // Confirmation modals to delete an user from the group.
+  // Confirmation modal to delete an user from the group.
   const modals = useModals();
 
   const openDeleteModal = (user) =>
@@ -94,7 +104,7 @@ const handleMessage = (color, message) => {
       centered: true,
       children: (
         <Text size="sm">
-          Are you sure you want to delete {user.first_name} {user.last_name} from the group? You will be able to add them again.
+          Are you sure you want to delete {user.first_name} {user.last_name} from the group? You will be able to add them again at a later time.
         </Text>
       ),
       labels: { confirm: 'Delete user', cancel: "Cancel" },
