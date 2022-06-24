@@ -18,7 +18,7 @@ import { ErrorMessage } from "../error-message/ErrorMessage";
 export const Folders = () => {
   const user = JSON.parse(sessionStorage.getItem('user'));
   const modal = useModals();
-  const chrono = window.history;
+
   const { userId, folderId } = useParams();
 
   const [folders, setFolders] = useState([]);
@@ -31,8 +31,7 @@ export const Folders = () => {
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
-      setFolders(folderId ? response.data.folders : response.data.filter(f => f.folder_id === null));
-      console.log(response.data)
+      setFolders(folderId ? response.data.folders : response.data);
     })
   }, [userId, folderId]);
 
@@ -51,8 +50,7 @@ export const Folders = () => {
 
   const editFolderName = (userId, folderId, values) => {
     foldersServices.editFolder(userId, folderId, values).then((response) => {
-      let updatedFolders = (r) => folders.filter((f) => f.name.includes(r.data));
-      setFolders(folders.concat(updatedFolders(response.data)));
+      setFolders(folders.map(f => f.folderId === folderId ? response.data : f));
     }).catch((error) => {
       if (error.message.status === 403) {
         handleMessage('red', `you don't have the rights to modify this folder`)
@@ -62,26 +60,29 @@ export const Folders = () => {
     });
   };
 
-  const folderTracker = (name) => {
-    let idCheck = folderId ? `/users/${userId}/folders/${folderId}` : `/users/${userId}/folders`;
+  const folderTracker = (name, index) => {
+    const routeTo = 
+    folderId ? `/users/${userId}/folders/${folderId}` : `/users/${userId}/folders/`;
+    
     const folderPath = {
       name,
-      href: idCheck,
-    }
-    
-    if (!!chrono.forward) {
-      setCrumbs(crumbs.concat(folderPath))
-    } else if (!!chrono.back) {
-      setCrumbs(crumbs.pop(folderPath))
-    }
-  };
+      path: routeTo,
+    };
 
-  const items = crumbs?.map((item, index) => {
-    console.log(item)
+    // if (crumbs.indexOf(folderPath) < index) {
+    //   setCrumbs(crumbs.slice(0, crumbs.indexOf(index)))
+    // } else {
+      setCrumbs(crumbs.concat(folderPath))
+    // };
+  };
+    
+    const items = crumbs?.map((item, index) => {
+    
     return (
-      <Anchor href={item.href} key={index}>
+      <Anchor onClick={console.log('ciao')} component={Link} to={item.path} key={index}>
         {item.name}
       </Anchor>
+ 
     )
     });
 
@@ -127,7 +128,9 @@ export const Folders = () => {
       <LoadingOverlay visible={visible} />
       <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
-      <Breadcrumbs separator="→">{items}</Breadcrumbs>
+      <Breadcrumbs>
+        {items}
+      </Breadcrumbs>
       <div className="folderAddButton">
       <button onClick={openContentAddModal}>
         <img src={addFolderImage} alt=''></img>
@@ -138,7 +141,7 @@ export const Folders = () => {
           return (
             <Card key={folder.id}>
             <Link to={`/users/${user.id}/folders/${folder.id}`}>
-              <button onClick={() => folderTracker(folder.name)}>
+              <button onClick={() => folderTracker(folder.name, folder.id)}>
               <div className="slider">
                 <img src={folderEmpty} alt='' />
               <p>{folder.name}</p>
@@ -158,3 +161,5 @@ export const Folders = () => {
     </div>
   );
 };
+
+

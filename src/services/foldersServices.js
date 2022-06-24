@@ -19,6 +19,8 @@ const getFolder = (userId, folderId) => {
 
     if (folderId) {
         url = url.concat(`${folderId}?include=folders`);
+    } else {
+        url = url.concat(`?filter[folder_id]=null`)
     }
 
     return axios.get(url);
