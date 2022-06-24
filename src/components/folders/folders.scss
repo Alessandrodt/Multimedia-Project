@@ -7,13 +7,15 @@
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
-    width: $w-90;
-    justify-content: space-between;
+    row-gap: $s-3;
+    width: $w-70;
+    justify-content: flex-start;
 }
 
 .slider {
     align-items: center;
     color: $_black;
+    margin-right: $s-3;
     text-align: center;
 
     a {

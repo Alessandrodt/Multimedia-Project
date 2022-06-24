@@ -133,7 +133,7 @@ export const Folders = () => {
         {items}
       </Breadcrumbs>
       <div className="folderAddButton">
-        <span className="folder" onClick={openContentModal}>
+        <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=''></img>
         </span>
       </div>

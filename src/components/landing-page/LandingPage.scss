@@ -22,11 +22,6 @@ nav {
         padding: $s-2;
         width: $w-90;
     
-        @mixin width {
-            width: $w-50;
-            margin: $s-2;
-        }
-    
         .logo {
             width: 17%;
     
@@ -38,7 +33,7 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            width: 80%;;
+            width: 80%;
             text-align: end;
     
             span.button-bg {
