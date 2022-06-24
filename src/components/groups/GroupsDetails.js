@@ -9,6 +9,8 @@ import {
   Input,
 } from "@mantine/core";
 
+import { ErrorMessage } from "../error-message/ErrorMessage";
+
 import { Search } from 'tabler-icons-react';
 import { useParams } from "react-router-dom";
 
@@ -23,16 +25,34 @@ export const GroupsDetails = () => {
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isReadonly, setIsReadonly] = useState(true);
-  console.log(groupId)
-
+  const [color, setColor] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
+  // Error message handling.
+  const errorStyle = {
+    color: color,
+    background: "lightgrey",
+    fontSize: "20px",
+    borderStyle: "solid",
+    borderRadius: "5px",
+    padding: "10px",
+    marginBottom: "10px",
+};
+
+const handleMessage = (color, message) => {
+    setColor(color);
+    setErrorMessage(message);
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 5000);
+};
+
   // Searches users in the database by their email to add them to the group.
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
   }
   const search = searchInput;
 
-  // This is a big problem, 429 errors are getting out of hand.
   useEffect(() => {
     if (search !== "" && search.length > 2) {
       groupsServices.searchUser(search)
@@ -52,19 +72,20 @@ export const GroupsDetails = () => {
     })
     .catch(err => {
       if (err.response.status === 422) {
-        console.log("This user is already in the group!")
+        handleMessage("red", "This user is already in the group!")
       }
     })
   }
   
-  // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
+  // Deletes the user of choice from the group by their ID.
   const deleteUser = (user) => {
     groupsServices.deleteUser(groupId, user.id)
     .then(res => {
      setGroup(group.filter((u) => u.id !== user.id));
   })
   };
-
+  
+  // Confirmation modals to delete an user from the group.
   const modals = useModals();
 
   const openDeleteModal = (user) =>
@@ -82,7 +103,7 @@ export const GroupsDetails = () => {
       onConfirm: () => deleteUser(user),
     });
 
-
+  // Maps the group array by its lenght to append rows.
   const rows = group.map((user) => (
     <tr key={user.id}>
       <td>
@@ -124,6 +145,7 @@ export const GroupsDetails = () => {
                   onChange={handleSearch}
                 />
                 </div>
+                <ErrorMessage message={errorMessage} style={errorStyle} />
                 <ul
                   style={
                     searchResult.length === 0
