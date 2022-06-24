@@ -15,13 +15,13 @@ export const Navbar = () => {
                 <div className="log">
                     <img src={logo} title="logo smi" alt="company log" />
                 </div>
-                <div className="sign">
+                <div id='sig' className="sign">
                         <Link to={`/users/${user.id}`}>
-                            <button>
+                            <button id='btn-prf'>
                                 <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
                             </button>
                         </Link>
-                        <button>
+                        <button id='btn-grp'>
                             <img className="icong" src={group} title="Groups" alt="company logo" />
                         </button>
                     </div>
