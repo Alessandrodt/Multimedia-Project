@@ -2,9 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
-import { useModals } from '@mantine/modals';
-
-import { Navbar } from "./navbar-folders/Navbar-folders"
+import { useModals } from "@mantine/modals";
 
 import foldersServices from "../../services/foldersServices";
 
@@ -12,11 +10,12 @@ import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.png";
 
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
-import EditFolderForm from "./edit-folder-form/EditFolderForm";
+import EditFolderForm from "../../components/folders/edit-folder-form/EditFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
+import { NavbarFolders } from "./navbar-folders/NavbarFolders";
 
 export const Folders = () => {
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
 
   const { userId, folderId } = useParams();
@@ -37,15 +36,18 @@ export const Folders = () => {
 
   const addFolder = (userId, values) => {
     setVisible(true);
-    foldersServices.createFolder(userId, folderId, values).then((response) => {
-      setFolders(folders.concat(response.data));
-      setVisible(false);
-    }).catch((error) => {
-      if (error.response.status === 422) {
-        handleMessage('red', `the folder ${values.name} already exists`)
-      }
-      setVisible(false);
-    });
+    foldersServices
+      .createFolder(userId, folderId, values)
+      .then((response) => {
+        setFolders(folders.concat(response.data));
+        setVisible(false);
+      })
+      .catch((error) => {
+        if (error.response.status === 422) {
+          handleMessage("red", `the folder ${values.name} already exists`);
+        }
+        setVisible(false);
+      });
   };
 
   const editFolderName = (userId, folderId, values) => {
@@ -94,9 +96,9 @@ export const Folders = () => {
     borderRadius: "5px",
     padding: "10px",
     marginBottom: "10px",
-    textAlign: 'center',
-    width:'40%',
-    marginLeft:'28%'
+    textAlign: "center",
+    width: "40%",
+    marginLeft: "28%",
   };
 
   const handleMessage = (color, message) => {
@@ -110,7 +112,7 @@ export const Folders = () => {
   const openContentAddModal = () => {
     modal.openModal({
       title: "Choose your folder's name:",
-      children: <AddFolderForm userId={userId} onSubmit={addFolder} />
+      children: <AddFolderForm userId={userId} onSubmit={addFolder} />,
     });
   };
 
@@ -123,21 +125,21 @@ export const Folders = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarFolders/>
       <div className="messageError">
-      <LoadingOverlay visible={visible} />
-      <ErrorMessage message={errorMessage} style={errorStyle} />
+        <LoadingOverlay visible={visible} />
+        <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
       <Breadcrumbs>
         {items}
       </Breadcrumbs>
       <div className="folderAddButton">
-      <button onClick={openContentAddModal}>
-        <img src={addFolderImage} alt=''></img>
-      </button>
+        <button onClick={openContentAddModal}>
+          <img src={addFolderImage} alt=""></img>
+        </button>
       </div>
       <div className="wrapper-slider">
-        {(folders).map((folder) => {
+        {folders.map((folder) => {
           return (
             <Card key={folder.id}>
             <Link to={`/users/${user.id}/folders/${folder.id}`}>
@@ -151,11 +153,9 @@ export const Folders = () => {
               <button onClick={() => openContentEditModal(folder.id)}>
                 Edit
               </button>
-              <button>
-                Delete
-              </button>
-              </Card>
-          )
+              <button>Delete</button>
+            </Card>
+          );
         })}
       </div>
     </div>

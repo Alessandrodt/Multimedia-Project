@@ -3,17 +3,20 @@ import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
 const AddFolderForm = (props) => {
-    const modal = useModals()
+  const modal = useModals();
 
-    const form = useForm({
-        initialValues: {
-            name: '',
-        },
+  const form = useForm({
+    initialValues: {
+      name: "",
+    },
 
-        validate: {
-            name: (value) => value.length < 3 ? "the name has to be at least 3 characters long" : null,
-        },
-    });
+    validate: {
+      name: (value) =>
+        value.length < 3
+          ? "the name has to be at least 3 characters long"
+          : null,
+    },
+  });
 
     return (
         <Box>

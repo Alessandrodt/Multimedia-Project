@@ -14,7 +14,7 @@
   }
   
   /* The slider */
-  .slider {
+  .sliderr {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -26,7 +26,7 @@
     background-color: rgb(187, 187, 187);
   }
   
-  .slider:before {
+  .sliderr:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -59,13 +59,13 @@
   }
   
   /* Rounded sliders */
-  .slider.round {
+  .sliderr.round {
     border-radius: 34px;
 
  
  }
   
-  .slider.round:before {
+  .sliderr.round:before {
     border-radius: 50%;
   }
 
@@ -91,3 +91,15 @@
 
  }
 
+span.img-languages {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: $s-3;
+  position: relative;
+  top: -7px;
+  width: ($w-2) + 5;
+
+  img {
+      width: $w-100;
+  }
+}
