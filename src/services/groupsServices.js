@@ -21,6 +21,10 @@ const addUser = (group, user) => {
     return axios.post(`https://smi-laravel.fly.dev/api/v1/groups/${group}/users/${user}`);
 };
 
-const groupsServices = { getUserGroups, createGroup, searchUser, addUser };
+const deleteUser = (group, user) => {
+    return axios.delete(`https://smi-laravel.fly.dev/api/v1/groups/${group}/users/${user}`)
+}
+
+const groupsServices = { getUserGroups, createGroup, searchUser, addUser, deleteUser };
 
 export default groupsServices;

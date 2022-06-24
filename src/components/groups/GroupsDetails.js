@@ -47,7 +47,7 @@ export const GroupsDetails = () => {
   // Adds an user to the group. Obviously doesn't allow to add an already existing user. 
   const addUser = (user) => {
     groupsServices.addUser(groupId, user.id)
-    .then( res => {
+    .then(res => {
       setGroup(group.concat(user))
     })
     .catch(err => {
@@ -59,8 +59,10 @@ export const GroupsDetails = () => {
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
   const deleteUser = (user) => {
-    let filteredGroup = group.filter((u) => u.name !== user.name);
-     setGroup(filteredGroup);
+    groupsServices.deleteUser(groupId, user.id)
+    .then(res => {
+     setGroup(group.filter((u) => u.id !== user.id));
+  })
   };
 
   const modals = useModals();
