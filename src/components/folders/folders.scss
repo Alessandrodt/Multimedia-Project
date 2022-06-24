@@ -6,24 +6,42 @@
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
-    width: 80%;
+    margin: $w-4 auto;
+    width: $w-90;
     justify-content: space-between;
 }
 
 .slider {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
-    
-}
+    color: $_black;
+    text-align: center;
 
-button {
-    cursor: pointer;
+    a {
+        display: inline-block;
+        text-align: center;
+    }
+
+    p {
+        color: $_black;
+    }
 }
 
 .folderAddButton {
-    margin-top: 100px;
+    margin: $w-5 auto;
+    width: $w-90;
+
+    span.folder {
+        cursor: pointer;
+        display: inline-block;
+
+        img {
+            opacity: .8;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 .messageError {

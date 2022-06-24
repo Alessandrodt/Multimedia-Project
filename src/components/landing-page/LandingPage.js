@@ -40,7 +40,7 @@ export const LandingPage = () => {
           <Toggle />
           <LanguageSelect />
           <div className="signUp">
-            <span onClick={openContentModal} className="avatar">
+            <span onClick={openContentModal} className="button-bg">
               {t("login")}
             </span>
           </div>
@@ -70,7 +70,7 @@ export const LandingPage = () => {
               />
             </div>
             <div className="signUp">
-              <span>
+              <span className="button-bg">
                 <a href="#signUp">{t("signupfree")}</a>
               </span>
             </div>

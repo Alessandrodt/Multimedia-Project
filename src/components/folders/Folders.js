@@ -8,7 +8,7 @@ import { Navbar } from "./navbar-folders/Navbar-folders"
 
 import foldersServices from "../../services/foldersServices";
 
-import folderEmpty from "../../images/folder_icon_empty.png";
+import folderEmpty from "../../images/folder_icon_empty.svg";
 import addFolderImage from "../../images/addFolder.svg";
 
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
@@ -77,25 +77,23 @@ export const Folders = () => {
     <div>
       <Navbar />
       <div className="messageError">
-      <LoadingOverlay visible={visible} />
-      <ErrorMessage message={errorMessage} style={errorStyle} />
+        <LoadingOverlay visible={visible} />
+        <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
       <div className="folderAddButton">
-      <button onClick={openContentModal}>
-        <img src={addFolderImage} alt=''></img>
-      </button>
+        <span className="folder" onClick={openContentModal}>
+          <img src={addFolderImage} alt=''></img>
+        </span>
       </div>
       <div className="wrapper-slider">
         {(folders).map((folder) => {
           return (
-            <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
-              <button>
-              <div className="slider">
+            <div className="slider">
+              <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
                 <img src={folderEmpty} alt='' />
-              <p>{folder.name}</p>
-              </div>
-              </button>
-            </Link>
+                <p>{folder.name}</p>
+              </Link>
+            </div>
           )
         })}
       </div>

@@ -1,3 +1,11 @@
+@mixin button-bg {
+    background: $_primary;
+    border-radius: $s-3;
+    color: $_white;
+    padding: $s-2 $s-3;
+    box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+}
+
 nav {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
@@ -38,12 +46,8 @@ nav {
             @include width;
             text-align: end;
     
-            span.login {
-                background: $_primary;
-                border-radius: 2rem;
-                box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
-                color: $_white;
-                padding: 0.8rem 1.5rem;
+            span.button-bg {
+                @include button-bg;
                 text-align: center;
                 width: 100px;
             }
@@ -101,11 +105,8 @@ article.review {
         grid-row: 3;
         padding-top: $s-3;
 
-        span {
-            background: $_primary;
-            border-radius: $s-3;
-            padding: $s-2 $s-3;
-            box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+        span.button-bg {
+            @include button-bg;
         }
 
         //responsive
@@ -388,28 +389,4 @@ footer {
     .toggle {
         padding: $s-1 0;
     }
-
-    ul.choose-languages {
-        border-radius: 10px;
-        box-shadow: 2px 2px 5px rgba($color: $_black, $alpha: .25);
-        padding: $p-1;
-        position: absolute;
-        top: 20px;
-
-        li {
-            ul {
-                display: none;
-
-                //custom languages - It/En
-                li {
-                    cursor: pointer;
-                    padding: $s-1 0;
-                }
-            }
-            &:hover ul{
-                display: block;
-            }
-        }
-    }
-
 }
