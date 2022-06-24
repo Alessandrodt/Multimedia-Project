@@ -2,25 +2,22 @@ import { Box, Button, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
-const AddFolderForm = (props) => {
-  const modal = useModals();
+const EditFolderForm = (props) => {
+    const modal = useModals()
 
-  const form = useForm({
-    initialValues: {
-      name: "",
-    },
+    const form = useForm({
+        initialValues: {
+            name: '',
+        },
 
-    validate: {
-      name: (value) =>
-        value.length < 3
-          ? "the name has to be at least 3 characters long"
-          : null,
-    },
-  });
+        validate: {
+            name: (value) => value.length < 3 ? "the name has to be at least 3 characters long" : null,
+        },
+    });
 
     return (
         <Box>
-            <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, values))}>
+            <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, props.folderId, values))}>
                 <TextInput
                     required
                     data-autofocus
@@ -33,4 +30,4 @@ const AddFolderForm = (props) => {
     );
 }
 
-export default AddFolderForm;
+export default EditFolderForm;

@@ -26,19 +26,19 @@ export const LandingPage = () => {
       children: <Login />,
     });
   };
-
   return (
     <>
       {/* navbar */}
-      <nav>
+      <nav className="navbr">
         <div className="wrapper-nav">
           <div className="logo">
             <a href="#landing-page">
               <img src={logo} title="logo smi" alt="company logo" />
             </a>
           </div>
-          <Toggle />
-          <LanguageSelect />
+          <div className="switchlng">
+            <LanguageSelect />
+          </div>
           <div className="signUp">
             <span onClick={openContentModal} className="button-bg">
               {t("login")}
@@ -53,12 +53,11 @@ export const LandingPage = () => {
             <h1>{t("Welcome")}</h1>
             <div className="wrapper-text">
               <p>
-                Through this App you can save your favorite images in our
-                servers.
+                {t("find")}
                 <br />
-                Search them more easily through the tags you enter.
+                {t("findsecond")}
                 <br />
-                Share them with your friends.
+                {t("findthird")}
                 <br />
               </p>
             </div>
@@ -85,8 +84,8 @@ export const LandingPage = () => {
             <div className="text">
               <h2>{t("emotion")}</h2>
               <p>
-                Thrill yourself by <strong>reviewing your images</strong>{" "}
-                directly on your Homepage. From the most recent to the oldest.
+                {t("thrill")} <strong>{t("thrillcolor")}</strong>
+                {t("thrillsecond")}
               </p>
             </div>
             <div className="video-remember">

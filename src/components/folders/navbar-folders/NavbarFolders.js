@@ -2,10 +2,9 @@ import { InputWithButton } from "../../navbar/search/Srcbar";
 import { Link } from "react-router-dom";
 
 import defaultAvatar from "../../../images/user.svg";
-import group from "../../../images/group.svg";
 import logo from "../../../images/picsmi.png";
 
-export const NavbarHome = () => {
+export const NavbarFolders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   return (
@@ -19,21 +18,14 @@ export const NavbarHome = () => {
             <InputWithButton className="bar" />
           </div>
           <div className="sign">
-            <div className="btt-grps">
+            <div id="but-grps" className="btt-grps">
               <Link to={`/users/${user.id}/groups`}>
                 <button>
                   <span>Groups</span>
                 </button>
               </Link>
             </div>
-            <div className="folders">
-              <Link to={`/users/${user.id}/folders`}>
-                <button>
-                  <span>Folders</span>
-                </button>
-              </Link>
-            </div>
-            <div className="box">
+            <div id="box-hello" className="box">
               <h6 className="hello-box">
                 {user.first_name} {user.last_name}
               </h6>

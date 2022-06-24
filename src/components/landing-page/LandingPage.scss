@@ -28,12 +28,7 @@ nav {
         }
     
         .logo {
-            @include width;
-
-            a {
-                display: inline-block;
-                margin-right: $s-2;
-            }
+            width: 17%;
     
             img {
                 width: ($w-6) * 2;
@@ -43,7 +38,7 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            @include width;
+            width: 80%;;
             text-align: end;
     
             span.button-bg {
