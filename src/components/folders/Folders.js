@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 
-import { Navbar } from "./navbar-folders/Navbar-folders";
-
 import foldersServices from "../../services/foldersServices";
 
 import addFolderImage from "../../images/addFolder.svg";
@@ -14,6 +12,7 @@ import folderEmpty from "../../images/folder_icon_empty.png";
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
 import EditFolderForm from "../../components/folders/edit-folder-form/EditFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
+import { NavbarFolders } from "./navbar-folders/NavbarFolders";
 
 export const Folders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -141,7 +140,7 @@ export const Folders = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarFolders/>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
         <ErrorMessage message={errorMessage} style={errorStyle} />
