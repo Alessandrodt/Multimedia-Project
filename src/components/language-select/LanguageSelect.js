@@ -25,7 +25,7 @@ export const LanguageSelect = () => {
         <div>
           <label className="switch">
             <input type="checkbox"></input>
-            <span className="slider round" onClick={() => languageSwitch(lng)}>
+            <span className="sliderr round" onClick={() => languageSwitch(lng)}>
               <p className="lngtext">{t.language}</p>
             </span>
           </label>
