@@ -34,30 +34,27 @@ export const GroupsDetails = () => {
 
   // This is a big problem, 429 errors are getting out of hand.
   useEffect(() => {
+    if (search !== "" && search.length > 2) {
       groupsServices.searchUser(search)
       .then(searchResult => {
-        if (search !== "" && search.length >= 2) {
           setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
-        } else {
-          setSearchResult("");
-        } 
       })
+    } else {
+      setSearchResult("");
+    }
     }, [search])
   
   // Adds an user to the group. Obviously doesn't allow to add an already existing user. 
   const addUser = (user) => {
-    console.log(user)
     groupsServices.addUser(groupId, user.id)
     .then( res => {
       setGroup(group.concat(user))
-      console.log(res);
     })
     .catch(err => {
       if (err.response.status === 422) {
         console.log("This user is already in the group!")
       }
     })
-   
   }
   
   // REMEMBER TO ADD THE DELETE USER FROM GROUP WHEN BACKEND IS READY
@@ -74,7 +71,7 @@ export const GroupsDetails = () => {
       centered: true,
       children: (
         <Text size="sm">
-          Are you sure you want to delete {user.name} from the group? You will be able to add them again.
+          Are you sure you want to delete {user.first_name} {user.last_name} from the group? You will be able to add them again.
         </Text>
       ),
       labels: { confirm: 'Delete user', cancel: "Cancel" },
