@@ -46,7 +46,7 @@ export const LandingPage = () => {
           </div>
         </div>
       </nav>
-      {/* header section.wrapper-review - Find your memories. */}
+      {/* header section.wrapper-review. */}
       <header id="landing-page">
         <section className="wrapper-review">
           <article className="review">
@@ -78,7 +78,7 @@ export const LandingPage = () => {
       </header>
       {/* main & section */}
       <main>
-        {/* Relive your emotions */}
+        {/* wrapper-memories - Relive your emotions */}
         <section className="wrapper-memories">
           <article className="memories">
             <div className="text">
