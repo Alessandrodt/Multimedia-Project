@@ -28,7 +28,7 @@ export const HomePage = () => {
       <NavbarHome />
       <Gallery />
       <Button onClick={openContentModal} className="upload-btn">
-        <img src={addpics} />
+        <img src={addpics} alt={"upload button"} />
       </Button>
     </div>
   );
