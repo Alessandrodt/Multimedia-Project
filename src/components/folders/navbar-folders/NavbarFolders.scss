@@ -1,10 +1,10 @@
 .wrapper-navb {
     align-items: center;
-    column-gap: $s-4;
     display: flex;
     margin: $m-auto;
+    max-width: 1440px;
     padding: $s-2;
-    max-width: 1360px;
+    justify-content: space-evenly;
 
 
     .logo {
@@ -20,12 +20,16 @@
         justify-content: end;
         width: 35%;
     }
+
+    // @include media( "screen", ">minWidth", "<bp1Width" ) {
+    //     column-gap: 0;
+    // }
 }
 
 
 .btt-user {
-    width: $w-4;
-
+    display: inline-block;
+    width: 50px;
     a {
         display: inline-block;
 
@@ -36,16 +40,19 @@
 }
 
 .srcnav {
-    width: 55%;
+    width: 530px;
+
+    @include media( "screen", ">minWidth", "<maxWidth" ) {
+        width: 430px;
+    }
+
+    @include media( "screen", ">minWidth", "<bp2Width" ) {
+        width: 300px;
+    }
 }
 .bar {
     margin-top: $m-10;
     width: $w-100;
-}
-
-h6 {
-    padding-right: $s-1;
-    text-align: end;
 }
 
 .wrapper-na .log {
@@ -61,8 +68,15 @@ width: 30px;
     margin-top: 10px;
 }
 
-.folders {
-    margin-top: 10px;
+// .folders {
+//     margin-top: 10px;
+// }
+
+.box {
+
+    h6 {
+        display: inline;
+    }
 }
 
 .groups {
@@ -78,9 +92,4 @@ width: 30px;
 #button-profile{
     margin-left: 20px;
     margin-top: 5px;
-}
-
-.box {
-    display: flex;
-    margin-left: 20%;
 }
