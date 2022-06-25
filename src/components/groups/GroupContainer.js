@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Paper, Text } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
-export const GroupContainer = ({ deleteGroup, groupName, openGroup }) => {
+export const GroupContainer = ({ deleteGroup, groupName, groupLink }) => {
   return (
      
       <Paper
@@ -13,9 +14,11 @@ export const GroupContainer = ({ deleteGroup, groupName, openGroup }) => {
         <Text align='center' size='lg' weight={500} mt='md'>
           {groupName}
         </Text>
-        <Button fullWidth mt='md' onClick={() => {openGroup()}}>
+        <Link to={groupLink}>
+        <Button fullWidth mt='md'>
           Open Group
         </Button>
+        </Link>
         <Button color='red' fullWidth mt='md' onClick={() => {deleteGroup()}}>
           Delete Group
         </Button>

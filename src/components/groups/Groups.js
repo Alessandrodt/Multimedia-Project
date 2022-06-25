@@ -11,6 +11,7 @@ import defaultAvatar from '../../images/user.svg';
 import { ErrorMessage } from "../error-message/ErrorMessage";
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { Link } from "react-router-dom";
 
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -21,6 +22,7 @@ export const Groups = () => {
     const [color, setColor] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    console.log(groups)
     const errorStyle = {
         color: color,
         background: "lightgrey",
@@ -45,7 +47,7 @@ export const Groups = () => {
     ? <h2> These are your groups! </h2>
     : <h2> It seems you have no groups... why don't you create one? </h2>
 
-    // useEffect hook, on page load all the grups created by the user are retrieved from the server.
+    // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
         groupsServices.getUserGroups(user.id)
         .then(groups => {
@@ -116,10 +118,6 @@ export const Groups = () => {
         handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
     }
 
-    const openGroup = () => {
-        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
-    }
-
     return (
         <>
          <NavbarGroups/>
@@ -132,7 +130,7 @@ export const Groups = () => {
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid cols={3} spacing='md'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} openGroup={() => openGroup()} />
+                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} groupLink={`/users/${user.id}/groups/${group.id}`} />
                     )}
                 </SimpleGrid>
             </div>
