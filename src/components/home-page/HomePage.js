@@ -4,11 +4,11 @@ import React from "react";
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
 import { HomeGallery } from "../galleries/HomeGallery";
 import { Upload } from "./Upload/Upload";
+import addpics from "../../images/addpics.png";
 
 // libraries
 import { Button } from "@mantine/core";
 import { useModals } from "@mantine/modals";
-import { t } from "i18next";
 
 export const HomePage = () => {
   const modals = useModals();
@@ -28,7 +28,7 @@ export const HomePage = () => {
       <NavbarHome />
       <HomeGallery />
       <Button onClick={openContentModal} className="upload-btn">
-        {t("upload")}
+        <img src={addpics} />
       </Button>
     </div>
   );

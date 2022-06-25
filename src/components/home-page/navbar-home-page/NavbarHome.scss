@@ -1,9 +1,10 @@
-.wrapper-na {
+.wrapper-navb {
     align-items: center;
     display: flex;
     margin: $m-auto;
     padding: $s-2;
     width: 1024px;
+    z-index: 2;
 
     @mixin width {
         width: 25%;
@@ -12,35 +13,35 @@
 
     .log {
         width: 13%;
+        margin-right: 3%;
 
         img {
             width: ($w-6) * 2;
-            margin-top: 10px;
 
         }
     }
 
     .sign {
-        @include width;
+        width: 35%;
         text-align: end;
+        display: flex;
 
         button {
             background-color: #dddcdc;
             border-radius: 2rem;
-            margin-left: $m-40;
+            margin-left: $m-50;
             border: 0 ;
             cursor: pointer;
-            padding: 2% 3%;
+            padding: 11% 13%;
 
         }
-        button:hover {
-            box-shadow: 0 0 0 6px #f3f3f3;
+   
+        h6{
+            margin-top: 7px;
+            text-align: left;
+            margin-left: 5px;
         }
-    }
 
-    h4 {
-        margin-left: $s-3;
-        width: 20%;
     }
 
     @include media("retina", ">minWidth", ">maxWidth") {
@@ -49,7 +50,7 @@
 }
 
 .srcnav {
-    width: 70%;
+    width: 55%;
 }
 .bar {
     margin-top: $m-10;
@@ -68,3 +69,29 @@ width: 30px;
 .button-action {
     margin-top: 10px;
 }
+
+.hello-box {
+    width: 40%;
+
+}
+
+
+.folders {
+    margin-top: 10px;
+}
+
+.btt-grps {
+    margin-top: 10px;
+}
+
+#button-profile{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.box {
+    display: flex;
+    margin-left: 20%;
+}
+
+

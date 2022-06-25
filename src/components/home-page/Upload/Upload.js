@@ -4,6 +4,7 @@ import { useState } from "react";
 // components
 import { UploadPreview } from "./UploadPreview";
 import { UploadTags } from "./UploadTags";
+import { UploadFolder } from "./UploadFolder";
 import { ErrorMessage } from "../../error-message/ErrorMessage";
 
 // libraries
@@ -12,12 +13,12 @@ import { useModals } from "@mantine/modals";
 
 // services
 import imagesServices from "../../../services/imagesServices";
-import { getDateRangePickerDayUtilityClass } from "@mui/lab";
 
 export function Upload() {
   const [imagesToUpload, setNewImageUpload] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [setUploadedTags] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState([]);
+  const setUploadedTags = useState([]);
   const [visible, setVisible] = useState(false);
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -40,11 +41,10 @@ export function Upload() {
   const handleClick = () => {
     setVisible(true);
     imagesServices
-      .uploadImage("someFolderId", imagesToUpload[0], selectedTags)
+      .uploadImage(selectedFolder, imagesToUpload[0], selectedTags)
       .then((res) => {
         if (res && res.status === 201) {
           handleMessage("green", `the upload was successful`);
-          console.log("aiuto");
         } else {
           handleMessage("red", `the upload was unsuccessful, try again`);
           console.log("failed");
@@ -87,7 +87,12 @@ export function Upload() {
         selectedTags={selectedTags}
         delfunc={delTag}
       />
-      <Button onClick={handleClick} className={"upload-preview-btn"}>
+      <UploadFolder setSelectedFolder={setSelectedFolder} />
+      <Button
+        classNames={"button-upload"}
+        onClick={handleClick}
+        className={"upload-preview-btn"}
+      >
         upload
       </Button>
     </div>

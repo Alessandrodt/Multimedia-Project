@@ -11,10 +11,10 @@ const user = JSON.parse(sessionStorage.getItem('user'));
         <>
             <nav>
                 <div className="wrapper-na">
-                    <div className="log">
+                    <div className="logo">
                         <img src={logo} title="logo smi" alt="company log" />
                     </div>
-                    <div className="sign">
+                    <div className="navig">
                         <Link to={`/users/${user.id}`}>
                             <button>
                                 <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />

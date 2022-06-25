@@ -1,10 +1,10 @@
-nav {
+.navbr {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
     position: fixed;
     top: 0;
     width: $w-100;
-    z-index: 9999;
+    z-index: 2;
 
     //menu
     .wrapper-nav {
@@ -20,7 +20,7 @@ nav {
         }
     
         .logo {
-            @include width;
+            width: 17%;
     
             img {
                 width: ($w-6) * 2;
@@ -30,15 +30,17 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            @include width;
+            width: 80%;;
             text-align: end;
     
-            span {
+            span.login {
                 background: $_primary;
                 border-radius: 2rem;
                 box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
                 color: $_white;
-                padding: $s-2 $s-3;
+                padding: 0.8rem 1.5rem;
+                text-align: center;
+                width: 100px;
             }
         }
     }
@@ -350,19 +352,6 @@ footer {
     position: relative;
     width: $w-100;
     z-index: -1;
-}
-
-.toggle-box{
-    display: flex;
-    .toggle{
-        border-radius: 20%;
-        border: 0;
-        margin-left: 10%;
-        background-color: rgb(242, 241, 241);
-        padding: 2%;
-        width: 70px;
-    }
-
 
     > p {
         align-items: center;
@@ -377,4 +366,9 @@ footer {
             width: 1.0rem;
         }
     }
+}
+
+
+.switchlng {
+
 }

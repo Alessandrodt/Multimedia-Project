@@ -8,10 +8,6 @@
   width: 30px;
 }
 
-.mantine-1grzg0q {
-    margin: 0;
-    padding: 0;
-}
 
 .logo-home {
     height: 50px;
@@ -39,21 +35,26 @@
 }
 
 .upload-btn {
-    bottom:   0;
-    padding: 5px;
-    position: absolute;
-    right: 0;
-}
-
-.upload-preview {
-    float: left;
-    height: 600px;
-}
-
-.upload-preview-text {
-    height: 400px;
-}
-
-.upload-preview-btn {
+    position: fixed;
+    bottom:   20px;
+    width: 100px;
+    height: 100px;
+    right: 92px;
+    border-radius: 50px;
+    font-size: 130px;
+    background-color: rgba(151, 151, 151, 0.600);
+   
+    img {
+       width: 60px;
+    }
 
 }
+
+.upload-btn:hover {
+    background-color: #dddcdc65;
+}
+
+.mantine-16pg774 {
+    top: 66px;
+}
+

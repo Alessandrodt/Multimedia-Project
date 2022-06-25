@@ -33,8 +33,8 @@ i18n
   .init({
     fallbackLng: "it",
     detection: {
-      order: ["cookie", "htmlTag", "localStorage", "path", "subdomain"],
-      caches: ["cookie"],
+      order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
+      caches:['cookie'],
     },
 
     backend: {
