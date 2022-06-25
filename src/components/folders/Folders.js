@@ -105,7 +105,7 @@ export const Folders = () => {
         >
           {item.name}
         </Anchor>
-        <Gallery></Gallery>
+        <Gallery folderId={folderId}></Gallery>
       </>
     );
   });
