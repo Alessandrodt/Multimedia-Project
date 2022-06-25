@@ -26,7 +26,7 @@ const uploadImage = async (folderId, newUpload, tags) => {
   tags.forEach((el) => formData.append("tags[]", el.value));
 
   return axios
-    .post(uploadUrl("6"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
+    .post(uploadUrl(folderId), formData, { headers: headers })
     .then((y) => {
       console.log(y.data);
       return y;

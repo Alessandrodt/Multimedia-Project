@@ -43,12 +43,13 @@ export function UploadTags({ setSelectedTags, selectedTags }) {
   };
 
   return (
-    <div>
+    <>
       <CreatableSelect
         isMulti
         onChange={handleChange}
         options={mapOptions(allTags)}
+        placeholder={"Choose your tags..."}
       />
-    </div>
+    </>
   );
 }
