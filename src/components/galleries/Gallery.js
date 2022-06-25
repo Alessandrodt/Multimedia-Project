@@ -26,13 +26,15 @@ export function Gallery({ folderId }) {
   useEffect(() => {
     imagesServices.createFolderGallery(folderId).then((galleryImages) => {
       setNewGalleryImages(
-        galleryImages.data.map((e) => ({
-          urls: e.content,
-          id: e.id,
-        }))
+        galleryImages
+          ? galleryImages.data.map((e) => ({
+              urls: e.content,
+              id: e.id,
+            }))
+          : []
       );
     });
-  }, []);
+  }, [folderId]);
 
   return (
     <div>

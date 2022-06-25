@@ -5,10 +5,10 @@ import axios from "axios";
 
 const folderImages = (folderId) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=1`;
+// TODO change once endpoint to get all images exists
 const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=1`;
 
 const createFolderGallery = (folderId) => {
-  console.log(folderId);
   const url = folderId ? folderImages(folderId) : homeImages;
   const headersGet = {
     "Content-Type": "application/json",
