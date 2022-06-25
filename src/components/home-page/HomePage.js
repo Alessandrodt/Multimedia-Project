@@ -2,7 +2,7 @@ import React from "react";
 
 // components
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
-import { HomeGallery } from "../galleries/HomeGallery";
+import { Gallery } from "../galleries/Gallery";
 import { Upload } from "./Upload/Upload";
 import addpics from "../../images/addpics.png";
 
@@ -26,7 +26,7 @@ export const HomePage = () => {
   return (
     <div>
       <NavbarHome />
-      <HomeGallery />
+      <Gallery />
       <Button onClick={openContentModal} className="upload-btn">
         <img src={addpics} />
       </Button>

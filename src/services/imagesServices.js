@@ -1,23 +1,32 @@
 import axios from "axios";
 
-// const userImages = ``;
+// const userImages = (userId) =>
+//   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
 
-// const createGallery = (newGallery) => {
-//     return axios.get(userImages, newGallery)
-//     .then((x) => {
-//         console.log(x.data);
-//         return x.data;
-//     }).catch((error) => console.log(error));
-//  }
+const userImages = `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=1`;
 
-const uploadUrl = (folder) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
+const createFolderGallery = (newGallery) => {
+  const headersGet = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
+  };
+  return axios
+    .get(userImages, { headers: headersGet })
+    .then((x) => {
+      return x.data;
+    })
+    .catch((error) => console.log(error));
+};
 
 const headers = {
   "Content-Type": "multipart/form-data",
   Accept: "application/json",
   Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
 };
+
+const uploadUrl = (folder) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
 
 const uploadImage = async (folderId, newUpload, tags) => {
   const formData = new FormData();
@@ -59,6 +68,11 @@ const getAllTags = () => {
     .catch((error) => console.log(error));
 };
 
-const imagesServices = { uploadImage, uploadTag, getAllTags };
+const imagesServices = {
+  createFolderGallery,
+  uploadImage,
+  uploadTag,
+  getAllTags,
+};
 
 export default imagesServices;
