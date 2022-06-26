@@ -41,6 +41,7 @@
 
 .srcnav {
     width: 530px;
+    caret-color: $_dark;
 
     @include media( "screen", ">minWidth", "<maxWidth" ) {
         width: 300px;

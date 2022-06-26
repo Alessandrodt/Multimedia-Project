@@ -45,7 +45,30 @@
     background-color: rgba($color: $_black, $alpha: .10);
    
     img {
-       width: $w-100;
+        transition: .5s ease-in-out;
+        width: $w-100;
+    }
+
+    &::after {
+        bottom: 19px;
+        color: $_black;
+        content: 'Add Photo';
+        font-size: $base-font;
+        display: inline;
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        transition: .5s ease-in-out;
+    }
+
+    &:hover img {
+        opacity: 0;
+        transition: .5s ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        transition: .5s ease-in-out;
     }
 
 }
