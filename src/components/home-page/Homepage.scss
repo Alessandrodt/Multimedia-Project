@@ -40,15 +40,29 @@
     right: 20px;
     border-radius: 50px;
     font-size: 130px;
-    background-color: rgba($color: $_black, $alpha: .10);
+    background-color: rgba($color: $_black, $alpha: .05);
    
-    img {
-        transition: .5s ease-in-out;
-        width: $w-100;
+    g {
+    
+        path {
+            fill: $_primary;
+            transition: .5s ease-in-out;
+        }
     }
+    
 
     &:hover {
-        background-color: rgba($color: $_black, $alpha: .30);
+        background-color: rgba($color: $_primary, $alpha: .50);
+        transition: .5s ease-in-out;
+    }
+
+    &:hover g {
+        
+        path {
+            fill: $_white;
+            transition: .5s ease-in-out;
+        }
+
     }
 
 }
@@ -56,23 +70,3 @@
 .mantine-16pg774 {
     top: 66px;
 }
-
-
-g {
-    path:nth-child(2) {
-        fill: $_white;
-    }
-
-    path:nth-child(3) {
-        fill: $_white;
-    }
-
-    path:nth-child(4) {
-        fill: $_white;
-    }
-
-    path:nth-child(5) {
-        fill: $_white;
-    }
-}
-
