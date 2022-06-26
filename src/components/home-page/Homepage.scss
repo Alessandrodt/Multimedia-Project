@@ -42,7 +42,7 @@
     font-size: 130px;
     background-color: rgba($color: $_black, $alpha: .05);
    
-    g {
+    svg {
     
         path {
             fill: $_primary;
@@ -56,7 +56,7 @@
         transition: .5s ease-in-out;
     }
 
-    &:hover g {
+    &:hover svg {
         
         path {
             fill: $_white;
