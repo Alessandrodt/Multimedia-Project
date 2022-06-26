@@ -12,7 +12,9 @@ const user = JSON.parse(sessionStorage.getItem('user'));
             <nav>
                 <div className="wrapper-na">
                     <div className="logo">
-                        <img src={logo} title="logo smi" alt="company log" />
+                        <Link to={`/Home`}>
+                            <img src={logo} title="logo smi" alt="company log" />
+                        </Link>
                     </div>
                     <div className="navig">
                         <Link to={`/users/${user.id}`}>

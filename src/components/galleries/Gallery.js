@@ -8,7 +8,7 @@ import { Card } from "./Card";
 // services
 import imagesServices from "../../services/imagesServices";
 
-export function Gallery() {
+export function Gallery({ folderId }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
 
   const styles = {
@@ -24,15 +24,17 @@ export function Gallery() {
   };
 
   useEffect(() => {
-    imagesServices.createFolderGallery().then((galleryImages) => {
+    imagesServices.createFolderGallery(folderId).then((galleryImages) => {
       setNewGalleryImages(
-        galleryImages.data.map((e) => ({
-          urls: e.content,
-          id: e.id,
-        }))
+        galleryImages
+          ? galleryImages.data.map((e) => ({
+              urls: e.content,
+              id: e.id,
+            }))
+          : []
       );
     });
-  }, []);
+  }, [folderId]);
 
   return (
     <div>

@@ -17,7 +17,7 @@ import foldersServices from "../../services/foldersServices";
 
 // style
 import addFolderImage from "../../images/addFolder.svg";
-import folderEmpty from "../../images/folder_icon_empty.png";
+import folderEmpty from "../../images/folder_icon_empty.svg";
 
 export const Folders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -105,7 +105,7 @@ export const Folders = () => {
         >
           {item.name}
         </Anchor>
-        <Gallery></Gallery>
+        <Gallery folderId={folderId}></Gallery>
       </>
     );
   });

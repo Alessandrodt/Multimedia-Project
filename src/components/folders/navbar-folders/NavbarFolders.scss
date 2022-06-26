@@ -2,54 +2,54 @@
     align-items: center;
     display: flex;
     margin: $m-auto;
+    max-width: 1440px;
     padding: $s-2;
-    width: 1024px;
+    justify-content: space-evenly;
 
-    @mixin width {
-        width: 25%;
-        margin: $s-2;
-    }
 
-    .log {
-        width: 13%;
-        margin-right: 3%;
-
+    .logo {
         img {
             width: ($w-6) * 2;
-
         }
     }
 
-    .sign {
-        width: 35%;
-        text-align: end;
+    .sign-folders {
+        align-items: center;
+        column-gap: $s-3;
         display: flex;
-
-        button {
-            background-color: #dddcdc;
-            border-radius: 2rem;
-            margin-left: $m-50;
-            border: 0 ;
-            cursor: pointer;
-            padding: 11% 13%;
-
-        }
-   
-        h6{
-            margin-top: 7px;
-            text-align: left;
-            margin-left: 5px;
-        }
-
+        justify-content: end;
+        width: 35%;
     }
 
-    @include media("retina", ">minWidth", ">maxWidth") {
-        width: $w-100;
-    } 
+    // @include media( "screen", ">minWidth", "<bp1Width" ) {
+    //     column-gap: 0;
+    // }
+}
+
+
+.btt-user {
+    display: inline-block;
+    width: 50px;
+    a {
+        display: inline-block;
+
+        img {
+            width: $w-100;
+        }
+    }
 }
 
 .srcnav {
-    width: 55%;
+    width: 530px;
+    caret-color: $_dark;
+
+    @include media( "screen", ">minWidth", "<maxWidth" ) {
+        width: 300px;
+    }
+
+    @include media( "screen", ">minWidth", "<bp2Width" ) {
+        width: 220px;
+    }
 }
 .bar {
     margin-top: $m-10;
@@ -69,31 +69,28 @@ width: 30px;
     margin-top: 10px;
 }
 
-.hello-box {
-    width: 40%;
+// .folders {
+//     margin-top: 10px;
+// }
 
+.box {
+
+    h6 {
+        display: inline;
+    }
 }
 
-
-.folders {
-    margin-top: 10px;
-}
-
-.btt-grps {
-    margin-top: 10px;
+.groups {
+    background-color: $_primary;
+    border: 0;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
+    cursor: pointer;
+    position: relative;
+    padding: $s-2;
 }
 
 #button-profile{
     margin-left: 20px;
     margin-top: 5px;
-}
-
-.box {
-    display: flex;
-    margin-left: 20%;
-}
-
-
-#box-hello{
-    margin-left: 190px;
 }

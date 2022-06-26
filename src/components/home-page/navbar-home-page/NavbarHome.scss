@@ -1,3 +1,11 @@
+@mixin button-bg {
+    background: $_primary;
+    border-radius: $s-3;
+    color: $_white;
+    padding: $s-2 $s-3;
+    box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+}
+
 .wrapper-navb {
     align-items: center;
     display: flex;
@@ -12,19 +20,18 @@
     }
 
     .log {
-        width: 13%;
-        margin-right: 3%;
-
         img {
             width: ($w-6) * 2;
 
         }
     }
 
-    .sign {
-        width: 35%;
-        text-align: end;
+    .wrapper-sign {
+        align-items: center;
         display: flex;
+        column-gap: $s-3;
+        text-align: end;
+        justify-content: space-evenly;
 
         button {
             background-color: #dddcdc;
@@ -35,23 +42,24 @@
             padding: 11% 13%;
 
         }
-   
-        h6{
-            margin-top: 7px;
-            text-align: left;
-            margin-left: 5px;
-        }
 
+        @include media( "screen", ">minWidth", "<maxWidth" ) {
+            gap: .5rem;
+        }
     }
 
     @include media("retina", ">minWidth", ">maxWidth") {
         width: $w-100;
-    } 
+    }
+
+    .button {
+        @include button-bg;
+    }
 }
 
-.srcnav {
-    width: 55%;
-}
+// .srcnav {
+// }
+
 .bar {
     margin-top: $m-10;
     width: $w-100;
@@ -70,28 +78,14 @@ width: 30px;
     margin-top: 10px;
 }
 
-.hello-box {
-    width: 40%;
+// .hello-box {
+//     width: 40%;
 
-}
-
-
-.folders {
-    margin-top: 10px;
-}
-
-.btt-grps {
-    margin-top: 10px;
-}
+// }
 
 #button-profile{
     margin-left: 20px;
     margin-top: 5px;
-}
-
-.box {
-    display: flex;
-    margin-left: 20%;
 }
 
 

@@ -3,16 +3,20 @@ import axios from "axios";
 // const userImages = (userId) =>
 //   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
 
-const userImages = `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=1`;
+const folderImages = (folderId) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=1`;
+// TODO change once endpoint to get all images exists
+const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/IDFOLDER/uploads?page=1`;
 
-const createFolderGallery = (newGallery) => {
+const createFolderGallery = (folderId) => {
+  const url = folderId ? folderImages(folderId) : homeImages;
   const headersGet = {
     "Content-Type": "application/json",
     Accept: "application/json",
     Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
   };
   return axios
-    .get(userImages, { headers: headersGet })
+    .get(url, { headers: headersGet })
     .then((x) => {
       return x.data;
     })
