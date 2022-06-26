@@ -59,6 +59,7 @@ article.review {
     display: grid;
     grid-template-columns: 8% 20% 10% 10% 42% auto;
     grid-template-rows: 110px 89px 429px 100px;
+    margin: $m-auto;
     width: 1024px;
 
     h1 {
