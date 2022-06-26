@@ -43,11 +43,11 @@
     width: 530px;
 
     @include media( "screen", ">minWidth", "<maxWidth" ) {
-        width: 430px;
+        width: 300px;
     }
 
     @include media( "screen", ">minWidth", "<bp2Width" ) {
-        width: 300px;
+        width: 220px;
     }
 }
 .bar {

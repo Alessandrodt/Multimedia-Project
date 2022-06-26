@@ -36,22 +36,22 @@
 
 .upload-btn {
     position: fixed;
-    bottom:   20px;
-    width: 100px;
-    height: 100px;
-    right: 92px;
+    bottom: 20px;
+    width: ($w-6) + 10;
+    height: ($w-6) + 10;
+    right: 20px;
     border-radius: 50px;
     font-size: 130px;
-    background-color: rgba(151, 151, 151, 0.600);
+    background-color: rgba($color: $_black, $alpha: .10);
    
     img {
-       width: 60px;
+       width: $w-100;
     }
 
 }
 
 .upload-btn:hover {
-    background-color: #dddcdc65;
+    background-color: rgba($color: $_black, $alpha: .30);
 }
 
 .mantine-16pg774 {

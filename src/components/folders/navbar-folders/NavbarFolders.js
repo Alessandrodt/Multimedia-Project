@@ -12,7 +12,9 @@ export const NavbarFolders = () => {
       <nav>
         <div className="wrapper-navb">
           <div className="logo">
-            <img src={logo} title="logo smi" alt="company log" />
+            <Link to={`/Home`}>
+              <img src={logo} title="logo smi" alt="company log" />
+            </Link>
           </div>
           <div className="srcnav">
             <InputWithButton className="bar" />
