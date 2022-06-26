@@ -11,7 +11,6 @@ import defaultAvatar from '../../images/user.svg';
 import { ErrorMessage } from "../error-message/ErrorMessage";
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
-import { Link } from "react-router-dom";
 
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -114,10 +113,6 @@ export const Groups = () => {
         }
     }
 
-    const deleteGroup = () => {
-        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
-    }
-
     return (
         <>
          <NavbarGroups/>
@@ -130,7 +125,7 @@ export const Groups = () => {
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid cols={3} spacing='md'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} groupLink={`/users/${user.id}/groups/${group.id}`} />
+                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`}  groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
                 </SimpleGrid>
             </div>
