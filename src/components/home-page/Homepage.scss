@@ -47,35 +47,32 @@
         width: $w-100;
     }
 
-    &::after {
-        bottom: 19px;
-        color: $_black;
-        content: 'Add Photo';
-        font-size: $base-font;
-        display: inline;
-        position: absolute;
-        right: 0;
-        opacity: 0;
-        transition: .5s ease-in-out;
+    &:hover {
+        background-color: rgba($color: $_black, $alpha: .30);
     }
 
-    &:hover img {
-        opacity: 0;
-        transition: .5s ease-in-out;
-    }
-
-    &:hover::after {
-        opacity: 1;
-        transition: .5s ease-in-out;
-    }
-
-}
-
-.upload-btn:hover {
-    background-color: rgba($color: $_black, $alpha: .30);
 }
 
 .mantine-16pg774 {
     top: 66px;
+}
+
+
+g {
+    path:nth-child(2) {
+        fill: $_white;
+    }
+
+    path:nth-child(3) {
+        fill: $_white;
+    }
+
+    path:nth-child(4) {
+        fill: $_white;
+    }
+
+    path:nth-child(5) {
+        fill: $_white;
+    }
 }
 
