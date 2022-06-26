@@ -125,7 +125,7 @@ export const Groups = () => {
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid cols={3} spacing='md'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`}  groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
+                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
                 </SimpleGrid>
             </div>
