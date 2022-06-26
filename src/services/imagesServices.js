@@ -1,23 +1,36 @@
 import axios from "axios";
 
-// const userImages = ``;
+// const userImages = (userId) =>
+//   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
 
-// const createGallery = (newGallery) => {
-//     return axios.get(userImages, newGallery)
-//     .then((x) => {
-//         console.log(x.data);
-//         return x.data;
-//     }).catch((error) => console.log(error));
-//  }
+const folderImages = (folderId) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=1`;
+// TODO change once endpoint to get all images exists
+const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/IDFOLDER/uploads?page=1`;
 
-const uploadUrl = (folder) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
+const createFolderGallery = (folderId) => {
+  const url = folderId ? folderImages(folderId) : homeImages;
+  const headersGet = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
+  };
+  return axios
+    .get(url, { headers: headersGet })
+    .then((x) => {
+      return x.data;
+    })
+    .catch((error) => console.log(error));
+};
 
 const headers = {
   "Content-Type": "multipart/form-data",
   Accept: "application/json",
   Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
 };
+
+const uploadUrl = (folder) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
 
 const uploadImage = async (folderId, newUpload, tags) => {
   const formData = new FormData();
@@ -26,7 +39,7 @@ const uploadImage = async (folderId, newUpload, tags) => {
   tags.forEach((el) => formData.append("tags[]", el.value));
 
   return axios
-    .post(uploadUrl("6"), formData, { headers: headers }) // One should refrain from hard coding the folder id, init
+    .post(uploadUrl(folderId), formData, { headers: headers })
     .then((y) => {
       console.log(y.data);
       return y;
@@ -59,6 +72,11 @@ const getAllTags = () => {
     .catch((error) => console.log(error));
 };
 
-const imagesServices = { uploadImage, uploadTag, getAllTags };
+const imagesServices = {
+  createFolderGallery,
+  uploadImage,
+  uploadTag,
+  getAllTags,
+};
 
 export default imagesServices;

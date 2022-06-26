@@ -1,18 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
-import { useModals } from "@mantine/modals";
-
-import foldersServices from "../../services/foldersServices";
-
-import folderEmpty from "../../images/folder_icon_empty.svg";
-import addFolderImage from "../../images/addFolder.svg";
-
+// components
 import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
 import EditFolderForm from "../../components/folders/edit-folder-form/EditFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
 import { NavbarFolders } from "./navbar-folders/NavbarFolders";
+import { Gallery } from "../galleries/Gallery";
+
+// libraries
+import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
+import { useModals } from "@mantine/modals";
+
+// services
+import foldersServices from "../../services/foldersServices";
+
+// style
+import addFolderImage from "../../images/addFolder.svg";
+import folderEmpty from "../../images/folder_icon_empty.svg";
 
 export const Folders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -31,7 +36,7 @@ export const Folders = () => {
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
       setFolders(folderId ? response.data.folders : response.data);
-    })
+    });
   }, [userId, folderId]);
 
   const addFolder = (userId, values) => {
@@ -51,41 +56,59 @@ export const Folders = () => {
   };
 
   const editFolderName = (userId, folderId, values) => {
-    foldersServices.editFolder(userId, folderId, values).then((response) => {
-      setFolders(folders.map(f => f.folderId === folderId ? response.data : f));
-    }).catch((error) => {
-      if (error.message.status === 403) {
-        handleMessage('red', `you don't have the rights to modify this folder`)
-      } else if (error.response.status === 422) {
-        handleMessage('red', `the folder ${values.name} already exists`)
-      }
-    });
+    foldersServices
+      .editFolder(userId, folderId, values)
+      .then((response) => {
+        setFolders(
+          folders.map((f) => (f.folderId === folderId ? response.data : f))
+        );
+      })
+      .catch((error) => {
+        if (error.message.status === 403) {
+          handleMessage(
+            "red",
+            `you don't have the rights to modify this folder`
+          );
+        } else if (error.response.status === 422) {
+          handleMessage("red", `the folder ${values.name} already exists`);
+        }
+      });
   };
 
   const folderTracker = (name) => {
-    const routeTo = 
-    folderId ? `/users/${userId}/folders/${folderId}` : `/users/${userId}/folders/`;
-    
+    const routeTo = folderId
+      ? `/users/${userId}/folders/${folderId}`
+      : `/users/${userId}/folders/`;
+
     const folderPath = {
       name,
       path: routeTo,
     };
 
-    setCrumbs(crumbs.concat(folderPath))
-        
+    setCrumbs(crumbs.concat(folderPath));
   };
-    
-    const items = crumbs?.map((item, index) => {
+
+  const items = crumbs?.map((item, index) => {
     // let currentPath = folderId === null
     // ? -1
     // : item.name
 
     return (
-      <Anchor onClick={() => setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))} component={Link} to={item.path} key={index}>
-        {item.name}
-      </Anchor>
-    )
-    });
+      <>
+        <Anchor
+          onClick={() =>
+            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
+          }
+          component={Link}
+          to={item.path}
+          key={index}
+        >
+          {item.name}
+        </Anchor>
+        <Gallery folderId={folderId}></Gallery>
+      </>
+    );
+  });
 
   const errorStyle = {
     color: color,
@@ -118,39 +141,49 @@ export const Folders = () => {
   const openContentEditModal = (id) => {
     modal.openModal({
       title: "Choose your new folder's name:",
-      children: <EditFolderForm userId={userId} folderId={id} onSubmit={editFolderName} />
+      children: (
+        <EditFolderForm
+          userId={userId}
+          folderId={id}
+          onSubmit={editFolderName}
+        />
+      ),
     });
   };
 
   return (
     <div>
-      <NavbarFolders/>
+      <NavbarFolders />
       <div className="messageError">
         <LoadingOverlay visible={visible} />
         <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
-      <Breadcrumbs>
-        {items}
-      </Breadcrumbs>
+      <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
-        <span className="folder" onClick={openContentAddModal}>
-          <img src={addFolderImage} alt=''></img>
-        </span>
+        <button onClick={openContentAddModal}>
+          <img src={addFolderImage} alt=""></img>
+        </button>
       </div>
       <div className="wrapper-slider">
         {folders.map((folder) => {
           return (
-            <div className="slider">
-              <Link key={folder.id} to={`/users/${user.id}/folders/${folder.id}`}>
-                <img src={folderEmpty} alt='' />
-                <p>{folder.name}</p>
+            <Card key={folder.id}>
+              <Link to={`/users/${user.id}/folders/${folder.id}`}>
+                <button onClick={() => folderTracker(folder.name, folder.id)}>
+                  <div className="slider">
+                    <img src={folderEmpty} alt="" />
+                    <p>{folder.name}</p>
+                  </div>
+                </button>
               </Link>
-            </div>
-          )
+              <button onClick={() => openContentEditModal(folder.id)}>
+                Edit
+              </button>
+              <button>Delete</button>
+            </Card>
+          );
         })}
       </div>
     </div>
   );
 };
-
-
