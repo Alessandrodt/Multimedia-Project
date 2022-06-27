@@ -62,22 +62,18 @@
             width: 220px;
         }
     }
-    
-    // @include media("retina", ">minWidth", ">maxWidth") {
-    //     width: $w-100;
-    // }
 
     .button {
         @include button-bg;
     }
 }
 
-// .srcnav {
-// }
+.icon-user-home {
+    width: $w-3;
 
-.bar {
-    margin-top: $m-10;
-    width: $w-100;
+    img {
+        width: $w-100;
+    }
 }
 
 .wrapper-na .log {

@@ -16,7 +16,7 @@ export const NavbarHome = () => {
             <img src={logo} title="logo smi" alt="company log" />
           </div>
           <div className="wrapper-search-bar-home">
-            <InputWithButton className="bar" />
+            <InputWithButton />
           </div>
           <div className="wrapper-sign-home">
             <div className="button">
@@ -33,10 +33,10 @@ export const NavbarHome = () => {
                 </Link>
               </span>
             </div>
-            <h6 className="hello-box">
+            <h6>
               {user.first_name} {user.last_name}
             </h6>
-            <span className="btt-user">
+            <span className="icon-user-home">
               <Link to={`/users/${user.id}`}>
                 <img
                   className="icong"

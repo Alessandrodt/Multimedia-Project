@@ -1,15 +1,10 @@
-.wrapper-na {
+.wrapper-groups{
     align-items: center;
     display: flex;
     margin: $m-auto;
-    padding: $s-2;
-    width: 1024px;
+    padding: $s-2 $s-3;
+    max-width: 1440px;
     justify-content: space-between;
-
-    @mixin width {
-        width: 25%;
-        margin: $s-2;
-    }
 
     .logo {
         width: 13%;
@@ -21,9 +16,15 @@
         }
     }
 
-    .navig {
-        @include width;
+    .wrapper-info-groups {
+        align-items: center;
+        display: flex;
+        gap: $s-3;
         text-align: end;
+
+        a {
+            display: inline-block;
+        }
 
         button {
             background-color: #dddcdc;
@@ -34,8 +35,19 @@
             padding: 2% 3%;
 
         }
+
         button:hover {
             box-shadow: 0 0 0 6px #f3f3f3;
+        }
+
+        .folder-button {
+            background-color: $_primary;
+            border: 0;
+            border-radius: 2rem;
+            box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem;
         }
     }
 
@@ -43,16 +55,6 @@
         margin-left: $s-3;
         width: 20%;
     }
-
-    @include media("retina", ">minWidth", ">maxWidth") {
-        width: $w-100;
-    } 
-}
-
-
-.bar {
-    margin-top: $m-10;
-    width: $w-100;
 }
 
 .wrapper-na .log {
