@@ -26,12 +26,11 @@ export const LanguageSelect = () => {
           <label className="switch">
             <input type="checkbox"></input>
             <span className="sliderr round" onClick={() => languageSwitch(lng)}>
-              <p className="lngtext">{t.language}</p>
+            <p className="lngtext">{t.language}</p>
             </span>
           </label>
         </div>
         <div className="switch-img">
-          <img src={img} alt={"Language Select"} />
         </div>
       </div>
     </>
