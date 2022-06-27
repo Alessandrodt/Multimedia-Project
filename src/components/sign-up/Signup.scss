@@ -4,15 +4,6 @@
     justify-content: center;
 }
 
-.custom-width {
-    background: $_dark-blue;
-    border: none;
-    border-radius: $s-2;
-    cursor: pointer;
-    margin: 10px;
-    width: calc(100% / 5);
-}
-
 .wrapper-info {
     display: flex;
     justify-content: space-between;
@@ -20,4 +11,13 @@
     .change-width {
         width: 40%;
     }
+}
+
+.custom-width {
+    background: $_dark-blue;
+    cursor: pointer;
+    border: none;
+    border-radius: $s-2;
+    margin: 10px;
+    width: calc(100% / 5);
 }

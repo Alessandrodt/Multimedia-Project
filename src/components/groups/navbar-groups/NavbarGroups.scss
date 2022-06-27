@@ -1,3 +1,7 @@
+.button-action {
+    margin-top: 10px;
+}
+
 .wrapper-groups{
     align-items: center;
     display: flex;
@@ -5,6 +9,11 @@
     padding: $s-2 $s-3;
     max-width: 1440px;
     justify-content: space-between;
+
+    h4 {
+        margin-left: $s-3;
+        width: 20%;
+    }
 
     .logo {
         width: 13%;
@@ -50,11 +59,6 @@
             padding: 0.5rem;
         }
     }
-
-    h4 {
-        margin-left: $s-3;
-        width: 20%;
-    }
 }
 
 .wrapper-na .log {
@@ -63,9 +67,5 @@
 }
 
 .icong {
-width: 30px;
-}
-
-.button-action {
-    margin-top: 10px;
+    width: 30px;
 }

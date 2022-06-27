@@ -1,39 +1,5 @@
-.wrapper-slider img {
-    width: 80px;
-}
-
-.wrapper-slider {
-    display: flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    margin: $w-4 auto;
-    row-gap: $s-3;
-    width: $w-70;
-    justify-content: flex-start;
-
-    .button {
-        display: flex;
-        margin-top: 10px;
-        justify-content: space-around;
-
-        span {
-            cursor: pointer;
-        }
-    }
-}
-
 .card {
     text-align: center;
-}
-
-.slider {
-    display: inline;
-    height: $h-100;
-    width: $w-100;
-
-    p {
-        color: $_primary;
-    }
 }
 
 .folderAddButton {
@@ -56,4 +22,38 @@
 
 .messageError {
     margin-top: 90px;
+}
+
+.slider {
+    display: inline;
+    height: $h-100;
+    width: $w-100;
+
+    p {
+        color: $_primary;
+    }
+}
+
+.wrapper-slider img {
+    width: 80px;
+}
+
+.wrapper-slider {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    margin: $w-4 auto;
+    row-gap: $s-3;
+    width: $w-70;
+    justify-content: flex-start;
+
+    .button {
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-around;
+
+        span {
+            cursor: pointer;
+        }
+    }
 }
