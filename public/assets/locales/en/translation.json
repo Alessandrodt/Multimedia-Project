@@ -1,6 +1,7 @@
 {
   "app_title": "Title",
   "language": "Language",
+  "code": "en-GB",
   "country": "England",
   "Welcome": "Find your memories.",
   "signupfree":"Get started it's free",

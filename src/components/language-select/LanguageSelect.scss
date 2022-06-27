@@ -51,9 +51,9 @@
   }
   
   input:checked +  .sliderr:before {
-    -webkit-transform: translateX(40px);
-    -ms-transform: translateX(40px);
-    transform: translateX(40px);
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
     // background-image: url("../../images/britishFlag_small.svg");
     background-color: white;
   }
@@ -61,7 +61,7 @@
   /* Rounded sliders */
   .sliderr.round {
     border-radius: 34px;
-    width: 77px;
+    width: 85px;
  
  }
   
@@ -75,9 +75,10 @@
 }
 
 .lngtext {
-  margin-left: 37px;
-  margin-top: 7px;
-  width: 40px;
+  margin-left: 40px;
+  margin-top: 8px;
+  width: 42px;
+  font-size: 14px;
 }
  .switch-box {
   display: flex;
@@ -111,5 +112,8 @@ span.img-languages {
 }
 
 input:checked + .sliderr .lngtext {
-  margin-left: 13px;
+  margin-left: 8px;
+  margin-top: 9px;
+  width: 48px;
+  font-size: 14px;
 }
