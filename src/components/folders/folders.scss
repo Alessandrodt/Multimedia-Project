@@ -10,21 +10,29 @@
     row-gap: $s-3;
     width: $w-70;
     justify-content: flex-start;
+
+    .button {
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-around;
+
+        span {
+            cursor: pointer;
+        }
+    }
+}
+
+.card {
+    text-align: center;
 }
 
 .slider {
-    align-items: center;
-    color: $_black;
-    margin-right: $s-3;
-    text-align: center;
-
-    a {
-        display: inline-block;
-        text-align: center;
-    }
+    display: inline;
+    height: $h-100;
+    width: $w-100;
 
     p {
-        color: $_black;
+        color: $_primary;
     }
 }
 

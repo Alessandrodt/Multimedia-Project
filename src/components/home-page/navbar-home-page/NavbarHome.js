@@ -11,14 +11,14 @@ export const NavbarHome = () => {
   return (
     <>
       <nav>
-        <div className="wrapper-navb">
+        <div className="wrapper-navbar-home">
           <div className="log">
             <img src={logo} title="logo smi" alt="company log" />
           </div>
-          <div className="srcnav">
+          <div className="wrapper-search-bar-home">
             <InputWithButton className="bar" />
           </div>
-          <div className="wrapper-sign">
+          <div className="wrapper-sign-home">
             <div className="button">
               <span>
                 <Link to={`/users/${user.id}/groups`}>
