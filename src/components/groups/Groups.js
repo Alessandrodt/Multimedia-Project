@@ -20,8 +20,7 @@ export const Groups = () => {
     // Message handling section.
     const [color, setColor] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-
-    console.log(groups)
+    
     const errorStyle = {
         color: color,
         background: "lightgrey",
@@ -51,6 +50,7 @@ export const Groups = () => {
         groupsServices.getUserGroups(user.id)
         .then(groups => {
             console.log('Groups Loaded');
+            console.log(groups.data)
             setGroups(groups.data);
         })
         .catch(err => {
