@@ -4,7 +4,6 @@ import React from "react";
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
 import { Gallery } from "../galleries/Gallery";
 import { Upload } from "./Upload/Upload";
-import addpics from "../../images/addpics.png";
 
 // libraries
 import { Button } from "@mantine/core";
@@ -28,7 +27,6 @@ export const HomePage = () => {
       <NavbarHome />
       <Gallery />
       <Button onClick={openContentModal} className="upload-btn">
-        {/* image addpics */}
         <svg
           width="96"
           height="96"

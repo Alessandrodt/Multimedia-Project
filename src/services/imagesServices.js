@@ -3,13 +3,16 @@ import axios from "axios";
 // const userImages = (userId) =>
 //   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
 
-const folderImages = (folderId) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=1`;
+const folderImages = (folderId, pageNumber) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}`;
 // TODO change once endpoint to get all images exists
-const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=1`;
+const homeImages = (pageNumber) =>
+  `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=${pageNumber}`;
 
-const createFolderGallery = (folderId) => {
-  const url = folderId ? folderImages(folderId) : homeImages;
+const createFolderGallery = (folderId, pageNumber) => {
+  const url = folderId
+    ? folderImages(folderId, pageNumber)
+    : homeImages(pageNumber);
   const headersGet = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -17,8 +20,9 @@ const createFolderGallery = (folderId) => {
   };
   return axios
     .get(url, { headers: headersGet })
-    .then((x) => {
-      return x.data;
+    .then((response) => {
+      console.log(response);
+      return response.data;
     })
     .catch((error) => console.log(error));
 };

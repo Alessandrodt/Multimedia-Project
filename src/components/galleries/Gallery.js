@@ -11,6 +11,11 @@ import imagesServices from "../../services/imagesServices";
 
 export function Gallery({ folderId }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    finalPage: 1,
+    totalImages: 1,
+  });
 
   const styles = {
     container: {
@@ -25,29 +30,48 @@ export function Gallery({ folderId }) {
   };
 
   useEffect(() => {
-    imagesServices.createFolderGallery(folderId).then((galleryImages) => {
-      setNewGalleryImages(
-        galleryImages
-          ? galleryImages.data.map((e) => ({
-              urls: e.content,
-              id: e.id,
-            }))
-          : []
-      );
-    });
+    imagesServices
+      .createFolderGallery(folderId, pagination.currentPage, setPagination)
+      .then((galleryImages) => {
+        setNewGalleryImages(
+          galleryImages
+            ? galleryImages.data.map((e) => ({
+                urls: e.content,
+                id: e.id,
+              }))
+            : []
+        );
+        if (galleryImages) {
+          setPagination((oldPagination) => {
+            let old = { ...oldPagination };
+            old.finalPage = galleryImages.last_page;
+            old.totalImages = galleryImages.total;
+            return old;
+          });
+        }
+        console.log(pagination);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [folderId]);
 
   const fetchMoreData = () => {
-    imagesServices.createFolderGallery(folderId).then((galleryImages) => {
-      setNewGalleryImages((oldArray) =>
-        oldArray.concat(
-          galleryImages.data.map((e) => ({
-            urls: e.content,
-            id: e.id,
-          }))
-        )
-      );
-    });
+    imagesServices
+      .createFolderGallery(folderId, pagination.currentPage + 1, setPagination)
+      .then((galleryImages) => {
+        setNewGalleryImages((oldArray) =>
+          oldArray.concat(
+            galleryImages.data.map((e) => ({
+              urls: e.content,
+              id: e.id,
+            }))
+          )
+        );
+        setPagination((oldPagination) => {
+          let obj = { ...oldPagination };
+          obj.currentPage++;
+          return obj;
+        });
+      });
   };
 
   return (
