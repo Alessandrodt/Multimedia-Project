@@ -10,38 +10,38 @@ export const NavbarFolders = () => {
   return (
     <>
       <nav>
-        <div className="wrapper-navb">
+        <div className="wrapper-folders">
           <div className="logo">
             <Link to={`/Home`}>
               <img src={logo} title="logo smi" alt="company log" />
             </Link>
           </div>
-          <div className="srcnav">
-            <InputWithButton className="bar" />
+          <div className="wrapper-search-bar">
+            <InputWithButton className="search-bar" />
           </div>
-          <div className="sign-folders" id="box-hello">
-              <div id="but-grps" className="groups">
-                <Link to={`/users/${user.id}/groups`}>
-                  Groups
-                </Link>
-              </div>
-              <h6>
-                {user.first_name} {user.last_name}
-              </h6>
-              <div className="btt-user">
-                <Link to={`/users/${user.id}`}>
-                    <img
-                      className="icong"
-                      src={
-                        user?.avatar?.name
-                          ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
-                          : defaultAvatar
-                      }
-                      title="Profilo"
-                      alt="company logo"
-                    />
-                </Link>
-              </div> 
+          <div className="sign-folders">
+            <div className="groups">
+              <Link to={`/users/${user.id}/groups`}>
+                Groups
+              </Link>
+            </div>
+            <h6>
+              {user.first_name} {user.last_name}
+            </h6>
+            <div className="wrapper-user-home">
+              <Link to={`/users/${user.id}`}>
+                <img
+                  className="user"
+                  src={
+                    user?.avatar?.name
+                      ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+                      : defaultAvatar
+                  }
+                  title="Profilo"
+                  alt="company logo"
+                />
+              </Link>
+            </div> 
           </div>
         </div>
       </nav>

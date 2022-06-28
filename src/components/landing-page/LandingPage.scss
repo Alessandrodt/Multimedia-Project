@@ -6,6 +6,10 @@
     box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
 }
 
+%width {
+    width: $w-100;
+}
+
 nav {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
@@ -45,16 +49,7 @@ nav {
     }
 }
 
-%width {
-    width: $w-100;
-}
-
-section.wrapper-review {
-    background: $_bg;
-    @extend %width;
-    margin: ($m-50 + 40) auto;
-}
-
+//article
 article.review {
     display: grid;
     grid-template-columns: 8% 20% 10% 10% 42% auto;
@@ -66,15 +61,6 @@ article.review {
         grid-column: 2/4;
         grid-row: 1;
         padding-top: $p-2;
-    }
-
-    .wrapper-text {
-        grid-column: 2/6;
-        grid-row: 2;
-
-        @include media( "screen", ">minWidth", "<bp2Width") {
-            order: 2;
-        }
     }
 
     .image {
@@ -112,6 +98,15 @@ article.review {
         }
     }
 
+    .wrapper-text {
+        grid-column: 2/6;
+        grid-row: 2;
+
+        @include media( "screen", ">minWidth", "<bp2Width") {
+            order: 2;
+        }
+    }
+
     //responsive
     @include media( "screen", ">minWidth", "<maxWidth" ){
         width: 100%;
@@ -125,11 +120,6 @@ article.review {
         flex-wrap: wrap;
         padding: 10px;
     }
-}
-
-section.wrapper-memories {
-    @extend %width;
-    padding-bottom: 20px;
 }
 
 article.memories {
@@ -211,9 +201,41 @@ article.memories {
 
     }
 }
+//end
+
+footer {
+    background: $_black;
+    color: $_white;
+    height: 50vh;
+    position: relative;
+    width: $w-100;
+    z-index: -1;
+
+    > p {
+        align-items: center;
+        bottom: $s-4;
+        display: flex;
+        position: fixed;
+        left: $s-4;
+
+        svg {
+            fill: $_white;
+            margin: 0 $s-1;
+            width: 1.0rem;
+        }
+    }
+}
+
+// section
+section.wrapper-memories {
+    @extend %width;
+    padding-bottom: 20px;
+}
 
 section.wrapper-review {
+    background: $_bg;
     @extend %width;
+    margin: ($m-50 + 40) auto;
 }
 
 .wireframe {
@@ -222,6 +244,31 @@ section.wrapper-review {
     img {
         width: $w-100;
     }
+}
+
+.wrapper-img {
+    padding-bottom: $s-4;
+    text-align: center;
+
+    p {
+        font-size: $f-1;
+    }
+
+    p.font-size {
+        font-size: $f-3;
+    }
+
+    svg {
+        margin: $s-2 0;
+        circle {
+            fill: $_primary;
+        }
+    }
+
+}
+
+.wrapper-info {
+    display: flex;
 }
 
 .wrapper-signUp {
@@ -275,31 +322,6 @@ section.wrapper-review {
     }
 }
 
-.wrapper-img {
-    padding-bottom: $s-4;
-    text-align: center;
-
-    p {
-        font-size: $f-1;
-    }
-
-    p.font-size {
-        font-size: $f-3;
-    }
-
-    svg {
-        margin: $s-2 0;
-        circle {
-            fill: $_primary;
-        }
-    }
-
-}
-
-.wrapper-info {
-    display: flex;
-}
-
 .wrapper-footer {
     bottom: 50px;
     display: flex;
@@ -339,45 +361,5 @@ section.wrapper-review {
     //responsive
     @include media( "screen", ">minWidth", "<maxWidth", ){
         width: 100%;
-    }
-}
-
-footer {
-    background: $_black;
-    color: $_white;
-    height: 50vh;
-    position: relative;
-    width: $w-100;
-    z-index: -1;
-
-    > p {
-        align-items: center;
-        bottom: $s-4;
-        display: flex;
-        position: fixed;
-        left: $s-4;
-
-        svg {
-            fill: $_white;
-            margin: 0 $s-1;
-            width: 1.0rem;
-        }
-    }
-}
-
-.toggle-box{
-    display: flex;
-
-    // .toggle{
-    //     border-radius: 20%;
-    //     border: 0;
-    //     margin-left: 10%;
-    //     background-color: rgb(242, 241, 241);
-    //     padding: 2%;
-    //     width: 70px;
-    // }
-
-    .toggle {
-        padding: $s-1 0;
     }
 }

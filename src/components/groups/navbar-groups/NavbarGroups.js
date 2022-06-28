@@ -10,22 +10,20 @@ const user = JSON.parse(sessionStorage.getItem('user'));
     return (
         <>
             <nav>
-                <div className="wrapper-na">
+                <div className="wrapper-groups">
                     <div className="logo">
                         <Link to={`/Home`}>
                             <img src={logo} title="logo smi" alt="company log" />
                         </Link>
                     </div>
-                    <div className="navig">
-                        <Link to={`/users/${user.id}`}>
-                            <button>
-                                <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
-                            </button>
-                        </Link>
+                    <div className="wrapper-info-groups">
+                        {/* Link Folders */}
                         <Link to={`/users/${user.id}/folders`}>
-                            <button>
-                                <span>Folders</span>
-                            </button>
+                            <span className="folder-button">Folders</span>
+                        </Link>
+                        {/* Link User */}
+                        <Link to={`/users/${user.id}`}>
+                            <img className="icong" src={user?.avatar?.name ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}` : defaultAvatar } title="Profilo" alt="company logo" />
                         </Link>
                     </div>
                 </div>

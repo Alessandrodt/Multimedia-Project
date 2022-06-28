@@ -1,4 +1,17 @@
-.wrapper-navb {
+.sign-folders {
+        
+    .groups {
+        background-color: $_primary;
+        border: 0;
+        border-radius: 2rem;
+        box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
+        cursor: pointer;
+        position: relative;
+        padding: $s-2;
+    }
+}
+
+.wrapper-folders {
     align-items: center;
     display: flex;
     margin: $m-auto;
@@ -6,11 +19,22 @@
     padding: $s-2;
     justify-content: space-evenly;
 
+    .box {
+    
+        h6 {
+            display: inline;
+        }
+    }
 
     .logo {
         img {
             width: ($w-6) * 2;
         }
+    }
+
+    .search-bar {
+        margin-top: $m-10;
+        width: $w-100;
     }
 
     .sign-folders {
@@ -20,77 +44,34 @@
         justify-content: end;
         width: 35%;
     }
+    
+    .user {
+        width: 30px;
+    }
 
-    // @include media( "screen", ">minWidth", "<bp1Width" ) {
-    //     column-gap: 0;
-    // }
+    .wrapper-search-bar {
+        width: 530px;
+        caret-color: $_dark;
+    
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth" ) {
+            width: 300px;
+        }
+    
+        @include media( "screen", ">minWidth", "<bp2Width" ) {
+            width: 220px;
+        }
+    }
 }
 
-
-.btt-user {
+.wrapper-user-home {
     display: inline-block;
     width: 50px;
     a {
         display: inline-block;
 
-        img {
+        img.user {
             width: $w-100;
         }
     }
-}
-
-.srcnav {
-    width: 530px;
-    caret-color: $_dark;
-
-    @include media( "screen", ">minWidth", "<maxWidth" ) {
-        width: 300px;
-    }
-
-    @include media( "screen", ">minWidth", "<bp2Width" ) {
-        width: 220px;
-    }
-}
-.bar {
-    margin-top: $m-10;
-    width: $w-100;
-}
-
-.wrapper-na .log {
-    margin-top: $m-10;
-    margin-left: $m-10;
-}
-
-.icong {
-width: 30px;
-}
-
-.button-action {
-    margin-top: 10px;
-}
-
-// .folders {
-//     margin-top: 10px;
-// }
-
-.box {
-
-    h6 {
-        display: inline;
-    }
-}
-
-.groups {
-    background-color: $_primary;
-    border: 0;
-    border-radius: 2rem;
-    box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
-    cursor: pointer;
-    position: relative;
-    padding: $s-2;
-}
-
-#button-profile{
-    margin-left: 20px;
-    margin-top: 5px;
 }
