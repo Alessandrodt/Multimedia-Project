@@ -9,6 +9,9 @@ import foldersServices from "../../../services/foldersServices";
 export function UploadFolder({ setSelectedFolder }) {
   const [allFolders, setAllFolders] = useState([]);
 
+  /**
+   * it gets the user's folders and sets the state locally
+   */
   useEffect(() => {
     const userId = JSON.parse(sessionStorage.getItem("user")).id;
 
@@ -20,9 +23,9 @@ export function UploadFolder({ setSelectedFolder }) {
       .catch((error) => console.log(error));
   }, []);
 
-  const mapOptions = (tags) => {
-    if (tags) {
-      return tags.map((tag) => ({ value: tag.id, label: tag.name }));
+  const mapOptions = (folder) => {
+    if (folder) {
+      return folder.map((folder) => ({ value: folder.id, label: folder.name }));
     } else {
       return [];
     }
@@ -36,7 +39,7 @@ export function UploadFolder({ setSelectedFolder }) {
     <>
       <Select
         options={mapOptions(allFolders)}
-        placeholder={"Select a folder for your image... pls thx bye"}
+        placeholder={"Select a folder for your image..."}
         onChange={(obj) => handleChange(obj.value)}
       />
     </>
