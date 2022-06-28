@@ -27,7 +27,7 @@ export const AddFolderModal = ( sharedFolders, setSharedFolders ) => {
             console.log(shFolders);
         })
         .catch(err => {
-            if (err.response.status = 401) {
+            if (err.response.status === 401) {
                 console.log('User is unauthorized')
             } else if (err.response.status === 403) {
                 console.log('This action is forbidden')
@@ -44,7 +44,7 @@ export const AddFolderModal = ( sharedFolders, setSharedFolders ) => {
             setSharedFolders(res.data);
         })
         .catch(err => {
-            if (err.response.status = 401) {
+            if (err.response.status === 401) {
                 console.log('User is unauthorized')
             } else if (err.response.status === 403) {
                 console.log('This action is forbidden')
