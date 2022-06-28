@@ -88,7 +88,7 @@ export function Gallery({ folderId }) {
         dataLength={galleryImages ? galleryImages.length : 0}
         next={fetchMoreData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        loader={""}
       >
         <Masonry columns={[1, 2, 3, 4]} spacing={2} style={styles.container}>
           {galleryImages.map((e) => (
