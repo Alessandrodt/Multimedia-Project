@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../services/axios';
 
 const addFolderToGroup = (groupId, folderID) => {
     return axios.post(`https://smi-laravel.fly.dev/api/v1/groups/${groupId}/folders/${folderID}`)
