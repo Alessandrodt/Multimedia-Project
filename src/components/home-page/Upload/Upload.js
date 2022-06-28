@@ -38,6 +38,10 @@ export function Upload() {
     marginLeft: "28%",
   };
 
+  /**
+   * it handles the modal for the upload, and it uploads the selected image, folder, and tags
+   * if the upload is not successful, it handles the errors
+   */
   const handleClick = () => {
     setVisible(true);
     imagesServices
