@@ -123,7 +123,7 @@ export const Login = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">Login</Button>
+          <Button className="primary" type="submit">Login</Button>
         </Group>
       </form>
     </Box>

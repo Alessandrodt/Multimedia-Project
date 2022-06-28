@@ -37,3 +37,12 @@ $font-size: (
         font-size: $val
     }
 }
+
+//color primary website
+.primary {
+    background: $_primary !important;
+
+    &:hover {
+        background: $_dark !important;
+    }
+}

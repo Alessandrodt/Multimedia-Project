@@ -169,7 +169,7 @@ export const SignUp = () => {
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button onClick={openContentModal}>Choose your Avatar here</Button>
+        <Button className="primary" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
             className="change-width"
@@ -239,7 +239,7 @@ export const SignUp = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">
+          <Button className="primary" type="submit">
             Sign-Up
           </Button>
         </Group>

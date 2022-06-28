@@ -44,8 +44,8 @@ export const Groups = () => {
 
     // Conditional welcome message, checking the length of the groups state.
     const initialMessage = groups.length 
-    ? <h2> These are your groups! </h2>
-    : <h2> It seems you have no groups... why don't you create one? </h2>
+    ? <h4> These are your groups! </h4>
+    : <h4> It seems you have no groups... why don't you create one? </h4>
 
     // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
@@ -82,7 +82,7 @@ export const Groups = () => {
                     placeholder='Your title here'
                     required
                 />
-                <Button fullWidth type="submit"> Create Group </Button>
+                <Button className="primary" fullWidth type="submit"> Create Group </Button>
             </form>
         </Card>
 
@@ -122,7 +122,7 @@ export const Groups = () => {
         <>
          <NavbarGroups/>
          <div className="group-box">
-            <h1> GROUPS </h1>
+            <h3> GROUPS </h3>
             {initialMessage}
             <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
             <ErrorMessage message={errorMessage} style={errorStyle} />

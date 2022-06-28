@@ -70,24 +70,28 @@
 .button-folder-edit {
     @include button;
     color: $_success;
-    // transition: color .8s ease-in-out;
-    // -webkit-transition: .8s ease-in-out;
-    // -moz-transition: 8s ease-in-out;
-    // -o-transition: 8s ease-in-out;
+    transition: color .8s ease-in-out;
+    -webkit-transition: .8s ease-in-out;
+    -moz-transition: 8s ease-in-out;
+    -o-transition: 8s ease-in-out;
 
     &::before {
-        background: currentColor;
+        background: $_success;
         color: $_success;
         content: '';
         display: inline-block;
-        left: -20px;
-        position: absolute;
-        transform: skewX(35deg);
-        transition: .8s ease-in-out;
-        top: 0;
         height: $h-100;
+        position: absolute;
+        left: -20px;
+        transform: skewX(35deg);
+        transition: .5s ease-in-out;
+        transition: color .8s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        top: 0;
         width: 0;
-        z-index: 0;
+        z-index: -1;
     }
 
     &:hover::before {
@@ -96,10 +100,15 @@
 
     &:hover span {
         color: $_white;
+        transition: .5s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
     }
 }
 
 .button-folder-delete {
     @include button;
-    border-color: $_delete;
+    border-color: currentColor;
+    color: $_delete
 }
