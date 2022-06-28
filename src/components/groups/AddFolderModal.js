@@ -18,41 +18,43 @@ export const AddFolderModal = ( sharedFolders, setSharedFolders ) => {
         });
     }, [userId]);
 
-    const openContentAddModal = () => {
-        const addFolderToGroup = (f) => {
-            folderSharingServices.addFolderToGroup(groupId, f.id)
-            .then(res => {
-                console.log(`${f.name} is now being shared with this group`);
-                setSharedFolders(sharedFolders.concat(res.data));
-            })
-            .catch(err => {
-                if (err.response.status = 401) {
-                    console.log('User is unauthorized')
-                } else if (err.response.status === 403) {
-                    console.log('This action is forbidden')
-                } else {
-                    console.log('Not found')
-                }
-            });
-        };
-    
-        const removeFolderFromGroup = (f) => {
-            folderSharingServices.removeFolderFromGroup(groupId, f.id)
-            .then(res => {
-                console.log(`${f.name} will not be shared with this group anymore`);
-                setSharedFolders(res.data);
-            })
-            .catch(err => {
-                if (err.response.status = 401) {
-                    console.log('User is unauthorized')
-                } else if (err.response.status === 403) {
-                    console.log('This action is forbidden')
-                } else {
-                    console.log('Not found')
-                }
-            });
-        };
+    const shFolders = sharedFolders;
+    const addFolderToGroup = (f) => {
+        folderSharingServices.addFolderToGroup(groupId, f.id)
+        .then(res => {
+            console.log(`${f.name} is now being shared with this group`);
+            setSharedFolders(shFolders.concat(res.data));
+            console.log(shFolders);
+        })
+        .catch(err => {
+            if (err.response.status = 401) {
+                console.log('User is unauthorized')
+            } else if (err.response.status === 403) {
+                console.log('This action is forbidden')
+            } else {
+                console.log('Not found')
+            }
+        });
+    };
 
+    const removeFolderFromGroup = (f) => {
+        folderSharingServices.removeFolderFromGroup(groupId, f.id)
+        .then(res => {
+            console.log(`${f.name} will not be shared with this group anymore`);
+            setSharedFolders(res.data);
+        })
+        .catch(err => {
+            if (err.response.status = 401) {
+                console.log('User is unauthorized')
+            } else if (err.response.status === 403) {
+                console.log('This action is forbidden')
+            } else {
+                console.log('Not found')
+            }
+        });
+    };
+
+    const openContentAddModal = () => {
         modal.openModal({
           title: "Choose your folder's name:",
           children:  

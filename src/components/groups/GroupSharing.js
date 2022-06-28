@@ -4,7 +4,6 @@ import { AddFolderModal } from "./AddFolderModal";
 
 export const GroupSharing = () => {
     const [sharedFolders, setSharedFolders] = useState([]);
-
     
     return (
         <>
