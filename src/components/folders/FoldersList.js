@@ -24,10 +24,11 @@ export const FoldersList = () => {
       <NavbarFolders />
       <div className="folders-list">
         <Folder
+          key={folderId}
           folders={folders}
+          folderId={folderId}
           setFolders={setFolders}
           userId={userId}
-          folderId={folderId}
         />
       </div>
       {folderId ? (

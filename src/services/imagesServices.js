@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./axios";
 
 // const userImages = (userId) =>
 //   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
