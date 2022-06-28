@@ -160,26 +160,26 @@ export const Folders = () => {
       </div>
       <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
-        <button onClick={openContentAddModal}>
+        <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=""></img>
-        </button>
+        </span>
       </div>
       <div className="wrapper-slider">
         {folders.map((folder) => {
           return (
-            <Card key={folder.id}>
+            <Card className="card" key={folder.id}>
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
-                <button onClick={() => folderTracker(folder.name, folder.id)}>
-                  <div className="slider">
-                    <img src={folderEmpty} alt="" />
-                    <p>{folder.name}</p>
-                  </div>
-                </button>
+                <span className="slider" onClick={() => folderTracker(folder.name, folder.id)}>
+                  <img src={folderEmpty} alt="" />
+                  <p>{folder.name}</p>
+                </span>
               </Link>
-              <button onClick={() => openContentEditModal(folder.id)}>
-                Edit
-              </button>
-              <button>Delete</button>
+              <div className="button">
+                <span onClick={() => openContentEditModal(folder.id)}>
+                  Edit
+                </span>
+                <span>Delete</span>
+              </div>
             </Card>
           );
         })}
