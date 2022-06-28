@@ -9,7 +9,13 @@ const folderImages = (folderId, pageNumber) =>
 const homeImages = (pageNumber) =>
   `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=${pageNumber}`;
 
-const createFolderGallery = (folderId, pageNumber) => {
+/**
+ *
+ * @param {number} folderId - if defined get images in folder, if not defined get user images
+ * @param {number} pageNumber - current page
+ * @returns the JSON with the images and the pagination details
+ */
+const loadImages = (folderId, pageNumber) => {
   const url = folderId
     ? folderImages(folderId, pageNumber)
     : homeImages(pageNumber);
@@ -36,6 +42,13 @@ const headers = {
 const uploadUrl = (folder) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folder}/uploads`;
 
+/**
+ *
+ * @param {number} folderId
+ * @param {image} newUpload
+ * @param {array} tags
+ * @returns 201 response when succesful and the JSON with the uploaded image
+ */
 const uploadImage = async (folderId, newUpload, tags) => {
   const formData = new FormData();
   formData.append("file", newUpload);
@@ -53,8 +66,12 @@ const uploadImage = async (folderId, newUpload, tags) => {
 
 const createTagUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
 
+/**
+ *
+ * @param {string} tag
+ * @returns 201 response when succesful
+ */
 const uploadTag = async (tag) => {
-  console.log(tag);
   return axios
     .post(createTagUrl, { name: tag }, { headers: headers })
     .then((z) => {
@@ -66,6 +83,10 @@ const uploadTag = async (tag) => {
 
 const allTagsUrl = `http://smi-laravel.fly.dev/api/v1/tags`;
 
+/**
+ *
+ * @returns an array of all the tags in the database
+ */
 const getAllTags = () => {
   return axios
     .get(allTagsUrl, { headers: headers })
@@ -77,7 +98,7 @@ const getAllTags = () => {
 };
 
 const imagesServices = {
-  createFolderGallery,
+  loadImages,
   uploadImage,
   uploadTag,
   getAllTags,

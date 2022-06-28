@@ -29,9 +29,14 @@ export function Gallery({ folderId }) {
     },
   };
 
+  /**
+   * the initial loading of the images,
+   * setting pagination parameters and gallery images based on the response
+   * if response.data is not defined it returns an empty array
+   */
   useEffect(() => {
     imagesServices
-      .createFolderGallery(folderId, pagination.currentPage, setPagination)
+      .loadImages(folderId, pagination.currentPage)
       .then((galleryImages) => {
         setNewGalleryImages(
           galleryImages
@@ -49,14 +54,17 @@ export function Gallery({ folderId }) {
             return old;
           });
         }
-        console.log(pagination);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [folderId]);
 
+  /**
+   * it loads more data, getting the next page and increasing the value
+   * of the current page. It also appends the next images to the existing ones
+   */
   const fetchMoreData = () => {
     imagesServices
-      .createFolderGallery(folderId, pagination.currentPage + 1, setPagination)
+      .loadImages(folderId, pagination.currentPage + 1)
       .then((galleryImages) => {
         setNewGalleryImages((oldArray) =>
           oldArray.concat(
@@ -76,7 +84,6 @@ export function Gallery({ folderId }) {
 
   return (
     <div>
-      {" "}
       <InfiniteScroll
         dataLength={galleryImages ? galleryImages.length : 0}
         next={fetchMoreData}
@@ -88,7 +95,7 @@ export function Gallery({ folderId }) {
             <Card img={"data:image/png;base64, " + e.urls} key={e.id} />
           ))}
         </Masonry>
-      </InfiniteScroll>{" "}
+      </InfiniteScroll>
     </div>
   );
 }
