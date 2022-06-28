@@ -22,7 +22,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
+// map font-size h1 - h6
 $font-size: (
     "h1": 26px,
     "h2": 24px,
@@ -44,5 +44,13 @@ $font-size: (
 
     &:hover {
         background: $_dark !important;
+    }
+}
+
+.delete {
+    background: $_delete;
+
+    &:hover {
+        background: $_dark-red;
     }
 }

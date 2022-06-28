@@ -139,8 +139,8 @@ const handleMessage = (color, message) => {
           <thead>
             <tr>
             <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
-            <Button ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
-            <Button color="red" ml={10}> Delete group </Button>
+            <Button className="primary" ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
+            <Button className="delete" ml={10}> Delete group </Button>
             </tr>
           </thead>
           <tbody>

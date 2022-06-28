@@ -15,11 +15,11 @@ export const GroupContainer = ({ deleteGroup, groupName, groupLink }) => {
           {groupName}
         </Text>
         <Link to={groupLink}>
-        <Button fullWidth mt='md'>
+        <Button className="primary" fullWidth mt='md'>
           Open Group
         </Button>
         </Link>
-        <Button color='red' fullWidth mt='md' onClick={() => {deleteGroup()}}>
+        <Button className='delete' fullWidth mt='md' onClick={() => {deleteGroup()}}>
           Delete Group
         </Button>
     </Paper>
