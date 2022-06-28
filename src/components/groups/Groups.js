@@ -5,6 +5,7 @@ import groupsServices from "../../services/groupsServices";
 
 // Mantine imports
 import { Avatar, Button, Card, SimpleGrid, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
 
 // Components imports
 import defaultAvatar from '../../images/user.svg';
@@ -68,21 +69,7 @@ export const Groups = () => {
     // Function to open the Create Group modal.
     const groupForm = 
         <Card>
-            <form onSubmit={(e) => {
-            e.preventDefault();
-            createGroup()
-            }
-            }>
-                <TextInput 
-                    defaultValue={groupName}
-                    label='Choose a title!'
-                    name='groupName'
-                    onChange={handleChange}
-                    placeholder='Your title here'
-                    required
-                />
-                <Button fullWidth type="submit"> Create Group </Button>
-            </form>
+            <Button onClick={() => openGroupModal()}> Create group </Button>
         </Card>
 
     // Object sent to the backend in the createGroup function
@@ -112,6 +99,31 @@ export const Groups = () => {
             })
         }
     }
+
+    const modals = useModals();
+
+    const openGroupModal = () =>
+    modals.openModal({
+      title: 'Create a new group!',
+      centered: true,
+      children: (
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            createGroup()
+            }
+            }>
+                <TextInput 
+                    defaultValue={groupName}
+                    label='Choose a title!'
+                    name='groupName'
+                    onChange={handleChange}
+                    placeholder='Your title here'
+                    required
+                />
+                <Button fullWidth type="submit"> Create Group </Button>
+            </form>
+      ),
+    });
 
     return (
         <>
