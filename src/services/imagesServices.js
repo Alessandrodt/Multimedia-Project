@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./axios";
 
 // const userImages = (userId) =>
 //   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
@@ -6,7 +6,7 @@ import axios from "axios";
 const folderImages = (folderId) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=1`;
 // TODO change once endpoint to get all images exists
-const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=1`;
+const homeImages = `https://smi-laravel.fly.dev/api/v1/folders/8/uploads?page=1`;
 
 const createFolderGallery = (folderId) => {
   const url = folderId ? folderImages(folderId) : homeImages;
