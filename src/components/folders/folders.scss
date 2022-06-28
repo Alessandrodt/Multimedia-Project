@@ -1,4 +1,5 @@
 .card {
+    padding: $s-1;
     text-align: center;
 }
 
@@ -7,7 +8,6 @@
     width: $w-90;
 
     span.folder {
-        cursor: pointer;
         display: inline-block;
 
         img {
@@ -40,20 +40,66 @@
 
 .wrapper-slider {
     display: flex;
+    gap: $w-1;
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
     row-gap: $s-3;
-    width: $w-70;
     justify-content: flex-start;
+    width: $w-70;
 
-    .button {
+    .wrapper-button {
         display: flex;
+        flex-direction: column;
+        row-gap: $s-2;
         margin-top: 10px;
         justify-content: space-around;
 
-        span {
-            cursor: pointer;
-        }
     }
+}
+
+@mixin button {
+    border: 1px solid;
+    border-radius: $s-1;
+    cursor: pointer;
+    overflow: hidden;
+    padding: $s-1;
+    position: relative;
+}
+
+.button-folder-edit {
+    @include button;
+    color: $_success;
+    // transition: color .8s ease-in-out;
+    // -webkit-transition: .8s ease-in-out;
+    // -moz-transition: 8s ease-in-out;
+    // -o-transition: 8s ease-in-out;
+
+    &::before {
+        background: currentColor;
+        color: $_success;
+        content: '';
+        display: inline-block;
+        left: -20px;
+        position: absolute;
+        transform: skewX(35deg);
+        transition: .8s ease-in-out;
+        top: 0;
+        height: $h-100;
+        width: 0;
+        z-index: 0;
+    }
+
+    &:hover::before {
+        width: 140%;
+    }
+
+    &:hover span {
+        color: $_white;
+    }
+}
+
+.button-folder-delete {
+    @include button;
+    border-color: $_delete;
 }

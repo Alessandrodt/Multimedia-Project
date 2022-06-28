@@ -174,11 +174,14 @@ export const Folders = () => {
                   <p>{folder.name}</p>
                 </span>
               </Link>
-              <div className="button">
-                <span onClick={() => openContentEditModal(folder.id)}>
-                  Edit
-                </span>
-                <span>Delete</span>
+              {/* button Edit / Delete */}
+              <div className="wrapper-button">
+                <div className="button-folder-edit" onClick={() => openContentEditModal(folder.id)}>
+                  <span>Edit</span>
+                </div>
+                <div className="button-folder-delete">
+                  <span>Delete</span>
+                </div>
               </div>
             </Card>
           );
