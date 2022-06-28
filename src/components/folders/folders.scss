@@ -57,3 +57,14 @@
         }
     }
 }
+
+.folders-list {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    position:absolute;
+}
+
+.folder-gallery {
+    position: relative;
+}

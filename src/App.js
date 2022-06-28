@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
-import { Folders } from "./components/folders/Folders";
+import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
 import { HomePage } from "./components/home-page/HomePage";
@@ -33,8 +33,15 @@ i18n
   .init({
     fallbackLng: "it",
     detection: {
-      order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
-      caches:['cookie'],
+      order: [
+        "navigator",
+        "cookie",
+        "htmlTag",
+        "localStorage",
+        "path",
+        "subdomain",
+      ],
+      caches: ["cookie"],
     },
 
     backend: {
@@ -60,9 +67,9 @@ const App = () => {
             />
             <Route
               path="/users/:userId/folders/:folderId"
-              element={<Folders />}
+              element={<FoldersList />}
             />
-            <Route path="users/:userId/folders" element={<Folders />} />
+            <Route path="users/:userId/folders" element={<FoldersList />} />
             <Route path="/users/:userId" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<LandingPage />} />
