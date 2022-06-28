@@ -133,7 +133,7 @@ export const Groups = () => {
             <ErrorMessage message={errorMessage} style={errorStyle} />
             {groupForm}
                 {/* A map to create a list item for each group name */}
-                <SimpleGrid cols={3} spacing='md'>
+                <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
                     {groups.map(group =>
                         <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} groupLink={`/users/${user.id}/groups/${group.id}`} />
                     )}
