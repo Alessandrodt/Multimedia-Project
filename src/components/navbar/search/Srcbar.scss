@@ -1,29 +1,22 @@
-.mantine-1fjdtzo {
-    background-color: $_primary;
-}
+// .mantine-1c4piau {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     right: 5px;
+// }
 
-.mantine-1fjdtzo:hover {
-    background-color: #008993;
-}
+input[name="search"] {
+    background: rgba($color: $_black, $alpha: .09);
+    border: none;
+    caret-color: $_white;
+    color: $_white;
 
-.mantine-1t62jef {
-    height: 50px;
-    border: 0 solid #bababa;
-    background-color: #e1e1e1;
-}
+    &:hover {
+        background: rgba($color: $_primary, $alpha: .8);
+    }
 
-.mantine-1t62jef::placeholder {
-    color: rgb(255, 255, 255);
-}
-
-.mantine-1t62jef:hover {
-    background-color: #c2c2c2;
-    cursor: pointer;
-}
-
-.mantine-1c4piau {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 5px;
+    &::placeholder {
+        padding-left: .15rem;
+        color: $_white;
+    }
 }

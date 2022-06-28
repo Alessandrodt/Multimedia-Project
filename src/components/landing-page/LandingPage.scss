@@ -28,6 +28,10 @@ nav {
     
         .logo {
             width: 17%;
+
+            a {
+                display: inline-block;
+            }
     
             img {
                 width: ($w-6) * 2;
@@ -37,7 +41,7 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            width: 80%;
+            width: $w-80;
             text-align: end;
     
             span.button-bg {
@@ -87,9 +91,9 @@ article.review {
         }
 
         //responsive
-        @include media( "screen", ">minWidth", "<maxWidth" ){
-            padding-top: ($p-2) * 3;
-        }
+        @include media( "screen", ">minWidth", "<bp1Width" ) {
+            padding-top: $s-3;
+        };
 
         // responsive min-mobile max-tablet
         @include media( "screen", ">minWidth", "<bp2Width") {
@@ -306,14 +310,14 @@ section.wrapper-review {
             width: 50%;
 
             @include media( "screen", ">minWidth", "<bp2Width", ) {
-                width: $w-70;
+                width: $w-100;
             }
 
         }
 
         //responsive
         @include media( "screen", ">minWidth", "<maxWidth", ){
-            width: 90%;
+            width: $w-90;
         }
 
         @include media( "screen", ">minWidth", "<bp2Width", ) {
@@ -349,7 +353,7 @@ section.wrapper-review {
 
         svg {
             fill: $_white;
-            width: 20px;
+            width: $w-2;
         }
 
         .about-info {
@@ -360,6 +364,6 @@ section.wrapper-review {
 
     //responsive
     @include media( "screen", ">minWidth", "<maxWidth", ){
-        width: 100%;
+        width: $w-100;
     }
 }

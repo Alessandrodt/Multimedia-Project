@@ -11,6 +11,7 @@ import { ErrorMessage } from "../error-message/ErrorMessage";
 
 // Services
 import authServices from "../../services/authServices";
+import { dividerClasses } from "@mui/material";
 
 export const Login = () => {
   const modals = useModals();

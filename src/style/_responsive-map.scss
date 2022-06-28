@@ -13,8 +13,8 @@ $mediaMinWidth: 425px;
 		"<maxWidth": "(max-width: #{$mediaMaxWidth})",
 		">bp1Width": "(min-width: #{$mediaBp1Width + 1})",
 		"<bp1Width": "(max-width: #{$mediaBp1Width})",
-    ">bp2Width": "(min-width: #{$mediaBp2Width})",
-    "<bp2Width": "(max-width: #{$mediaBp2Width + 1})",
+    ">bp2Width": "(min-width: #{$mediaBp2Width + 1})",
+    "<bp2Width": "(max-width: #{$mediaBp2Width})",
 		">minWidth": "(min-width: #{$mediaMinWidth})",
 		"<minWidth": "(max-width: #{$mediaMinWidth})"
 	);

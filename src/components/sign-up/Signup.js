@@ -70,25 +70,23 @@ export const SignUp = () => {
       centered: true,
       children: (
         <>
-            <div className="wrapper-avatar">
-              {avatars.map((avatar) => {
-                return (
-                  <button className="custom-width"
-                    onClick={() => {
-                      modals.closeModal(setProfilePic(avatar));
-                      setAvatarStatus(true);
-                    }}
-                    key={avatar.id}
-                  >
-                    <img
-                      src={`${avatar.link}`}
-                      alt={""}
-                      width={50}
-                    ></img>
-                  </button>
-                );
-              })}
-            </div>
+          {avatars.map((avatar) => {
+            return (
+              <button
+                className="custom-avatars"
+                onClick={() => {
+                  modals.closeModal(setProfilePic(avatar));
+                  setAvatarStatus(true);
+                }}
+                key={avatar.id} >
+                <img
+                  src={`${avatar.link}`}
+                  alt={""}
+                  width={50}
+                ></img>
+              </button>
+            );
+          })}
         </>
       ),
     });
@@ -165,11 +163,11 @@ export const SignUp = () => {
   });
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
+    <Box sx={{ maxWidth: 400 }} mx="auto">
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button className="primary" onClick={openContentModal}>Choose your Avatar here</Button>
+        <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
             className="change-width"
@@ -205,6 +203,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
           required
           label="Password"
           autoComplete="on"
@@ -216,6 +215,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
           required
           mt="sm"
           label="Confirm password"

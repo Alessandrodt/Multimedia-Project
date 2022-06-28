@@ -129,7 +129,7 @@ export const Groups = () => {
          <div className="group-box">
             <h3> GROUPS </h3>
             {initialMessage}
-            <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
+            <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
             <ErrorMessage message={errorMessage} style={errorStyle} />
             {groupForm}
                 {/* A map to create a list item for each group name */}
