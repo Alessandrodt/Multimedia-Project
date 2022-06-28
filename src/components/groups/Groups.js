@@ -68,9 +68,22 @@ export const Groups = () => {
 
     // Function to open the Create Group modal.
     const groupForm = 
-        <Card>
-            <Button onClick={() => openGroupModal()}> Create group </Button>
-        </Card>
+    <Card>
+     <form onSubmit={(e) => {
+      e.preventDefault();
+      createGroup()
+     }}>
+     <TextInput 
+      defaultValue={groupName}
+      label='Choose a title!'
+      name='groupName'
+      onChange={handleChange}
+      placeholder='Your title here'
+      required
+    />
+    <Button fullWidth type="submit"> Create Group </Button>
+    </form>
+ </Card>
 
     // Object sent to the backend in the createGroup function
     const newGroup = {
@@ -99,31 +112,6 @@ export const Groups = () => {
             })
         }
     }
-
-    const modals = useModals();
-
-    const openGroupModal = () =>
-    modals.openModal({
-      title: 'Create a new group!',
-      centered: true,
-      children: (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            createGroup()
-            }
-            }>
-                <TextInput 
-                    defaultValue={groupName}
-                    label='Choose a title!'
-                    name='groupName'
-                    onChange={handleChange}
-                    placeholder='Your title here'
-                    required
-                />
-                <Button fullWidth type="submit"> Create Group </Button>
-            </form>
-      ),
-    });
 
     return (
         <>
