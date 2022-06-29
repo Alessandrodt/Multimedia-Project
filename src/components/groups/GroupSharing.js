@@ -1,11 +1,17 @@
+// React imports
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+// Mantine imports
 import { useModals } from "@mantine/modals";
-import { Button } from "@mantine/core";
+import { Button, Image, Paper, SimpleGrid, Text } from "@mantine/core";
 
+// Services imports
 import foldersServices from "../../services/foldersServices";
 import folderSharingServices from "../../services/folderSharingServices";
+
+// Style imports
+import folderEmpty from "../../images/folder_icon_empty.svg";
 
 
 export const GroupSharing = () => {
@@ -83,16 +89,17 @@ export const GroupSharing = () => {
         <h1> GROUP IMAGE SHARING </h1>
         <Button onClick={() => {openContentAddModal()}}> Choose Folders </Button>
             <h3> This is the section where you should see if a folder is added or not but we don't have the facilities for this </h3>
-            <ul> 
+            <SimpleGrid cols={5} spacing='md'>
                 {sharedFolders?.map(sharedFolder => {
                     return (
-                        <li key={sharedFolder.folder.id} >
-                            {sharedFolder.folder.name}
-                            <Button compact onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
-                        </li>
+                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.folder.id}>
+                            <img src={folderEmpty} />
+                            <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.folder.name} </Text>
+                            <Button fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
+                        </Paper>
                     )
                 })}
-            </ul>
+            </SimpleGrid>
         </>
     )
 }
