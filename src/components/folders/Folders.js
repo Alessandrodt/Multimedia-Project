@@ -94,7 +94,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           component={Link}
           to={item.path}
           key={index}
-        >
+          >
           {item.name}
         </Anchor>
       </div>

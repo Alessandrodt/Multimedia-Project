@@ -7,7 +7,7 @@ const folderImages = (folderId, pageNumber) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}`;
 // TODO change once endpoint to get all images exists
 const homeImages = (pageNumber) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/41/uploads?page=${pageNumber}`;
+  `https://smi-laravel.fly.dev/api/v1/folders/31/uploads?page=${pageNumber}`;
 
 /**
  *
