@@ -197,7 +197,7 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
-          maxLength={15}
+          maxLength={25}
           required
           label="Email"
           placeholder="Mario.Rossi@email.com"

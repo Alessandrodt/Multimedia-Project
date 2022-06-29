@@ -100,7 +100,7 @@ export const Login = () => {
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(getUser)}>
         <TextInput
-          maxLength={15}
+          maxLength={25}
           required
           label="Email"
           placeholder="Email"
