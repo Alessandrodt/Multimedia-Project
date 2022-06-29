@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 // Mantine imports
 import { useModals } from "@mantine/modals";
-import { Button, Image, Paper, SimpleGrid, Text } from "@mantine/core";
+import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
 import foldersServices from "../../services/foldersServices";
@@ -12,6 +12,7 @@ import folderSharingServices from "../../services/folderSharingServices";
 
 // Style imports
 import folderEmpty from "../../images/folder_icon_empty.svg";
+import { messageHandler } from "../../functions/messageHandler";
 
 
 export const GroupSharing = () => {
@@ -31,12 +32,13 @@ export const GroupSharing = () => {
         .then(res => {
             console.log(res)
             console.log(`${f.name} is now being shared with this group`);
+            messageHandler('success', `${f.name} is now being shared with this group`)
             setSharedFolders(sharedFolders.concat(res.data));
             modal.closeModal();
         })
         .catch(err => {
             if (err.response.status === 401) {
-                console.log('User is unauthorized')
+                messageHandler('error', 'User is unauthorized')
             } else if (err.response.status === 403) {
                 console.log('This action is forbidden')
             } else {
