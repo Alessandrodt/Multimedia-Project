@@ -1,35 +1,27 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // components
-import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
-import EditFolderForm from "../../components/folders/edit-folder-form/EditFolderForm";
+import AddFolderForm from "./add-folder-form/AddFolderForm";
+import EditFolderForm from "./edit-folder-form/EditFolderForm";
 import { ErrorMessage } from "../error-message/ErrorMessage";
-import { NavbarFolders } from "./navbar-folders/NavbarFolders";
-import { Gallery } from "../galleries/Gallery";
+
+// services
+import foldersServices from "../../services/foldersServices";
 
 // libraries
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 
-// services
-import foldersServices from "../../services/foldersServices";
-
 // style
 import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
 
-export const Folders = () => {
+export const Folder = ({ userId, folderId, folders, setFolders }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
-
-  const { userId, folderId } = useParams();
-
-  const [folders, setFolders] = useState([]);
   const [visible, setVisible] = useState(false);
-
   const [crumbs, setCrumbs] = useState([]);
-
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -37,7 +29,7 @@ export const Folders = () => {
     foldersServices.getFolder(userId, folderId).then((response) => {
       setFolders(folderId ? response.data.folders : response.data);
     });
-  }, [userId, folderId]);
+  }, [userId, folderId, setFolders]);
 
   const addFolder = (userId, values) => {
     setVisible(true);
@@ -94,7 +86,7 @@ export const Folders = () => {
     // : item.name
 
     return (
-      <>
+      <div key={item.id}>
         <Anchor
           onClick={() =>
             setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
@@ -105,8 +97,7 @@ export const Folders = () => {
         >
           {item.name}
         </Anchor>
-        <Gallery folderId={folderId}></Gallery>
-      </>
+      </div>
     );
   });
 
@@ -153,7 +144,6 @@ export const Folders = () => {
 
   return (
     <div>
-      <NavbarFolders />
       <div className="messageError">
         <LoadingOverlay visible={visible} />
         <ErrorMessage message={errorMessage} style={errorStyle} />
@@ -169,7 +159,10 @@ export const Folders = () => {
           return (
             <Card className="card" key={folder.id}>
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
-                <span className="slider" onClick={() => folderTracker(folder.name, folder.id)}>
+                <span
+                  className="slider"
+                  onClick={() => folderTracker(folder.name, folder.id)}
+                >
                   <img src={folderEmpty} alt="" />
                   <p>{folder.name}</p>
                 </span>
