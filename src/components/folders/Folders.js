@@ -52,7 +52,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       .editFolder(userId, folderId, values)
       .then((response) => {
         setFolders(
-          folders.map((f) => (f.folderId !== values.folderId ? response.data : f))
+          folders.map((f) => (f.folderId !== values ? response.data : f))
         );
       })
       .catch((error) => {
