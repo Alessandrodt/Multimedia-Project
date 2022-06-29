@@ -19,6 +19,8 @@ import { useModals } from '@mantine/modals';
 
 import groupsServices from "../../services/groupsServices";
 
+import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+
 export const GroupsDetails = () => {
   const { groupId } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
@@ -55,7 +57,7 @@ const handleMessage = (color, message) => {
   const search = searchInput;
 
   useEffect(() => {
-    if (search !== "" && search.length > 2) {
+    if (search !== "" && search.length >= 2) {
       groupsServices.searchUser(search)
       .then(searchResult => {
           setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
@@ -126,7 +128,7 @@ const handleMessage = (color, message) => {
           <Text size="sm" weight={500}>
             {user.email}
           </Text>
-          <Button color="red" onClick={() => openDeleteModal(user)}> Delete </Button>
+          <Button className="deleteUser" color="red" onClick={() => openDeleteModal(user)}> Delete </Button>
         </Group>
       </td>
     </tr>
@@ -134,29 +136,26 @@ const handleMessage = (color, message) => {
 
   return (
     <>
-      <ScrollArea>
-        <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
-          <thead>
-            <tr>
-            <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
-            <Button ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
-            <Button color="red" ml={10}> Delete group </Button>
-            </tr>
-          </thead>
+      <NavbarGroups></NavbarGroups>
+      <div className="container">
+        <div className="groupName">Nome gruppo</div>
+      <table>
           <tbody>
             {rows}
-            <tr>
-              <Text>
-                <div className="search">
+            </tbody>
+            </table>
+            <div className="searchText">
+              Want to add someone to this group? Search them here!
+            </div>
+            <div className="search">
                 <Input
                   icon={<Search size={20} />}
-                  placeholder="Search users (At least 2 characters)"
+                  placeholder="Search users (at least 2 characters)"
                   defaultValue={searchInput}
                   onChange={handleSearch}
                 />
                 </div>
-                <ErrorMessage message={errorMessage} style={errorStyle} />
-                <ul
+               <ul
                   style={
                     searchResult.length === 0
                       ? { display: "none" }
@@ -166,15 +165,12 @@ const handleMessage = (color, message) => {
                   {searchResult.length > 0
                     ? searchResult.map((user) => 
                       <li key={user.id}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
+                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
                       </li>)
                     : ""}
                 </ul>
-              </Text>
-            </tr>
-          </tbody>
-        </Table>
-      </ScrollArea>
-    </>
-  );
-};
+                <ErrorMessage message={errorMessage} style={errorStyle} />
+                </div>
+            </>
+          );
+        };
