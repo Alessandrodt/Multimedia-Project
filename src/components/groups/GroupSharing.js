@@ -45,7 +45,7 @@ export const GroupSharing = () => {
         .then(res => {
             console.log(res)
             console.log(`${f.folder.name} will not be shared with this group anymore`);
-            setSharedFolders(sharedFolders.filter((f) => f.folder.id !== f.folder.id));
+            setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.folder.id !== f.folder.id));
         })
         .catch(err => {
             if (err.response.status === 401) {
