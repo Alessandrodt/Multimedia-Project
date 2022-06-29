@@ -100,6 +100,7 @@ export const Login = () => {
       <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(getUser)}>
         <TextInput
+          maxLength={15}
           required
           label="Email"
           placeholder="Email"
@@ -111,6 +112,7 @@ export const Login = () => {
           }}
         />
         <PasswordInput
+          maxLength={15}
           required
           label="Password"
           placeholder="Password"

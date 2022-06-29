@@ -172,6 +172,7 @@ export const SignUp = () => {
         <Button onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Name"
@@ -183,6 +184,7 @@ export const SignUp = () => {
             }}
           />
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Surname"
@@ -195,6 +197,7 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
+          maxLength={15}
           required
           label="Email"
           placeholder="Mario.Rossi@email.com"
@@ -205,6 +208,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          maxLength={15}
           required
           label="Password"
           autoComplete="on"
@@ -216,6 +220,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          maxLength={15}
           required
           mt="sm"
           label="Confirm password"
