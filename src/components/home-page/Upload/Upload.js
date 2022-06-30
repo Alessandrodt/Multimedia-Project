@@ -14,7 +14,7 @@ import { useModals } from "@mantine/modals";
 // services
 import imagesServices from "../../../services/imagesServices";
 
-export function Upload() {
+export function Upload(setNewGalleryImages) {
   const [imagesToUpload, setNewImageUpload] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState([]);
