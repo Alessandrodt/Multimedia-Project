@@ -5,6 +5,7 @@ import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
+import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
@@ -18,6 +19,7 @@ import "./App.scss";
 // import libraries
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
+import { Toaster } from 'react-hot-toast';
 
 //import i18n
 import i18n from "i18next";
@@ -56,15 +58,30 @@ const App = () => {
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>
+        <Toaster 
+           toastOptions={{
+            className: '',
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#713200',
+              fontSize: 20
+            },
+          }}
+         />
         <ModalsProvider>
           <Routes>
             {/* These routes are not guarded */}
             <Route path="/home" element={<HomePage />} />
             <Route path="/users/:userId/groups" element={<Groups />} />
             <Route
-              path="/users/:userId/groups/:groupId"
+              path="/users/:userId/groups/:groupId/details"
               element={<GroupsDetails />}
             />
+            <Route
+              path="/users/:userId/groups/:groupId/share"
+              element={<GroupSharing />}
+            /> 
             <Route
               path="/users/:userId/folders/:folderId"
               element={<FoldersList />}
