@@ -170,6 +170,7 @@ export const SignUp = () => {
         <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Name"
@@ -181,6 +182,7 @@ export const SignUp = () => {
             }}
           />
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Surname"
@@ -193,6 +195,7 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
+          maxLength={25}
           required
           label="Email"
           placeholder="Mario.Rossi@email.com"
@@ -203,7 +206,11 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+<<<<<<< HEAD
           name="reset-input-signup"
+=======
+          maxLength={15}
+>>>>>>> origin
           required
           label="Password"
           autoComplete="on"
@@ -215,7 +222,11 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+<<<<<<< HEAD
           name="reset-input-signup"
+=======
+          maxLength={15}
+>>>>>>> origin
           required
           mt="sm"
           label="Confirm password"

@@ -5,13 +5,13 @@ import groupsServices from "../../services/groupsServices";
 
 // Mantine imports
 import { Avatar, Button, Card, SimpleGrid, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
 
 // Components imports
 import defaultAvatar from '../../images/user.svg';
 import { ErrorMessage } from "../error-message/ErrorMessage";
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
-import { Link } from "react-router-dom";
 
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -21,8 +21,7 @@ export const Groups = () => {
     // Message handling section.
     const [color, setColor] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-
-    console.log(groups)
+    
     const errorStyle = {
         color: color,
         background: "lightgrey",
@@ -52,6 +51,7 @@ export const Groups = () => {
         groupsServices.getUserGroups(user.id)
         .then(groups => {
             console.log('Groups Loaded');
+            console.log(groups.data)
             setGroups(groups.data);
         })
         .catch(err => {
@@ -67,6 +67,7 @@ export const Groups = () => {
     }
 
     // Function to open the Create Group modal.
+<<<<<<< HEAD
     const groupForm =
         <>
             <div className="title-group"><strong>Create group:</strong></div>
@@ -91,6 +92,26 @@ export const Groups = () => {
             </div>
             <div className="title-group mb-2"><strong>Your Groups:</strong></div>
         </>
+=======
+    const groupForm = 
+    <Card>
+     <form onSubmit={(e) => {
+      e.preventDefault();
+      createGroup()
+     }}>
+     <TextInput 
+      defaultValue={groupName}
+      label='Choose a title!'
+      name='groupName'
+      onChange={handleChange}
+      placeholder='Your title here'
+      required
+    />
+    <Button fullWidth type="submit"> Create Group </Button>
+    </form>
+ </Card>
+
+>>>>>>> origin
     // Object sent to the backend in the createGroup function
     const newGroup = {
         name: groupName,
@@ -119,10 +140,6 @@ export const Groups = () => {
         }
     }
 
-    const deleteGroup = () => {
-        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
-    }
-
     return (
         <>
          <NavbarGroups/>
@@ -135,7 +152,7 @@ export const Groups = () => {
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} groupLink={`/users/${user.id}/groups/${group.id}`} />
+                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
                 </SimpleGrid>
             </div>

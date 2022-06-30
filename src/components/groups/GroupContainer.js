@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Paper, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
-export const GroupContainer = ({ deleteGroup, groupName, groupLink }) => {
+export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
   return (
      
       <Paper
@@ -14,6 +14,7 @@ export const GroupContainer = ({ deleteGroup, groupName, groupLink }) => {
         <Text align='center' size='lg' weight={500} mt='md'>
           {groupName}
         </Text>
+<<<<<<< HEAD
         <Link to={groupLink}>
         <Button className="primary" fullWidth mt='md'>
           Open Group
@@ -22,6 +23,18 @@ export const GroupContainer = ({ deleteGroup, groupName, groupLink }) => {
         <Button className='delete' fullWidth mt='md' onClick={() => {deleteGroup()}}>
           Delete Group
         </Button>
+=======
+        <Link to={groupDetails}>
+          <Button fullWidth mt='md'>
+            Manage Group
+          </Button>
+        </Link>
+        <Link to={groupSharing}>
+          <Button fullWidth mt='md'>
+            Image Sharing 
+          </Button>
+        </Link>
+>>>>>>> origin
     </Paper>
   );
 }

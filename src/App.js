@@ -5,6 +5,7 @@ import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
+import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
@@ -62,9 +63,13 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/users/:userId/groups" element={<Groups />} />
             <Route
-              path="/users/:userId/groups/:groupId"
+              path="/users/:userId/groups/:groupId/details"
               element={<GroupsDetails />}
             />
+            <Route
+              path="/users/:userId/groups/:groupId/share"
+              element={<GroupSharing />}
+            /> 
             <Route
               path="/users/:userId/folders/:folderId"
               element={<FoldersList />}
