@@ -174,6 +174,7 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
+          className="email"
           maxLength={25}
           required
           label="Email"
