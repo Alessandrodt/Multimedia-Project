@@ -138,13 +138,13 @@ const handleMessage = (color, message) => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-        <div className="groupName">Nome gruppo</div>
-      <table>
-          <tbody style={
-        group.lenght === 0
+        <h2 className="groupName">(Nome gruppo)</h2>
+      <table style={
+        group.length === 0
         ? { display : "none"}
         : { display : "block"}
       }>
+          <tbody>
             {rows}
             </tbody>
             </table>
