@@ -10,6 +10,7 @@ import { useModals } from "@mantine/modals";
 
 // Services
 import authServices from "../../services/authServices";
+import { dividerClasses } from "@mui/material";
 
 
 export const Login = () => {
@@ -102,7 +103,7 @@ export const Login = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">Login</Button>
+          <Button className="primary" type="submit">Login</Button>
         </Group>
       </form>
     </Box>

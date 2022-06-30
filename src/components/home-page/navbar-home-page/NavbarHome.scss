@@ -72,7 +72,6 @@
     .wrapper-search-bar-home {
 
         width: 530px;
-        caret-color: $_dark;
         
         //responsive
         @include media( "screen", ">minWidth", "<maxWidth" ) {
@@ -89,4 +88,3 @@
     margin-top: $m-10;
     margin-left: $m-10;
 }
-

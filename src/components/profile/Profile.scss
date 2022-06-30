@@ -1,38 +1,13 @@
 .wrapper-button {
 
     button {
-        background: transparent;
+        background: $_success;
         font-size: 14px;
         margin: 10px;
         overflow: hidden;
         padding: 10px;
         position: relative;
         z-index: 2;
-
-        &::before {
-            background: currentColor;
-            content: '';
-            display: inline-block;
-            height: 100%;
-            left: -20px;
-            position: absolute;
-            top: 0;
-            transform: skewX(35deg);
-            transition: width 1s;
-            -webkit-transition: width 1s;
-            width: 0;
-            z-index: -2;
-        }
- 
-        &:hover::before {
-            width: 250%;
-        }
-
-        &:hover span {
-            color: $_white;
-            transition: color 1s;
-            -webkit-transition: color 1s;
-        }
     }
 }
 
@@ -45,11 +20,20 @@
     justify-content: center;
     width: 1024px;
 
-    .delete {
-        background: none;
-        color: $_delete;
+    %button-profile {
+        cursor: pointer;
         border: 1px solid currentColor;
         border-radius: $s-1;
+    }
+
+    .delete {
+        @extend %button-profile;
+        background: $_delete;
+        color: $_white;
+
+        &:hover {
+            background: $_dark-red;
+        }
     }
 
     p {
@@ -57,8 +41,7 @@
     }
 
     .primary {
-        color: $_dark-blue;
-        border: 1px solid currentColor;
-        border-radius: $s-1;
+        @extend %button-profile;
+        color: $_white;
     }
 }
