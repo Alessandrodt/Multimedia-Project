@@ -30,9 +30,10 @@
 .folderAddButton {
     margin: $m-auto;
     max-width: 1024px;
-
+    
     span.folder {
         display: inline-block;
+        padding: $spacer;
 
         img {
             opacity: .8;
@@ -60,12 +61,13 @@
 }
 
 .folder-list {
+    margin-top: 10px;
     width: $w-100;
 }
 
-.messageError {
-    margin-top: 90px;
-}
+// .messageError {
+//     margin-top: 90px;
+// }
 
 .slider {
     display: inline;
@@ -83,9 +85,10 @@
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
+    max-width: 1024px;
+    padding: 1rem;
     row-gap: $s-3;
     justify-content: flex-start;
-    width: $w-70;
 
     img {
         width: 80px;
