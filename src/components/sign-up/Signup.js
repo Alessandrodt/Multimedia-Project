@@ -206,11 +206,8 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
-<<<<<<< HEAD
           name="reset-input-signup"
-=======
           maxLength={15}
->>>>>>> origin
           required
           label="Password"
           autoComplete="on"
@@ -222,11 +219,8 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
-<<<<<<< HEAD
           name="reset-input-signup"
-=======
           maxLength={15}
->>>>>>> origin
           required
           mt="sm"
           label="Confirm password"

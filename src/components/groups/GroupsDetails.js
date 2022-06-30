@@ -136,17 +136,6 @@ const handleMessage = (color, message) => {
 
   return (
     <>
-<<<<<<< HEAD
-      <ScrollArea>
-        <Table sx={{ maxHeight: 800 }} verticalSpacing="sm">
-          <thead>
-            <tr>
-            <input type="text" readOnly={isReadonly} /* onInput={e => setValue(e)} value={username} *//>
-            <Button className="primary" ml={10} mr={10} onClick={() => setIsReadonly(prevState => !prevState)}> Modify group name</Button>
-            <Button className="delete" ml={10}> Delete group </Button>
-            </tr>
-          </thead>
-=======
       <NavbarGroups></NavbarGroups>
       <div className="container">
         <h2 className="groupName">(Nome gruppo)</h2>
@@ -155,7 +144,6 @@ const handleMessage = (color, message) => {
         ? { display : "none"}
         : { display : "block"}
       }>
->>>>>>> origin
           <tbody>
             {rows}
             </tbody>
