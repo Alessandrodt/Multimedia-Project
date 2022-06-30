@@ -25,7 +25,7 @@ const loadImages = (folderId, pageNumber) => {
   const url = folderId
     ? folderImages(folderId, pageNumber)
     : homeImages(pageNumber);
-  
+
   return axios
     .get(url, { headers: headersGet })
     .then((response) => {
@@ -35,12 +35,17 @@ const loadImages = (folderId, pageNumber) => {
     .catch((error) => console.log(error));
 };
 
-const imageDetailUrl = (id)=> `http://smi-laravel.fly.dev/api/v1/uploads/${id}`;
+const imageDetailUrl = (id) =>
+  `http://smi-laravel.fly.dev/api/v1/uploads/${id}`;
 
-const loadImageDetail = (idImage)=> {
-  return axios.get(imageDetailUrl(idImage), {headers:headersGet}).then((response)=> console.log(response) )
+const loadImageDetail = (idImage) => {
+  return axios
+    .get(imageDetailUrl(idImage), { headers: headersGet })
+    .then((response) => {
+      console.log(response.data);
+      return response;
+    });
 };
-
 
 const headers = {
   "Content-Type": "multipart/form-data",
