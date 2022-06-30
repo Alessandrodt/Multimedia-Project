@@ -25,6 +25,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
+import { GitBranch } from "tabler-icons-react";
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -32,6 +33,7 @@ i18n
   .use(HttpApi)
   .init({
     fallbackLng: "it",
+    load: 'all',
     detection: {
       order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
       caches:['cookie'],
