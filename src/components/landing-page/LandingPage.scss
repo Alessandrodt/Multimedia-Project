@@ -282,7 +282,7 @@ section.wrapper-review {
         display: flex;
         margin: $m-auto;
         padding: 10rem 0;
-        width: 1024px;
+        max-width: 1024px;
 
         .text-signUp {
             width: 50%;
@@ -332,7 +332,7 @@ section.wrapper-review {
     left: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
-    width: 1024px;
+    max-width: 1024px;
     justify-content: space-evenly;
 
     .wrapper-about {
