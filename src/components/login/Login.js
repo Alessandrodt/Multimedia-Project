@@ -63,7 +63,7 @@ export const Login = () => {
       })
       .catch((error) => {
         if (error.response.status === 401) {
-          handleMessage("red", `email or password are invalid`);
+          handleMessage(`email or password are invalid`);
         } else {
           handleMessage(
             "red",
