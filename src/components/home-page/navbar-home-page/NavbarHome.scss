@@ -1,29 +1,58 @@
-.wrapper-navb {
+@mixin button-bg {
+    background: $_primary;
+    border-radius: $s-3;
+    color: $_white;
+    padding: $s-2 $s-3;
+    box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+}
+
+.button-action {
+    margin-top: 10px;
+}
+
+.icong {
+    width: 30px;
+}
+
+.icon-user-home {
+    width: $w-3;
+
+    img {
+        width: $w-100;
+    }
+}
+
+.wrapper-navbar-home {
     align-items: center;
     display: flex;
     margin: $m-auto;
-    padding: $s-2;
-    width: 1024px;
+    padding: $s-2 $s-3;
+    max-width: 1440px;
+    justify-content: space-between;
+    z-index: 2;
 
     @mixin width {
         width: 25%;
         margin: $s-2;
     }
 
-    .log {
-        width: 13%;
-        margin-right: 3%;
+    .button {
+        @include button-bg;
+    }
 
+    .log {
         img {
             width: ($w-6) * 2;
 
         }
     }
 
-    .sign {
-        width: 35%;
-        text-align: end;
+    .wrapper-sign-home {
+        align-items: center;
         display: flex;
+        column-gap: $s-3;
+        text-align: end;
+        justify-content: space-evenly;
 
         button {
             background-color: #dddcdc;
@@ -32,65 +61,32 @@
             border: 0 ;
             cursor: pointer;
             padding: 11% 13%;
-
-        }
-   
-        h6{
-            margin-top: 7px;
-            text-align: left;
-            margin-left: 5px;
         }
 
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth" ) {
+            gap: .5rem;
+        }
     }
 
-    @include media("retina", ">minWidth", ">maxWidth") {
-        width: $w-100;
-    } 
-}
+    .wrapper-search-bar-home {
 
-.srcnav {
-    width: 55%;
-}
-.bar {
-    margin-top: $m-10;
-    width: $w-100;
+        width: 530px;
+        caret-color: $_dark;
+        
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth" ) {
+            width: 300px;
+        }
+    
+        @include media( "screen", ">minWidth", "<bp2Width" ) {
+            width: 220px;
+        }
+    }
 }
 
 .wrapper-na .log {
     margin-top: $m-10;
     margin-left: $m-10;
 }
-
-.icong {
-width: 30px;
-}
-
-.button-action {
-    margin-top: 10px;
-}
-
-.hello-box {
-    width: 40%;
-
-}
-
-
-.folders {
-    margin-top: 10px;
-}
-
-.btt-grps {
-    margin-top: 10px;
-}
-
-#button-profile{
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-.box {
-    display: flex;
-    margin-left: 20%;
-}
-
 

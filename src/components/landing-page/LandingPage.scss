@@ -1,23 +1,29 @@
-.navbr {
+@mixin button-bg {
+    background: $_primary;
+    border-radius: $s-3;
+    color: $_white;
+    padding: $s-2 $s-3;
+    box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+}
+
+%width {
+    width: $w-100;
+}
+
+nav {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
-    position: fixed;
     top: 0;
     width: $w-100;
-    z-index: 9999;
+    z-index: 2;
 
     //menu
     .wrapper-nav {
         align-items: center;
         display: flex;
         margin: $m-auto;
-        padding: $s-2;
-        width: $w-90;
-    
-        @mixin width {
-            width: $w-50;
-            margin: $s-2;
-        }
+        padding: $s-3;
+        max-width: 1440px;
     
         .logo {
             width: 17%;
@@ -30,15 +36,11 @@
         //button signUp
         .signUp {
             cursor: pointer;
-            width: 80%;;
+            width: 80%;
             text-align: end;
     
-            span.login {
-                background: $_primary;
-                border-radius: 2rem;
-                box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
-                color: $_white;
-                padding: 0.8rem 1.5rem;
+            span.button-bg {
+                @include button-bg;
                 text-align: center;
                 width: 100px;
             }
@@ -46,35 +48,18 @@
     }
 }
 
-%width {
-    width: $w-100;
-}
-
-section.wrapper-review {
-    background: $_bg;
-    @extend %width;
-}
-
+//article
 article.review {
     display: grid;
-    margin: 86px auto;
     grid-template-columns: 8% 20% 10% 10% 42% auto;
     grid-template-rows: 110px 89px 429px 100px;
+    margin: $m-auto;
     width: 1024px;
 
     h1 {
         grid-column: 2/4;
         grid-row: 1;
         padding-top: $p-2;
-    }
-
-    .wrapper-text {
-        grid-column: 2/6;
-        grid-row: 2;
-
-        @include media( "screen", ">minWidth", "<bp2Width") {
-            order: 2;
-        }
     }
 
     .image {
@@ -96,11 +81,8 @@ article.review {
         grid-row: 3;
         padding-top: $s-3;
 
-        span {
-            background: $_primary;
-            border-radius: $s-3;
-            padding: $s-2 $s-3;
-            box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+        span.button-bg {
+            @include button-bg;
         }
 
         //responsive
@@ -112,6 +94,15 @@ article.review {
         @include media( "screen", ">minWidth", "<bp2Width") {
             order: 2;
             padding-bottom: $s-3;
+        }
+    }
+
+    .wrapper-text {
+        grid-column: 2/6;
+        grid-row: 2;
+
+        @include media( "screen", ">minWidth", "<bp2Width") {
+            order: 2;
         }
     }
 
@@ -128,11 +119,6 @@ article.review {
         flex-wrap: wrap;
         padding: 10px;
     }
-}
-
-section.wrapper-memories {
-    @extend %width;
-    padding-bottom: 20px;
 }
 
 article.memories {
@@ -214,9 +200,41 @@ article.memories {
 
     }
 }
+//end
+
+footer {
+    background: $_black;
+    color: $_white;
+    height: 50vh;
+    position: relative;
+    width: $w-100;
+    z-index: -1;
+
+    > p {
+        align-items: center;
+        bottom: $s-4;
+        display: flex;
+        position: fixed;
+        left: $s-4;
+
+        svg {
+            fill: $_white;
+            margin: 0 $s-1;
+            width: 1.0rem;
+        }
+    }
+}
+
+// section
+section.wrapper-memories {
+    @extend %width;
+    padding-bottom: 20px;
+}
 
 section.wrapper-review {
+    background: $_bg;
     @extend %width;
+    margin: ($m-50 + 40) auto;
 }
 
 .wireframe {
@@ -225,6 +243,31 @@ section.wrapper-review {
     img {
         width: $w-100;
     }
+}
+
+.wrapper-img {
+    padding-bottom: $s-4;
+    text-align: center;
+
+    p {
+        font-size: $f-1;
+    }
+
+    p.font-size {
+        font-size: $f-3;
+    }
+
+    svg {
+        margin: $s-2 0;
+        circle {
+            fill: $_primary;
+        }
+    }
+
+}
+
+.wrapper-info {
+    display: flex;
 }
 
 .wrapper-signUp {
@@ -278,31 +321,6 @@ section.wrapper-review {
     }
 }
 
-.wrapper-img {
-    padding-bottom: $s-4;
-    text-align: center;
-
-    p {
-        font-size: $f-1;
-    }
-
-    p.font-size {
-        font-size: $f-3;
-    }
-
-    svg {
-        margin: $s-2 0;
-        circle {
-            fill: $_primary;
-        }
-    }
-
-}
-
-.wrapper-info {
-    display: flex;
-}
-
 .wrapper-footer {
     bottom: 50px;
     display: flex;
@@ -343,32 +361,4 @@ section.wrapper-review {
     @include media( "screen", ">minWidth", "<maxWidth", ){
         width: 100%;
     }
-}
-
-footer {
-    background: $_black;
-    color: $_white;
-    height: 50vh;
-    position: relative;
-    width: $w-100;
-    z-index: -1;
-
-    > p {
-        align-items: center;
-        bottom: $s-4;
-        display: flex;
-        position: fixed;
-        left: $s-4;
-
-        svg {
-            fill: $_white;
-            margin: 0 $s-1;
-            width: 1.0rem;
-        }
-    }
-}
-
-
-.switchlng {
-
 }

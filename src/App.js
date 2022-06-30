@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components imports
 import { EmailVerify } from "./components/verify-user/VerifyUser";
-import { Folders } from "./components/folders/Folders";
+import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
+import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
@@ -35,8 +36,15 @@ i18n
     fallbackLng: "it",
     load: 'all',
     detection: {
-      order: ['navigator','cookie','htmlTag',  'localStorage', 'path', 'subdomain'],
-      caches:['cookie'],
+      order: [
+        "navigator",
+        "cookie",
+        "htmlTag",
+        "localStorage",
+        "path",
+        "subdomain",
+      ],
+      caches: ["cookie"],
     },
 
     backend: {
@@ -57,14 +65,18 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/users/:userId/groups" element={<Groups />} />
             <Route
-              path="/users/:userId/groups/details"
+              path="/users/:userId/groups/:groupId/details"
               element={<GroupsDetails />}
             />
             <Route
+              path="/users/:userId/groups/:groupId/share"
+              element={<GroupSharing />}
+            /> 
+            <Route
               path="/users/:userId/folders/:folderId"
-              element={<Folders />}
+              element={<FoldersList />}
             />
-            <Route path="users/:userId/folders" element={<Folders />} />
+            <Route path="users/:userId/folders" element={<FoldersList />} />
             <Route path="/users/:userId" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<LandingPage />} />

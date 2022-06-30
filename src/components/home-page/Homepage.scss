@@ -1,13 +1,10 @@
-.navbar {
-    width: 100%;
-    background-color: $_white;
-    display: flex;
+.avatar {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    margin-left: 150px;
+    border-radius: 50px;
 }
-
-.upload {
-  width: 30px;
-}
-
 
 .logo-home {
     height: 50px;
@@ -18,13 +15,18 @@
     border-radius: 50px;
 }
 
+.mantine-16pg774 {
+    top: 66px;
+}
 
-.avatar {
-    height: 50px;
-    width: 50px;
-    margin: 10px;
-    margin-left: 150px;
-    border-radius: 50px;
+.navbar {
+    width: 100%;
+    background-color: $_white;
+    display: flex;
+}
+
+.upload {
+  width: 30px;
 }
 
 .uppics {
@@ -36,25 +38,35 @@
 
 .upload-btn {
     position: fixed;
-    bottom:   20px;
-    width: 100px;
-    height: 100px;
-    right: 92px;
+    bottom: 20px;
+    width: ($w-6) + 10;
+    height: ($w-6) + 10;
+    right: 20px;
     border-radius: 50px;
     font-size: 130px;
-    background-color: rgba(151, 151, 151, 0.600);
+    background-color: rgba($color: $_black, $alpha: .05);
    
-    img {
-       width: 60px;
+    svg {
+    
+        path {
+            fill: $_primary;
+            transition: .5s ease-in-out;
+        }
+    }
+    
+
+    &:hover {
+        background-color: rgba($color: $_primary, $alpha: .50);
+        transition: .5s ease-in-out;
+    }
+
+    &:hover svg {
+        
+        path {
+            fill: $_white;
+            transition: .5s ease-in-out;
+        }
+
     }
 
 }
-
-.upload-btn:hover {
-    background-color: #dddcdc65;
-}
-
-.mantine-16pg774 {
-    top: 66px;
-}
-

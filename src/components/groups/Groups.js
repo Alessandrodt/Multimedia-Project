@@ -5,6 +5,7 @@ import groupsServices from "../../services/groupsServices";
 
 // Mantine imports
 import { Avatar, Button, Card, SimpleGrid, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
 
 // Components imports
 import defaultAvatar from '../../images/user.svg';
@@ -20,7 +21,7 @@ export const Groups = () => {
     // Message handling section.
     const [color, setColor] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-
+    
     const errorStyle = {
         color: color,
         background: "lightgrey",
@@ -45,11 +46,12 @@ export const Groups = () => {
     ? <h2> These are your groups! </h2>
     : <h2> It seems you have no groups... why don't you create one? </h2>
 
-    // useEffect hook, on page load all the grups created by the user are retrieved from the server.
+    // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
         groupsServices.getUserGroups(user.id)
         .then(groups => {
             console.log('Groups Loaded');
+            console.log(groups.data)
             setGroups(groups.data);
         })
         .catch(err => {
@@ -66,23 +68,22 @@ export const Groups = () => {
 
     // Function to open the Create Group modal.
     const groupForm = 
-        <Card>
-            <form onSubmit={(e) => {
-            e.preventDefault();
-            createGroup()
-            }
-            }>
-                <TextInput 
-                    defaultValue={groupName}
-                    label='Choose a title!'
-                    name='groupName'
-                    onChange={handleChange}
-                    placeholder='Your title here'
-                    required
-                />
-                <Button fullWidth type="submit"> Create Group </Button>
-            </form>
-        </Card>
+    <Card>
+     <form onSubmit={(e) => {
+      e.preventDefault();
+      createGroup()
+     }}>
+     <TextInput 
+      defaultValue={groupName}
+      label='Choose a title!'
+      name='groupName'
+      onChange={handleChange}
+      placeholder='Your title here'
+      required
+    />
+    <Button fullWidth type="submit"> Create Group </Button>
+    </form>
+ </Card>
 
     // Object sent to the backend in the createGroup function
     const newGroup = {
@@ -112,14 +113,6 @@ export const Groups = () => {
         }
     }
 
-    const deleteGroup = () => {
-        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
-    }
-
-    const openGroup = () => {
-        handleMessage('yellow', 'This method is not ready in the backend yet! Sorry!');
-    }
-
     return (
         <>
          <NavbarGroups/>
@@ -132,7 +125,7 @@ export const Groups = () => {
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid cols={3} spacing='md'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} deleteGroup={() => deleteGroup()} openGroup={() => openGroup()} />
+                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
                 </SimpleGrid>
             </div>

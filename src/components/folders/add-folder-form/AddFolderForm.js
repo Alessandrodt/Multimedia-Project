@@ -18,25 +18,20 @@ const AddFolderForm = (props) => {
     },
   });
 
-  return (
-    <Box>
-      <form
-        onSubmit={form.onSubmit((values) =>
-          props.onSubmit(props.userId, values)
-        )}
-      >
-        <TextInput
-          required
-          data-autofocus
-          placeholder="Folder name"
-          {...form.getInputProps("name")}
-        />
-        <Button fullWidth onClick={() => modal.closeModal()} type="submit">
-          Confirm
-        </Button>
-      </form>
-    </Box>
-  );
-};
+    return (
+        <Box>
+            <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, values))}>
+                <TextInput
+                    maxLength={15}
+                    required
+                    data-autofocus
+                    placeholder="Folder name"
+                    {...form.getInputProps('name')}
+                />
+                <Button fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
+            </form>
+        </Box>
+    );
+}
 
 export default AddFolderForm;

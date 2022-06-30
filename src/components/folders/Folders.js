@@ -1,43 +1,35 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// components
+import AddFolderForm from "./add-folder-form/AddFolderForm";
+import EditFolderForm from "./edit-folder-form/EditFolderForm";
+import { ErrorMessage } from "../error-message/ErrorMessage";
+
+// services
+import foldersServices from "../../services/foldersServices";
+
+// libraries
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 
-import foldersServices from "../../services/foldersServices";
-
+// style
 import addFolderImage from "../../images/addFolder.svg";
-import folderEmpty from "../../images/folder_icon_empty.png";
+import folderEmpty from "../../images/folder_icon_empty.svg";
 
-import AddFolderForm from "../../components/folders/add-folder-form/AddFolderForm";
-import EditFolderForm from "../../components/folders/edit-folder-form/EditFolderForm";
-import { ErrorMessage } from "../error-message/ErrorMessage";
-import { NavbarFolders } from "./navbar-folders/NavbarFolders";
-
-export const Folders = () => {
+export const Folder = ({ userId, folderId, folders, setFolders }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
-  const chrono = window.history;
-  const { userId, folderId } = useParams();
-
-  const [folders, setFolders] = useState([]);
   const [visible, setVisible] = useState(false);
-
   const [crumbs, setCrumbs] = useState([]);
-
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
-      setFolders(
-        folderId
-          ? response.data.folders
-          : response.data.filter((f) => f.folder_id === null)
-      );
-      console.log(response.data);
+      setFolders(folderId ? response.data.folders : response.data);
     });
-  }, [userId, folderId]);
+  }, [userId, folderId, setFolders]);
 
   const addFolder = (userId, values) => {
     setVisible(true);
@@ -59,9 +51,9 @@ export const Folders = () => {
     foldersServices
       .editFolder(userId, folderId, values)
       .then((response) => {
-        let updatedFolders = (r) =>
-          folders.filter((f) => f.name.includes(r.data));
-        setFolders(folders.concat(updatedFolders(response.data)));
+        setFolders(
+          folders.map((f) => (f.folderId !== values ? response.data : f))
+        );
       })
       .catch((error) => {
         if (error.message.status === 403) {
@@ -76,24 +68,36 @@ export const Folders = () => {
   };
 
   const folderTracker = (name) => {
+    const routeTo = folderId
+      ? `/users/${userId}/folders/${folderId}`
+      : `/users/${userId}/folders/`;
+
     const folderPath = {
       name,
-      href: window.location.href,
+      path: routeTo,
     };
 
-    if (!!chrono.forward) {
-      setCrumbs(crumbs.concat(folderPath));
-    } else if (!!chrono.back) {
-      setCrumbs(crumbs.pop(folderPath));
-    }
+    setCrumbs(crumbs.concat(folderPath));
   };
 
   const items = crumbs?.map((item, index) => {
-    console.log(item);
+    // let currentPath = folderId === null
+    // ? -1
+    // : item.name
+
     return (
-      <Anchor href={item.href} key={index}>
-        {item.name}
-      </Anchor>
+      <div key={item.id}>
+        <Anchor
+          onClick={() =>
+            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
+          }
+          component={Link}
+          to={item.path}
+          key={index}
+        >
+          {item.name}
+        </Anchor>
+      </div>
     );
   });
 
@@ -140,33 +144,35 @@ export const Folders = () => {
 
   return (
     <div>
-      <NavbarFolders/>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
         <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
-      <Breadcrumbs separator="→">{items}</Breadcrumbs>
+      <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
-        <button onClick={openContentAddModal}>
+        <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=""></img>
-        </button>
+        </span>
       </div>
       <div className="wrapper-slider">
         {folders.map((folder) => {
           return (
-            <Card key={folder.id}>
+            <Card className="card" key={folder.id}>
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
-                <button onClick={() => folderTracker(folder.name)}>
-                  <div className="slider">
-                    <img src={folderEmpty} alt="" />
-                    <p>{folder.name}</p>
-                  </div>
-                </button>
+                <span
+                  className="slider"
+                  onClick={() => folderTracker(folder.name, folder.id)}
+                >
+                  <img src={folderEmpty} alt="" />
+                  <p>{folder.name}</p>
+                </span>
               </Link>
-              <button onClick={() => openContentEditModal(folder.id)}>
-                Edit
-              </button>
-              <button>Delete</button>
+              <div className="button">
+                <span onClick={() => openContentEditModal(folder.id)}>
+                  Edit
+                </span>
+                <span>Delete</span>
+              </div>
             </Card>
           );
         })}

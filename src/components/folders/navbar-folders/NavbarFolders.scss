@@ -1,99 +1,77 @@
-.wrapper-navb {
+.sign-folders {
+        
+    .groups {
+        background-color: $_primary;
+        border: 0;
+        border-radius: 2rem;
+        box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
+        cursor: pointer;
+        position: relative;
+        padding: $s-2;
+    }
+}
+
+.wrapper-folders {
     align-items: center;
     display: flex;
     margin: $m-auto;
+    max-width: 1440px;
     padding: $s-2;
-    width: 1024px;
+    justify-content: space-evenly;
 
-    @mixin width {
-        width: 25%;
-        margin: $s-2;
+    .box {
+    
+        h6 {
+            display: inline;
+        }
     }
 
-    .log {
-        width: 13%;
-        margin-right: 3%;
-
+    .logo {
         img {
             width: ($w-6) * 2;
-
         }
     }
 
-    .sign {
-        width: 35%;
-        text-align: end;
-        display: flex;
-
-        button {
-            background-color: #dddcdc;
-            border-radius: 2rem;
-            margin-left: $m-50;
-            border: 0 ;
-            cursor: pointer;
-            padding: 11% 13%;
-
-        }
-   
-        h6{
-            margin-top: 7px;
-            text-align: left;
-            margin-left: 5px;
-        }
-
-    }
-
-    @include media("retina", ">minWidth", ">maxWidth") {
+    .search-bar {
+        margin-top: $m-10;
         width: $w-100;
-    } 
+    }
+
+    .sign-folders {
+        align-items: center;
+        column-gap: $s-3;
+        display: flex;
+        justify-content: end;
+        width: 35%;
+    }
+    
+    .user {
+        width: 30px;
+    }
+
+    .wrapper-search-bar {
+        width: 530px;
+        caret-color: $_dark;
+    
+        //responsive
+        @include media( "screen", ">minWidth", "<maxWidth" ) {
+            width: 300px;
+        }
+    
+        @include media( "screen", ">minWidth", "<bp2Width" ) {
+            width: 220px;
+        }
+    }
 }
 
-.srcnav {
-    width: 55%;
-}
-.bar {
-    margin-top: $m-10;
-    width: $w-100;
-}
+.wrapper-user-home {
+    display: inline-block;
+    width: 50px;
+    a {
+        display: inline-block;
 
-.wrapper-na .log {
-    margin-top: $m-10;
-    margin-left: $m-10;
-}
-
-.icong {
-width: 30px;
-}
-
-.button-action {
-    margin-top: 10px;
-}
-
-.hello-box {
-    width: 40%;
-
-}
-
-
-.folders {
-    margin-top: 10px;
-}
-
-.btt-grps {
-    margin-top: 10px;
-}
-
-#button-profile{
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-.box {
-    display: flex;
-    margin-left: 20%;
-}
-
-
-#box-hello{
-    margin-left: 190px;
+        img.user {
+            width: $w-100;
+        }
+    }
 }

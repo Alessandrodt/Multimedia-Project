@@ -40,13 +40,13 @@ export const LandingPage = () => {
             <LanguageSelect />
           </div>
           <div className="signUp">
-            <span onClick={openContentModal} className="avatar">
+            <span onClick={openContentModal} className="button-bg">
               {t("login")}
             </span>
           </div>
         </div>
       </nav>
-      {/* header section.wrapper-review - Find your memories. */}
+      {/* header section.wrapper-review. */}
       <header id="landing-page">
         <section className="wrapper-review">
           <article className="review">
@@ -69,7 +69,7 @@ export const LandingPage = () => {
               />
             </div>
             <div className="signUp">
-              <span>
+              <span className="button-bg">
                 <a href="#signUp">{t("signupfree")}</a>
               </span>
             </div>
@@ -78,7 +78,7 @@ export const LandingPage = () => {
       </header>
       {/* main & section */}
       <main>
-        {/* Relive your emotions */}
+        {/* wrapper-memories - Relive your emotions */}
         <section className="wrapper-memories">
           <article className="memories">
             <div className="text">

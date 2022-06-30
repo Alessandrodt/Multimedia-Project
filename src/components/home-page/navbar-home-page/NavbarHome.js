@@ -11,49 +11,45 @@ export const NavbarHome = () => {
   return (
     <>
       <nav>
-        <div className="wrapper-navb">
+        <div className="wrapper-navbar-home">
           <div className="log">
             <img src={logo} title="logo smi" alt="company log" />
           </div>
-          <div className="srcnav">
-            <InputWithButton className="bar" />
+          <div className="wrapper-search-bar-home">
+            <InputWithButton />
           </div>
-          <div className="sign">
-            <div className="btt-grps">
-              <Link to={`/users/${user.id}/groups`}>
-                <button>
-                  <span>Groups</span>
-                </button>
-              </Link>
-            </div>
-            <div className="folders">
-              <Link to={`/users/${user.id}/folders`}>
-                <button>
-                  <span>Folders</span>
-                </button>
-              </Link>
-            </div>
-            <div className="box">
-              <h6 className="hello-box">
-                {user.first_name} {user.last_name}
-              </h6>
-              <div className="btt-user">
-                <Link to={`/users/${user.id}`}>
-                  <button id="button-profile">
-                    <img
-                      className="icong"
-                      src={
-                        user?.avatar?.name
-                          ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
-                          : defaultAvatar
-                      }
-                      title="Profilo"
-                      alt="company logo"
-                    />
-                  </button>
+          <div className="wrapper-sign-home">
+            <div className="button">
+              <span>
+                <Link to={`/users/${user.id}/groups`}>
+                  Groups
                 </Link>
-              </div>
+              </span>
             </div>
+            <div className="button">
+              <span className="">
+                <Link to={`/users/${user.id}/folders`}>
+                  Folders
+                </Link>
+              </span>
+            </div>
+            <h6>
+              {user.first_name} {user.last_name}
+            </h6>
+            <span className="icon-user-home">
+              <Link to={`/users/${user.id}`}>
+                <img
+                  className="icong"
+                  src={
+                    user?.avatar?.name
+                    ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+                    : defaultAvatar
+                  }
+                  title="Profilo"
+                  alt="company logo"
+                />
+              </Link>
+            </span>
           </div>
         </div>
       </nav>

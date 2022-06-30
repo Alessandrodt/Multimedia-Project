@@ -1,17 +1,17 @@
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 35px;
-  }
+  display: inline-block;
+  height: 35px;
+  position: relative;
+  width: 60px;
+}
   
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
   
   /* The slider */
   .sliderr {
@@ -44,12 +44,17 @@
       justify-content: space-around;
       flex-direction: row-reverse;
     }
-  }
+}
   
+<<<<<<< HEAD
   input:focus + .sliderr {
+=======
+input:focus + .slider {
+>>>>>>> 0df022b487f6c1d14d31c5a47a993eaa51bf53d8
     box-shadow: 0 0 1px rgb(227, 227, 227);
-  }
+}
   
+<<<<<<< HEAD
   input:checked +  .sliderr:before {
     -webkit-transform: translateX(58px);
     -ms-transform: translateX(58px);
@@ -69,13 +74,32 @@
   .sliderr.round:before {
     border-radius: 50px;
   }
+=======
+input:checked +  .slider:before {
+    -webkit-transform: translateX(28px);
+    -ms-transform: translateX(30px);
+    transform: translateX(26px);
+    // background-image: url("../../images/britishFlag_small.svg");
+    background-color: white;
+}
+  
+/* Rounded sliders */
+.sliderr.round {
+  border-radius: 34px;
+}
+  
+.sliderr.round:before {
+  border-radius: 50%;
+}
+>>>>>>> 0df022b487f6c1d14d31c5a47a993eaa51bf53d8
 
   
-  .check {
-    width: 26px;
+.check {
+  width: 26px;
 }
 
 .lngtext {
+<<<<<<< HEAD
   margin-left: 2px;
   font-size: 12px;
   margin-right:  2px;
@@ -100,12 +124,24 @@
     img {
       width: 26px;
       margin-top: 2px;
+=======
+  margin-left: 30px;
+}
+
+.switch-box {
+  display: flex;
+
+  .switch-img {
+      
+    img {
+>>>>>>> 0df022b487f6c1d14d31c5a47a993eaa51bf53d8
       margin-left: 10px;
-
+      margin-top: 5px;
+      width: 26px;
     }
-   }
+  }
 
- }
+}
 
 span.img-languages {
   cursor: pointer;
@@ -116,7 +152,7 @@ span.img-languages {
   width: ($w-2) + 5;
 
   img {
-      width: $w-100;
+    width: $w-100;
   }
 }
 
