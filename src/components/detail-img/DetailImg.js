@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState, useEffect}  from "react";
+//Services
+import imagesServices from "../../services/imagesServices";
 
+export const DetailImg = ({idImage}) => {
+const [imgDetail, setImgDetail]= useState({});
 
-export const DetailImg = () => {
-    
+useEffect(()=>{
+imagesServices.loadImageDetail(idImage).then((imageDetail)=>{console.log(idImage)})
+}, [idImage])
+
     return (
         <>
             <div className="inner-box">
