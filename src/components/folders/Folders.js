@@ -84,7 +84,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       <div key={item.id}>
         <Anchor
           onClick={() =>
-            setCrumbs(crumbs.slice(item.name, crumbs.findIndex(item.name)))
+            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
           }
           component={Link}
           to={item.path}
