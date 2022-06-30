@@ -1,9 +1,9 @@
 //components
 import { DetailImg } from "../detail-img/DetailImg";
 //libraries
-import {useModals} from "@mantine/modals"
+import { useModals } from "@mantine/modals";
 
-export function Card({ img }) {
+export function Card({ img, idImage }) {
   const modals = useModals();
 
   const styles = {
@@ -18,10 +18,10 @@ export function Card({ img }) {
     modals.openModal({
       centered: true,
       closeOnClickOutside: false,
-      children: <DetailImg />,
+      children: <DetailImg idImage={idImage} />,
       overflow: "outside",
       size: "70%",
-    })
+    });
   };
 
   return (

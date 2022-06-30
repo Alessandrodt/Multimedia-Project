@@ -92,7 +92,11 @@ export function Gallery({ folderId }) {
       >
         <Masonry columns={[1, 2, 3, 4]} spacing={2} style={styles.container}>
           {galleryImages.map((e) => (
-            <Card img={"data:image/png;base64, " + e.urls} key={e.id} />
+            <Card
+              img={"data:image/png;base64, " + e.urls}
+              image_id={e.id}
+              key={e.id}
+            />
           ))}
         </Masonry>
       </InfiniteScroll>
