@@ -94,7 +94,7 @@ export function Gallery({ folderId }) {
           {galleryImages.map((e) => (
             <Card
               img={"data:image/png;base64, " + e.urls}
-              image_id={e.id}
+              idImage={e.id}
               key={e.id}
             />
           ))}
