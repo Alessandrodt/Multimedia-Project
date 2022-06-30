@@ -76,7 +76,7 @@ export const Login = () => {
 
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <form onSubmit={form.onSubmit(getUser)}>
+      <form className="form-login" onSubmit={form.onSubmit(getUser)}>
         <TextInput
           maxLength={25}
           required
@@ -90,6 +90,7 @@ export const Login = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-login"
           maxLength={15}
           required
           label="Password"

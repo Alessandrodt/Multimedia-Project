@@ -144,7 +144,7 @@ export const SignUp = () => {
 
   return (
     <Box sx={{ maxWidth: 400 }} mx="auto">
-      <form onSubmit={form.onSubmit(addUser)}>
+      <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
         <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
