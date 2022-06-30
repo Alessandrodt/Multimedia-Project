@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import imagesServices from "../../services/imagesServices";
 
 export const DetailImg = ({ idImage }) => {
-  const [imgDetail, setImgDetail] = useState({});
+  const [imgDetail, setImgDetail] = useState([]);
 
   useEffect(() => {
     imagesServices.loadImageDetail(idImage).then((imgDetail) => {
-      console.log(imgDetail);
-      // setImgDetail(imgDetail);
+      console.log(imgDetail, imgDetail.tags);
+      setImgDetail(imgDetail);
     });
   }, [idImage]);
 
@@ -16,21 +16,12 @@ export const DetailImg = ({ idImage }) => {
     <>
       <div className="inner-box">
         <div className="img-box">
-          {/* <img
-            img={"data:image/png;base64, " + imgDetail}
-            image_id={imgDetail.id}
-            key={imgDetail.id}
-          /> */}
+          <img src={imgDetail} alt="images" />
         </div>
         <div className="info-external-box">
           <div className="tag-box">
             <div className="text-box">
-              <div className="title-box">#Tag</div>
-            </div>
-          </div>
-          <div className="description-box">
-            <div className="text-box">
-              <div className="title-box">Description</div>
+              <div className="title-box" tags={imgDetail.tags}></div>
             </div>
           </div>
           <div className="external-button-box">
