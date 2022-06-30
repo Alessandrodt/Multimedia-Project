@@ -144,7 +144,6 @@ export const SignUp = () => {
 
   return (
     <Box sx={{ maxWidth: 400 }} mx="auto">
-      <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
         <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
