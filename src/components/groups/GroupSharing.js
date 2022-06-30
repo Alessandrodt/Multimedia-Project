@@ -12,7 +12,7 @@ import folderSharingServices from "../../services/folderSharingServices";
 
 // Style imports
 import folderEmpty from "../../images/folder_icon_empty.svg";
-import { messageHandler } from "../../functions/messageHandler";
+import toast from "react-hot-toast";
 
 
 export const GroupSharing = () => {
@@ -32,36 +32,34 @@ export const GroupSharing = () => {
         .then(res => {
             console.log(res)
             console.log(`${f.name} is now being shared with this group`);
-            messageHandler('success', `${f.name} is now being shared with this group`)
+            toast.success(`${f.name} is now being shared with this group`);
             setSharedFolders(sharedFolders.concat(res.data));
             modal.closeModal();
         })
         .catch(err => {
             if (err.response.status === 401) {
-                messageHandler('error', 'User is unauthorized')
+                toast.error('User is unauthorized');
             } else if (err.response.status === 403) {
-                console.log('This action is forbidden')
+                toast.error('This action is forbidden');
             } else {
-                console.log('Not found')
+                toast.error('Not found');
             }
         });
     };
-    console.log(sharedFolders);
 
     const removeFolderFromGroup = (f) => {
         folderSharingServices.removeFolderFromGroup(groupId, f.folder.id)
         .then(res => {
-            console.log(res)
-            console.log(`${f.folder.name} will not be shared with this group anymore`);
+            toast(`${f.folder.name} will not be shared with this group anymore`);
             setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.folder.id !== f.folder.id));
         })
         .catch(err => {
             if (err.response.status === 401) {
-                console.log('User is unauthorized')
+                toast.error('User is unauthorized')
             } else if (err.response.status === 403) {
-                console.log('This action is forbidden')
+                toast.error('This action is forbidden')
             } else {
-                console.log('Not found')
+                toast.error('Not found')
             }
         });
     };
@@ -75,7 +73,7 @@ export const GroupSharing = () => {
                     return (
                         <li key={folder.id}> 
                             <br />
-                            <p> {folder.name} ( FId = {folder.id} ) </p>
+                            <p> {folder.name} </p>
                             <br />
                             <Button compact onClick={() => addFolderToGroup(folder)}> Add to Group </Button> 
                             <br />
@@ -95,7 +93,7 @@ export const GroupSharing = () => {
                 {sharedFolders?.map(sharedFolder => {
                     return (
                         <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.folder.id}>
-                            <img src={folderEmpty} />
+                            <img src={folderEmpty} alt={`Folder ${sharedFolder.folder.name}`}/>
                             <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.folder.name} </Text>
                             <Button fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
                         </Paper>
