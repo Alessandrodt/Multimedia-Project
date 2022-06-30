@@ -60,7 +60,7 @@ const App = () => {
       <Router>
         <Toaster 
            toastOptions={{
-            className: '',
+            className: 'notification',
             style: {
               border: '1px solid #713200',
               padding: '16px',
