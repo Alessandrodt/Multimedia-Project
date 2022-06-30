@@ -16,6 +16,7 @@ import { useModals } from "@mantine/modals";
 // style
 import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
+import folderWithElement from "../../images/folder_icon.svg";
 
 export const Folder = ({ userId, folderId, folders, setFolders }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -52,7 +53,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       .editFolder(userId, folderId, values)
       .then((response) => {
         setFolders(
-          folders.map((f) => (f.folderId !== values.folderId ? response.data : f))
+          folders.map((f) => (f.folderId !== values ? response.data : f))
         );
       })
       .catch((error) => {
@@ -80,20 +81,17 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item, index) => {
-    // let currentPath = folderId === null
-    // ? -1
-    // : item.name
-
+  const items = crumbs?.map((item) => {
+    
     return (
       <div key={item.id}>
         <Anchor
           onClick={() =>
-            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
+            setCrumbs(crumbs.slice(item.name, crumbs.findIndex(item.name)))
           }
           component={Link}
           to={item.path}
-          key={index}
+          key={item.id}
         >
           {item.name}
         </Anchor>
@@ -163,7 +161,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={folderEmpty} alt="" />
+                  <img src={folders ? folderWithElement : folderEmpty} alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
