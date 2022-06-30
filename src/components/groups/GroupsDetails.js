@@ -60,7 +60,7 @@ const handleMessage = (color, message) => {
     if (search !== "" && search.length >= 2) {
       groupsServices.searchUser(search)
       .then(searchResult => {
-          setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
+          setSearchResult(searchResult.data.filter(u => u.email.toLowerCase().includes(search)));
       })
     } else {
       setSearchResult("");
