@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 // components
 import AddFolderForm from "./add-folder-form/AddFolderForm";
 import EditFolderForm from "./edit-folder-form/EditFolderForm";
-import { ErrorMessage } from "../error-message/ErrorMessage";
 
 // services
 import foldersServices from "../../services/foldersServices";
@@ -12,6 +11,7 @@ import foldersServices from "../../services/foldersServices";
 // libraries
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
+import toast from "react-hot-toast";
 
 // style
 import addFolderImage from "../../images/addFolder.svg";
@@ -23,8 +23,6 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   const modal = useModals();
   const [visible, setVisible] = useState(false);
   const [crumbs, setCrumbs] = useState([]);
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -42,7 +40,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       })
       .catch((error) => {
         if (error.response.status === 422) {
-          handleMessage("red", `the folder ${values.name} already exists`);
+          toast.error( `the folder ${values.name} already exists`);
         }
         setVisible(false);
       });
@@ -58,12 +56,11 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       })
       .catch((error) => {
         if (error.message.status === 403) {
-          handleMessage(
-            "red",
+          toast.error(
             `you don't have the rights to modify this folder`
           );
         } else if (error.response.status === 422) {
-          handleMessage("red", `the folder ${values.name} already exists`);
+          toast.error(`the folder ${values.name} already exists`);
         }
       });
   };
@@ -99,27 +96,6 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     );
   });
 
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-    textAlign: "center",
-    width: "40%",
-    marginLeft: "28%",
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 3000);
-  };
-
   const openContentAddModal = () => {
     modal.openModal({
       title: "Choose your folder's name:",
@@ -144,7 +120,6 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     <div>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
-        <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
       <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">

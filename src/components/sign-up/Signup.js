@@ -1,15 +1,8 @@
+// React imports
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
-import { useForm } from "@mantine/form";
-import { useModals } from "@mantine/modals";
-
-import avatarServices from "../../services/avatarServices";
-import authServices from "../../services/authServices";
-
-import { ErrorMessage } from "../error-message/ErrorMessage";
-
-import defaultAvatar from "../../images/user.svg";
-
+// Mantine imports
 import {
   Avatar,
   Box,
@@ -20,8 +13,19 @@ import {
   PasswordInput,
   TextInput,
 } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useModals } from "@mantine/modals";
+
+// Services
+import avatarServices from "../../services/avatarServices";
+import authServices from "../../services/authServices";
+
+// Image
+import defaultAvatar from "../../images/user.svg";
 
 export const SignUp = () => {
+  const modals = useModals();
+
   const [avatars, setAvatar] = useState([]);
   const [isAvatarPicked, setAvatarStatus] = useState(Boolean);
   const [newConfPassword, setNewConfPassword] = useState("");
@@ -34,35 +38,12 @@ export const SignUp = () => {
   const [users, setUser] = useState([]);
   const [visible, setVisible] = useState(false);
 
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
   useEffect(() => {
     avatarServices.getAvatar().then((response) => {
       // Our GET call responds with 40 avatars. THIS IS A TEMPORARY FIX TO THIS BACKEND PROBLEM!
       setAvatar(response.data.slice(0, 10));
     });
 }, []);
-
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 5000);
-  };
-
-  const modals = useModals();
 
   const openContentModal = () => {
     modals.openModal({
@@ -118,15 +99,14 @@ export const SignUp = () => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
           setVisible(false)
-          handleMessage(
-            "green",
+          toast.success(
             `A confirmation email was sent to ${newEmail}`
           );
         }
       })
       .catch(() => {
         setVisible(false)
-        handleMessage("red", `${newEmail} is already in use.`);
+        toast.error(`${newEmail} is already in use.`);
       });
       
   };
@@ -166,7 +146,6 @@ export const SignUp = () => {
 
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(addUser)}>
         {picture}
         <Button onClick={openContentModal}>Choose your Avatar here</Button>

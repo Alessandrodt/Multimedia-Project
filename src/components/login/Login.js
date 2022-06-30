@@ -1,16 +1,16 @@
 // React imports
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 // Mantine imports
 import { Button, Box, Group, LoadingOverlay, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
 
-import { ErrorMessage } from "../error-message/ErrorMessage";
-
 // Services
 import authServices from "../../services/authServices";
+
 
 export const Login = () => {
   const modals = useModals();
@@ -21,30 +21,9 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
   const person = {
     email: email,
     password: password,
-  };
-
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 5000);
   };
 
   const getUser = () => {
@@ -63,10 +42,9 @@ export const Login = () => {
       })
       .catch((error) => {
         if (error.response.status === 401) {
-          handleMessage(`email or password are invalid`);
+          toast.error(`email or password are invalid`);
         } else {
-          handleMessage(
-            "red",
+          toast.error(
             `Go to your email address ${email} and confirm your subscription`
           );
         }
@@ -97,7 +75,6 @@ export const Login = () => {
 
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <ErrorMessage message={errorMessage} style={errorStyle} />
       <form onSubmit={form.onSubmit(getUser)}>
         <TextInput
           maxLength={25}
