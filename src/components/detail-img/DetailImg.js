@@ -7,7 +7,7 @@ export const DetailImg = ({ idImage }) => {
 
   useEffect(() => {
     imagesServices.loadImageDetail(idImage).then((imgDetail) => {
-      console.log(imgDetail, imgDetail.tags);
+      console.log(imgDetail);
       setImgDetail(imgDetail);
     });
   }, [idImage]);
