@@ -104,9 +104,10 @@ const handleMessage = (color, message) => {
     groupsServices.getUserGroups(user.id)
     .then(groups => {
       groups.data.map(item => item.users);
-      setGroup((groups.data[0].users || [])); 
+      const i = groups.data.findIndex(item => item.id == groupId);
+      setGroup((groups.data[i].users || [])); 
     })
-},[user.id]);
+  }, [user.id]);
 
 
   // Confirmation modal to delete an user from the group.
