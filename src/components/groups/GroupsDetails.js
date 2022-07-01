@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import {
   Avatar,
-  Table,
   Group,
   Text,
-  ScrollArea,
   Button,
   Input,
 } from "@mantine/core";
@@ -34,13 +32,13 @@ export const GroupsDetails = () => {
   // Error message handling.
   const errorStyle = {
     color: color,
-    background: "lightgrey",
-    fontSize: "20px",
+    fontSize: "18px",
     borderStyle: "solid",
     borderRadius: "5px",
     padding: "10px",
-    marginBottom: "10px",
-};
+    marginTop: "10px",
+    width: "20%"
+}
 
 const handleMessage = (color, message) => {
     setColor(color);
@@ -98,7 +96,6 @@ const handleMessage = (color, message) => {
   })
 };
   
-
   //  Loads all the users in the selected group.
   useEffect(() => {
     groupsServices.getUserGroups(user.id)
@@ -151,18 +148,17 @@ const handleMessage = (color, message) => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-        <h2 className="groupName">{groupName}</h2>
+      <h2 className="groupName">{groupName}</h2>
       <table style={
         group.length === 0
         ? { display : "none"}
-        : { display : "block"}
-      }>
-          <tbody>
-            {rows}
-            </tbody>
-            </table>
-            <div className="searchText">
-              Want to add someone to this group? Search them here!
+        : { display : "block"}}>
+      <tbody>
+        {rows}
+       </tbody>
+        </table>
+          <div className="searchText">
+             Want to add someone to this group? Search them here!
             </div>
             <div className="search">
                 <Input
@@ -171,20 +167,13 @@ const handleMessage = (color, message) => {
                   defaultValue={searchInput}
                   onChange={handleSearch}
                 />
-                </div>
-               <ul
-                  style={
-                    searchResult.length === 0
-                      ? { display: "none" }
-                      : { display: "block" }
-                  }
-                >
-                  {searchResult.length > 0
-                    ? searchResult.map((user) => 
-                      <li key={user.id}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
-                      </li>)
-                    : ""}
+             </div>
+              <ul
+                style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
+                  {searchResult.length > 0 ? searchResult.map((user) => 
+                    <li key={user.id}>  
+                    <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
+                    </li>) : ""}
                 </ul>
                 <ErrorMessage message={errorMessage} style={errorStyle} />
                 </div>
