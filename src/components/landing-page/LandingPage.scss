@@ -237,8 +237,9 @@ section.wrapper-memories {
 }
 
 section.wrapper-review {
-    background: $_bg;
     @extend %width;
+    background: $_bg;
+    margin-top: ($m-50) + 50;
 }
 
 .wireframe {
