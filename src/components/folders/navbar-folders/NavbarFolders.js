@@ -16,9 +16,6 @@ export const NavbarFolders = () => {
               <img src={logo} title="logo smi" alt="company log" />
             </Link>
           </div>
-          <div className="wrapper-search-bar">
-            <InputWithButton className="search-bar" />
-          </div>
           <div className="sign-folders">
             <div className="groups">
               <Link to={`/users/${user.id}/groups`}>

@@ -19,6 +19,7 @@ const EditFolderForm = (props) => {
         <Box>
             <form onSubmit={form.onSubmit(values => props.onSubmit(props.userId, props.folderId, values))}>
                 <TextInput
+                    maxLength={15}
                     required
                     data-autofocus
                     placeholder="Folder name"

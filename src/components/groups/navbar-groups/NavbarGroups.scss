@@ -66,6 +66,10 @@
     margin-left: $m-10;
 }
 
-.icong {
-    width: 30px;
+.icon {
+    width: $w-4;
+
+    img {
+        width: $w-100;
+    }
 }

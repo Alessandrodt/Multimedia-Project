@@ -1,15 +1,8 @@
+// React imports
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
-import { useForm } from "@mantine/form";
-import { useModals } from "@mantine/modals";
-
-import avatarServices from "../../services/avatarServices";
-import authServices from "../../services/authServices";
-
-import { ErrorMessage } from "../error-message/ErrorMessage";
-
-import defaultAvatar from "../../images/user.svg";
-
+// Mantine imports
 import {
   Avatar,
   Box,
@@ -20,8 +13,19 @@ import {
   PasswordInput,
   TextInput,
 } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useModals } from "@mantine/modals";
+
+// Services
+import avatarServices from "../../services/avatarServices";
+import authServices from "../../services/authServices";
+
+// Image
+import defaultAvatar from "../../images/user.svg";
 
 export const SignUp = () => {
+  const modals = useModals();
+
   const [avatars, setAvatar] = useState([]);
   const [isAvatarPicked, setAvatarStatus] = useState(Boolean);
   const [newConfPassword, setNewConfPassword] = useState("");
@@ -34,9 +38,6 @@ export const SignUp = () => {
   const [users, setUser] = useState([]);
   const [visible, setVisible] = useState(false);
 
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
   useEffect(() => {
     avatarServices.getAvatar().then((response) => {
       // Our GET call responds with 40 avatars. THIS IS A TEMPORARY FIX TO THIS BACKEND PROBLEM!
@@ -44,51 +45,29 @@ export const SignUp = () => {
     });
 }, []);
 
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 5000);
-  };
-
-  const modals = useModals();
-
   const openContentModal = () => {
     modals.openModal({
       title: "Choose your avatar:",
       centered: true,
       children: (
         <>
-            <div className="wrapper-avatar">
-              {avatars.map((avatar) => {
-                return (
-                  <button className="custom-width"
-                    onClick={() => {
-                      modals.closeModal(setProfilePic(avatar));
-                      setAvatarStatus(true);
-                    }}
-                    key={avatar.id}
-                  >
-                    <img
-                      src={`${avatar.link}`}
-                      alt={""}
-                      width={50}
-                    ></img>
-                  </button>
-                );
-              })}
-            </div>
+          {avatars.map((avatar) => {
+            return (
+              <button
+                className="custom-avatars"
+                onClick={() => {
+                  modals.closeModal(setProfilePic(avatar));
+                  setAvatarStatus(true);
+                }}
+                key={avatar.id} >
+                <img
+                  src={`${avatar.link}`}
+                  alt={""}
+                  width={50}
+                ></img>
+              </button>
+            );
+          })}
         </>
       ),
     });
@@ -118,15 +97,14 @@ export const SignUp = () => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
           setVisible(false)
-          handleMessage(
-            "green",
+          toast.success(
             `A confirmation email was sent to ${newEmail}`
           );
         }
       })
       .catch(() => {
         setVisible(false)
-        handleMessage("red", `${newEmail} is already in use.`);
+        toast.error(`${newEmail} is already in use.`);
       });
       
   };
@@ -165,13 +143,13 @@ export const SignUp = () => {
   });
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
-      <ErrorMessage message={errorMessage} style={errorStyle} />
-      <form onSubmit={form.onSubmit(addUser)}>
+    <Box sx={{ maxWidth: 400 }} mx="auto">
+      <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button onClick={openContentModal}>Choose your Avatar here</Button>
+        <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Name"
@@ -183,6 +161,7 @@ export const SignUp = () => {
             }}
           />
           <TextInput
+            maxLength={15}
             className="change-width"
             required
             label="Surname"
@@ -195,6 +174,8 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
+          className="email"
+          maxLength={25}
           required
           label="Email"
           placeholder="Mario.Rossi@email.com"
@@ -205,6 +186,8 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
+          maxLength={15}
           required
           label="Password"
           autoComplete="on"
@@ -216,6 +199,8 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
+          maxLength={15}
           required
           mt="sm"
           label="Confirm password"
@@ -239,7 +224,7 @@ export const SignUp = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">
+          <Button className="primary" type="submit">
             Sign-Up
           </Button>
         </Group>

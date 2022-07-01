@@ -3,6 +3,7 @@ $_black:     #000000 !default;
 $_bg:        #F3F3F3 !default;
 $_blue:      #00D1E0 !default;
 $_dark-blue: #008993 !default;
+$_dark-red:  #c70101 !default;
 $_green:     #69BE67 !default;
 $_input:     #b3bcc3 !default;
 $_red:       #ff0000 !default;
@@ -14,15 +15,17 @@ $colors: (
   "black":       $_black,
   "blue":        $_blue,
   "dark-blue":   $_dark-blue,
+  "dark-red":   $_dark-red,
   "delete":      $_red,
   "hover":       $_dark-blue,
-  "success":      $_green,
+  "success":     $_green,
   "white":       $_white,
 ) !default;
 
 
 // scss-docs-start theme-color-variables
 $_dark:         $_dark-blue;
+$_dark-red:     $_dark-red; 
 $_delete:       $_red;
 $_hover:        $_dark-blue;
 $_primary:      $_blue;
