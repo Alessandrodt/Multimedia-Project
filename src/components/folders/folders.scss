@@ -7,6 +7,10 @@
     position: relative;
 }
 
+article.wrapper-folder {
+    width: $w-100;
+}
+
 .button-folder-delete {
     @include button;
     border-color: currentColor;
@@ -50,7 +54,7 @@
     };
 }
 
-.folder-gallery {
+section.folder-gallery {
     margin: $m-auto;
     max-width: 1024px;
 
@@ -60,9 +64,13 @@
     };
 }
 
-.folders-list {
+section.folders-list {
     padding-top: $p-2;
     width: $w-100;
+}
+
+section.wrapper-folder {
+    margin-top: ($m-50) + 20;
 }
 
 // .messageError {

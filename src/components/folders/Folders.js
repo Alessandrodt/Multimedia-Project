@@ -117,7 +117,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   };
 
   return (
-    <div>
+    <section className="wrapper-folder">
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
@@ -153,6 +153,6 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
