@@ -20,28 +20,30 @@ export const FoldersList = () => {
   }, [userId, folderId]);
 
   return (
-    <div>
+    <>
       <NavbarFolders />
-      <div className="folders-list">
-        <Folder
-          key={folderId}
-          folders={folders}
-          folderId={folderId}
-          setFolders={setFolders}
-          userId={userId}
-        />
-      </div>
-      {folderId ? (
-        // add style in scss to gallery
-        <div className="folder-gallery">
-          <Gallery
-            folderId={folderId}
+      <article className="wrapper-folder">
+        <section className="folders-list">
+          <Folder
             key={folderId}
-          ></Gallery>
-        </div>
-      ) : (
-        <div />
-      )}
-    </div>
+            folders={folders}
+            folderId={folderId}
+            setFolders={setFolders}
+            userId={userId}
+          />
+        </section>
+        {folderId ? (
+          // add style in scss to gallery
+          <section className="folder-gallery">
+            <Gallery
+              folderId={folderId}
+              key={folderId}
+            ></Gallery>
+          </section>
+        ) : (
+          <div />
+        )}
+      </article>
+    </>
   );
 };

@@ -117,7 +117,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   };
 
   return (
-    <div>
+    <main>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
@@ -127,7 +127,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           <img src={addFolderImage} alt=""></img>
         </span>
       </div>
-      <div className="wrapper-slider">
+      <section className="wrapper-slider">
         {folders.map((folder) => {
           return (
             <Card className="card" key={folder.id}>
@@ -152,7 +152,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
             </Card>
           );
         })}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };

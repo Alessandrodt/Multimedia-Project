@@ -7,6 +7,11 @@
     position: relative;
 }
 
+article.wrapper-folder {
+    width: $w-100;
+    margin-top: ($m-50) * 2;
+}
+
 .button-folder-delete {
     @include button;
     border-color: currentColor;
@@ -50,7 +55,7 @@
     };
 }
 
-.folder-gallery {
+section.folder-gallery {
     margin: $m-auto;
     max-width: 1024px;
 
@@ -60,7 +65,7 @@
     };
 }
 
-.folder-list {
+section.folder-list {
     margin-top: 10px;
     width: $w-100;
 }
@@ -79,7 +84,7 @@
     }
 }
 
-.wrapper-slider {
+section.wrapper-slider {
     display: flex;
     gap: $w-1;
     flex-direction:row;
