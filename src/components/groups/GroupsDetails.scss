@@ -1,5 +1,6 @@
 .container {
   padding-left: 1%;
+  margin-top: 6.5%;
 }
 
 input {
@@ -40,7 +41,8 @@ li {
 
 table {
   width: 98%;
-  margin-top: 8%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   border: 1px solid rgb(183, 170, 170);
   border-radius: 20px;
   padding: 1.5% 1% 1% 1%;
@@ -63,21 +65,13 @@ li {
   position: relative;
 }
 
-p {
-display: flex;
-align-items: center;
-padding-top: 1%;
-padding-bottom: 10px;
-border-bottom: 1px solid #a49999;
-}
-
 .search {
   width: 20%;
   margin-top: 1.5%;
 }
 
 .searchText {
-  margin-top: 1.5%;
+  margin-top: 1%;
   font-size: $f-1;
 }
 
@@ -88,4 +82,8 @@ border-bottom: 1px solid #a49999;
 
 .addUser {
   position: inherit;
+}
+
+.groupName {
+  margin-top: 2%;
 }

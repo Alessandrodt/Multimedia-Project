@@ -23,11 +23,11 @@ import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
+  const { groupName } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const [isReadonly, setIsReadonly] = useState(true);
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
@@ -60,7 +60,7 @@ const handleMessage = (color, message) => {
     if (search !== "" && search.length >= 2) {
       groupsServices.searchUser(search)
       .then(searchResult => {
-          setSearchResult(searchResult.data.filter(u => u.email.includes(search)));
+          setSearchResult(searchResult.data.filter(u => u.email.toLowerCase().includes(search)));
       })
     } else {
       setSearchResult("");
@@ -78,7 +78,7 @@ const handleMessage = (color, message) => {
         handleMessage("red", "This user is already in the group!")
       }
     })
-  }
+  };
   
   // Deletes the user of choice from the group by their ID.
   const deleteUser = (user) => {
@@ -96,8 +96,19 @@ const handleMessage = (color, message) => {
       handleMessage("red", "Group or user not found.")
     }
   })
-  };
+};
   
+
+  //  Loads all the users in the selected group.
+  useEffect(() => {
+    groupsServices.getUserGroups(user.id)
+    .then(groups => {
+      groups.data.map(item => item.users);
+      setGroup((groups.data[0].users || [])); 
+    })
+},[user.id]);
+
+
   // Confirmation modal to delete an user from the group.
   const modals = useModals();
 
@@ -115,7 +126,8 @@ const handleMessage = (color, message) => {
       onCancel: () => console.log('Cancel'),
       onConfirm: () => deleteUser(user),
     });
-
+  
+  
   // Maps the group array by its lenght to append rows.
   const rows = group.map((user) => (
     <tr key={user.id}>
@@ -138,8 +150,12 @@ const handleMessage = (color, message) => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-        <div className="groupName">Nome gruppo</div>
-      <table>
+        <h2 className="groupName">{groupName}</h2>
+      <table style={
+        group.length === 0
+        ? { display : "none"}
+        : { display : "block"}
+      }>
           <tbody>
             {rows}
             </tbody>
