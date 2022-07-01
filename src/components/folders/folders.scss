@@ -34,9 +34,11 @@ main.wrapper-folder {
 
 .folderAddButton {
     margin: $m-auto;
+    margin-top: $m-20;
     max-width: 1024px;
     
     span.folder {
+        cursor: pointer;
         display: inline-block;
         padding: $spacer;
 
