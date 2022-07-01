@@ -13,18 +13,32 @@ import folderSharingServices from "../../services/folderSharingServices";
 // Style imports
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import toast from "react-hot-toast";
+import groupsServices from "../../services/groupsServices";
 
 
 export const GroupSharing = () => {
+    const user = JSON.parse(sessionStorage.getItem('user'));
     const [sharedFolders, setSharedFolders] = useState([]);
+    const [groupsIds, setGroupsId] = useState([]);
     const [folders, setFolders] = useState([]);
     const { groupId, userId } = useParams();
     const modal = useModals();
 
     useEffect(() => {
+        groupsServices.getUserGroups(user.id)
+        .then(groups => {
+            const gId = groups.data.map(group => group.id)
+            setGroupsId(gId)
+        });
+
         foldersServices.getFolder(userId).then((response) => {
           setFolders(response.data);
         });
+
+        folderSharingServices.getSharedFolders(userId, groupsIds).then((response) => {
+            console.log(response.data)
+            setSharedFolders(response.data)
+        })
     }, [userId]);
 
     const addFolderToGroup = (f) => {
@@ -92,9 +106,9 @@ export const GroupSharing = () => {
             <SimpleGrid cols={5} spacing='md'>
                 {sharedFolders?.map(sharedFolder => {
                     return (
-                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.folder.id}>
-                            <img src={folderEmpty} alt={`Folder ${sharedFolder.folder.name}`}/>
-                            <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.folder.name} </Text>
+                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
+                            <img src={folderEmpty} alt={`Folder ${sharedFolder.name}`}/>
+                            <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
                             <Button fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
                         </Paper>
                     )

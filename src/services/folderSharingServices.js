@@ -8,6 +8,10 @@ const removeFolderFromGroup = (groupId, folderID) => {
     return axios.delete(`https://smi-laravel.fly.dev/api/v1/groups/${groupId}/folders/${folderID}`)
 }
 
-const folderSharingServices = { addFolderToGroup, removeFolderFromGroup }
+const getSharedFolders = (userId, groupsIds) => {
+    return axios.get(`https://smi-laravel.fly.dev/api/v1/users/${userId}/folders?filter[groups]=${groupsIds}`);
+}
+
+const folderSharingServices = { addFolderToGroup, removeFolderFromGroup, getSharedFolders }
 
 export default folderSharingServices

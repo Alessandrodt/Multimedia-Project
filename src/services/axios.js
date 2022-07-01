@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 const currentLocation = window.location;
 // Standard axios instance creation
 const axiosInstance = axios.create({
-  baseURL: "https://smi-laravel.fly.dev/api/v1/login",
+  baseURL: "https://smi-laravel.fly.dev/",
 });
 
 // This function is responsible for assigning the auth token found in the sessionStorage
