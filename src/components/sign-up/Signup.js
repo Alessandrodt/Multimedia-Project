@@ -51,25 +51,23 @@ export const SignUp = () => {
       centered: true,
       children: (
         <>
-            <div className="wrapper-avatar">
-              {avatars.map((avatar) => {
-                return (
-                  <button className="custom-width"
-                    onClick={() => {
-                      modals.closeModal(setProfilePic(avatar));
-                      setAvatarStatus(true);
-                    }}
-                    key={avatar.id}
-                  >
-                    <img
-                      src={`${avatar.link}`}
-                      alt={""}
-                      width={50}
-                    ></img>
-                  </button>
-                );
-              })}
-            </div>
+          {avatars.map((avatar) => {
+            return (
+              <button
+                className="custom-avatars"
+                onClick={() => {
+                  modals.closeModal(setProfilePic(avatar));
+                  setAvatarStatus(true);
+                }}
+                key={avatar.id} >
+                <img
+                  src={`${avatar.link}`}
+                  alt={""}
+                  width={50}
+                ></img>
+              </button>
+            );
+          })}
         </>
       ),
     });
@@ -145,10 +143,10 @@ export const SignUp = () => {
   });
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
-      <form onSubmit={form.onSubmit(addUser)}>
+    <Box sx={{ maxWidth: 400 }} mx="auto">
+      <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button onClick={openContentModal}>Choose your Avatar here</Button>
+        <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
         <div className="wrapper-info">
           <TextInput
             maxLength={15}
@@ -176,6 +174,7 @@ export const SignUp = () => {
           />
         </div>  
         <TextInput
+          className="email"
           maxLength={25}
           required
           label="Email"
@@ -187,6 +186,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
           maxLength={15}
           required
           label="Password"
@@ -199,6 +199,7 @@ export const SignUp = () => {
           }}
         />
         <PasswordInput
+          name="reset-input-signup"
           maxLength={15}
           required
           mt="sm"
@@ -223,7 +224,7 @@ export const SignUp = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button type="submit">
+          <Button className="primary" type="submit">
             Sign-Up
           </Button>
         </Group>

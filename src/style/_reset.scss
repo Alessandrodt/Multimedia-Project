@@ -22,6 +22,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/*
+ *
+ * map font-size h1 and h6
+ *
+ */
 
 $font-size: (
     "h1": 26px,
@@ -37,3 +46,23 @@ $font-size: (
         font-size: $val
     }
 }
+
+/**** color primary website ****/
+
+.primary {
+    background: $_primary !important;
+
+    &:hover {
+        background: $_dark !important;
+    }
+}
+
+.delete {
+    background: $_delete;
+
+    &:hover {
+        background: $_dark-red;
+    }
+}
+
+/*********************************/

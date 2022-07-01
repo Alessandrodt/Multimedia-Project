@@ -8,12 +8,13 @@
 
 
 // import all component scss style
-// @import "../components/folders/Folders.scss";
+@import "../components/folders/folders.scss";
 @import "../components/groups/Groups.scss";
 @import "../components/groups/GroupsDetails.scss";
 @import "../components/home-page/Homepage.scss";
 @import "../components/landing-page/LandingPage.scss";
 @import "../components/language-select/LanguageSelect.scss";
+@import "../components/login/Login.scss";
 @import "../components/groups/navbar-groups/NavbarGroups.scss";
 @import "../components/folders/navbar-folders/NavbarFolders.scss";
 @import "../components/home-page/navbar-home-page/NavbarHome.scss";

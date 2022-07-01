@@ -117,7 +117,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   };
 
   return (
-    <div>
+    <main>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
@@ -127,7 +127,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           <img src={addFolderImage} alt=""></img>
         </span>
       </div>
-      <div className="wrapper-slider">
+      <section className="wrapper-slider">
         {folders.map((folder) => {
           return (
             <Card className="card" key={folder.id}>
@@ -140,16 +140,19 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
                   <p>{folder.name}</p>
                 </span>
               </Link>
-              <div className="button">
-                <span onClick={() => openContentEditModal(folder.id)}>
-                  Edit
-                </span>
-                <span>Delete</span>
+              {/* button Edit / Delete */}
+              <div className="wrapper-button">
+                <div className="button-folder-edit" onClick={() => openContentEditModal(folder.id)}>
+                  <span>Edit</span>
+                </div>
+                <div className="button-folder-delete">
+                  <span>Delete</span>
+                </div>
               </div>
             </Card>
           );
         })}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
