@@ -7,7 +7,7 @@
     position: relative;
 }
 
-article.wrapper-folder {
+main.wrapper-folder {
     width: $w-100;
     margin-top: ($m-50) * 2;
 }
@@ -67,6 +67,10 @@ section.folder-gallery {
 
 section.folder-list {
     margin-top: 10px;
+    width: $w-100;
+}
+
+section.wrapper-folder {
     width: $w-100;
 }
 

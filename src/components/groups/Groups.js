@@ -69,7 +69,7 @@ export const Groups = () => {
 
     // Function to open the Create Group modal.
     const groupForm = 
-    <Card>
+    <Card className="wrapper-group">
      <form onSubmit={(e) => {
       e.preventDefault();
       createGroup()
@@ -115,21 +115,21 @@ export const Groups = () => {
     }
 
     return (
-        <>
-         <NavbarGroups/>
-         <div className="group-box">
-            <h3> GROUPS </h3>
-            {initialMessage}
-            <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
-            {groupForm}
-            <ErrorMessage message={errorMessage} style={errorStyle} />
+        <main className="wrapper-create-group">
+            <NavbarGroups/>
+            <section className="wrapper-group-box">
+                <h3> GROUPS </h3>
+                {initialMessage}
+                <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150} />
+                {groupForm}
+                <ErrorMessage message={errorMessage} style={errorStyle} />
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
-                    {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
-                    )}
+                {groups.map(group =>
+                <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
+                )}
                 </SimpleGrid>
-            </div>
-        </>
+            </section>
+        </main>
     )
 };

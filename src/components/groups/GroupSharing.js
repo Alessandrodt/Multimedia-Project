@@ -67,7 +67,7 @@ export const GroupSharing = () => {
     const openContentAddModal = () => {
         modal.openModal({
           title: "Choose your folder's name:",
-          children:  
+          children:
             <ul>
                 {folders.map(folder => {
                     return (

@@ -22,7 +22,7 @@ export const FoldersList = () => {
   return (
     <>
       <NavbarFolders />
-      <article className="wrapper-folder">
+      <main className="wrapper-folder">
         <section className="folders-list">
           <Folder
             key={folderId}
@@ -43,7 +43,7 @@ export const FoldersList = () => {
         ) : (
           <div />
         )}
-      </article>
+      </main>
     </>
   );
 };

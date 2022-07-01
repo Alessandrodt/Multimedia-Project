@@ -1,8 +1,11 @@
-.group-box {
-    position: absolute;
-    width: 80%;
-    left: 12%;
-    top: 150px;
+.wrapper-create-groups {
+    width: $w-100;
+}
+
+section.wrapper-group-box {
+    margin-top:( $m-50) * 2;
+    max-width: 1440px;
+    padding: $p-2;
 
     .group-avatar {
         margin: $s-3 auto;
