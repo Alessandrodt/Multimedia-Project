@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 // components and library
 import Masonry from "@mui/lab/Masonry";
 import { Card } from "./Card";
+
+//chiedere ad Ari da parte di Ale Catucci
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // services
@@ -17,17 +19,6 @@ export function Gallery({ folderId }) {
     totalImages: 1,
   });
 
-  const styles = {
-    container: {
-      margin: 0,
-      padding: 0,
-      width: "80%",
-      position: "absolute",
-      left: "50%",
-      transform: "translateX(-50%)",
-      top: "120px",
-    },
-  };
 
   /**
    * the initial loading of the images,
@@ -90,7 +81,8 @@ export function Gallery({ folderId }) {
         hasMore={true}
         loader={""}
       >
-        <Masonry columns={[1, 2, 3, 4]} spacing={2} style={styles.container}>
+        {/*  */}
+        <Masonry columns={[1, 2, 3, 4]} spacing={2}>
           {galleryImages.map((e) => (
             <Card
               img={"data:image/png;base64, " + e.urls}

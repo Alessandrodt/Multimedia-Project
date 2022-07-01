@@ -7,6 +7,7 @@ export function InputWithButton(props) {
 
   return (
     <TextInput
+      name="search"
       radius="xl"
       size="md"
       placeholder="Search"

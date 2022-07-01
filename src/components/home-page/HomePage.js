@@ -25,8 +25,11 @@ export const HomePage = () => {
 
   return (
     <div>
+      {/* add style scss */}
       <NavbarHome />
-      <Gallery />
+      <div className="wrapper-gallery">
+        <Gallery />
+      </div>
       <Button onClick={openContentModal} className="upload-btn">
         <svg
           width="96"

@@ -43,8 +43,8 @@ export const Groups = () => {
 
     // Conditional welcome message, checking the length of the groups state.
     const initialMessage = groups.length 
-    ? <h2> These are your groups! </h2>
-    : <h2> It seems you have no groups... why don't you create one? </h2>
+    ? <h4> These are your groups! </h4>
+    : <h4> It seems you have no groups... why don't you create one? </h4>
 
     // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
@@ -117,13 +117,13 @@ export const Groups = () => {
         <>
          <NavbarGroups/>
          <div className="group-box">
-            <h1> GROUPS </h1>
+            <h3> GROUPS </h3>
             {initialMessage}
-            <Avatar src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
+            <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
             <ErrorMessage message={errorMessage} style={errorStyle} />
             {groupForm}
                 {/* A map to create a list item for each group name */}
-                <SimpleGrid cols={3} spacing='md'>
+                <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
                     {groups.map(group =>
                         <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}

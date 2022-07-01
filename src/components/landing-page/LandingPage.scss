@@ -27,6 +27,10 @@ nav {
     
         .logo {
             width: 17%;
+
+            a {
+                display: inline-block;
+            }
     
             img {
                 width: ($w-6) * 2;
@@ -36,7 +40,7 @@ nav {
         //button signUp
         .signUp {
             cursor: pointer;
-            width: 80%;
+            width: $w-80;
             text-align: end;
     
             span.button-bg {
@@ -54,7 +58,7 @@ article.review {
     grid-template-columns: 8% 20% 10% 10% 42% auto;
     grid-template-rows: 110px 89px 429px 100px;
     margin: $m-auto;
-    width: 1024px;
+    max-width: 1024px;
 
     h1 {
         grid-column: 2/4;
@@ -79,16 +83,16 @@ article.review {
     .signUp {
         grid-column: 2/4;
         grid-row: 3;
-        padding-top: $s-3;
 
         span.button-bg {
             @include button-bg;
+            display: inline-block;
         }
 
         //responsive
-        @include media( "screen", ">minWidth", "<maxWidth" ){
-            padding-top: ($p-2) * 3;
-        }
+        @include media( "screen", ">minWidth", "<bp1Width" ) {
+            padding-top: $s-3;
+        };
 
         // responsive min-mobile max-tablet
         @include media( "screen", ">minWidth", "<bp2Width") {
@@ -125,7 +129,7 @@ article.memories {
     display: flex;
     margin: $m-auto;
     padding: ($p-5 * 2) 0 ($p-5 * 2) 0;
-    width: 1024px;
+    max-width: 1024px;
 
     .text {
         width: calc(100% / 2);
@@ -157,15 +161,15 @@ article.memories {
     }
 
     video {
-        width: 100%;
+        width: $w-100;
     }
 
     .video-remember {
-        width: calc(100% / 2);
+        width: calc($w-100 / 2);
 
         .shadow {
             box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
-            width: 100%;
+            width: $w-100;
         }
 
         // responsive min-mobile max-tablet
@@ -220,7 +224,7 @@ footer {
         svg {
             fill: $_white;
             margin: 0 $s-1;
-            width: 1.0rem;
+            width: 1rem;
         }
     }
 }
@@ -234,7 +238,6 @@ section.wrapper-memories {
 section.wrapper-review {
     background: $_bg;
     @extend %width;
-    margin: ($m-50 + 40) auto;
 }
 
 .wireframe {
@@ -277,7 +280,7 @@ section.wrapper-review {
         display: flex;
         margin: $m-auto;
         padding: 10rem 0;
-        width: 1024px;
+        max-width: 1024px;
 
         .text-signUp {
             width: 50%;
@@ -305,14 +308,14 @@ section.wrapper-review {
             width: 50%;
 
             @include media( "screen", ">minWidth", "<bp2Width", ) {
-                width: $w-70;
+                width: $w-100;
             }
 
         }
 
         //responsive
         @include media( "screen", ">minWidth", "<maxWidth", ){
-            width: 90%;
+            width: $w-90;
         }
 
         @include media( "screen", ">minWidth", "<bp2Width", ) {
@@ -327,7 +330,7 @@ section.wrapper-review {
     left: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
-    width: 1024px;
+    max-width: 1024px;
     justify-content: space-evenly;
 
     .wrapper-about {
@@ -348,7 +351,7 @@ section.wrapper-review {
 
         svg {
             fill: $_white;
-            width: 20px;
+            width: $w-2;
         }
 
         .about-info {
@@ -359,6 +362,6 @@ section.wrapper-review {
 
     //responsive
     @include media( "screen", ">minWidth", "<maxWidth", ){
-        width: 100%;
+        width: $w-100;
     }
 }

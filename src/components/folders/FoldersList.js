@@ -32,11 +32,13 @@ export const FoldersList = () => {
         />
       </div>
       {folderId ? (
-        <Gallery
-          folderId={folderId}
-          key={folderId}
-          className={"folder-gallery"}
-        ></Gallery>
+        // add style in scss to gallery
+        <div className="folder-gallery">
+          <Gallery
+            folderId={folderId}
+            key={folderId}
+          ></Gallery>
+        </div>
       ) : (
         <div />
       )}
