@@ -27,7 +27,7 @@ export function Card({ img, idImage }) {
   return (
     <img
       src={img}
-      alt="random images"
+      alt="images"
       style={{ ...styles.card }}
       onClick={detailComponent}
     />
