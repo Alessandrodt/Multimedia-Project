@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 // components
 import AddFolderForm from "./add-folder-form/AddFolderForm";
@@ -11,18 +12,16 @@ import foldersServices from "../../services/foldersServices";
 // libraries
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
-import toast from "react-hot-toast";
 
 // style
 import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import folderWithElement from "../../images/folder_icon.svg";
 
-export const Folder = ({ userId, folderId, folders, setFolders }) => {
+export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumbs }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
   const [visible, setVisible] = useState(false);
-  const [crumbs, setCrumbs] = useState([]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -51,7 +50,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       .editFolder(userId, folderId, values)
       .then((response) => {
         setFolders(
-          folders.map((f) => (f.folderId !== values ? response.data : f))
+          folders.map((folder) => (folder.id === folderId ? response.data : folder ))
         );
       })
       .catch((error) => {
@@ -78,17 +77,16 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item) => {
+  const items = crumbs?.map((item,index) => {
     
     return (
-      <div key={item.id}>
+      <div key={index}>
         <Anchor
-          onClick={() =>
-            setCrumbs(crumbs.slice(item.name, crumbs.findIndex(item.name)))
-          }
+          onClick={() => {
+            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)))
+          }}
           component={Link}
           to={item.path}
-          key={item.id}
         >
           {item.name}
         </Anchor>
@@ -117,7 +115,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   };
 
   return (
-    <section className="wrapper-folder">
+    <main>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
@@ -127,7 +125,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           <img src={addFolderImage} alt=""></img>
         </span>
       </div>
-      <div className="wrapper-slider">
+      <section className="wrapper-slider">
         {folders.map((folder) => {
           return (
             <Card className="card" key={folder.id}>
@@ -136,7 +134,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={folders ? folderWithElement : folderEmpty} alt="" />
+                  <img src={!folderId  ? folderWithElement : folderEmpty} alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
@@ -152,7 +150,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
             </Card>
           );
         })}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };

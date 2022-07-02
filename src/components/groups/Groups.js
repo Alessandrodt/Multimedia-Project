@@ -23,13 +23,14 @@ export const Groups = () => {
     const [errorMessage, setErrorMessage] = useState("");
     
     const errorStyle = {
-        color: color,
-        background: "lightgrey",
-        fontSize: "20px",
-        borderStyle: "solid",
-        borderRadius: "5px",
-        padding: "10px",
-        marginBottom: "10px",
+      color: color,
+      fontSize: "18px",
+      borderStyle: "solid",
+      borderRadius: "5px",
+      padding: "10px",
+      marginTop: "10px",
+      marginBottom: "15px",
+      width: "30%",
     };
 
     const handleMessage = (color, message) => {
@@ -120,8 +121,8 @@ export const Groups = () => {
             <h3> GROUPS </h3>
             {initialMessage}
             <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
-            <ErrorMessage message={errorMessage} style={errorStyle} />
             {groupForm}
+            <ErrorMessage message={errorMessage} style={errorStyle} />
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
                     {groups.map(group =>
