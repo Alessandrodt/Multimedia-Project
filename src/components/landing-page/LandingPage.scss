@@ -13,6 +13,7 @@
 nav {
     background: $_white;
     box-shadow: 5px 0 5px rgba($color: $_black, $alpha: .25);
+    position: fixed;
     top: 0;
     width: $w-100;
     z-index: 2;
@@ -236,8 +237,9 @@ section.wrapper-memories {
 }
 
 section.wrapper-review {
-    background: $_bg;
     @extend %width;
+    background: $_bg;
+    margin-top: ($m-50) + 50;
 }
 
 .wireframe {

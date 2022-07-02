@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import {
   Avatar,
-  Table,
   Group,
   Text,
-  ScrollArea,
   Button,
   Input,
 } from "@mantine/core";
@@ -23,24 +21,24 @@ import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
+  const { groupName } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const [isReadonly, setIsReadonly] = useState(true);
   const [color, setColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
   // Error message handling.
   const errorStyle = {
     color: color,
-    background: "lightgrey",
-    fontSize: "20px",
+    fontSize: "18px",
     borderStyle: "solid",
     borderRadius: "5px",
     padding: "10px",
-    marginBottom: "10px",
-};
+    marginTop: "10px",
+    width: "20%"
+}
 
 const handleMessage = (color, message) => {
     setColor(color);
@@ -78,7 +76,7 @@ const handleMessage = (color, message) => {
         handleMessage("red", "This user is already in the group!")
       }
     })
-  }
+  };
   
   // Deletes the user of choice from the group by their ID.
   const deleteUser = (user) => {
@@ -96,8 +94,19 @@ const handleMessage = (color, message) => {
       handleMessage("red", "Group or user not found.")
     }
   })
-  };
+};
   
+  //  Loads all the users in the selected group.
+  useEffect(() => {
+    groupsServices.getUserGroups(user.id)
+    .then(groups => {
+      groups.data.map(item => item.users);
+      const i = groups.data.findIndex(item => item.id == groupId);
+      setGroup((groups.data[i].users || [])); 
+    })
+  }, [user.id]);
+
+
   // Confirmation modal to delete an user from the group.
   const modals = useModals();
 
@@ -115,7 +124,8 @@ const handleMessage = (color, message) => {
       onCancel: () => console.log('Cancel'),
       onConfirm: () => deleteUser(user),
     });
-
+  
+  
   // Maps the group array by its lenght to append rows.
   const rows = group.map((user) => (
     <tr key={user.id}>
@@ -138,18 +148,17 @@ const handleMessage = (color, message) => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-        <h2 className="groupName">(Nome gruppo)</h2>
+      <h2 className="groupName">{groupName}</h2>
       <table style={
         group.length === 0
         ? { display : "none"}
-        : { display : "block"}
-      }>
-          <tbody>
-            {rows}
-            </tbody>
-            </table>
-            <div className="searchText">
-              Want to add someone to this group? Search them here!
+        : { display : "block"}}>
+      <tbody>
+        {rows}
+       </tbody>
+        </table>
+          <div className="searchText">
+             Want to add someone to this group? Search them here!
             </div>
             <div className="search">
                 <Input
@@ -158,20 +167,13 @@ const handleMessage = (color, message) => {
                   defaultValue={searchInput}
                   onChange={handleSearch}
                 />
-                </div>
-               <ul
-                  style={
-                    searchResult.length === 0
-                      ? { display: "none" }
-                      : { display: "block" }
-                  }
-                >
-                  {searchResult.length > 0
-                    ? searchResult.map((user) => 
-                      <li key={user.id}>  
-                      <p> <Avatar size={30} src={user.avatar} radius={30} /> {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button></p>
-                      </li>)
-                    : ""}
+             </div>
+              <ul
+                style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
+                  {searchResult.length > 0 ? searchResult.map((user) => 
+                    <li key={user.id}>  
+                    <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
+                    </li>) : ""}
                 </ul>
                 <ErrorMessage message={errorMessage} style={errorStyle} />
                 </div>
