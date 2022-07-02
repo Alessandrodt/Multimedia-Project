@@ -1,5 +1,5 @@
 //components
-import { DetailImg } from "../detail-img/DetailImg";
+import { DetailImg } from "./DetailImg";
 //libraries
 import { useModals } from "@mantine/modals";
 
