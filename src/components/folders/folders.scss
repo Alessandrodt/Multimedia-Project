@@ -36,11 +36,12 @@ main.wrapper-folder {
     margin: $m-auto;
     margin-top: $m-20;
     max-width: 1024px;
+    padding: $spacer;
     
     span.folder {
         cursor: pointer;
         display: inline-block;
-        padding: $spacer;
+        text-align: center;
 
         img {
             opacity: .8;
@@ -48,6 +49,23 @@ main.wrapper-folder {
             &:hover {
                 opacity: 1;
             }
+        }
+
+        p {
+            color: $_primary;
+            opacity: 0;
+            transition: .5s ease-in-out;
+            -webkit-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+        }
+
+        &:hover p {
+            opacity: 1;
+            transition: .5s ease-in-out;
+            -webkit-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
         }
     }
 

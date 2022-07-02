@@ -125,6 +125,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       <div className="folderAddButton">
         <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=""></img>
+          <p>Add Folder</p>
         </span>
       </div>
       <section className="wrapper-slider">
