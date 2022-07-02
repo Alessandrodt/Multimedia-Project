@@ -119,7 +119,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
-      <Breadcrumbs>{items}</Breadcrumbs>
+      <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
       <div className="folderAddButton">
         <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=""></img>

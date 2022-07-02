@@ -10,6 +10,15 @@ article.wrapper-folder {
     margin-top: ($m-50) * 2;
 }
 
+.breadcrumbs {
+    color: $_primary;
+    text-decoration: none;
+
+    &:hover a {
+        text-decoration: none;
+    }
+}
+
 .button-folder-delete {
     @include button;
     background: $_delete;
