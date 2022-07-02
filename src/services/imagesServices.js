@@ -1,13 +1,10 @@
 import axios from "./axios";
 
-// const userImages = (userId) =>
-//   `http://smear-backend.test/api/v1/users/${userId}/uploads`;
+const userImages = (userId, pageNumber) =>
+  `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
 
 const folderImages = (folderId, pageNumber) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}`;
-// TODO change once endpoint to get all images exists
-const homeImages = (pageNumber) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/31/uploads?page=${pageNumber}`;
 
 /**
  *
@@ -15,10 +12,10 @@ const homeImages = (pageNumber) =>
  * @param {number} pageNumber - current page
  * @returns the JSON with the images and the pagination details
  */
-const loadImages = (folderId, pageNumber) => {
+const loadImages = (folderId, userId, pageNumber) => {
   const url = folderId
     ? folderImages(folderId, pageNumber)
-    : homeImages(pageNumber);
+    : userImages(userId, pageNumber);
   const headersGet = {
     "Content-Type": "application/json",
     Accept: "application/json",
