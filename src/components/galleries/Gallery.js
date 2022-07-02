@@ -11,14 +11,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 // services
 import imagesServices from "../../services/imagesServices";
 
-export function Gallery({ folderId }) {
+export function Gallery({ folderId, userId }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
   const [pagination, setPagination] = useState({
     currentPage: 1,
     finalPage: 1,
     totalImages: 1,
   });
-
 
   /**
    * the initial loading of the images,
@@ -27,7 +26,7 @@ export function Gallery({ folderId }) {
    */
   useEffect(() => {
     imagesServices
-      .loadImages(folderId, pagination.currentPage)
+      .loadImages(folderId, userId, pagination.currentPage)
       .then((galleryImages) => {
         setNewGalleryImages(
           galleryImages
@@ -55,7 +54,7 @@ export function Gallery({ folderId }) {
    */
   const fetchMoreData = () => {
     imagesServices
-      .loadImages(folderId, pagination.currentPage + 1)
+      .loadImages(folderId, userId, pagination.currentPage + 1)
       .then((galleryImages) => {
         setNewGalleryImages((oldArray) =>
           oldArray.concat(
