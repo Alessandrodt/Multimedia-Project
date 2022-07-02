@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 // components
 import AddFolderForm from "./add-folder-form/AddFolderForm";
 import EditFolderForm from "./edit-folder-form/EditFolderForm";
-import { ErrorMessage } from "../error-message/ErrorMessage";
 
 // services
 import foldersServices from "../../services/foldersServices";
@@ -12,18 +11,18 @@ import foldersServices from "../../services/foldersServices";
 // libraries
 import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
+import toast from "react-hot-toast";
 
 // style
 import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
+import folderWithElement from "../../images/folder_icon.svg";
 
 export const Folder = ({ userId, folderId, folders, setFolders }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
   const [visible, setVisible] = useState(false);
   const [crumbs, setCrumbs] = useState([]);
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -41,7 +40,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       })
       .catch((error) => {
         if (error.response.status === 422) {
-          handleMessage("red", `the folder ${values.name} already exists`);
+          toast.error( `the folder ${values.name} already exists`);
         }
         setVisible(false);
       });
@@ -57,12 +56,11 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
       })
       .catch((error) => {
         if (error.message.status === 403) {
-          handleMessage(
-            "red",
+          toast.error(
             `you don't have the rights to modify this folder`
           );
         } else if (error.response.status === 422) {
-          handleMessage("red", `the folder ${values.name} already exists`);
+          toast.error(`the folder ${values.name} already exists`);
         }
       });
   };
@@ -80,47 +78,23 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item, index) => {
-    // let currentPath = folderId === null
-    // ? -1
-    // : item.name
-
+  const items = crumbs?.map((item) => {
+    
     return (
       <div key={item.id}>
         <Anchor
           onClick={() =>
-            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
+            setCrumbs(crumbs.slice(item.name, crumbs.findIndex(item.name)))
           }
           component={Link}
           to={item.path}
-          key={index}
+          key={item.id}
         >
           {item.name}
         </Anchor>
       </div>
     );
   });
-
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-    textAlign: "center",
-    width: "40%",
-    marginLeft: "28%",
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 3000);
-  };
 
   const openContentAddModal = () => {
     modal.openModal({
@@ -143,10 +117,9 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
   };
 
   return (
-    <div>
+    <main>
       <div className="messageError">
         <LoadingOverlay visible={visible} />
-        <ErrorMessage message={errorMessage} style={errorStyle} />
       </div>
       <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
@@ -154,7 +127,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
           <img src={addFolderImage} alt=""></img>
         </span>
       </div>
-      <div className="wrapper-slider">
+      <section className="wrapper-slider">
         {folders.map((folder) => {
           return (
             <Card className="card" key={folder.id}>
@@ -163,20 +136,23 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={folderEmpty} alt="" />
+                  <img src={folders ? folderWithElement : folderEmpty} alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
-              <div className="button">
-                <span onClick={() => openContentEditModal(folder.id)}>
-                  Edit
-                </span>
-                <span>Delete</span>
+              {/* button Edit / Delete */}
+              <div className="wrapper-button">
+                <div className="button-folder-edit" onClick={() => openContentEditModal(folder.id)}>
+                  <span>Edit</span>
+                </div>
+                <div className="button-folder-delete">
+                  <span>Delete</span>
+                </div>
               </div>
             </Card>
           );
         })}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };

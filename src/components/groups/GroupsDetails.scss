@@ -1,5 +1,6 @@
 .container {
   padding-left: 1%;
+  margin-top: 6.5%;
 }
 
 input {
@@ -62,14 +63,6 @@ tbody {
 li {
   list-style: none;
   position: relative;
-}
-
-p {
-display: flex;
-align-items: center;
-padding-top: 1%;
-padding-bottom: 10px;
-border-bottom: 1px solid #a49999;
 }
 
 .search {

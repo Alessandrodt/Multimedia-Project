@@ -1,14 +1,44 @@
+@mixin button {
+    border: 1px solid;
+    border-radius: $s-1;
+    cursor: pointer;
+    overflow: hidden;
+    padding: $s-1;
+    position: relative;
+}
+
+article.wrapper-folder {
+    width: $w-100;
+    margin-top: ($m-50) * 2;
+}
+
+.button-folder-delete {
+    @include button;
+    border-color: currentColor;
+    color: $_delete
+}
+
+.button-folder-edit {
+    @include button;
+    color: $_success;
+    transition: color .8s ease-in-out;
+    -webkit-transition: .8s ease-in-out;
+    -moz-transition: 8s ease-in-out;
+    -o-transition: 8s ease-in-out;
+}
+
 .card {
+    padding: $s-1;
     text-align: center;
 }
 
 .folderAddButton {
-    margin: $w-5 auto;
-    width: $w-90;
-
+    margin: $m-auto;
+    max-width: 1024px;
+    
     span.folder {
-        cursor: pointer;
         display: inline-block;
+        padding: $spacer;
 
         img {
             opacity: .8;
@@ -18,11 +48,31 @@
             }
         }
     }
+
+    @include media( "screen", ">minWidth", "<maxWidth" ){
+        margin: $m-auto;
+        width: $w-90;
+    };
 }
 
-.messageError {
-    margin-top: 90px;
+section.folder-gallery {
+    margin: $m-auto;
+    max-width: 1024px;
+
+    @include media( "screen", ">minWidth", "<maxWidth" ){
+        margin: $m-auto;
+        width: $w-90;
+    };
 }
+
+section.folder-list {
+    margin-top: 10px;
+    width: $w-100;
+}
+
+// .messageError {
+//     margin-top: 90px;
+// }
 
 .slider {
     display: inline;
@@ -34,37 +84,27 @@
     }
 }
 
-.wrapper-slider img {
-    width: 80px;
-}
-
-.wrapper-slider {
+section.wrapper-slider {
     display: flex;
+    gap: $w-1;
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
+    max-width: 1024px;
+    padding: 1rem;
     row-gap: $s-3;
-    width: $w-70;
     justify-content: flex-start;
 
-    .button {
+    img {
+        width: 80px;
+    }
+
+    .wrapper-button {
         display: flex;
+        flex-direction: column;
+        row-gap: $s-2;
         margin-top: 10px;
         justify-content: space-around;
 
-        span {
-            cursor: pointer;
-        }
     }
-}
-
-.folders-list {
-    justify-content: space-evenly;
-    align-items: center;
-    display: flex;
-    position:absolute;
-}
-
-.folder-gallery {
-    position: relative;
 }

@@ -12,6 +12,7 @@ import { useModals } from "@mantine/modals";
 
 export const HomePage = () => {
   const modals = useModals();
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const openContentModal = () => {
     modals.openModal({
@@ -25,8 +26,11 @@ export const HomePage = () => {
 
   return (
     <div>
+      {/* add style scss */}
       <NavbarHome />
-      <Gallery />
+      <div className="wrapper-gallery">
+        <Gallery userId={user.id} />
+      </div>
       <Button onClick={openContentModal} className="upload-btn">
         <svg
           width="96"

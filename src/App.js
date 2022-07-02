@@ -19,6 +19,7 @@ import "./App.scss";
 // import libraries
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
+import { Toaster } from 'react-hot-toast';
 
 //import i18n
 import i18n from "i18next";
@@ -59,6 +60,17 @@ const App = () => {
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>
+        <Toaster 
+           toastOptions={{
+            className: 'notification',
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#713200',
+              fontSize: 20
+            },
+          }}
+         />
         <ModalsProvider>
           <Routes>
             {/* These routes are not guarded */}

@@ -3,4 +3,38 @@
     width: 80%;
     left: 12%;
     top: 150px;
+
+    .group-avatar {
+        margin: $s-3 auto;
+    }
+}
+
+.wrapper-grid {
+
+    //responsive grid group
+    @include media( "screen", ">minWidth", "<bp2Width" ){
+        display: block;
+    };
+}
+
+.wrapper-group {
+    box-shadow: 1px 1px 3px rgba($color: $_black, $alpha: .1),
+                -1px -1px 3px rgba($color: $_black, $alpha: .1);
+    border-radius: $s-2;
+    margin: $s-3 0;
+    max-width: ($w-50) - 10;
+    padding: $s-3;
+
+    @include media( "screen", ">minWidth", "<bp2Width" ){
+        max-width: $w_100;
+    };
+
+}
+
+.p0 {
+    padding: 0;
+}
+
+.mb-2 {
+    margin-bottom: $s-3;
 }
