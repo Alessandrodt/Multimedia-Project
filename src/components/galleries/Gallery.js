@@ -11,7 +11,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 // services
 import imagesServices from "../../services/imagesServices";
 
-export function Gallery({ folderId, userId }) {
+export function Gallery({ folderId, userId, searchParams }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
   const [pagination, setPagination] = useState({
     currentPage: 1,

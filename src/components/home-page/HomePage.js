@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
@@ -13,6 +13,8 @@ export const HomePage = () => {
   const modals = useModals();
   const user = JSON.parse(sessionStorage.getItem("user"));
 
+  const [searchParams, setSearchParams] = useState({});
+
   const openContentModal = () => {
     modals.openModal({
       centered: true,
@@ -26,9 +28,9 @@ export const HomePage = () => {
   return (
     <div>
       {/* add style scss */}
-      <NavbarHome />
+      <NavbarHome setSearchParams={setSearchParams} />
       <div className="wrapper-gallery">
-        <Gallery userId={user.id} />
+        <Gallery userId={user.id} searchParams={searchParams} />
       </div>
       <Button onClick={openContentModal} className="upload-btn">
         <svg

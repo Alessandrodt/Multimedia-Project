@@ -7,7 +7,7 @@ import Select from "react-select";
 // services;
 import imagesServices from "../../../services/imagesServices";
 
-export function SearchByTags() {
+export function SearchByTags({ setSelectedTags }) {
   const [allTags, setAllTags] = useState([]);
 
   const animatedComponents = makeAnimated();
@@ -21,18 +21,13 @@ export function SearchByTags() {
     });
   }, []);
 
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
   return (
     <Select
       options={allTags}
+      onChange={(x) => setSelectedTags(x)}
       closeMenuOnSelect={false}
       components={animatedComponents}
-      defaultValue={[options[3]]}
+      placeholder={"search your tags..."}
       isMulti
     />
   );
