@@ -18,11 +18,10 @@ import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import folderWithElement from "../../images/folder_icon.svg";
 
-export const Folder = ({ userId, folderId, folders, setFolders }) => {
+export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumbs }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
   const [visible, setVisible] = useState(false);
-  const [crumbs, setCrumbs] = useState([]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -78,17 +77,16 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item, index) => {
-
+  const items = crumbs?.map((item,index) => {
+    
     return (
-      <div>
+      <div key={index}>
         <Anchor
-          onClick={() =>
-            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item.name)))
-          }
+          onClick={() => {
+            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)))
+          }}
           component={Link}
           to={item.path}
-          key={index}
         >
           {item.name}
         </Anchor>
@@ -136,7 +134,7 @@ export const Folder = ({ userId, folderId, folders, setFolders }) => {
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={folderId  ? folderWithElement : folderEmpty} alt="" />
+                  <img src={!folderId  ? folderWithElement : folderEmpty} alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
