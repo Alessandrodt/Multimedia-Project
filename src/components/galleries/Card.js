@@ -19,7 +19,7 @@ export function Card({ img, idImage }) {
       centered: true,
       closeOnClickOutside: false,
       children: <DetailImg idImage={idImage} />,
-      overflow: "outside",
+      overflow: "inside",
       size: "70%",
     });
   };
