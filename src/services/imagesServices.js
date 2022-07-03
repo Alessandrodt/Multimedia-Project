@@ -1,7 +1,7 @@
 import axios from "./axios";
 
 const userImages = (userId, pageNumber, searchParams) => {
-  let url = `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+  let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
 
   if (searchParams.tags && searchParams.tags.length >= 1) {
     const tags = searchParams.tags.map((_) => _.value).join();
@@ -25,6 +25,12 @@ const userImages = (userId, pageNumber, searchParams) => {
   }
 
   return url;
+};
+
+const headersGet = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
 };
 
 const folderImages = (folderId, pageNumber) =>
@@ -52,6 +58,18 @@ const loadImages = (folderId, userId, pageNumber, searchParams) => {
       return response.data;
     })
     .catch((error) => console.log(error));
+};
+
+const imageDetailUrl = (id) =>
+  `https://smi-laravel.fly.dev/api/v1/uploads/${id}`;
+
+const loadImageDetail = (idImage) => {
+  return axios
+    .get(imageDetailUrl(idImage), { headers: headersGet })
+    .then((response) => {
+      console.log(response.data);
+      return response;
+    });
 };
 
 const headers = {
@@ -102,7 +120,7 @@ const uploadTag = async (tag) => {
     .catch((error) => console.log(error));
 };
 
-const allTagsUrl = `http://smi-laravel.fly.dev/api/v1/tags`;
+const allTagsUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
 
 /**
  *
@@ -123,6 +141,7 @@ const imagesServices = {
   uploadImage,
   uploadTag,
   getAllTags,
+  loadImageDetail,
 };
 
 export default imagesServices;

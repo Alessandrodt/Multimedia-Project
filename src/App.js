@@ -12,7 +12,6 @@ import { NotFound } from "./components/not-found/NotFound";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
-import { Search } from "./components/home-page/search/Search";
 
 // import style scss
 import "./App.scss";
@@ -28,6 +27,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
+import { GitBranch } from "tabler-icons-react";
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -35,6 +35,7 @@ i18n
   .use(HttpApi)
   .init({
     fallbackLng: "it",
+    load: "all",
     detection: {
       order: [
         "navigator",
@@ -100,7 +101,6 @@ const App = () => {
             <Route element={<RequireAuth />}>
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
-            <Route path="/search" element={<Search />} />
           </Routes>
         </ModalsProvider>
       </Router>

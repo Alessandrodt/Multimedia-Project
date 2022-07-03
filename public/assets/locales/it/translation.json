@@ -2,6 +2,7 @@
   "app_title": "Titolo",
   "language": "Lingua",
   "country": "Italia",
+  "code": "it-IT",
   "Welcome":"Trova i tuoi ricordi.",
   "signupfree":"Iscriviti Gratis",
   "login":"Accedi",
@@ -17,6 +18,7 @@
   "findthird":" Condividerle con i vostri amici.",
   "thrill":"Emozionatevi direttamente sulla vostra Homepage.",
   "thrillcolor":"revisione delle immagini",
-  "thrillsecond":" Dal più recente al più vecchio."
+  "thrillsecond":" Dal più recente al più vecchio.",
+  "lng":"Lingua"
 
 }
