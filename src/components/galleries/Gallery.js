@@ -1,15 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-// components and library
-import Masonry from "@mui/lab/Masonry";
+// components
 import { Card } from "./Card";
-
-//chiedere ad Ari da parte di Ale Catucci
-import InfiniteScroll from "react-infinite-scroll-component";
 
 // services
 import imagesServices from "../../services/imagesServices";
+
+//libraries
+import Masonry from "@mui/lab/Masonry";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+// styles
+import addNoMatchImage from "../../images/resultnomatch.png";
 
 export function Gallery({ folderId, userId, searchParams }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
@@ -26,7 +29,7 @@ export function Gallery({ folderId, userId, searchParams }) {
    */
   useEffect(() => {
     imagesServices
-      .loadImages(folderId, userId, pagination.currentPage)
+      .loadImages(folderId, userId, pagination.currentPage, searchParams)
       .then((galleryImages) => {
         setNewGalleryImages(
           galleryImages
@@ -34,8 +37,10 @@ export function Gallery({ folderId, userId, searchParams }) {
                 urls: e.content,
                 id: e.id,
               }))
-            : []
+            : [{ urls: addNoMatchImage, id: 999 }]
         );
+
+        console.log(galleryImages);
         if (galleryImages) {
           setPagination((oldPagination) => {
             let old = { ...oldPagination };
@@ -46,30 +51,32 @@ export function Gallery({ folderId, userId, searchParams }) {
         }
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [folderId]);
+  }, [folderId, searchParams]);
 
   /**
    * it loads more data, getting the next page and increasing the value
    * of the current page. It also appends the next images to the existing ones
    */
   const fetchMoreData = () => {
-    imagesServices
-      .loadImages(folderId, userId, pagination.currentPage + 1)
-      .then((galleryImages) => {
-        setNewGalleryImages((oldArray) =>
-          oldArray.concat(
-            galleryImages.data.map((e) => ({
-              urls: e.content,
-              id: e.id,
-            }))
-          )
-        );
-        setPagination((oldPagination) => {
-          let obj = { ...oldPagination };
-          obj.currentPage++;
-          return obj;
+    if (pagination.finalPage > pagination.currentPage) {
+      imagesServices
+        .loadImages(folderId, userId, pagination.currentPage + 1, searchParams)
+        .then((galleryImages) => {
+          setNewGalleryImages((oldArray) =>
+            oldArray.concat(
+              galleryImages.data.map((e) => ({
+                urls: e.content,
+                id: e.id,
+              }))
+            )
+          );
+          setPagination((oldPagination) => {
+            let obj = { ...oldPagination };
+            obj.currentPage++;
+            return obj;
+          });
         });
-      });
+    }
   };
 
   return (
@@ -82,9 +89,13 @@ export function Gallery({ folderId, userId, searchParams }) {
       >
         {/*  */}
         <Masonry columns={[1, 2, 3, 4]} spacing={2}>
-          {galleryImages.map((e) => (
-            <Card img={"data:image/png;base64, " + e.urls} key={e.id} />
-          ))}
+          {galleryImages.length > 0 ? (
+            galleryImages.map((e) => (
+              <Card img={"data:image/png;base64, " + e.urls} key={e.id} />
+            ))
+          ) : (
+            <div></div>
+          )}
         </Masonry>
       </InfiniteScroll>
     </div>
