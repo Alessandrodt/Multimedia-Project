@@ -12,6 +12,7 @@ import { useModals } from "@mantine/modals";
 export const HomePage = () => {
   const modals = useModals();
   const user = JSON.parse(sessionStorage.getItem("user"));
+  const [newUploadImages, setNewUploadImages] = useState([]);
 
   const [searchParams, setSearchParams] = useState({});
 
@@ -19,7 +20,7 @@ export const HomePage = () => {
     modals.openModal({
       centered: true,
       closeOnClickOutside: false,
-      children: <Upload />,
+      children: <Upload setNewUploadImages={setNewUploadImages} />,
       overflow: "outside",
       size: "70%",
     });
@@ -30,7 +31,11 @@ export const HomePage = () => {
       {/* add style scss */}
       <NavbarHome setSearchParams={setSearchParams} />
       <div className="wrapper-gallery">
-        <Gallery userId={user.id} searchParams={searchParams} />
+        <Gallery
+          userId={user.id}
+          searchParams={searchParams}
+          newUploadImages={newUploadImages}
+        />
       </div>
       <Button onClick={openContentModal} className="upload-btn">
         <svg
