@@ -57,24 +57,24 @@ export const GroupsDetails = () => {
     })
   };
   
-  // Deletes the user of choice from the group by their ID.
-  const deleteUser = (user) => {
-    groupsServices.deleteUser(groupId, user.id)
-    .then(res => {
-     setGroup(group.filter((u) => u.id !== user.id));
-     toast.success(`${user.first_name} ${user.last_name} has been deleted from the group.`)
-  })
-  .catch(err => {
-    if (err.response.status === 403) {
-      toast.error("You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
-    }
-  })
-  .catch(err => {
-    if (err.response.status === 404) {
-      toast.error("red", "Group or user not found.")
-    }
-  })
-};
+    // Deletes the user of choice from the group by their ID.
+    const deleteUser = (user) => {
+      groupsServices.deleteUser(groupId, user.id)
+      .then(res => {
+      setGroup(group.filter((u) => u.id !== user.id));
+      toast.success(`${user.first_name} ${user.last_name} has been deleted from the group.`)
+    })
+    .catch(err => {
+      if (err.response.status === 403) {
+        toast.error("You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
+      }
+    })
+    .catch(err => {
+      if (err.response.status === 404) {
+        toast.error("red", "Group or user not found.")
+      }
+    })
+  };
   
   //  Loads all the users in the selected group.
   useEffect(() => {
@@ -127,33 +127,31 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-      <table style={
-        group.length === 0
-        ? { opacity : 0}
-        : { opacity : 1}}>
-      <tbody>
-        {rows}
-       </tbody>
+        <table style={
+          group.length === 0
+          ? { opacity : 0}
+          : { opacity : 1}}>
+          <tbody> {rows} </tbody>
         </table>
-          <div className="searchText">
-             Want to add someone to this group? Search them here!
-            </div>
-            <div className="search">
-                <Input
-                  icon={<Search size={20} />}
-                  placeholder="Search users (at least 2 characters)"
-                  defaultValue={searchInput}
-                  onChange={handleSearch}
-                />
-             </div>
-              <ul
-                style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
-                  {searchResult.length > 0 ? searchResult.map((user) => 
-                    <li key={user.id}>  
-                    <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
-                    </li>) : ""}
-                </ul>
-                </div>
-            </>
-          );
-        };
+        <div className="searchText">
+          Want to add someone to this group? Search them here!
+        </div>
+        <div className="search">
+          <Input
+            icon={<Search size={20} />}
+            placeholder="Search users (at least 2 characters)"
+            defaultValue={searchInput}
+            onChange={handleSearch}
+          />
+        </div>
+        <ul
+          style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
+          {searchResult.length > 0 ? searchResult.map((user) => 
+          <li key={user.id}>  
+            <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
+          </li>) : ""}
+        </ul>
+      </div>
+    </>
+  );
+};
