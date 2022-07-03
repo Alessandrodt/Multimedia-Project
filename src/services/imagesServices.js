@@ -1,7 +1,31 @@
 import axios from "./axios";
 
-const userImages = (userId, pageNumber) =>
-  `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+const userImages = (userId, pageNumber, searchParams) => {
+  let url = `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+
+  if (searchParams.tags && searchParams.tags.length >= 1) {
+    const tags = searchParams.tags.map((_) => _.value).join();
+    url += `&filter[tags]=0,${tags}`;
+  }
+
+  console.log(searchParams.date);
+
+  if (searchParams.date && searchParams.date[0]) {
+    if (!searchParams.date[1]) {
+      url += `&filter[created_at_to]=${
+        searchParams.date[0].toISOString().split("T")[0]
+      }`;
+    } else {
+      url += `&filter[created_at_between]=${
+        searchParams.date[1].toISOString().split("T")[0]
+      },${searchParams.date[0].toISOString().split("T")[0]}`;
+    }
+
+    console.log(url);
+  }
+
+  return url;
+};
 
 const headersGet = {
   "Content-Type": "application/json",
@@ -18,10 +42,10 @@ const folderImages = (folderId, pageNumber) =>
  * @param {number} pageNumber - current page
  * @returns the JSON with the images and the pagination details
  */
-const loadImages = (folderId, userId, pageNumber) => {
+const loadImages = (folderId, userId, pageNumber, searchParams) => {
   const url = folderId
     ? folderImages(folderId, pageNumber)
-    : userImages(userId, pageNumber);
+    : userImages(userId, pageNumber, searchParams);
   const headersGet = {
     "Content-Type": "application/json",
     Accept: "application/json",

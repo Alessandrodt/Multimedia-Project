@@ -1,10 +1,12 @@
-import { InputWithButton } from "../../navbar/search/Srcbar";
+// components
 import { Link } from "react-router-dom";
+import { Search } from "../search/Search";
 
+//styles
 import defaultAvatar from "../../../images/user.svg";
 import logo from "../../../images/picsmi.png";
 
-export const NavbarHome = () => {
+export const NavbarHome = ({ setSearchParams }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   return (
@@ -15,21 +17,17 @@ export const NavbarHome = () => {
             <img src={logo} title="logo smi" alt="company log" />
           </div>
           <div className="wrapper-search-bar-home">
-            <InputWithButton />
+            <Search setSearchParams={setSearchParams} />
           </div>
           <div className="wrapper-sign-home">
             <div className="button">
               <span>
-                <Link to={`/users/${user.id}/groups`}>
-                  Groups
-                </Link>
+                <Link to={`/users/${user.id}/groups`}>Groups</Link>
               </span>
             </div>
             <div className="button">
               <span className="">
-                <Link to={`/users/${user.id}/folders`}>
-                  Folders
-                </Link>
+                <Link to={`/users/${user.id}/folders`}>Folders</Link>
               </span>
             </div>
             <h6>
@@ -41,8 +39,8 @@ export const NavbarHome = () => {
                   className="icong"
                   src={
                     user?.avatar?.name
-                    ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
-                    : defaultAvatar
+                      ? `https://smi-laravel.fly.dev/images/avatars/${user?.avatar?.name}`
+                      : defaultAvatar
                   }
                   title="Profilo"
                   alt="company logo"

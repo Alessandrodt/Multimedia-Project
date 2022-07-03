@@ -12,6 +12,7 @@ import { NotFound } from "./components/not-found/NotFound";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
+import { Search } from "./components/home-page/search/Search";
 
 // import style scss
 import "./App.scss";
@@ -19,7 +20,7 @@ import "./App.scss";
 // import libraries
 import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/styles";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 //import i18n
 import i18n from "i18next";
@@ -60,17 +61,17 @@ const App = () => {
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>
-        <Toaster 
-           toastOptions={{
-            className: 'notification',
+        <Toaster
+          toastOptions={{
+            className: "notification",
             style: {
-              border: '1px solid #713200',
-              padding: '16px',
-              color: '#713200',
-              fontSize: 20
+              border: "1px solid #713200",
+              padding: "16px",
+              color: "#713200",
+              fontSize: 20,
             },
           }}
-         />
+        />
         <ModalsProvider>
           <Routes>
             {/* These routes are not guarded */}
@@ -83,7 +84,7 @@ const App = () => {
             <Route
               path="/users/:userId/groups/:groupId/share"
               element={<GroupSharing />}
-            /> 
+            />
             <Route
               path="/users/:userId/folders/:folderId"
               element={<FoldersList />}
@@ -101,6 +102,7 @@ const App = () => {
             <Route element={<RequireAuth />}>
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
+            <Route path="/search" element={<Search />} />
           </Routes>
         </ModalsProvider>
       </Router>
