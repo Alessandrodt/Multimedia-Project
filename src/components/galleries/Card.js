@@ -1,4 +1,4 @@
-export function Card({ size, img }) {
+export function Card({ img }) {
   const styles = {
     card: {
       margin: "10px 10px",
@@ -13,7 +13,7 @@ export function Card({ size, img }) {
 
   return (
     <img
-      src={img}
+      src={img.includes("static") ? img : "data:image/png;base64, " + img}
       alt="random images"
       style={{ ...styles.card }}
       onClick={detailComponent}
