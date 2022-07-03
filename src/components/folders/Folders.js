@@ -52,6 +52,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
         setFolders(
           folders.map((folder) => (folder.id === folderId ? response.data : folder ))
         );
+        toast.success(`the folder has been modified successfully`);
       })
       .catch((error) => {
         if (error.message.status === 403) {
@@ -134,7 +135,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={!folderId  ? folderWithElement : folderEmpty} alt="" />
+                  <img src={folderId ? folderEmpty : folderWithElement } alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
