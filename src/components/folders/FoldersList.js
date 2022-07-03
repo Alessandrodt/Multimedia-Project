@@ -21,7 +21,7 @@ export const FoldersList = () => {
   }, [userId, folderId]);
 
   return (
-    <div>
+    <>
       <NavbarFolders />
       <article className="wrapper-folder">
         <section className="folders-list">
@@ -46,6 +46,6 @@ export const FoldersList = () => {
           <div />
         )}
       </article>
-    </div>
+    </>
   );
 };

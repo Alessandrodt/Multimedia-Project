@@ -1,10 +1,8 @@
 @mixin button {
-    border: 1px solid;
-    border-radius: $s-1;
+    color: $_white;
     cursor: pointer;
-    overflow: hidden;
+    border-radius: $s-1;
     padding: $s-1;
-    position: relative;
 }
 
 article.wrapper-folder {
@@ -12,19 +10,23 @@ article.wrapper-folder {
     margin-top: ($m-50) * 2;
 }
 
+.breadcrumbs {
+    color: $_primary;
+    text-decoration: none;
+
+    &:hover a {
+        text-decoration: none;
+    }
+}
+
 .button-folder-delete {
     @include button;
-    border-color: currentColor;
-    color: $_delete
+    background: $_delete;
 }
 
 .button-folder-edit {
     @include button;
-    color: $_success;
-    transition: color .8s ease-in-out;
-    -webkit-transition: .8s ease-in-out;
-    -moz-transition: 8s ease-in-out;
-    -o-transition: 8s ease-in-out;
+    background: $_success;
 }
 
 .card {
@@ -35,17 +37,36 @@ article.wrapper-folder {
 .folderAddButton {
     margin: $m-auto;
     max-width: 1024px;
+    padding: $spacer;
     
     span.folder {
         display: inline-block;
-        padding: $spacer;
 
         img {
+            cursor: pointer;
             opacity: .8;
+            width: $w-100;
 
             &:hover {
                 opacity: 1;
             }
+        }
+
+        p {
+            color: $_primary;
+            opacity: 0;
+            transition: .5s ease-in-out;
+            -webkit-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+        }
+
+        &:hover p {
+            opacity: 1;
+            transition: .5s ease-in-out;
+            -webkit-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
         }
     }
 
@@ -68,6 +89,10 @@ section.folder-gallery {
 section.folder-list {
     margin-top: 10px;
     width: $w-100;
+}
+
+section.wrapper-folder {
+    margin-top: ($m-50) + 20;
 }
 
 // .messageError {
