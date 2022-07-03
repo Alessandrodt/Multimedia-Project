@@ -12,7 +12,6 @@ import { NotFound } from "./components/not-found/NotFound";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
-import { Search } from "./components/home-page/search/Search";
 
 // import style scss
 import "./App.scss";
@@ -36,7 +35,7 @@ i18n
   .use(HttpApi)
   .init({
     fallbackLng: "it",
-    load: 'all',
+    load: "all",
     detection: {
       order: [
         "navigator",
@@ -102,7 +101,6 @@ const App = () => {
             <Route element={<RequireAuth />}>
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
-            <Route path="/search" element={<Search />} />
           </Routes>
         </ModalsProvider>
       </Router>
