@@ -18,7 +18,14 @@ import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import folderWithElement from "../../images/folder_icon.svg";
 
-export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumbs }) => {
+export const Folder = ({
+  userId,
+  folderId,
+  folders,
+  setFolders,
+  crumbs,
+  setCrumbs,
+}) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
   const [visible, setVisible] = useState(false);
@@ -40,7 +47,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       })
       .catch((error) => {
         if (error.response.status === 422) {
-          toast.error( `the folder ${values.name} already exists`);
+          toast.error(`the folder ${values.name} already exists`);
         }
         setVisible(false);
       });
@@ -51,26 +58,25 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       .editFolder(userId, folderId, values)
       .then((response) => {
         setFolders(
-          folders.map((folder) => (folder.id === folderId ? response.data : folder ))
+          folders.map((folder) =>
+            folder.id === folderId ? response.data : folder
+          )
         );
         toast.success(`the folder has been modified successfully`);
       })
       .catch((error) => {
         if (error.message.status === 403) {
-          toast.error(
-            `you don't have the rights to modify this folder`
-          );
+          toast.error(`you don't have the rights to modify this folder`);
         } else if (error.response.status === 422) {
           toast.error(`the folder ${values.name} already exists`);
         }
       });
   };
 
-  const folderTracker = (name) => {
-    const routeTo = folderId
-      ? `/users/${userId}/folders/${folderId}`
-      : `/users/${userId}/folders/`;
-
+  const folderTracker = (name, id) => {
+    const routeTo = 
+      `/users/${userId}/folders/${id}`;
+     
     const folderPath = {
       name,
       path: routeTo,
@@ -79,13 +85,16 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item,index) => {
-    
+  const items = crumbs.map((item, index) => {
     return (
       <div key={index}>
         <Anchor
           onClick={() => {
-            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)))
+            if(item.name === 'Folders') {
+              setCrumbs(crumbs.slice(item.name[0], crumbs.indexOf(item) + 1))
+            } else {
+              setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)));
+            }
           }}
           component={Link}
           to={item.path}
@@ -129,7 +138,6 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       </div>
       <section className="wrapper-slider">
         {folders.map((folder) => {
-          folders.map(folder => console.log(folder))
           return (
             <Card className="card" key={folder.id}>
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
@@ -137,13 +145,23 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={ folder.folders_count === 0 ? folderEmpty : folderWithElement } alt="" />
+                  <img
+                    src={
+                      folder.folders_count === 0
+                        ? folderEmpty
+                        : folderWithElement
+                    }
+                    alt=""
+                  />
                   <p>{folder.name}</p>
                 </span>
               </Link>
               {/* button Edit / Delete */}
               <div className="wrapper-button">
-                <div className="button-folder-edit" onClick={() => openContentEditModal(folder.id)}>
+                <div
+                  className="button-folder-edit"
+                  onClick={() => openContentEditModal(folder.id)}
+                >
                   <span>Edit</span>
                 </div>
                 <div className="button-folder-delete">

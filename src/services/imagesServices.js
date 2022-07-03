@@ -1,7 +1,33 @@
 import axios from "./axios";
 
-const userImages = (userId, pageNumber) =>
-  `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+const userImages = (userId, pageNumber, searchParams) => {
+  let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+
+  if (searchParams.tags && searchParams.tags.length >= 1) {
+    const tags = searchParams.tags.map((x) => x.value).join();
+    url += `&filter[tags]=0,${tags}`;
+  }
+
+  if (searchParams.date && searchParams.date[0]) {
+    if (!searchParams.date[1]) {
+      url += `&filter[created_at_to]=${
+        searchParams.date[0].toISOString().split("T")[0]
+      }`;
+    } else {
+      url += `&filter[created_at_between]=${
+        searchParams.date[1].toISOString().split("T")[0]
+      },${searchParams.date[0].toISOString().split("T")[0]}`;
+    }
+  }
+
+  return url;
+};
+
+const headersGet = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  Authorization: "Bearer " + sessionStorage.getItem("Auth Token"),
+};
 
 const folderImages = (folderId, pageNumber) =>
   `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}`;
@@ -12,10 +38,10 @@ const folderImages = (folderId, pageNumber) =>
  * @param {number} pageNumber - current page
  * @returns the JSON with the images and the pagination details
  */
-const loadImages = (folderId, userId, pageNumber) => {
+const loadImages = (folderId, userId, pageNumber, searchParams) => {
   const url = folderId
     ? folderImages(folderId, pageNumber)
-    : userImages(userId, pageNumber);
+    : userImages(userId, pageNumber, searchParams);
   const headersGet = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -28,6 +54,18 @@ const loadImages = (folderId, userId, pageNumber) => {
       return response.data;
     })
     .catch((error) => console.log(error));
+};
+
+const imageDetailUrl = (id) =>
+  `https://smi-laravel.fly.dev/api/v1/uploads/${id}`;
+
+const loadImageDetail = (idImage) => {
+  return axios
+    .get(imageDetailUrl(idImage), { headers: headersGet })
+    .then((response) => {
+      console.log(response.data);
+      return response;
+    });
 };
 
 const headers = {
@@ -78,7 +116,7 @@ const uploadTag = async (tag) => {
     .catch((error) => console.log(error));
 };
 
-const allTagsUrl = `http://smi-laravel.fly.dev/api/v1/tags`;
+const allTagsUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
 
 /**
  *
@@ -99,6 +137,7 @@ const imagesServices = {
   uploadImage,
   uploadTag,
   getAllTags,
+  loadImageDetail,
 };
 
 export default imagesServices;

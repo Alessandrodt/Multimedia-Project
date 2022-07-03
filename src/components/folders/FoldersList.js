@@ -10,9 +10,11 @@ import foldersServices from "../../services/foldersServices";
 import { Gallery } from "../galleries/Gallery";
 
 export const FoldersList = () => {
+  const folderPath = 'Folders';
+
   const { userId, folderId } = useParams();
   const [folders, setFolders] = useState([]);
-  const [crumbs, setCrumbs] = useState([]);
+  const [crumbs, setCrumbs] = useState([{name: folderPath, path: `/users/${userId}/folders`}]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {

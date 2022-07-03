@@ -1,4 +1,11 @@
-export function Card({ size, img }) {
+//components
+import { DetailImg } from "./DetailImg";
+//libraries
+import { useModals } from "@mantine/modals";
+
+export function Card({ img, idImage }) {
+  const modals = useModals();
+
   const styles = {
     card: {
       margin: "10px 10px",
@@ -8,12 +15,18 @@ export function Card({ size, img }) {
   };
 
   const detailComponent = () => {
-    console.log("make this component pls");
+    modals.openModal({
+      centered: true,
+      closeOnClickOutside: false,
+      children: <DetailImg idImage={idImage} />,
+      overflow: "inside",
+      size: "70%",
+    });
   };
 
   return (
     <img
-      src={img}
+      src={img.includes("static") ? img : "data:image/png;base64, " + img}
       alt="random images"
       style={{ ...styles.card }}
       onClick={detailComponent}
