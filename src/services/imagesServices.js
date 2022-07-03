@@ -4,11 +4,9 @@ const userImages = (userId, pageNumber, searchParams) => {
   let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
 
   if (searchParams.tags && searchParams.tags.length >= 1) {
-    const tags = searchParams.tags.map((_) => _.value).join();
+    const tags = searchParams.tags.map((x) => x.value).join();
     url += `&filter[tags]=0,${tags}`;
   }
-
-  console.log(searchParams.date);
 
   if (searchParams.date && searchParams.date[0]) {
     if (!searchParams.date[1]) {
@@ -20,8 +18,6 @@ const userImages = (userId, pageNumber, searchParams) => {
         searchParams.date[1].toISOString().split("T")[0]
       },${searchParams.date[0].toISOString().split("T")[0]}`;
     }
-
-    console.log(url);
   }
 
   return url;

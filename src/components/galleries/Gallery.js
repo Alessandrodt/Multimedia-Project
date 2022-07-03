@@ -14,7 +14,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 // styles
 import addNoMatchImage from "../../images/resultnomatch.png";
 
-export function Gallery({ folderId, userId, searchParams }) {
+export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
   const [galleryImages, setNewGalleryImages] = useState([]);
   const [pagination, setPagination] = useState({
     currentPage: 1,
@@ -50,7 +50,7 @@ export function Gallery({ folderId, userId, searchParams }) {
         }
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [folderId, searchParams]);
+  }, [folderId, searchParams, newUploadImages]);
 
   /**
    * it loads more data, getting the next page and increasing the value
