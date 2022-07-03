@@ -20,7 +20,8 @@ table.wrapper-table {
     display: inline-block;
     padding: $s-1;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 60px;
+    box-shadow: 7px 7px 15px rgb(198, 198, 198);
 
     tr {
       display: block;
@@ -44,6 +45,7 @@ table.wrapper-table {
   flex-direction: column;
   margin-left: 100px;
   width: 600px;
+  margin-top: 15px;
   .search {
     max-width: 500px;
     margin-bottom: 20px;
@@ -56,28 +58,33 @@ table.wrapper-table {
   ul{
     overflow: scroll;
     height: 600px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     li{
       display: flex;
       margin-top: 10px;
+      color: gray;
+      p{
+        color: rgb(0, 0, 0);
+        margin-right: 10px;
+        font-size: 18px;
+      }
       .mantine-v4akju{
         margin-top: -4px;
       }
     }
     button{
-        border-radius: 50px;
-        background-color: $_primary;
+        background-color: transparent;
         padding: 0;
-        margin-top: -3px;
-        height: 25px;
-        width: 40px;
+        margin-top: -4px;
+        height: 35px;
+        width: 35px;
        span{
         font-size: 15px;
         padding: 0 2px;
        }
     }
     button:hover{
-      background-color: $_primary;
+      background-color: transparent;
     }
   
   }

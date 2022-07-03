@@ -19,6 +19,8 @@ import groupsServices from "../../services/groupsServices";
 
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
+import add from "../../images/add.svg"
+
 export const GroupsDetails = () => {
   const { groupId } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
@@ -151,7 +153,9 @@ export const GroupsDetails = () => {
             style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
             {searchResult.length > 0 ? searchResult.map((user) => 
             <li key={user.id}>  
-              <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add</Button>
+              <Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p> {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
+                <img src={add}></img>
+              </Button>
             </li>) : ""}
           </ul>
         </div>
