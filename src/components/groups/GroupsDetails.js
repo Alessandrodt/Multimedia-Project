@@ -36,7 +36,7 @@ export const GroupsDetails = () => {
     if (search !== "" && search.length >= 2) {
       groupsServices.searchUser(search)
       .then(searchResult => {
-          setSearchResult(searchResult.data.filter(u => u.email.toLowerCase().includes(search)));
+        setSearchResult(searchResult.data.filter(u => u.email.toLowerCase().includes(search)));
       })
     } else {
       setSearchResult("");
@@ -126,8 +126,8 @@ export const GroupsDetails = () => {
   return (
     <>
       <NavbarGroups></NavbarGroups>
-      <div className="container">
-        <table style={
+      <section className="wrapper-group-details">
+        <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
@@ -151,7 +151,7 @@ export const GroupsDetails = () => {
             <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
           </li>) : ""}
         </ul>
-      </div>
+      </section>
     </>
   );
 };
