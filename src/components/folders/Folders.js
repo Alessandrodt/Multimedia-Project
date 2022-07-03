@@ -35,6 +35,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       .createFolder(userId, folderId, values)
       .then((response) => {
         setFolders(folders.concat(response.data));
+        toast.success(`${values.name} was created successfully`);
         setVisible(false);
       })
       .catch((error) => {
@@ -52,6 +53,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
         setFolders(
           folders.map((folder) => (folder.id === folderId ? response.data : folder ))
         );
+        toast.success(`the folder has been modified successfully`);
       })
       .catch((error) => {
         if (error.message.status === 403) {
@@ -119,15 +121,15 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
-      <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
+      <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
         <span className="folder" onClick={openContentAddModal}>
           <img src={addFolderImage} alt=""></img>
-          <p>Add Folder</p>
         </span>
       </div>
       <section className="wrapper-slider">
         {folders.map((folder) => {
+          folders.map(folder => console.log(folder))
           return (
             <Card className="card" key={folder.id}>
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
@@ -135,7 +137,7 @@ export const Folder = ({ userId, folderId, folders, setFolders, crumbs, setCrumb
                   className="slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
-                  <img src={!folderId  ? folderWithElement : folderEmpty} alt="" />
+                  <img src={ folder.folders_count === 0 ? folderEmpty : folderWithElement } alt="" />
                   <p>{folder.name}</p>
                 </span>
               </Link>
