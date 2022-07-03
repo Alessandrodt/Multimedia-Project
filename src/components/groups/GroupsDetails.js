@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import {
   Avatar,
   Group,
@@ -160,6 +162,14 @@ export const GroupsDetails = () => {
           </ul>
         </div>
       </section>
+      <div className="back">
+      <Link to={`/users/${user.id}/groups`}>
+          <span>
+             <p>Indietro</p>
+            </span>
+        </Link>
+       
+        </div>
     </>
   );
 };
