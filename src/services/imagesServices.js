@@ -1,7 +1,7 @@
 import axios from "./axios";
 
 const userImages = (userId, pageNumber, searchParams) => {
-  let url = `http://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+  let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
 
   if (searchParams.tags && searchParams.tags.length >= 1) {
     const tags = searchParams.tags.map((_) => _.value).join();
@@ -61,7 +61,7 @@ const loadImages = (folderId, userId, pageNumber, searchParams) => {
 };
 
 const imageDetailUrl = (id) =>
-  `http://smi-laravel.fly.dev/api/v1/uploads/${id}`;
+  `https://smi-laravel.fly.dev/api/v1/uploads/${id}`;
 
 const loadImageDetail = (idImage) => {
   return axios
@@ -120,7 +120,7 @@ const uploadTag = async (tag) => {
     .catch((error) => console.log(error));
 };
 
-const allTagsUrl = `http://smi-laravel.fly.dev/api/v1/tags`;
+const allTagsUrl = `https://smi-laravel.fly.dev/api/v1/tags`;
 
 /**
  *
