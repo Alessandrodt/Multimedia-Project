@@ -12,6 +12,7 @@ import { Gallery } from "../galleries/Gallery";
 export const FoldersList = () => {
   const { userId, folderId } = useParams();
   const [folders, setFolders] = useState([]);
+  const [crumbs, setCrumbs] = useState([]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -25,9 +26,10 @@ export const FoldersList = () => {
       <article className="wrapper-folder">
         <section className="folders-list">
           <Folder
-            key={folderId}
-            folders={folders}
+            crumbs={crumbs}
+            setCrumbs={setCrumbs}
             folderId={folderId}
+            folders={folders}
             setFolders={setFolders}
             userId={userId}
           />

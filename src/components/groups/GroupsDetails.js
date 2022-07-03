@@ -8,7 +8,7 @@ import {
   Input,
 } from "@mantine/core";
 
-import { ErrorMessage } from "../error-message/ErrorMessage";
+import toast from "react-hot-toast";
 
 import { Search } from 'tabler-icons-react';
 import { useParams } from "react-router-dom";
@@ -21,32 +21,10 @@ import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
-  const { groupName } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  
-  // Error message handling.
-  const errorStyle = {
-    color: color,
-    fontSize: "18px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginTop: "10px",
-    width: "20%"
-}
-
-const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-    }, 5000);
-};
 
   // Searches users in the database by their email to add them to the group.
   const handleSearch = (e) => {
@@ -70,10 +48,11 @@ const handleMessage = (color, message) => {
     groupsServices.addUser(groupId, user.id)
     .then(res => {
       setGroup(group.concat(user))
+      toast.success(`${user.first_name} ${user.last_name} is now part of the group!`);
     })
     .catch(err => {
       if (err.response.status === 422) {
-        handleMessage("red", "This user is already in the group!")
+        toast.error("This user is already in the group!")
       }
     })
   };
@@ -83,15 +62,16 @@ const handleMessage = (color, message) => {
     groupsServices.deleteUser(groupId, user.id)
     .then(res => {
      setGroup(group.filter((u) => u.id !== user.id));
+     toast.success(`${user.first_name} ${user.last_name} has been deleted from the group.`)
   })
   .catch(err => {
     if (err.response.status === 403) {
-      handleMessage("red", "You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
+      toast.error("You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
     }
   })
   .catch(err => {
     if (err.response.status === 404) {
-      handleMessage("red", "Group or user not found.")
+      toast.error("red", "Group or user not found.")
     }
   })
 };
@@ -148,7 +128,6 @@ const handleMessage = (color, message) => {
     <>
       <NavbarGroups></NavbarGroups>
       <div className="container">
-      <h2 className="groupName">{groupName}</h2>
       <table style={
         group.length === 0
         ? { display : "none"}
@@ -175,7 +154,6 @@ const handleMessage = (color, message) => {
                     <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
                     </li>) : ""}
                 </ul>
-                <ErrorMessage message={errorMessage} style={errorStyle} />
                 </div>
             </>
           );

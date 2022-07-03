@@ -1,8 +1,7 @@
 .group-box {
-    position: absolute;
-    width: 80%;
-    left: 12%;
-    top: 150px;
+    margin-top: ($m-50) * 2;
+    padding: 0 $s-2;
+    max-width: 1440px;
 
     .group-avatar {
         margin: $s-3 auto;
