@@ -32,15 +32,14 @@ export function Gallery({ folderId, userId, searchParams }) {
       .loadImages(folderId, userId, pagination.currentPage, searchParams)
       .then((galleryImages) => {
         setNewGalleryImages(
-          galleryImages
+          galleryImages && galleryImages.data.length > 0
             ? galleryImages.data.map((e) => ({
                 urls: e.content,
                 id: e.id,
               }))
-            : [{ urls: addNoMatchImage, id: 999 }]
+            : [{ urls: addNoMatchImage, id: -1 }]
         );
 
-        console.log(galleryImages);
         if (galleryImages) {
           setPagination((oldPagination) => {
             let old = { ...oldPagination };
@@ -89,13 +88,9 @@ export function Gallery({ folderId, userId, searchParams }) {
       >
         {/*  */}
         <Masonry columns={[1, 2, 3, 4]} spacing={2}>
-          {galleryImages.length > 0 ? (
-            galleryImages.map((e) => (
-              <Card img={"data:image/png;base64, " + e.urls} key={e.id} />
-            ))
-          ) : (
-            <div></div>
-          )}
+          {galleryImages.map((e) => (
+            <Card img={e.urls} key={e.id} />
+          ))}
         </Masonry>
       </InfiniteScroll>
     </div>
