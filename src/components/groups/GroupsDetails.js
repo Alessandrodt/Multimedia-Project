@@ -21,7 +21,6 @@ import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
-  const { groupName } = useParams();
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [group, setGroup] = useState([]);
   const [searchInput, setSearchInput] = useState("");
