@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 // components
 import { UploadPreview } from "./UploadPreview";
 import { UploadTags } from "./UploadTags";
 import { UploadFolder } from "./UploadFolder";
-import { ErrorMessage } from "../../error-message/ErrorMessage";
 
 // libraries
 import { Button, LoadingOverlay } from "@mantine/core";
@@ -20,23 +20,8 @@ export function Upload() {
   const [selectedFolder, setSelectedFolder] = useState([]);
   const setUploadedTags = useState([]);
   const [visible, setVisible] = useState(false);
-  const [color, setColor] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const modal = useModals();
-
-  const errorStyle = {
-    color: color,
-    background: "lightgrey",
-    fontSize: "20px",
-    borderStyle: "solid",
-    borderRadius: "5px",
-    padding: "10px",
-    marginBottom: "10px",
-    textAlign: "center",
-    width: "40%",
-    marginLeft: "28%",
-  };
 
   /**
    * it handles the modal for the upload, and it uploads the selected image, folder, and tags
@@ -48,30 +33,19 @@ export function Upload() {
       .uploadImage(selectedFolder, imagesToUpload[0], selectedTags)
       .then((res) => {
         if (res && res.status === 201) {
-          handleMessage("green", `the upload was successful`);
+          toast.success(`the upload was successful`);
         } else {
-          handleMessage("red", `the upload was unsuccessful, try again`);
+          toast.error(`the upload was unsuccessful, try again`);
           console.log("failed");
         }
         setVisible(false);
+        modal.closeModal();
       })
       .catch((error) => {
         console.log(error);
-        handleMessage(
-          "red",
-          `there was an issue with the serve, try again later`
-        );
+        toast.error(`there was an issue with the serve, try again later`);
         setVisible(false);
       });
-  };
-
-  const handleMessage = (color, message) => {
-    setColor(color);
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage(null);
-      modal.closeModal();
-    }, 3000);
   };
 
   const delTag = (id, tag) => {
@@ -84,7 +58,6 @@ export function Upload() {
   return (
     <div>
       <LoadingOverlay visible={visible} />
-      <ErrorMessage message={errorMessage} style={errorStyle} />
       <UploadPreview imagesToUpload={setNewImageUpload} />
       <UploadTags
         setSelectedTags={setSelectedTags}
