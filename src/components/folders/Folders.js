@@ -73,11 +73,10 @@ export const Folder = ({
       });
   };
 
-  const folderTracker = (name) => {
-    const routeTo = folderId
-      ? `/users/${userId}/folders/${folderId}`
-      : `/users/${userId}/folders/`;
-
+  const folderTracker = (name, id) => {
+    const routeTo = 
+      `/users/${userId}/folders/${id}`;
+     
     const folderPath = {
       name,
       path: routeTo,
@@ -86,12 +85,16 @@ export const Folder = ({
     setCrumbs(crumbs.concat(folderPath));
   };
 
-  const items = crumbs?.map((item, index) => {
+  const items = crumbs.map((item, index) => {
     return (
       <div key={index}>
         <Anchor
           onClick={() => {
-            setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)));
+            if(item.name === 'Folders') {
+              setCrumbs(crumbs.slice(item.name[0], crumbs.indexOf(item) + 1))
+            } else {
+              setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)));
+            }
           }}
           component={Link}
           to={item.path}
