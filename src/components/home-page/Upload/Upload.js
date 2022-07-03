@@ -14,7 +14,7 @@ import { useModals } from "@mantine/modals";
 // services
 import imagesServices from "../../../services/imagesServices";
 
-export function Upload() {
+export function Upload({ setNewUploadImages }) {
   const [imagesToUpload, setNewImageUpload] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState([]);
@@ -34,6 +34,7 @@ export function Upload() {
       .then((res) => {
         if (res && res.status === 201) {
           toast.success(`the upload was successful`);
+          setNewUploadImages(res);
         } else {
           toast.error(`the upload was unsuccessful, try again`);
           console.log("failed");
