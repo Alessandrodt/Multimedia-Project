@@ -52,7 +52,9 @@ export const Groups = () => {
                     e.preventDefault();
                     createGroup()
                     }}>
+                    <p>Nuovo Gruppo</p>
                     <TextInput 
+                    className="txt-imput"
                     defaultValue={groupName}
                     label='Choose a title!'
                     name='groupName'
@@ -60,7 +62,7 @@ export const Groups = () => {
                     placeholder='Your title here'
                     required
                     />
-                    <Button fullWidth type="submit"> Create Group </Button>
+                    <Button fullWidth type="submit"> Create</Button>
                 </form>
             </div>
         </Card>
@@ -97,14 +99,11 @@ export const Groups = () => {
         <>
          <NavbarGroups/>
          <div className="group-box">
-            <h3> GROUPS </h3>
-            {initialMessage}
-            <Avatar className="group-avatar" src={user?.avatar?.name ? `http://smear-backend.test//images/avatars/${user?.avatar?.name}` : defaultAvatar } size={150}/>
             {groupForm}
                 {/* A map to create a list item for each group name */}
-                <SimpleGrid className="wrapper-grid" cols={3} spacing='md'>
+                <SimpleGrid className="wrapper-grid" cols={5} spacing='lg'>
                     {groups.map(group =>
-                        <GroupContainer key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
+                        <GroupContainer className="group-cont" key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
                 </SimpleGrid>
             </div>

@@ -127,30 +127,34 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
+        <div className="box-table-group">
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
           <tbody> {rows} </tbody>
         </table>
-        <div className="searchText">
-          Want to add someone to this group? Search them here!
         </div>
-        <div className="search">
-          <Input
-            icon={<Search size={20} />}
-            placeholder="Search users (at least 2 characters)"
-            defaultValue={searchInput}
-            onChange={handleSearch}
-          />
+        <div className="box-src-group">
+          <div className="searchText">
+          Aggiungi un utente
+          </div>
+          <div className="search">
+            <Input
+              icon={<Search size={20} />}
+              placeholder="Search users (at least 2 characters)"
+              defaultValue={searchInput}
+              onChange={handleSearch}
+            />
+          </div>
+          <ul
+            style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
+            {searchResult.length > 0 ? searchResult.map((user) => 
+            <li key={user.id}>  
+              <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add</Button>
+            </li>) : ""}
+          </ul>
         </div>
-        <ul
-          style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
-          {searchResult.length > 0 ? searchResult.map((user) => 
-          <li key={user.id}>  
-            <Avatar size={30} src={user.avatar} radius={30} />  {user.first_name} {user.last_name} {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}> Add </Button>
-          </li>) : ""}
-        </ul>
       </section>
     </>
   );

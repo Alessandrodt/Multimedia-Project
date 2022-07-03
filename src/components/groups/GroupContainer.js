@@ -11,17 +11,17 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
           shadow='xs'
           withBorder
       >
-        <Text align='center' size='lg' weight={500} mt='md'>
+        <Text className='txt-group' align='center' size='lg' weight={500} mt='md'>
           {groupName}
         </Text>
         <Link to={groupDetails}>
           <Button fullWidth mt='md'>
-            Manage Group
+            Manage
           </Button>
         </Link>
         <Link to={groupSharing}>
           <Button fullWidth mt='md'>
-            Image Sharing 
+              Sharing 
           </Button>
         </Link>
     </Paper>
