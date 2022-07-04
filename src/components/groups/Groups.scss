@@ -8,19 +8,14 @@
     }
 
 .wrapper-grid {
-
-    //responsive grid group
-    @include media( "screen", ">minWidth", "<bp2Width" ){
-        display: block;
-    };
     row-gap: 40px;
 
     .paper-groups{
         border-radius: 1.5rem;
         box-shadow: 8px 8px 15px rgb(171, 171, 171);
         border: 2px solid rgb(236, 236, 236);
-        height: 150px;
         align-self: flex-end;
+
         .button-groups-action{
             text-align: center;
             
@@ -33,7 +28,12 @@
 
                 &:first-child {
                     margin-right: 10px;
+                    margin-bottom: 10px;
                 }
+
+                @include media( "screen", ">bp1Width", "<maxWidth" ){
+                    margin-bottom: 10px;
+                };
             }
       
         }
@@ -44,20 +44,29 @@
             margin-top: 5px;
 
         }
+
+        @include media( "screen", ">minWidth", "<bp2Width" ){
+            margin-bottom: $m-30;
+        };
     }
+
+    //responsive grid group
+    @include media( "screen", ">minWidth", "<bp2Width" ){
+        display: block;
+        width: $w-80;
+        margin: $m-auto;
+    };
 }
 
 .wrapper-group {
     box-shadow: 8px 8px 15px rgb(171, 171, 171);
     border: 2px solid rgb(174, 174, 174);
     border-radius: 1.5rem;
-    margin: $s-3 auto;
+    margin: $m-auto;
     padding: $s-3;
     max-width: 340px;
     padding-top: 1rem;
-    @include media( "screen", ">minWidth", "<bp2Width" ){
-        max-width: $w-100;
-    };
+
     .txt-imput-box-groups{
         display: flex;
         align-items: center;
@@ -80,6 +89,10 @@
     .txt-input{
         width: 75%;
     }
+
+    @include media( "screen", ">minWidth", "<bp2Width" ){
+        max-width: $w-80;
+    };
 }
 
 }
