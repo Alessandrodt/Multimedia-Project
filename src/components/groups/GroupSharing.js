@@ -109,7 +109,7 @@ export const GroupSharing = () => {
         <NavbarGroups/>
         <div className="back-box-groups">
         <div className="share-box-groups">
-        <h3>Condividi con i tuoi amici</h3>
+        <p>Condividi con i tuoi amici</p>
         <Button onClick={() => {openContentAddModal()}}> Choose Folders </Button>
         </div>
         <div className="back-group">

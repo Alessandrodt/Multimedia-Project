@@ -131,19 +131,17 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
-        <div className="box-table-group">
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
           <tbody> {rows} </tbody>
         </table>
-        </div>
         <div className="box-src-group">
           <div className="searchText">
           Aggiungi un utente
           </div>
-          <div className="search">
+          <div className="search-box-group">
             <Input
               icon={<Search size={20} />}
               placeholder="Search users (at least 2 characters)"
@@ -155,21 +153,20 @@ export const GroupsDetails = () => {
             style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
             {searchResult.length > 0 ? searchResult.map((user) => 
             <li key={user.id}>  
-              <Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p> {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
+              <span><Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p></span> {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
                 <img src={add}></img>
               </Button>
             </li>) : ""}
           </ul>
+          <div className="back">
+          <Link to={`/users/${user.id}/groups`}>
+              <span>
+                <p>Indietro</p>
+                </span>
+            </Link>
+        </div>
         </div>
       </section>
-      <div className="back">
-      <Link to={`/users/${user.id}/groups`}>
-          <span>
-             <p>Indietro</p>
-            </span>
-        </Link>
-       
-        </div>
     </>
   );
 };
