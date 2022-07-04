@@ -39,7 +39,7 @@ export const Groups = () => {
             };
         });
     }, [user.id]);
-
+    
     // groupName handler.
     const handleChange = (event) => {
         setGroupName(event.target.value);

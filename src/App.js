@@ -9,6 +9,7 @@ import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
+import { NotOwnedGroups } from "./components/groups/NotOwnedGroups";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
@@ -60,9 +61,10 @@ const App = () => {
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>
-        <Toaster
-          toastOptions={{
-            className: "notification",
+        <Toaster 
+           toastOptions={{
+            className: 'notification',
+            duration: 2500,
             style: {
               border: "1px solid #713200",
               padding: "16px",
@@ -74,22 +76,6 @@ const App = () => {
         <ModalsProvider>
           <Routes>
             {/* These routes are not guarded */}
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/users/:userId/groups" element={<Groups />} />
-            <Route
-              path="/users/:userId/groups/:groupId/details"
-              element={<GroupsDetails />}
-            />
-            <Route
-              path="/users/:userId/groups/:groupId/share"
-              element={<GroupSharing />}
-            />
-            <Route
-              path="/users/:userId/folders/:folderId"
-              element={<FoldersList />}
-            />
-            <Route path="users/:userId/folders" element={<FoldersList />} />
-            <Route path="/users/:userId" element={<Profile />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<LandingPage />} />
             <Route
@@ -99,6 +85,26 @@ const App = () => {
             <Route path="/*" element={<NotFound />} />
             {/* These routes are guarded */}
             <Route element={<RequireAuth />}>
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/users/:userId/groups" element={<Groups />} />
+              <Route
+                path="/users/:userId/groups/:groupId/details"
+                element={<GroupsDetails />}
+              />
+              <Route
+                path="/users/:userId/groups/:groupId/share"
+                element={<GroupSharing />}
+              /> 
+              <Route
+                path="/users/:userId/groups/shared"
+                element={<NotOwnedGroups />}
+              />
+              <Route
+                path="/users/:userId/folders/:folderId"
+                element={<FoldersList />}
+              />
+              <Route path="users/:userId/folders" element={<FoldersList />} />
+              <Route path="/users/:userId" element={<Profile />} />
               {/* Inserting a route inside RequireAuth makes it unaccessible without being logged in */}
             </Route>
           </Routes>
