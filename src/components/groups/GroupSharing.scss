@@ -1,0 +1,85 @@
+.back-box-groups{
+    display: flex;
+    .back-group{
+        span{
+            width: 150px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: $_primary;
+            display: block;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            top: 50px;
+            margin-left: 45%;
+            cursor: pointer;
+            position: fixed;
+            top: 640px;
+            p{
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 10px;
+            }
+        }
+    }
+    .share-box-groups {
+        h3{
+            padding: 10px;
+            padding-top: 35px;
+            margin-left: 30px;
+        }
+        button{
+            background-color: $_primary;
+            border-radius: 50px;
+            margin-left: 60px;
+            margin-top: 30px;
+        }
+        button:hover{
+            background-color: $_primary;
+        }
+        width:560px;
+        height: 100px;
+        box-shadow: 8px 8px 15px rgb(218, 218, 218);
+        border-radius: 20px;
+        margin-left: 50px;
+        margin-top: 120px;
+        display: flex;
+        border: 1px solid rgb(226, 226, 226);
+
+    }
+}
+.folder-list-groups{
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    li{
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        p{
+            width: 250px;
+            margin-left: 15px;
+        }
+        button{
+            background-color: transparent;
+            height: 40px;
+        }
+        button:hover{
+            background-color: transparent;
+        }
+        display: flex;
+        margin-left: 35px;     
+    }
+}
+
+.mantine-1abbsss{
+    height: 480px;
+    margin-top: 60px;
+    border-radius: 20px;
+    .mantine-wil3jp{
+        font-size: 20px;
+        margin-left: 30%;
+    }
+}

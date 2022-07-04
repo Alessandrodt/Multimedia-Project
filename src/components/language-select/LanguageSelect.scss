@@ -13,59 +13,62 @@
   width: 0;
 }
   
-/* The slider */
-.sliderr {
-  background-color: rgb(187, 187, 187);
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-  -webkit-transition: .4s;
-}
+  /* The slider */
+  .sliderr {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    background-color: rgb(230, 230, 230);
+  }
   
-.sliderr:before {
-  background-color: $_white;
-  bottom: 4px;
-  content: "";
-  height: 26px;
-  left: 4px;
-  position: absolute;
-  transition: .4s;
-  width: 26px;
-  -webkit-transition: .4s;
-}
+  .sliderr:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 72px;
+    left: 4px;
+    bottom: 4px;
+    transition: 0.4s;
+    background-color: transparent;
+  }
   
-input:checked + .slider {
-    background-color: rgb(187, 187, 187);
-
-    .lngtext {
-        margin-left: -30px;
+  input:checked + .sliderr {
+    background-color: rgb(230, 230, 230);
+    .language-box {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row-reverse;
     }
 }
   
-input:focus + .slider {
+  input:focus + .sliderr {
     box-shadow: 0 0 1px rgb(227, 227, 227);
 }
   
-input:checked +  .slider:before {
-    -webkit-transform: translateX(28px);
-    -ms-transform: translateX(30px);
-    transform: translateX(26px);
+  input:checked +  .sliderr:before {
+    -webkit-transform: translateX(58px);
+    -ms-transform: translateX(58px);
+    transform: translateX(58px);
     // background-image: url("../../images/britishFlag_small.svg");
-    background-color: white;
-}
+    background-color: trasparent;
+  }
   
-/* Rounded sliders */
-.sliderr.round {
-  border-radius: 34px;
-}
+  /* Rounded sliders */
+  .sliderr.round {
+    border-radius: 34px;
+    width: 140px;
+    height: 30px;
+ 
+ }
   
-.sliderr.round:before {
-  border-radius: 50%;
-}
+  .sliderr.round:before {
+    border-radius: 50px;
+  }
 
   
 .check {
@@ -73,15 +76,30 @@ input:checked +  .slider:before {
 }
 
 .lngtext {
-  margin-left: 30px;
+  margin-left: 2px;
+  font-size: 12px;
+  margin-right:  2px;
+  width: 66px;
+  text-align: center;
+  margin-left: 8px;
+  background-color: white;
+  border-radius: 50px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: -2px;
 }
 
-.switch-box {
+ .switch-box {
   display: flex;
-
+  position: absolute;
+  right: 320px;
+  top: 20px;
   .switch-img {
-      
+    display: flex;
+    
     img {
+      width: 26px;
+      margin-top: 2px;
       margin-left: 10px;
       margin-top: 5px;
       width: 26px;
@@ -101,4 +119,38 @@ span.img-languages {
   img {
     width: $w-100;
   }
+}
+
+input:checked + .sliderr .lngtext {
+  margin-left: 2px;
+  margin-right: 5px;
+  font-size: 12px;
+  width: 66px;
+  text-align: center;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  
+}
+
+input:checked + .sliderr .lngtitle {
+  margin-left: 2px;
+  width: 66px;
+  text-align: center;
+  font-size: 12px;
+  margin-right:  2px;
+}
+
+.lngtitle {
+  margin-left: 2px;
+  width: 66px;
+  text-align: center;
+  font-size: 12px;
+  margin-right:  2px;
+}
+
+.language-box {
+  display: flex;
+  margin-top: 8px;
 }

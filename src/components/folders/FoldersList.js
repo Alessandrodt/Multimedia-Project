@@ -10,8 +10,11 @@ import foldersServices from "../../services/foldersServices";
 import { Gallery } from "../galleries/Gallery";
 
 export const FoldersList = () => {
+  const folderPath = 'Folders';
+
   const { userId, folderId } = useParams();
   const [folders, setFolders] = useState([]);
+  const [crumbs, setCrumbs] = useState([{name: folderPath, path: `/users/${userId}/folders`}]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -25,9 +28,10 @@ export const FoldersList = () => {
       <article className="wrapper-folder">
         <section className="folders-list">
           <Folder
-            key={folderId}
-            folders={folders}
+            crumbs={crumbs}
+            setCrumbs={setCrumbs}
             folderId={folderId}
+            folders={folders}
             setFolders={setFolders}
             userId={userId}
           />
