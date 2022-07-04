@@ -17,12 +17,12 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
         </Text>
         <div className="button-groups-action">
         <Link to={groupDetails}>
-          <Button fullWidth mt='md'>
+          <Button name="group-button" fullWidth mt='md'>
             Manage
           </Button>
         </Link>
         <Link to={groupSharing}>
-          <Button fullWidth mt='md'>
+          <Button name="group-button" fullWidth mt='md'>
               Sharing 
           </Button>
         </Link>

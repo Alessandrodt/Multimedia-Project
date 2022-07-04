@@ -25,7 +25,8 @@
             text-align: center;
             
 
-            button[type="button"] {
+            button[name="group-button"] {
+                background: $_primary;
                 display: inline;
                 margin: 0 auto;
                 max-width: 100px;
