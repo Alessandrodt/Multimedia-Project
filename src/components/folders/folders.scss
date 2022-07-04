@@ -118,18 +118,26 @@ section.wrapper-slider {
 
     .card {
         align-items: center;
+        border-radius: $s-2;
+        box-shadow: 0px 0px 9px rgba($color: $_black, $alpha: .25);
         display: flex;
         text-align: center;
-        padding: 0.25rem;
+        padding: .5rem;
         width: 290px;
         justify-content: space-between;
     }
 
     img {
-        width: 80px;
+        width: $w-4;
     }
 
     .wrapper-button {
-        width: 20px;
+        display: flex;
+        gap: $s-2;
+        width: $w-5;
+
+        svg {
+            width: $w-80;
+        }
     }
 }
