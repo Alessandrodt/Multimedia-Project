@@ -86,6 +86,15 @@ export const Folder = ({
   };
 
   const items = crumbs.map((item, index) => {
+    if (crumbs.indexOf(item) === crumbs.length - 1) {
+      return (
+        <div key={index}>
+          <p>
+            {item.name}
+          </p>
+        </div>
+      );
+    } else 
     return (
       <div key={index}>
         <Anchor
@@ -93,7 +102,7 @@ export const Folder = ({
             if(item.name === 'Folders') {
               setCrumbs(crumbs.slice(item.name[0], crumbs.indexOf(item) + 1))
             } else {
-              setCrumbs(crumbs.slice(item.name, crumbs.indexOf(item)));
+              setCrumbs(crumbs.slice(item, crumbs.indexOf(item) + 1));
             }
           }}
           component={Link}
