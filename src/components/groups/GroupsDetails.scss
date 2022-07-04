@@ -1,19 +1,14 @@
 section.wrapper-group-details {
   margin: ($m-50 * 2) auto;
   margin-bottom: 40px;
-  width: 100%;
+  width: 90%;
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-between;
-
-  .box-table-group{
-    width: 700px;
-  }
 }
 
 table.wrapper-table {
   display: block;
-  max-width: 584px;
+  width: 45%;
 
   tbody {
     border: 1px solid $_dark;
@@ -25,7 +20,6 @@ table.wrapper-table {
     box-shadow: 7px 7px 15px rgb(198, 198, 198);
     overflow: scroll;
     overflow-x: hidden;
-    max-height: 450px;
     tr {
       display: block;
       padding: $s-2;
@@ -33,7 +27,6 @@ table.wrapper-table {
       td {
         display: flex;
         justify-content: space-between;
-        width: 550px;
         button{
           border-radius: 50px;
           height: 28px;
@@ -46,12 +39,8 @@ table.wrapper-table {
 .box-src-group{
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
-  width: 600px;
   margin-top: 15px;
-  .search {
-    max-width: 600px;
-  }
+  width: 45%;
   
   .searchText {
     margin: $s-2 0;
@@ -59,22 +48,24 @@ table.wrapper-table {
   }
   ul{
     overflow: scroll;
-    height: 410px;
+    height: 430px;
     overflow-x: hidden;
     box-shadow: 8px 8px 15px rgb(221, 221, 221);
     border-radius: 0 0 20px 20px;
     border: 1px solid rgb(228, 228, 228);
     li{
       display: flex;
-      margin-top: 10px;
+      margin-top: 12px;
       color: gray;
+      justify-content: space-between;
+      span{
+       display: flex;
+      }
       p{
         color: rgb(0, 0, 0);
         margin-right: 10px;
         font-size: 18px;
-      }
-      .mantine-v4akju{
-        margin-top: -4px;
+        
       }
     }
     button{
@@ -97,25 +88,19 @@ table.wrapper-table {
 .back{
   height: 50px;
   width: 100%;
+  text-align: end;
+  margin-top: 35px;
+
   span{
+    display: inline-block;
     width: 150px;
     height: 50px;
     border-radius: 50px;
     background-color: $_primary;
-    display: block;
     color: white;
     text-align: center;
     font-size: 20px;
-    top: 50px;
-    margin-left: 45%;
     cursor: pointer;
-    position: fixed;
-    top: 640px;
-    p{
-      color: white;
-      text-align: center;
-      font-size: 20px;
-      padding-top: 10px;
-    }
+    line-height: 50px;
   }
 }
