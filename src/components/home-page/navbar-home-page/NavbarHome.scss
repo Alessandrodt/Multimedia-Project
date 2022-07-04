@@ -70,17 +70,20 @@
     }
 
     .wrapper-search-bar-home {
-
-        width: 530px;
+        align-items: baseline;
+        display: flex;
+        height: 40px;
+        max-width: 530px;
+        justify-content: space-between;
         
         //responsive
-        @include media( "screen", ">minWidth", "<maxWidth" ) {
-            width: 300px;
-        }
+        // @include media( "screen", ">minWidth", "<maxWidth" ) {
+        //     width: 300px;
+        // }
     
-        @include media( "screen", ">minWidth", "<bp2Width" ) {
-            width: 220px;
-        }
+        // @include media( "screen", ">minWidth", "<bp2Width" ) {
+        //     width: 220px;
+        // }
     }
 }
 

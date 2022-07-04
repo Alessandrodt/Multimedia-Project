@@ -1,0 +1,53 @@
+//SearchByDate
+
+.data-picker {
+    position: relative;
+    width: 100%;
+
+    // input.Data-Picker {
+    //     cursor: pointer;
+    //     -webkit-appearance: none;
+    //     -moz-appearance: none;
+    //     opacity: 0;
+    //     position: relative;
+    //     z-index: 9999;
+    // }
+
+    // svg {
+    //     width: 8%;
+    //     position: relative;
+    //     top: -27px;
+    //     left: 10px;
+    // }
+
+    // .react-datepicker__input-container, .react-datepicker-wrapper {
+    //     display: block;
+    // }
+
+    // .react-datepicker-popper {
+    //     position: relative;
+    // } 
+
+    // .react-datepicker__triangle {
+    //     &::before, &::after {
+    //         left: -111px !important;
+    //     }
+    // }
+
+    // button[aria-label="Close"] {
+    //     position: relative;
+
+    //     &::after {
+    //         position: absolute;
+    //         left: -110px;
+    //         top: -25px;
+    //         height: 15px;
+    //         width: 15px;
+    //     }
+    // }
+}
+
+//SearchByTag
+.search-tag {
+    width: 90%;
+}
