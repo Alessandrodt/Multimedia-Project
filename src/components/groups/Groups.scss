@@ -13,7 +13,6 @@
     @include media( "screen", ">minWidth", "<bp2Width" ){
         display: block;
     };
-    justify-items: center;
     row-gap: 40px;
 
     .paper-groups{
@@ -23,15 +22,17 @@
         height: 150px;
         align-self: flex-end;
         .button-groups-action{
-            display: flex;
-            justify-content: center;
-            column-gap: 10px;
-            button{
-                border-radius: 50px;
-                background-color: $_primary;
-            }
-            button:hover{
-                background-color: $_primary;
+            text-align: center;
+            
+
+            button[type="button"] {
+                display: inline;
+                margin: 0 auto;
+                max-width: 100px;
+
+                &:first-child {
+                    margin-right: 10px;
+                }
             }
       
         }

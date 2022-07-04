@@ -106,7 +106,7 @@ export const Groups = () => {
          <div className="group-box">
             {groupForm}
                 {/* A map to create a list item for each group name */}
-                <SimpleGrid className="wrapper-grid" cols={5} spacing='lg'>
+                <SimpleGrid className="wrapper-grid" cols={4} spacing='lg'>
                     {groups.map(group =>
                         <GroupContainer className="group-cont" key={group.name} groupName={group.name} groupDetails={`/users/${user.id}/groups/${group.id}/details`} groupSharing={`/users/${user.id}/groups/${group.id}/share`} />
                     )}
