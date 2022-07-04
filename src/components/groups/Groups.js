@@ -103,7 +103,7 @@ export const Groups = () => {
     return (
         <>
          <NavbarGroups/>
-         <section className="group-box">
+         <section  className="group-box">
             {groupForm}
                 {/* A map to create a list item for each group name */}
                 <SimpleGrid className="wrapper-grid" cols={4} spacing='lg'>
