@@ -1,9 +1,9 @@
-@mixin button {
-    color: $_white;
-    cursor: pointer;
-    border-radius: $s-1;
-    padding: $s-1;
-}
+// @mixin button {
+//     color: $_white;
+//     cursor: pointer;
+//     border-radius: $s-1;
+//     padding: $s-1;
+// }
 
 article.wrapper-folder {
     width: $w-100;
@@ -17,16 +17,6 @@ article.wrapper-folder {
     &:hover a {
         text-decoration: none;
     }
-}
-
-.button-folder-delete {
-    @include button;
-    background: $_delete;
-}
-
-.button-folder-edit {
-    @include button;
-    background: $_success;
 }
 
 .folderAddButton {
@@ -125,6 +115,35 @@ section.wrapper-slider {
         padding: .5rem;
         width: 290px;
         justify-content: space-between;
+
+        %custom-folder-icon {
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .button-folder-delete {
+            // @include button;
+            // background: $_delete;
+            @extend %custom-folder-icon;
+
+            svg {
+                fill: $_delete;
+            }
+        }
+        
+        .button-folder-edit {
+            // @include button;
+            //background: $_success;
+            @extend %custom-folder-icon;
+        
+            svg {
+                fill: $_primary;
+            }
+        }
+
+        &:hover .button-folder-delete, &:hover .button-folder-edit {
+            opacity: 1;
+        }
     }
 
     img {
