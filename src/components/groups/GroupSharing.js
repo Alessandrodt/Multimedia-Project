@@ -48,9 +48,9 @@ export const GroupSharing = () => {
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
+            setSharedFolders(sharedFolders.concat(res.data.folder));
             console.log(`${f.name} is now being shared with this group`);
             toast.success(`${f.name} is now being shared with this group`);
-            setSharedFolders(sharedFolders.concat(res.data));
             modal.closeModal();
         })
         .catch(err => {
