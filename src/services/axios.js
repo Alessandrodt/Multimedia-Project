@@ -1,11 +1,12 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 
 // window could be omitted but React throws an error.
 const currentLocation = window.location;
 // Standard axios instance creation
 const axiosInstance = axios.create({
-  baseURL: "https://smi-laravel.fly.dev/api/v1/login",
+  baseURL: "https://smi-laravel.fly.dev/",
 });
 
 // This function is responsible for assigning the auth token found in the sessionStorage
@@ -28,7 +29,8 @@ axiosInstance.interceptors.request.use(function (req) {
 // window.location.pathname is suboptimal and should not be used
 axiosInstance.interceptors.response.use(function (res) {
   if (res.status === 401 && currentLocation.pathname !== "/") {
-    return <Navigate to="/" />;
+    currentLocation.reload()
+    toast('Please authenticate yourself.')
   }
   return res;
 });

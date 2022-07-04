@@ -8,6 +8,7 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
+import groupsServices from "../../services/groupsServices";
 import foldersServices from "../../services/foldersServices";
 import folderSharingServices from "../../services/folderSharingServices";
 
@@ -21,25 +22,35 @@ import folder_icon from "../../images/folder_icon.svg"
 
 
 export const GroupSharing = () => {
-    const [sharedFolders, setSharedFolders] = useState([]);
     const user = JSON.parse(sessionStorage.getItem('user'));
+    const [sharedFolders, setSharedFolders] = useState([]);
+    const [groupsIds, setGroupsId] = useState([]);
     const [folders, setFolders] = useState([]);
     const { groupId, userId } = useParams();
     const modal = useModals();
 
     useEffect(() => {
+        groupsServices.getUserGroups(user.id)
+        .then(groups => {
+            const gId = groups.data.map(group => group.id)
+            setGroupsId(gId)
+        });
+
         foldersServices.getFolder(userId).then((response) => {
           setFolders(response.data);
         });
+
+        folderSharingServices.getSharedFolders(userId, groupId).then((response) => {
+            setSharedFolders(response.data)
+        })
     }, [userId]);
 
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
-            console.log(res)
+            setSharedFolders(sharedFolders.concat(res.data.folder));
             console.log(`${f.name} is now being shared with this group`);
             toast.success(`${f.name} is now being shared with this group`);
-            setSharedFolders(sharedFolders.concat(res.data));
             modal.closeModal();
         })
         .catch(err => {
@@ -54,10 +65,10 @@ export const GroupSharing = () => {
     };
 
     const removeFolderFromGroup = (f) => {
-        folderSharingServices.removeFolderFromGroup(groupId, f.folder.id)
+        folderSharingServices.removeFolderFromGroup(groupId, f.id)
         .then(res => {
-            toast(`${f.folder.name} will not be shared with this group anymore`);
-            setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.folder.id !== f.folder.id));
+            toast(`${f.name} will not be shared with this group anymore`);
+            setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.id !== f.id));
         })
         .catch(err => {
             if (err.response.status === 401) {
@@ -112,9 +123,9 @@ export const GroupSharing = () => {
             <SimpleGrid cols={5} spacing='md'>
                 {sharedFolders?.map(sharedFolder => {
                     return (
-                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.folder.id}>
-                            <img src={folderEmpty} alt={`Folder ${sharedFolder.folder.name}`}/>
-                            <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.folder.name} </Text>
+                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
+                            <img src={folderEmpty} alt={`Folder ${sharedFolder.name}`}/>
+                            <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
                             <Button fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
                         </Paper>
                     )
