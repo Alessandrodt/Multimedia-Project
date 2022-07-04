@@ -153,7 +153,7 @@ export const GroupsDetails = () => {
             style={searchResult.length === 0 ? { display: "none" } : { display: "block" }}>
             {searchResult.length > 0 ? searchResult.map((user) => 
             <li key={user.id}>  
-              <span><Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p></span> {user.email} <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
+              <span><Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p></span> <span>{user.email}</span> <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
                 <img src={add}></img>
               </Button>
             </li>) : ""}
@@ -161,7 +161,7 @@ export const GroupsDetails = () => {
           <div className="back">
           <Link to={`/users/${user.id}/groups`}>
               <span>
-                <p>Indietro</p>
+               Indietro
                 </span>
             </Link>
         </div>

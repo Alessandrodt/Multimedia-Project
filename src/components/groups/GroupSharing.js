@@ -120,13 +120,13 @@ export const GroupSharing = () => {
         </Link>
         </div>
         </div>
-            <SimpleGrid cols={5} spacing='md'>
+            <SimpleGrid className="simplegrid-detail-groups" cols={6} spacing='md'>
                 {sharedFolders?.map(sharedFolder => {
                     return (
-                        <Paper p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
+                        <Paper className="paper-details-groups" p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
                             <img src={folderEmpty} alt={`Folder ${sharedFolder.name}`}/>
                             <Text align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
-                            <Button fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove from Group </Button>
+                            <Button name="button-detail-groups" fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> Remove</Button>
                         </Paper>
                     )
                 })}
