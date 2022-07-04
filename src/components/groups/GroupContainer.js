@@ -14,6 +14,7 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
         <Text className='txt-group' align='center' size='lg' weight={500} mt='md'>
           {groupName}
         </Text>
+        <div className="button-groups-action">
         <Link to={groupDetails}>
           <Button fullWidth mt='md'>
             Manage
@@ -24,6 +25,7 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
               Sharing 
           </Button>
         </Link>
+        </div>
     </Paper>
   );
 }
