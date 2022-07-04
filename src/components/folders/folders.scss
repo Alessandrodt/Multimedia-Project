@@ -1,10 +1,8 @@
 @mixin button {
-    border: 1px solid;
-    border-radius: $s-1;
+    color: $_white;
     cursor: pointer;
-    overflow: hidden;
+    border-radius: $s-1;
     padding: $s-1;
-    position: relative;
 }
 
 main.wrapper-folder {
@@ -12,19 +10,23 @@ main.wrapper-folder {
     margin-top: ($m-50) * 2;
 }
 
+.breadcrumbs {
+    color: $_primary;
+    text-decoration: none;
+
+    &:hover a {
+        text-decoration: none;
+    }
+}
+
 .button-folder-delete {
     @include button;
-    border-color: currentColor;
-    color: $_delete
+    background: $_delete;
 }
 
 .button-folder-edit {
     @include button;
-    color: $_success;
-    transition: color .8s ease-in-out;
-    -webkit-transition: .8s ease-in-out;
-    -moz-transition: 8s ease-in-out;
-    -o-transition: 8s ease-in-out;
+    background: $_success;
 }
 
 .card {
@@ -41,10 +43,15 @@ main.wrapper-folder {
     span.folder {
         cursor: pointer;
         display: inline-block;
+<<<<<<< HEAD
         text-align: center;
+=======
+>>>>>>> main
 
         img {
+            cursor: pointer;
             opacity: .8;
+            width: $w-100;
 
             &:hover {
                 opacity: 1;
@@ -91,7 +98,11 @@ section.folder-list {
 }
 
 section.wrapper-folder {
+<<<<<<< HEAD
     width: $w-100;
+=======
+    margin-top: ($m-50) + 20;
+>>>>>>> main
 }
 
 // .messageError {

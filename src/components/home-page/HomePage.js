@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
@@ -11,12 +11,16 @@ import { useModals } from "@mantine/modals";
 
 export const HomePage = () => {
   const modals = useModals();
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const [newUploadImages, setNewUploadImages] = useState([]);
+
+  const [searchParams, setSearchParams] = useState({});
 
   const openContentModal = () => {
     modals.openModal({
       centered: true,
       closeOnClickOutside: false,
-      children: <Upload />,
+      children: <Upload setNewUploadImages={setNewUploadImages} />,
       overflow: "outside",
       size: "70%",
     });
@@ -25,9 +29,13 @@ export const HomePage = () => {
   return (
     <div>
       {/* add style scss */}
-      <NavbarHome />
+      <NavbarHome setSearchParams={setSearchParams} />
       <div className="wrapper-gallery">
-        <Gallery />
+        <Gallery
+          userId={user.id}
+          searchParams={searchParams}
+          newUploadImages={newUploadImages}
+        />
       </div>
       <Button onClick={openContentModal} className="upload-btn">
         <svg

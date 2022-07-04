@@ -1,17 +1,11 @@
 //Import Translate
 import i18next from "i18next";
-import t from "i18next";
-
-//Import Images
-import britishFlag from "../../images/britishFlag.svg";
-import italianFlag from "../../images/italianFlag.svg";
+import {t} from "i18next";
 
 export const LanguageSelect = () => {
   // In these ternary operators 't' is checked to see what is the global language state.
   // If it's not english, then it's italian and vice versa.
-  const lng = t.language === "en" ? "it" : "en";
-
-  const img = t.language === "en" ? britishFlag : italianFlag;
+  const lng = i18next.language === "en-US" ? "it" : "en-US";
 
   // This function imports changeLanguage from i18next and gives the code in string
   // format via the lng parameter.
@@ -26,12 +20,14 @@ export const LanguageSelect = () => {
           <label className="switch">
             <input type="checkbox"></input>
             <span className="sliderr round" onClick={() => languageSwitch(lng)}>
-              <p className="lngtext">{t.language}</p>
+              <div className="language-box">
+            <p className="lngtext">{t("lng")}</p>
+            <p className="lngtitle">{t("code")}</p>
+            </div>
             </span>
           </label>
         </div>
         <div className="switch-img">
-          <img src={img} alt={"Language Select"} />
         </div>
       </div>
     </>

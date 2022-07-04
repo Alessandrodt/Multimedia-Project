@@ -1,6 +1,7 @@
 // React imports
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Mantine imports
 import { useModals } from "@mantine/modals";
@@ -13,10 +14,15 @@ import folderSharingServices from "../../services/folderSharingServices";
 // Style imports
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import toast from "react-hot-toast";
+import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+
+import add from "../../images/add.svg"
+import folder_icon from "../../images/folder_icon.svg"
 
 
 export const GroupSharing = () => {
     const [sharedFolders, setSharedFolders] = useState([]);
+    const user = JSON.parse(sessionStorage.getItem('user'));
     const [folders, setFolders] = useState([]);
     const { groupId, userId } = useParams();
     const modal = useModals();
@@ -66,16 +72,19 @@ export const GroupSharing = () => {
 
     const openContentAddModal = () => {
         modal.openModal({
-          title: "Choose your folder's name:",
-          children:
-            <ul>
+          title: "Choose folder",
+          children:  
+            <ul className="folder-list-groups">
                 {folders.map(folder => {
                     return (
                         <li key={folder.id}> 
                             <br />
+                            <img src={folder_icon}></img>
                             <p> {folder.name} </p>
                             <br />
-                            <Button compact onClick={() => addFolderToGroup(folder)}> Add to Group </Button> 
+                            <Button compact onClick={() => addFolderToGroup(folder)}>
+                                <img src={add}></img>
+                            </Button> 
                             <br />
                         </li>
                     );
@@ -86,9 +95,20 @@ export const GroupSharing = () => {
 
     return (
         <>
-        <h1> GROUP IMAGE SHARING </h1>
+        <NavbarGroups/>
+        <div className="back-box-groups">
+        <div className="share-box-groups">
+        <h3>Condividi con i tuoi amici</h3>
         <Button onClick={() => {openContentAddModal()}}> Choose Folders </Button>
-            <h3> This is the section where you should see if a folder is added or not but we don't have the facilities for this </h3>
+        </div>
+        <div className="back-group">
+        <Link to={`/users/${user.id}/groups`}>
+          <span>
+             <p>Indietro</p>
+            </span>
+        </Link>
+        </div>
+        </div>
             <SimpleGrid cols={5} spacing='md'>
                 {sharedFolders?.map(sharedFolder => {
                     return (
