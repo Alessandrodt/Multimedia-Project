@@ -20,12 +20,24 @@ article.wrapper-folder {
 }
 
 .folderAddButton {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
     margin: $m-auto;
-    max-width: 1024px;
+    max-width: 1224px;
     padding: $spacer;
+    text-align: end;
+    justify-content: space-between;
+
+    .breadcrumbs {
+        align-items: center;
+    }
     
     span.folder {
         display: inline-block;
+        background: $_primary;
+        border-radius: $s-3;
+        padding: $s-2 $s-3;
 
         img {
             cursor: pointer;
@@ -102,9 +114,10 @@ section.wrapper-slider {
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
-    max-width: 1024px;
+    max-width: 1224px;
     padding: 1rem;
     row-gap: $s-3;
+    justify-content: flex-start;
 
     .card {
         align-items: center;
@@ -117,8 +130,9 @@ section.wrapper-slider {
         justify-content: space-between;
 
         %custom-folder-icon {
-            opacity: 0;
             cursor: pointer;
+            opacity: 0;
+            transition: .6s ease-in-out;
         }
 
         .button-folder-delete {
@@ -143,6 +157,7 @@ section.wrapper-slider {
 
         &:hover .button-folder-delete, &:hover .button-folder-edit {
             opacity: 1;
+            transition: .6s ease-in-out;
         }
     }
 

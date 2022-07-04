@@ -139,10 +139,10 @@ export const Folder = ({
       <div className="messageError">
         <LoadingOverlay visible={visible} />
       </div>
-      <Breadcrumbs>{items}</Breadcrumbs>
       <div className="folderAddButton">
+        <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
         <span className="folder" onClick={openContentAddModal}>
-          <img src={addFolderImage} alt=""></img>
+          Upload
         </span>
       </div>
       <section className="wrapper-slider">
