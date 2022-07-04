@@ -9,6 +9,7 @@ import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
+import { NotOwnedGroups } from "./components/groups/NotOwnedGroups";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
@@ -92,6 +93,10 @@ const App = () => {
                 path="/users/:userId/groups/:groupId/share"
                 element={<GroupSharing />}
               /> 
+              <Route
+                path="/users/:userId/groups/shared"
+                element={<NotOwnedGroups />}
+              />
               <Route
                 path="/users/:userId/folders/:folderId"
                 element={<FoldersList />}

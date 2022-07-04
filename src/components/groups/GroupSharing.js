@@ -35,8 +35,7 @@ export const GroupSharing = () => {
           setFolders(response.data);
         });
 
-        folderSharingServices.getSharedFolders(userId, groupsIds).then((response) => {
-            console.log(response.data)
+        folderSharingServices.getSharedFolders(userId, groupId).then((response) => {
             setSharedFolders(response.data)
         })
     }, [userId]);
@@ -44,7 +43,6 @@ export const GroupSharing = () => {
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
-            console.log(res)
             console.log(`${f.name} is now being shared with this group`);
             toast.success(`${f.name} is now being shared with this group`);
             setSharedFolders(sharedFolders.concat(res.data));
@@ -62,10 +60,10 @@ export const GroupSharing = () => {
     };
 
     const removeFolderFromGroup = (f) => {
-        folderSharingServices.removeFolderFromGroup(groupId, f.folder.id)
+        folderSharingServices.removeFolderFromGroup(groupId, f.id)
         .then(res => {
-            toast(`${f.folder.name} will not be shared with this group anymore`);
-            setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.folder.id !== f.folder.id));
+            toast(`${f.name} will not be shared with this group anymore`);
+            setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.id !== f.id));
         })
         .catch(err => {
             if (err.response.status === 401) {
