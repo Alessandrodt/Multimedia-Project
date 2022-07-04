@@ -8,6 +8,7 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
+import groupsServices from "../../services/groupsServices";
 import foldersServices from "../../services/foldersServices";
 import folderSharingServices from "../../services/folderSharingServices";
 
