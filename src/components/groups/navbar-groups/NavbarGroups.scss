@@ -6,7 +6,7 @@
     align-items: center;
     display: flex;
     margin: $m-auto;
-    padding: $s-2 $s-3;
+    padding: .5rem $s-3;
     max-width: 1440px;
     justify-content: space-between;
 
@@ -47,16 +47,6 @@
 
         button:hover {
             box-shadow: 0 0 0 6px #f3f3f3;
-        }
-
-        .folder-button {
-            background-color: $_primary;
-            border: 0;
-            border-radius: 2rem;
-            box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
-            cursor: pointer;
-            position: relative;
-            padding: 0.5rem;
         }
     }
 }

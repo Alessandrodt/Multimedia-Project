@@ -28,7 +28,7 @@ const AddFolderForm = (props) => {
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
+                <Button name="confirm-upload" fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
             </form>
         </Box>
     );

@@ -34,9 +34,11 @@ article.wrapper-folder {
     }
     
     span.folder {
-        display: inline-block;
+        color: $_white;
+        cursor: pointer;
         background: $_primary;
         border-radius: $s-3;
+        display: inline-block;
         padding: $s-2 $s-3;
 
         img {
@@ -174,4 +176,9 @@ section.wrapper-slider {
             width: $w-80;
         }
     }
+}
+
+button[name="confirm-upload"] {
+    background-color: $_primary;
+    margin-top: 10px;
 }
