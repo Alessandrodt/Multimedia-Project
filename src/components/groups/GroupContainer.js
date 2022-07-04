@@ -7,6 +7,7 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
      
       <Paper
           p='md'
+          className='paper-groups'
           radius='md'
           shadow='xs'
           withBorder

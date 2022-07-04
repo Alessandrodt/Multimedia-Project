@@ -1,42 +1,11 @@
 .group-box {
     margin-top: ($m-50) * 2;
     padding: 0 $s-2;
-    max-width: 1440px;
+    width: $w-100;
 
     .group-avatar {
         margin: $s-3 auto;
     }
-
-    .mantine-o0rs1q{
-        border-radius: 1.5rem;
-        box-shadow: 8px 8px 15px rgb(171, 171, 171);
-        border: 2px solid rgb(174, 174, 174);
-        width: 230px;
-        margin-bottom: 20px;
-        height: 200px;
-        padding: 0px;
-        button{
-            margin-top: 16px;
-            width: 120px;
-            margin-left: 53px;
-            border-radius: 50px;
-            background-color: $_primary;
-        }
-        button:hover{
-            background-color: $_primary;
-        }
-        .txt-group{
-            margin-bottom: 30px;
-            margin-top: 0px;
-            border-radius: 1.5rem 1.5rem 0 0;
-            background-color: rgb(222, 222, 222);
-            padding: 8px 2px;
-            font-size: 15px;
-            height: 58px;
-
-        }
-    }
-}
 
 .wrapper-grid {
 
@@ -44,49 +13,73 @@
     @include media( "screen", ">minWidth", "<bp2Width" ){
         display: block;
     };
-    margin-left: 125px;
+    justify-items: center;
+    row-gap: 40px;
+
+    .paper-groups{
+        border-radius: 1.5rem;
+        box-shadow: 8px 8px 15px rgb(171, 171, 171);
+        border: 2px solid rgb(236, 236, 236);
+        height: 150px;
+        align-self: flex-end;
+        .button-groups-action{
+            display: flex;
+            justify-content: center;
+            column-gap: 10px;
+            button{
+                border-radius: 50px;
+                background-color: $_primary;
+            }
+            button:hover{
+                background-color: $_primary;
+            }
+      
+        }
+        .txt-group{
+            margin-bottom: 20px;
+            border-radius: 1.5rem 1.5rem 0 0;
+            font-size: 14px;
+            margin-top: 5px;
+
+        }
+    }
 }
 
 .wrapper-group {
     box-shadow: 8px 8px 15px rgb(171, 171, 171);
     border: 2px solid rgb(174, 174, 174);
     border-radius: 1.5rem;
-    margin: $s-3 0;
+    margin: $s-3 auto;
     padding: $s-3;
-    max-width: 23%;
-    margin-left: 42%;
+    max-width: 340px;
     padding-top: 1rem;
-    margin-bottom: 50px;
-    margin-top: 20px;
     @include media( "screen", ">minWidth", "<bp2Width" ){
-        max-width: $w_100;
+        max-width: $w-100;
     };
-
-    .mantine-1w07r5r{
-        font-size: 12px;
-        margin-left: 78px;
-    }
-
-    .txt-imput {
-        width: 250px !important;
-        margin-left: 10px;
+    .txt-imput-box-groups{
+        display: flex;
+        align-items: center;
     }
 
     p{
         font-size: 20px;
-        margin-left: 69px;
         margin-bottom: 10px;
+        text-align: center;
     }
     button{
-        margin-top: 20px;
-        width: 150px;
-        margin-left: 63px;
-        border-radius: 50px;
-        background-color: $_primary;
+        background-color: transparent;
+        width: 24%;
+        position: relative;
+        top: 14px;
     }
     button:hover{
-        background-color: $_primary;
+        background-color: transparent;
     }
+    .txt-input{
+        width: 75%;
+    }
+}
+
 }
 
 .p0 {

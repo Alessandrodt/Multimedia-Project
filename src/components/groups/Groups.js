@@ -12,6 +12,7 @@ import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 import toast from "react-hot-toast";
+import add from "../../images/add.svg"
 
 export const Groups = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -53,8 +54,9 @@ export const Groups = () => {
                     createGroup()
                     }}>
                     <p>Nuovo Gruppo</p>
+                    <div className="txt-imput-box-groups">
                     <TextInput 
-                    className="txt-imput"
+                    className="txt-input"
                     defaultValue={groupName}
                     label='Choose a title!'
                     name='groupName'
@@ -62,7 +64,10 @@ export const Groups = () => {
                     placeholder='Your title here'
                     required
                     />
-                    <Button fullWidth type="submit"> Create</Button>
+                    <Button fullWidth type="submit">
+                        <img src={add}></img>
+                    </Button>
+                    </div>
                 </form>
             </div>
         </Card>
