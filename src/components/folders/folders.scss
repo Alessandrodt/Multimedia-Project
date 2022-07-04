@@ -95,7 +95,9 @@ section.wrapper-folder {
 // }
 
 .slider {
-    display: inline;
+    align-items: center;
+    display: flex;
+    column-gap: $s-2;
     height: $h-100;
     width: $w-100;
 
@@ -113,11 +115,14 @@ section.wrapper-slider {
     max-width: 1024px;
     padding: 1rem;
     row-gap: $s-3;
-    justify-content: flex-start;
 
     .card {
-        padding: $s-1;
+        align-items: center;
+        display: flex;
         text-align: center;
+        padding: 0.25rem;
+        width: 290px;
+        justify-content: space-between;
     }
 
     img {
@@ -125,11 +130,6 @@ section.wrapper-slider {
     }
 
     .wrapper-button {
-        display: flex;
-        flex-direction: column;
-        row-gap: $s-2;
-        margin-top: 10px;
-        justify-content: space-around;
-
+        width: 20px;
     }
 }
