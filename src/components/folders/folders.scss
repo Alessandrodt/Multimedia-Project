@@ -29,11 +29,6 @@ article.wrapper-folder {
     background: $_success;
 }
 
-.card {
-    padding: $s-1;
-    text-align: center;
-}
-
 .folderAddButton {
     margin: $m-auto;
     max-width: 1024px;
@@ -119,6 +114,11 @@ section.wrapper-slider {
     padding: 1rem;
     row-gap: $s-3;
     justify-content: flex-start;
+
+    .card {
+        padding: $s-1;
+        text-align: center;
+    }
 
     img {
         width: 80px;
