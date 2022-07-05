@@ -36,6 +36,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
             ? galleryImages.data.map((e) => ({
                 urls: e.content,
                 id: e.id,
+                tags: e.tags.map((_) => _.name),
               }))
             : [{ urls: addNoMatchImage, id: -1 }]
         );
@@ -67,6 +68,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
               galleryImages.data.map((e) => ({
                 urls: e.content,
                 id: e.id,
+                tags: e.tags.map((x) => x.name),
               }))
             )
           );
@@ -87,10 +89,12 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
         hasMore={true}
         loader={""}
       >
-        {/*  */}
         <Masonry columns={[1, 2, 3, 4]} spacing={2}>
           {galleryImages.map((e) => (
-            <Card img={e.urls} idImage={e.id} key={e.id} />
+            <div>
+              <Card img={e.urls} idImage={e.id} key={e.id} />
+              <span>{e.tags.join()}</span>
+            </div>
           ))}
         </Masonry>
       </InfiniteScroll>
