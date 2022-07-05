@@ -15,8 +15,8 @@ const userImages = (userId, pageNumber, searchParams) => {
       }`;
     } else {
       url += `&filter[created_at_between]=${
-        searchParams.date[0].toISOString().split("T")[0]
-      },${searchParams.date[1].toISOString().split("T")[0]}`;
+        searchParams.date[1].toISOString().split("T")[0]
+      },${searchParams.date[0].toISOString().split("T")[0]}`;
     }
   }
 
@@ -50,7 +50,6 @@ const loadImages = (folderId, userId, pageNumber, searchParams) => {
   return axios
     .get(url, { headers: headersGet })
     .then((response) => {
-      console.log(response);
       return response.data;
     })
     .catch((error) => console.log(error));
@@ -63,7 +62,6 @@ const loadImageDetail = (idImage) => {
   return axios
     .get(imageDetailUrl(idImage), { headers: headersGet })
     .then((response) => {
-      console.log(response.data);
       return response;
     });
 };
@@ -93,7 +91,6 @@ const uploadImage = async (folderId, newUpload, tags) => {
   return axios
     .post(uploadUrl(folderId), formData, { headers: headers })
     .then((y) => {
-      console.log(y.data);
       return y;
     })
     .catch((error) => console.log(error));
@@ -126,7 +123,6 @@ const getAllTags = () => {
   return axios
     .get(allTagsUrl, { headers: headers })
     .then((x) => {
-      console.log(x.data);
       return x.data;
     })
     .catch((error) => console.log(error));

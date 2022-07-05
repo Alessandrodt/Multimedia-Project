@@ -23,10 +23,6 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
     totalImages: 1,
   });
 
-  useEffect(() => {
-    setPagination({ currentPage: 1, finalPage: 1, totalImages: 1 });
-  }, [newUploadImages]);
-
   /**
    * the initial loading of the images,
    * setting pagination parameters and gallery images based on the response
@@ -34,7 +30,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
    */
   useEffect(() => {
     imagesServices
-      .loadImages(folderId, userId, pagination.currentPage, searchParams)
+      .loadImages(folderId, userId, 1, searchParams)
       .then((galleryImages) => {
         setNewGalleryImages(
           galleryImages && galleryImages.data.length > 0
@@ -50,11 +46,11 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
           setPagination((oldPagination) => {
             let old = { ...oldPagination };
             old.finalPage = galleryImages.last_page;
+            old.currentPage = 1;
             old.totalImages = galleryImages.total;
             return old;
           });
         }
-        console.log(galleryImages);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [folderId, searchParams, newUploadImages]);
