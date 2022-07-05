@@ -2,7 +2,6 @@
 import { DetailImg } from "./DetailImg";
 //libraries
 import { useModals } from "@mantine/modals";
-import { Blockquote } from "@mantine/core";
 
 export function Card({ img, idImage }) {
   const modals = useModals();
