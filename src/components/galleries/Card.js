@@ -21,7 +21,8 @@ export function Card({ img, idImage }) {
       closeOnClickOutside: false,
       children: <DetailImg idImage={idImage} />,
       overflow: "inside",
-      size: "70%",
+      size: "50%",
+
     });
   };
 

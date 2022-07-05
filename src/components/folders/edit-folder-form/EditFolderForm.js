@@ -1,10 +1,7 @@
 import { Box, Button, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useModals } from "@mantine/modals";
 
 const EditFolderForm = (props) => {
-    const modal = useModals()
-
     const form = useForm({
         initialValues: {
             name: '',
@@ -25,7 +22,7 @@ const EditFolderForm = (props) => {
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
+                <Button fullWidth type="submit">Confirm</Button>
             </form>
         </Box>
     );
