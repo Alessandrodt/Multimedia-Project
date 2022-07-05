@@ -1,14 +1,12 @@
 .back-box-groups{
-    width: 100%;
-    padding: 0 20px;
+    width: 80%;
     display: flex;
     align-items: baseline;
+    margin: 10px auto;
+    margin-top: 120px;
 
-    .back-group{
-        text-align: end;
-        width: 100%;
-        padding: 0 50px;
-        span{
+    .share-box-groups {
+        span[name="back-groups"]{
             padding: 0.45rem 0.8rem;
             display: inline-block;
             background-color: #00D1E0;
@@ -16,18 +14,11 @@
             border-radius: 2rem;
             box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
             cursor: pointer;
-            font-size: 18px;
             text-align: center;
-            p {
-            color: white;
-            text-align: center;
-            font-size: 18px;
+            p{
+                font-size: 18px;
             }
         }
-    }
-
-    .share-box-groups {
-
         p{
             font-size: 22px;
         }
@@ -46,10 +37,11 @@
 
         box-shadow: 8px 8px 15px rgb(218, 218, 218);
         border-radius: 20px;
-        margin-top: 120px;
-        padding: 20px;
+        padding: 1rem;
         border: 1px solid rgb(226, 226, 226);
-        width: 50%;
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
         p,button{
             display: inline-block;
         }

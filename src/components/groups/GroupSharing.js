@@ -111,15 +111,17 @@ export const GroupSharing = () => {
         <NavbarGroups/>
         <div className="back-box-groups">
         <div className="share-box-groups">
+       <div>
         <p>Condividi con i tuoi amici</p>
         <Button onClick={() => {openContentAddModal()}}> Choose Folders </Button>
-        </div>
-        <div className="back-group">
+        </div> 
+        <div>
         <Link to={`/users/${user.id}/groups`}>
-          <span>
+          <span name="back-groups">
              <p>Indietro</p>
             </span>
         </Link>
+        </div> 
         </div>
         </div>
             <SimpleGrid className="simplegrid-detail-groups" cols={6} spacing='md'>
