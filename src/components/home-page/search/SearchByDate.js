@@ -14,6 +14,7 @@ export function SearchByDate({ setSelectedDate }) {
       selectsRange={true}
       startDate={startDate}
       endDate={endDate}
+      dateFormat="dd/MM/yyyy"
       onChange={(update) => {
         setDateRange(update);
         setSelectedDate(update);

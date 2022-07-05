@@ -178,7 +178,11 @@ section.wrapper-slider {
     }
 }
 
-button[name="confirm-upload"] {
+button[name="confirm"] {
     background-color: $_primary;
     margin-top: 10px;
+
+    &:hover {
+        background: $_dark;
+    }
 }

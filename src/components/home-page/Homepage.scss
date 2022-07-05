@@ -75,6 +75,16 @@
     position: relative;
     top: 200px;
     padding-left: 20px;
+
+    // ::-webkit-scrollbar {
+    //     display: none;
+    // }
+    .infinite-scroll-component {
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+
+    }
+
 }
 
 

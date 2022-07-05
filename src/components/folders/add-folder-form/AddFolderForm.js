@@ -1,9 +1,8 @@
 import { Box, Button, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useModals } from "@mantine/modals";
 
 const AddFolderForm = (props) => {
-  const modal = useModals();
+
 
   const form = useForm({
     initialValues: {
@@ -28,7 +27,7 @@ const AddFolderForm = (props) => {
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button name="confirm-upload" fullWidth onClick={() => modal.closeModal()} type="submit">Confirm</Button>
+                <Button name="confirm" fullWidth type="submit">Confirm</Button>
             </form>
         </Box>
     );

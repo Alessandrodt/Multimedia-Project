@@ -1,7 +1,7 @@
 import axios from "./axios";
 
 const userImages = (userId, pageNumber, searchParams) => {
-  let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}`;
+  let url = `https://smi-laravel.fly.dev/api/v1/users/${userId}/uploads?page=${pageNumber}&include=tags`;
 
   if (searchParams.tags && searchParams.tags.length >= 1) {
     const tags = searchParams.tags.map((x) => x.value).join();
@@ -30,7 +30,7 @@ const headersGet = {
 };
 
 const folderImages = (folderId, pageNumber) =>
-  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}`;
+  `https://smi-laravel.fly.dev/api/v1/folders/${folderId}/uploads?page=${pageNumber}&include=tags`;
 
 /**
  *
