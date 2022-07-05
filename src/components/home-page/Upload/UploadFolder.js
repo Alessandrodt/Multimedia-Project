@@ -16,7 +16,7 @@ export function UploadFolder({ setSelectedFolder }) {
     const userId = JSON.parse(sessionStorage.getItem("user")).id;
 
     foldersServices
-      .getFolder(userId)
+      .getFolderUpload(userId)
       .then((res) => {
         setAllFolders(res.data);
       })

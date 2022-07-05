@@ -29,6 +29,10 @@ const getFolder = (userId, folderId) => {
   return axios.get(url);
 };
 
-const foldersServices = { createFolder, editFolder, getFolder };
+const getFolderUpload = (userId) => {
+  return axios.get(`https://smi-laravel.fly.dev/api/v1/users/${userId}/folders/`);
+};
+
+const foldersServices = { createFolder, editFolder, getFolder, getFolderUpload };
 
 export default foldersServices;
