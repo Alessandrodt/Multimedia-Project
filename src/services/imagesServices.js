@@ -5,7 +5,7 @@ const userImages = (userId, pageNumber, searchParams) => {
 
   if (searchParams.tags && searchParams.tags.length >= 1) {
     const tags = searchParams.tags.map((x) => x.value).join();
-    url += `&filter[tags]=0,${tags}`;
+    url += `&filter[tags]=${tags}`;
   }
 
   if (searchParams.date && searchParams.date[0]) {

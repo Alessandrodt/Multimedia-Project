@@ -48,6 +48,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
             return old;
           });
         }
+        console.log(galleryImages);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [folderId, searchParams, newUploadImages]);
