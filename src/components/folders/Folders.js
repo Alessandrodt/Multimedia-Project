@@ -45,6 +45,7 @@ export const Folder = ({
       .catch((error) => {
         if (error.response.status === 422) {
           toast.error(`the folder ${values.name} already exists`);
+          modal.closeModal();
         }
       });
   };
@@ -67,6 +68,7 @@ export const Folder = ({
         } else if (error.response.status === 422) {
           toast.error(`the folder ${values.name} already exists`);
         }
+        modal.closeModal();
       });
   };
 
