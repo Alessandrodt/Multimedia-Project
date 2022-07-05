@@ -175,7 +175,6 @@ export const SignUp = () => {
         </div>  
         <TextInput
           className="email"
-          maxLength={25}
           required
           label="Email"
           placeholder="Mario.Rossi@email.com"
@@ -187,7 +186,6 @@ export const SignUp = () => {
         />
         <PasswordInput
           name="reset-input-signup"
-          maxLength={15}
           required
           label="Password"
           autoComplete="on"
@@ -200,7 +198,6 @@ export const SignUp = () => {
         />
         <PasswordInput
           name="reset-input-signup"
-          maxLength={15}
           required
           mt="sm"
           label="Confirm password"

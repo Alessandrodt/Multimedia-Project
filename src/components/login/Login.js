@@ -10,7 +10,6 @@ import { useModals } from "@mantine/modals";
 
 // Services
 import authServices from "../../services/authServices";
-import { dividerClasses } from "@mui/material";
 
 
 export const Login = () => {
@@ -78,7 +77,6 @@ export const Login = () => {
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <form className="form-login" onSubmit={form.onSubmit(getUser)}>
         <TextInput
-          maxLength={25}
           required
           label="Email"
           placeholder="Email"
@@ -91,7 +89,6 @@ export const Login = () => {
         />
         <PasswordInput
           name="reset-input-login"
-          maxLength={15}
           required
           label="Password"
           placeholder="Password"

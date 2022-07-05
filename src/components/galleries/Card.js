@@ -7,11 +7,9 @@ export function Card({ img, idImage }) {
   const modals = useModals();
 
   const styles = {
-    margin: "10px 10px",
-    padding: 0,
-    borderRadius: "16px",
+    //padding: "10px",
+    borderRadius: "20px",
     // added not to break everything
-    display: "block",
     width: "100%",
   };
 
