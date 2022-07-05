@@ -6,7 +6,7 @@
 
     span.title-tags {
         bottom: 20px;
-        color: $_primary;
+        color: $_white;
         left: 20px;
         mix-blend-mode: unset;
         opacity: 0;
@@ -28,7 +28,7 @@
         position: absolute;
         //background: $_black;
         background: rgb(0,0,0);
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
         bottom: 0;
         left: 0;
         opacity: 1;
