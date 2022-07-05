@@ -15,8 +15,8 @@ const userImages = (userId, pageNumber, searchParams) => {
       }`;
     } else {
       url += `&filter[created_at_between]=${
-        searchParams.date[0].toISOString().split("T")[0]
-      },${searchParams.date[1].toISOString().split("T")[0]}`;
+        searchParams.date[1].toISOString().split("T")[0]
+      },${searchParams.date[0].toISOString().split("T")[0]}`;
     }
   }
 
