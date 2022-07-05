@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 // components
@@ -10,11 +10,10 @@ import EditFolderForm from "./edit-folder-form/EditFolderForm";
 import foldersServices from "../../services/foldersServices";
 
 // libraries
-import { Anchor, Breadcrumbs, Card, LoadingOverlay } from "@mantine/core";
+import { Anchor, Breadcrumbs, Card } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 
 // style
-import addFolderImage from "../../images/addFolder.svg";
 import folderEmpty from "../../images/folder_icon_empty.svg";
 import folderWithElement from "../../images/folder_icon.svg";
 
@@ -28,7 +27,6 @@ export const Folder = ({
 }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const modal = useModals();
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -37,19 +35,17 @@ export const Folder = ({
   }, [userId, folderId, setFolders]);
 
   const addFolder = (userId, values) => {
-    setVisible(true);
     foldersServices
       .createFolder(userId, folderId, values)
       .then((response) => {
         setFolders(folders.concat(response.data));
         toast.success(`${values.name} was created successfully`);
-        setVisible(false);
+        modal.closeModal();
       })
       .catch((error) => {
         if (error.response.status === 422) {
           toast.error(`the folder ${values.name} already exists`);
         }
-        setVisible(false);
       });
   };
 
@@ -62,6 +58,7 @@ export const Folder = ({
             folder.id === folderId ? response.data : folder
           )
         );
+        modal.closeModal();
         toast.success(`the folder has been modified successfully`);
       })
       .catch((error) => {
@@ -137,7 +134,6 @@ export const Folder = ({
   return (
     <main>
       <div className="messageError">
-        <LoadingOverlay visible={visible} />
       </div>
       <div className="folderAddButton">
         <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
