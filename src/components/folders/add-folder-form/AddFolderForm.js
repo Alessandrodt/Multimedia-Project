@@ -27,7 +27,7 @@ const AddFolderForm = (props) => {
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button name="confirm-upload" fullWidth type="submit">Confirm</Button>
+                <Button name="confirm" fullWidth type="submit">Confirm</Button>
             </form>
         </Box>
     );

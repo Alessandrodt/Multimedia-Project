@@ -22,7 +22,7 @@ const EditFolderForm = (props) => {
                     placeholder="Folder name"
                     {...form.getInputProps('name')}
                 />
-                <Button fullWidth type="submit">Confirm</Button>
+                <Button name="confirm" fullWidth type="submit">Confirm</Button>
             </form>
         </Box>
     );
