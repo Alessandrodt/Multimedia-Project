@@ -74,7 +74,7 @@
 .wrapper-gallery {
     position: relative;
     top: 200px;
-    padding-left: 20px;
+    //padding-left: 20px;
 
     // ::-webkit-scrollbar {
     //     display: none;
@@ -137,4 +137,8 @@
         font-size: 20px;
         margin-bottom: 30px;
     }
+}
+
+button[name="upload-img"] {
+    background: $_primary;
 }

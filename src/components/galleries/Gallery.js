@@ -97,8 +97,8 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
         <Box>
           <Masonry columns={[1, 2, 3, 4]} spacing={2} loading="lazy">
             {galleryImages.map((e) => (
-              <div key={e.id}>
-                <span>{e.tags.join(", ")}</span>
+              <div className="box-gallery-home" key={e.id}>
+                <span className="title-tags">{e.tags.join(", ")}</span>
                 <Card img={e.urls} idImage={e.id} key={e.id}></Card>
               </div>
             ))}

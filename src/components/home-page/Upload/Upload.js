@@ -67,9 +67,9 @@ export function Upload({ setNewUploadImages }) {
       />
       <UploadFolder setSelectedFolder={setSelectedFolder} />
       <Button
-        classNames={"button-upload"}
         onClick={handleClick}
         className={"upload-preview-btn"}
+        name="upload-img"
       >
         upload
       </Button>
