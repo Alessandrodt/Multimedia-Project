@@ -10,11 +10,14 @@ import foldersServices from "../../services/foldersServices";
 import { Gallery } from "../galleries/Gallery";
 
 export const FoldersList = () => {
-  const folderPath = 'Folders';
+  const folderPath = "Folders";
 
   const { userId, folderId } = useParams();
   const [folders, setFolders] = useState([]);
-  const [crumbs, setCrumbs] = useState([{name: folderPath, path: `/users/${userId}/folders`}]);
+  const [crumbs, setCrumbs] = useState([
+    { name: folderPath, path: `/users/${userId}/folders` },
+  ]);
+  const [newUploadImages, setNewUploadImages] = useState([]);
 
   useEffect(() => {
     foldersServices.getFolder(userId, folderId).then((response) => {
@@ -33,6 +36,7 @@ export const FoldersList = () => {
             folderId={folderId}
             folders={folders}
             setFolders={setFolders}
+            setNewUploadImages={setNewUploadImages}
             userId={userId}
           />
         </section>
@@ -42,6 +46,7 @@ export const FoldersList = () => {
             <Gallery
               folderId={folderId}
               key={folderId}
+              newUploadImages={newUploadImages}
             ></Gallery>
           </section>
         ) : (
