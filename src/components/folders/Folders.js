@@ -142,7 +142,7 @@ export const Folder = ({
       <div className="folderAddButton">
         <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
         <span className="folder" onClick={openContentAddModal}>
-          Upload
+          Add Folder
         </span>
       </div>
       <section className="wrapper-slider">
