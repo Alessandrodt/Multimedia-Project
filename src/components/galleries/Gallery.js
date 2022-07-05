@@ -9,6 +9,7 @@ import imagesServices from "../../services/imagesServices";
 
 //libraries
 import Masonry from "@mui/lab/Masonry";
+import Box from "@mui/material/Box";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // styles
@@ -21,6 +22,10 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
     finalPage: 1,
     totalImages: 1,
   });
+
+  useEffect(() => {
+    setPagination({ currentPage: 1, finalPage: 1, totalImages: 1 });
+  }, [newUploadImages]);
 
   /**
    * the initial loading of the images,
@@ -36,6 +41,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
             ? galleryImages.data.map((e) => ({
                 urls: e.content,
                 id: e.id,
+                tags: e.tags.map((_) => _.name),
               }))
             : [{ urls: addNoMatchImage, id: -1 }]
         );
@@ -67,6 +73,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
               galleryImages.data.map((e) => ({
                 urls: e.content,
                 id: e.id,
+                tags: e.tags.map((x) => x.name),
               }))
             )
           );
@@ -87,12 +94,16 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
         hasMore={true}
         loader={""}
       >
-        {/*  */}
-        <Masonry columns={[1, 2, 3, 4]} spacing={2}>
-          {galleryImages.map((e) => (
-            <Card img={e.urls} idImage={e.id} key={e.id} />
-          ))}
-        </Masonry>
+        <Box>
+          <Masonry columns={[1, 2, 3, 4]} spacing={2} loading="lazy">
+            {galleryImages.map((e) => (
+              <div key={e.id}>
+                <span>{e.tags.join(", ")}</span>
+                <Card img={e.urls} idImage={e.id} key={e.id}></Card>
+              </div>
+            ))}
+          </Masonry>
+        </Box>
       </InfiniteScroll>
     </div>
   );
