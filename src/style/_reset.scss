@@ -65,4 +65,23 @@ $font-size: (
     }
 }
 
+/**** padding button navbar website ****/
+
+span.link-to {
+    background-color: $_primary;
+    border: 0;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 6px rgba($color: $_black, $alpha: .25);
+    cursor: pointer;
+    position: relative;
+}
+
+.link-to-home {
+    padding: (.25rem + .2) (.5rem + .5);
+}
+
+.link-to-folders, .link-to-groups {
+    padding: (.25rem + .2) (.5rem + .3);
+}
+
 /*********************************/

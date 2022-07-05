@@ -20,16 +20,12 @@ export const NavbarHome = ({ setSearchParams }) => {
             <Search setSearchParams={setSearchParams} />
           </div>
           <div className="wrapper-sign-home">
-            <div className="button">
-              <span>
-                <Link to={`/users/${user.id}/groups`}>Groups</Link>
-              </span>
-            </div>
-            <div className="button">
-              <span className="">
+              <span className="link-to link-to-folders">
                 <Link to={`/users/${user.id}/folders`}>Folders</Link>
               </span>
-            </div>
+              <span className="link-to link-to-groups">
+                <Link to={`/users/${user.id}/groups`}>Groups</Link>
+              </span>
             <h6>
               {user.first_name} {user.last_name}
             </h6>

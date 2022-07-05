@@ -1,9 +1,9 @@
-@mixin button {
-    color: $_white;
-    cursor: pointer;
-    border-radius: $s-1;
-    padding: $s-1;
-}
+// @mixin button {
+//     color: $_white;
+//     cursor: pointer;
+//     border-radius: $s-1;
+//     padding: $s-1;
+// }
 
 article.wrapper-folder {
     width: $w-100;
@@ -19,28 +19,27 @@ article.wrapper-folder {
     }
 }
 
-.button-folder-delete {
-    @include button;
-    background: $_delete;
-}
-
-.button-folder-edit {
-    @include button;
-    background: $_success;
-}
-
-.card {
-    padding: $s-1;
-    text-align: center;
-}
-
 .folderAddButton {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
     margin: $m-auto;
-    max-width: 1024px;
+    max-width: 1224px;
     padding: $spacer;
+    text-align: end;
+    justify-content: space-between;
+
+    .breadcrumbs {
+        align-items: center;
+    }
     
     span.folder {
+        color: $_white;
+        cursor: pointer;
+        background: $_primary;
+        border-radius: $s-3;
         display: inline-block;
+        padding: $s-2 $s-3;
 
         img {
             cursor: pointer;
@@ -100,7 +99,9 @@ section.wrapper-folder {
 // }
 
 .slider {
-    display: inline;
+    align-items: center;
+    display: flex;
+    column-gap: $s-2;
     height: $h-100;
     width: $w-100;
 
@@ -115,21 +116,69 @@ section.wrapper-slider {
     flex-direction:row;
     flex-wrap: wrap;
     margin: $w-4 auto;
-    max-width: 1024px;
+    max-width: 1224px;
     padding: 1rem;
     row-gap: $s-3;
     justify-content: flex-start;
 
+    .card {
+        align-items: center;
+        border-radius: $s-2;
+        box-shadow: 0px 0px 9px rgba($color: $_black, $alpha: .25);
+        display: flex;
+        text-align: center;
+        padding: .5rem;
+        width: 290px;
+        justify-content: space-between;
+
+        %custom-folder-icon {
+            cursor: pointer;
+            opacity: 0;
+            transition: .6s ease-in-out;
+        }
+
+        .button-folder-delete {
+            // @include button;
+            // background: $_delete;
+            @extend %custom-folder-icon;
+
+            svg {
+                fill: $_delete;
+            }
+        }
+        
+        .button-folder-edit {
+            // @include button;
+            //background: $_success;
+            @extend %custom-folder-icon;
+        
+            svg {
+                fill: $_primary;
+            }
+        }
+
+        &:hover .button-folder-delete, &:hover .button-folder-edit {
+            opacity: 1;
+            transition: .6s ease-in-out;
+        }
+    }
+
     img {
-        width: 80px;
+        width: $w-4;
     }
 
     .wrapper-button {
         display: flex;
-        flex-direction: column;
-        row-gap: $s-2;
-        margin-top: 10px;
-        justify-content: space-around;
+        gap: $s-2;
+        width: $w-5;
 
+        svg {
+            width: $w-80;
+        }
     }
+}
+
+button[name="confirm-upload"] {
+    background-color: $_primary;
+    margin-top: 10px;
 }

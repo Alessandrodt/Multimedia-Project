@@ -17,7 +17,12 @@ export const NavbarFolders = () => {
             </Link>
           </div>
           <div className="sign-folders">
-            <div className="groups">
+            <div className="link-to link-to-home">
+              <Link to={`/Home`}>
+                Home
+              </Link>
+            </div>
+            <div className="link-to link-to-groups">
               <Link to={`/users/${user.id}/groups`}>
                 Groups
               </Link>

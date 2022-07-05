@@ -18,8 +18,11 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                     </div>
                     <div className="wrapper-info-groups">
                         {/* Link Folders */}
+                        <Link to={`/Home`}>
+                            <span className="link-to link-to-home">Home</span>
+                        </Link>
                         <Link to={`/users/${user.id}/folders`}>
-                            <span className="folder-button">Folders</span>
+                            <span className="link-to link-to-folders">Folders</span>
                         </Link>
                         {/* Link User */}
                         <Link className="icon" to={`/users/${user.id}`}>
