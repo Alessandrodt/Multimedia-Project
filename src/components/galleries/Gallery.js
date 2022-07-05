@@ -91,10 +91,10 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
       >
         <Masonry columns={[1, 2, 3, 4]} spacing={2}>
           {galleryImages.map((e) => (
-            <div>
+            <>
               <Card img={e.urls} idImage={e.id} key={e.id} />
               <span>{e.tags.join()}</span>
-            </div>
+            </>
           ))}
         </Masonry>
       </InfiniteScroll>
