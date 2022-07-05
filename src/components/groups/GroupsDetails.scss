@@ -9,6 +9,9 @@ section.wrapper-group-details {
 table.wrapper-table {
   display: block;
   width: 45%;
+  h3{
+    margin-top: 30px;
+  }
 
   tbody {
     border: 1px solid $_dark;
@@ -16,7 +19,7 @@ table.wrapper-table {
     display: inline-block;
     padding: $s-1;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 10px;
     box-shadow: 7px 7px 15px rgb(198, 198, 198);
     overflow: scroll;
     overflow-x: hidden;
@@ -39,12 +42,12 @@ table.wrapper-table {
 .box-src-group{
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
   width: 45%;
   
   .searchText {
     margin: $s-2 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
   }
   ul{
     overflow: scroll;
@@ -92,15 +95,14 @@ table.wrapper-table {
   margin-top: 35px;
 
   span{
+    padding: 0.45rem 0.8rem;
     display: inline-block;
-    width: 150px;
-    height: 50px;
-    border-radius: 50px;
-    background-color: $_primary;
-    color: white;
-    text-align: center;
-    font-size: 20px;
+    background-color: #00D1E0;
+    border: 0;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
   }
 }
