@@ -3,15 +3,16 @@ import { DetailImg } from "./DetailImg";
 //libraries
 import { useModals } from "@mantine/modals";
 
-export function Card({ img, idImage, tags }) {
+export function Card({ img, idImage }) {
   const modals = useModals();
 
   const styles = {
-    card: {
-      margin: "10px 10px",
-      padding: 0,
-      borderRadius: "16px",
-    },
+    margin: "10px 10px",
+    padding: 0,
+    borderRadius: "16px",
+    // added not to break everything
+    display: "block",
+    width: "100%",
   };
 
   const detailComponent = () => {
@@ -25,14 +26,11 @@ export function Card({ img, idImage, tags }) {
   };
 
   return (
-    <>
-      <img
-        src={img.includes("static") ? img : "data:image/png;base64, " + img}
-        alt="random images"
-        style={{ ...styles.card }}
-        onClick={detailComponent}
-      />
-      <span>{tags}</span>
-    </>
+    <img
+      src={img.includes("static") ? img : "data:image/png;base64, " + img}
+      alt="images"
+      style={{ ...styles }}
+      onClick={detailComponent}
+    />
   );
 }
