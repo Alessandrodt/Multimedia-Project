@@ -175,6 +175,7 @@
     }
 }
 
+<<<<<<< HEAD
 .css-b62m3t-container{
  margin-bottom: 10px;
  border: 2px solid rgb(181, 181, 181);
@@ -182,4 +183,30 @@
 }
 .mantine-16pg774{
     overflow-y: unset;
+=======
+// button[name="upload-img"] {
+//     background: $_primary;
+// }
+
+.calendar {
+    display: inline-block;
+    position: relative;
+
+    .data-picker {
+        border:none;
+        border-bottom: 1px solid $_primary;
+        width: 100%;
+        outline: none;
+    }
+}
+
+.wrapper-search {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-tags {
+    width: 70%;
+>>>>>>> style-addFolder
 }
