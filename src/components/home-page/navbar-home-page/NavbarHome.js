@@ -6,6 +6,9 @@ import { Search } from "../search/Search";
 import defaultAvatar from "../../../images/user.svg";
 import logo from "../../../images/picsmi.png";
 
+// Translation
+import { t } from "i18next";
+
 export const NavbarHome = ({ setSearchParams }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -21,10 +24,10 @@ export const NavbarHome = ({ setSearchParams }) => {
           </div>
           <div className="wrapper-sign-home">
               <span className="link-to link-to-folders">
-                <Link to={`/users/${user.id}/folders`}>Folders</Link>
+                <Link to={`/users/${user.id}/folders`}>{t("folders")}</Link>
               </span>
               <span className="link-to link-to-groups">
-                <Link to={`/users/${user.id}/groups`}>Groups</Link>
+                <Link to={`/users/${user.id}/groups`}>{t("groups")}</Link>
               </span>
             <h6>
               {user.first_name} {user.last_name}
