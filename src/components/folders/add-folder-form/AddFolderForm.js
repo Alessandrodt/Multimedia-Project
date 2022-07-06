@@ -1,6 +1,9 @@
 import { Box, Button, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+// Translation
+import { t } from "i18next";
+
 const AddFolderForm = (props) => {
 
 
@@ -24,10 +27,10 @@ const AddFolderForm = (props) => {
                     maxLength={15}
                     required
                     data-autofocus
-                    placeholder="Folder name"
+                    placeholder={t("folder_name")}
                     {...form.getInputProps('name')}
                 />
-                <Button name="confirm" fullWidth type="submit">Confirm</Button>
+                <Button name="confirm" fullWidth type="submit"> {t("confirm")} </Button>
             </form>
         </Box>
     );
