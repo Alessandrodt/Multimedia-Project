@@ -5,7 +5,7 @@ import {t} from "i18next";
 export const LanguageSelect = () => {
   // In these ternary operators 't' is checked to see what is the global language state.
   // If it's not english, then it's italian and vice versa.
-  const lng = i18next.language === "en-GB" ? "it-IT" : "en-GB";
+  const lng = i18next.language === "en" ? "it" : "en";
 
   // This function imports changeLanguage from i18next and gives the code in string
   // format via the lng parameter.
