@@ -38,6 +38,7 @@ export function UploadFolder({ setSelectedFolder }) {
   return (
     <>
       <Select
+        className="folder-select"
         options={mapOptions(allFolders)}
         placeholder={"Select a folder for your image..."}
         onChange={(obj) => handleChange(obj.value)}

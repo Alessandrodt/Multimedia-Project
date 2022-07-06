@@ -2,7 +2,7 @@
 $mediaMaxWidth: 1024px;
 $mediaBp1Width: 960px;
 $mediaBp2Width: 768px; //added for .work & img
-$mediaMinWidth: 425px;
+$mediaMinWidth: 320px;
 
 @function translate-media-condition($c) {
   $condMap: (

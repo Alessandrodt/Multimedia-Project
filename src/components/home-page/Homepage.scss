@@ -104,24 +104,34 @@
     .img-box{
         text-align: center;
         //overflow: scroll;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         img{
             width: 65%;
             border-radius: 20px;
         }
     }
     .info-external-box{
-        margin-bottom: 50px;
         margin-left: 20px;
         border-radius: 20px;
+
+        
+        h2{
+            color: rgb(90, 90, 90);
+        }
         .tag-box{
-            display: flex;
             padding: 5px;
-            overflow: scroll;
-            overflow-x: hidden;
-            h2{
-                color: rgb(90, 90, 90);
-                margin-left: 10px;
+            .tag-cont-style{
+                overflow: scroll;
+                height: 100px;
+
+            span{
+                background: $_primary;
+                border-radius: $s-3;
+                color: $_white;
+                box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+                padding: $s-2 $s-3;
+                margin: 8px;
+                display: inline-block;
             }
             p{
                 margin-left: 10px;
@@ -132,6 +142,7 @@
             }
         }
     }
+}
 
 }
 
@@ -175,11 +186,55 @@
 //     }
 // }
 
-// .css-b62m3t-container{
-//  margin-bottom: 10px;
-//  border: 2px solid rgb(181, 181, 181);
- 
-// }
-// .mantine-16pg774{
-//     overflow-y: unset;
-// }
+.wrapper-search {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-tags {
+    width: 70%;
+}
+
+.folder-select {
+    margin-top: 10px;
+}
+
+button[name="upload-img"] {
+    background: $_primary;
+    float: right;
+    margin-top: 10px;
+
+    &:hover {
+        background: $_dark;
+    }
+}
+
+.calendar {
+    position: relative;
+
+    .data-picker {
+        border: none;
+        border-bottom: 2px solid $_primary;
+        outline: none;
+        padding-block: 5px;
+    }
+
+    .border-bottom {
+        background: $_dark;
+        bottom: 0;
+        height: 2px;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .25s ease-in-out;
+        left: 0;
+        width: 100%;
+    }
+
+    .data-picker:focus + .border-bottom,
+    .data-picker:valid + .border-bottom
+    {
+        transform: scaleX(1);
+    }
+}
