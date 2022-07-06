@@ -44,7 +44,7 @@ export function Upload({ setNewUploadImages }) {
       })
       .catch((error) => {
         console.log(error);
-        toast.error(`there was an issue with the serve, try again later`);
+        toast.error(`there was an issue with the server, try again later`);
         setVisible(false);
       });
   };
@@ -71,7 +71,7 @@ export function Upload({ setNewUploadImages }) {
         className={"upload-preview-btn"}
         name="upload-img"
       >
-        upload
+        Upload
       </Button>
     </div>
   );
