@@ -28,6 +28,8 @@
   "form_signup": "Registrati",
   "tags_search": "Cerca tramite tag",
   "folder_select": "Scegli una cartella per la tua immagine...",
+  "upload_preview" : "Trascina un'immagine, oppure clicca qui per scegliene una.",
+  "upload_tags": "Scegli dei tags per la tua immagine",
   "folders": "Cartelle",
   "groups": "Gruppi",
   "upload":"Aggiungi",

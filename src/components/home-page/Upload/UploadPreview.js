@@ -3,6 +3,9 @@ import React, { useEffect, useMemo, useState } from "react";
 // libraries
 import { useDropzone } from "react-dropzone";
 
+// Translation
+import { t } from "i18next";
+
 export function UploadPreview({ imagesToUpload }) {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
@@ -121,7 +124,7 @@ export function UploadPreview({ imagesToUpload }) {
     <section className="container">
       <div {...getRootProps({ style })}>
         <input {...getInputProps()} />
-        <p>Drag and drop some files here, or click to select files</p>
+        <p>{t("upload_preview")}</p>
       </div>
       <aside style={thumbsContainer}>{thumbs}</aside>
     </section>

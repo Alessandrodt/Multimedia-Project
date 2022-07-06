@@ -28,6 +28,8 @@
   "form_signup": "Sign-Up",
   "tags_search": "Search by tag",
   "folder_select": "Select a folder for your image...",
+  "upload_preview" : "Drag and drop an image here, or click to choose one.",
+  "upload_tags": "Choose some tags for your image",
   "folders": "Folders",
   "groups": "Groups",
   "upload":"Upload",

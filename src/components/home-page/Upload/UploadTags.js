@@ -6,6 +6,9 @@ import CreatableSelect from "react-select/creatable";
 // services
 import imagesServices from "../../../services/imagesServices";
 
+// Translation
+import { t } from "i18next";
+
 export function UploadTags({ setSelectedTags, selectedTags }) {
   const [allTags, setAllTags] = useState([]);
 
@@ -64,7 +67,7 @@ export function UploadTags({ setSelectedTags, selectedTags }) {
         isMulti
         onChange={handleChange}
         options={mapOptions(allTags)}
-        placeholder={"Choose your tags..."}
+        placeholder={t("upload_tags")}
       />
     </>
   );
