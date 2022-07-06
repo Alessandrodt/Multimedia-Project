@@ -35,12 +35,11 @@ i18n
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-    fallbackLng: "it",
-    load: "all",
+    fallbackLng: "it-IT",
     detection: {
       order: [
-        "navigator",
         "cookie",
+        "navigator",
         "htmlTag",
         "localStorage",
         "path",
