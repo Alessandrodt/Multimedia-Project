@@ -85,10 +85,10 @@ export const GroupsDetails = () => {
     groupsServices.getUserGroups(user.id)
     .then(groups => {
       groups.data.map(item => item.users);
-      const i = groups.data.findIndex(item => item.id == groupId);
+      const i = groups.data.findIndex(item => item.id === groupId);
       setGroup((groups.data[i].users || [])); 
     })
-  }, [user.id]);
+  }, [user.id, groupId]);
 
 
   // Confirmation modal to delete an user from the group.
@@ -131,12 +131,12 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
+      <h3>Membri</h3>
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
-             <h3>Membri</h3>
-          <tbody> {rows} </tbody>
+          <tbody>{rows}</tbody>
         </table>
         <div className="box-src-group">
           <div className="searchText">
@@ -155,7 +155,7 @@ export const GroupsDetails = () => {
             {searchResult.length > 0 ? searchResult.map((user) => 
             <li key={user.id}>  
               <span><Avatar size={30} src={user.avatar} radius={30} /> <p>{user.first_name} {user.last_name}</p></span> <span>{user.email}</span> <Button className="addUser" p={10} ml={10} onClick={() => addUser(user)}>
-                <img src={add}></img>
+                <img src={add} alt=''></img>
               </Button>
             </li>) : ""}
           </ul>

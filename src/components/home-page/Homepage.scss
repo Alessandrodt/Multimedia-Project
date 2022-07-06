@@ -15,9 +15,9 @@
     border-radius: 50px;
 }
 
-.mantine-16pg774 {
-    top: 66px;
-}
+// .mantine-16pg774 {
+//     top: 66px;
+// }
 
 .navbar {
     width: 100%;
@@ -103,9 +103,10 @@
 .inner-box{
     .img-box{
         text-align: center;
-        overflow: scroll;
+        //overflow: scroll;
+        margin-bottom: 50px;
         img{
-            height: 500px;
+            width: 65%;
             border-radius: 20px;
         }
     }
