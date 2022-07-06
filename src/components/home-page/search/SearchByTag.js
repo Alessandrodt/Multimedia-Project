@@ -26,7 +26,7 @@ export function SearchByTags({ setSelectedTags }) {
 
   return (
     <Select
-    className="search-tags"
+      className="search-tags"
       options={allTags}
       onChange={(x) => setSelectedTags(x)}
       closeMenuOnSelect={false}

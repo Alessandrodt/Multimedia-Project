@@ -41,6 +41,7 @@ export function UploadFolder({ setSelectedFolder }) {
   return (
     <>
       <Select
+        className="folder-select"
         options={mapOptions(allFolders)}
         placeholder={t("folder_select")}
         onChange={(obj) => handleChange(obj.value)}

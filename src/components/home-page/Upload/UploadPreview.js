@@ -26,6 +26,7 @@ export function UploadPreview({ imagesToUpload }) {
 
   // gallery syling
   const baseStyle = {
+    cursor: "pointer",
     flex: 1,
     display: "flex",
     flexDirection: "column",
@@ -33,7 +34,7 @@ export function UploadPreview({ imagesToUpload }) {
     padding: "20px",
     borderWidth: 2,
     borderRadius: 2,
-    borderColor: "#eeeeee",
+    borderColor: "#00D1E0",
     borderStyle: "dashed",
     backgroundColor: "#fafafa",
     color: "#bdbdbd",
@@ -42,15 +43,15 @@ export function UploadPreview({ imagesToUpload }) {
   };
 
   const focusedStyle = {
-    borderColor: "#2196f3",
+    borderColor: "#00D1E0",
   };
 
   const acceptStyle = {
-    borderColor: "#00e676",
+    borderColor: "#00D1E0",
   };
 
   const rejectStyle = {
-    borderColor: "#ff1744",
+    borderColor: "#00D1E0",
   };
 
   const style = useMemo(
@@ -74,7 +75,7 @@ export function UploadPreview({ imagesToUpload }) {
   const thumb = {
     display: "inline-flex",
     borderRadius: 2,
-    border: "1px solid #eaeaea",
+    border: "1px solid #00D1E0",
     marginBottom: 8,
     marginRight: 8,
     width: 100,

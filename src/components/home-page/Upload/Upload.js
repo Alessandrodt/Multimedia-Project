@@ -57,7 +57,7 @@ export function Upload({ setNewUploadImages }) {
   };
 
   return (
-    <div>
+    <div className="upload-img">
       <LoadingOverlay visible={visible} />
       <UploadPreview imagesToUpload={setNewImageUpload} />
       <UploadTags
