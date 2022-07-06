@@ -25,7 +25,7 @@ export const DetailImg = ({ idImage }) => {
             <h2> Tags: </h2>
 
             {imageDetail.tags
-              ? imageDetail.tags.map((x) => <p>{x.name}</p>)
+              ? imageDetail.tags.map((x) => <span>{x.name}</span>)
               : "no tags, no nothing"}
           </div>
         </div>
