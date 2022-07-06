@@ -135,11 +135,12 @@ export const GroupsDetails = () => {
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
+             <h3>Membri</h3>
           <tbody> {rows} </tbody>
         </table>
         <div className="box-src-group">
           <div className="searchText">
-          Aggiungi un utente
+          <h3>Aggiungi un utente</h3>
           </div>
           <div className="search-box-group">
             <Input

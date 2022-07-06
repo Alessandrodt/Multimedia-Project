@@ -1,9 +1,7 @@
 /* The switch - the box around the slider */
 .switch {
   display: inline-block;
-  height: 35px;
-  position: relative;
-  width: 60px;
+  width: 180px;
 }
   
 /* Hide default HTML checkbox */
@@ -15,23 +13,17 @@
   
   /* The slider */
   .sliderr {
-    position: absolute;
+   display: inline-block;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     -webkit-transition: .4s;
     transition: .4s;
     background-color: rgb(230, 230, 230);
   }
   
   .sliderr:before {
-    position: absolute;
     content: "";
     height: 22px;
     width: 72px;
-    left: 4px;
     bottom: 4px;
     transition: 0.4s;
     background-color: transparent;
@@ -60,10 +52,11 @@
   
   /* Rounded sliders */
   .sliderr.round {
+    display: inline-block;
     border-radius: 34px;
     width: 140px;
     height: 30px;
- 
+
  }
   
   .sliderr.round:before {
@@ -91,9 +84,6 @@
 
  .switch-box {
   display: flex;
-  position: absolute;
-  right: 320px;
-  top: 20px;
   .switch-img {
     display: flex;
     
