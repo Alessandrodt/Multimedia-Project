@@ -57,7 +57,7 @@ export function Upload({ setNewUploadImages }) {
   };
 
   return (
-    <div>
+    <div className="upload-img">
       <LoadingOverlay visible={visible} />
       <UploadPreview imagesToUpload={setNewImageUpload} />
       <UploadTags
@@ -68,7 +68,7 @@ export function Upload({ setNewUploadImages }) {
       <UploadFolder setSelectedFolder={setSelectedFolder} />
       <Button
         onClick={handleClick}
-        className={"upload-preview-btn"}
+        //className={"upload-preview-btn"}
         name="upload-img"
       >
         upload

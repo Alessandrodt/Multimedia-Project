@@ -175,3 +175,17 @@
 .search-tags {
     width: 70%;
 }
+
+.folder-select {
+    margin-top: 10px;
+}
+
+button[name="upload-img"] {
+    background: $_primary;
+    float: right;
+    margin-top: 10px;
+
+    &:hover {
+        background: $_dark;
+    }
+}
