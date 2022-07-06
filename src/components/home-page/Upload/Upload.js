@@ -66,13 +66,15 @@ export function Upload({ setNewUploadImages }) {
         delfunc={delTag}
       />
       <UploadFolder setSelectedFolder={setSelectedFolder} />
-      <Button
-        onClick={handleClick}
-        //className={"upload-preview-btn"}
-        name="upload-img"
-      >
-        upload
-      </Button>
+      <div className="button-box-upload">
+        <Button
+          onClick={handleClick}
+          className={"upload-preview-btn"}
+          name="upload-img"
+        >
+          upload
+        </Button>
+      </div>
     </div>
   );
 }

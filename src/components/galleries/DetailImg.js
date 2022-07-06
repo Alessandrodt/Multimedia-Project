@@ -23,11 +23,10 @@ export const DetailImg = ({ idImage }) => {
         <div className="info-external-box">
           <div className="tag-box">
             <h2> Tags: </h2>
-            <p>
-              {imageDetail.tags
-                ? imageDetail.tags.map((x) => x.name).join(", ")
-                : "no tags, no nothing"}
-            </p>
+
+            {imageDetail.tags
+              ? imageDetail.tags.map((x) => <span>{x.name}</span>)
+              : "no tags, no nothing"}
           </div>
         </div>
       </div>

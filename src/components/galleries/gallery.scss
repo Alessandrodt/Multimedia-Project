@@ -1,8 +1,8 @@
 .box-gallery-home {
     position: relative;
     margin: 0;
-    overflow: hidden;
     border-radius: 20px;
+    overflow: hidden;
     //role for safari to fixed overflow:hidden
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -65,3 +65,23 @@
         -webkit-transition: .6s ease-in-out;
     }
 }
+
+// .mantine-l0ham1{
+//     margin-top: -100px;
+//     width: auto;
+//     border-radius: 20px;
+ 
+//   }
+
+// .mantine-20iurd{
+//     overflow:unset;
+//     height: 500x;
+//     height: 600px;
+// }
+// .mantine-l0ham1{
+//     margin-top: 0;
+// }
+// .mantine-16pg774{
+//     top: unset;
+
+// }
