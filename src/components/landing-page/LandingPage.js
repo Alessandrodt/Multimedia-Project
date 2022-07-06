@@ -70,7 +70,7 @@ export const LandingPage = () => {
             </div>
             <div className="signUp">
               <span className="button-bg">
-                <a href="#signUp">{t("signupfree")}</a>
+                <a href="#signUp">{t("form_signup")}</a>
               </span>
             </div>
           </article>
