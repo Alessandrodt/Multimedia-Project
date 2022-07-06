@@ -43,7 +43,7 @@ export const GroupSharing = () => {
         folderSharingServices.getSharedFolders(userId, groupId).then((response) => {
             setSharedFolders(response.data)
         })
-    }, [userId]);
+    }, [userId, groupId, user.id]);
 
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
@@ -92,11 +92,11 @@ export const GroupSharing = () => {
                     return (
                         <li key={folder.id}> 
                             <br />
-                            <img src={folder_icon}></img>
+                            <img src={folder_icon} alt=''></img>
                             <p> {folder.name} </p>
                             <br />
                             <Button compact onClick={() => addFolderToGroup(folder)}>
-                                <img src={add}></img>
+                                <img src={add} alt=''></img>
                             </Button> 
                             <br />
                         </li>
