@@ -25,7 +25,10 @@ nav {
         margin: $m-auto;
         padding: $s-1 $s-3;
         max-width: 1440px;
-    
+        .switchlng{
+            margin-left: 100px;
+        }
+
         .logo {
             width: 17%;
 
