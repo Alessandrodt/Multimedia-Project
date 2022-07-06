@@ -131,12 +131,12 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
+      <h3>Membri</h3>
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
           : { opacity : 1}}>
-             <h3>Membri</h3>
-          <tbody> {rows} </tbody>
+          <tbody>{rows}</tbody>
         </table>
         <div className="box-src-group">
           <div className="searchText">
