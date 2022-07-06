@@ -15,8 +15,10 @@ export function Search({ setSearchParams }) {
 
   return (
     <>
-      <SearchByTags setSelectedTags={setSelectedTags} />
-      <SearchByDate setSelectedDate={setSelectedDate} />
+      <div className="wrapper-search">
+        <SearchByTags setSelectedTags={setSelectedTags} />
+        <SearchByDate setSelectedDate={setSelectedDate} />
+      </div>
     </>
   );
 }

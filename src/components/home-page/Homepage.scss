@@ -15,9 +15,9 @@
     border-radius: 50px;
 }
 
-.mantine-16pg774 {
-    top: 66px;
-}
+// .mantine-16pg774 {
+//     top: 66px;
+// }
 
 .navbar {
     width: 100%;
@@ -103,10 +103,10 @@
 .inner-box{
     .img-box{
         text-align: center;
-        overflow: scroll;
+        //overflow: scroll;
         margin-bottom: 50px;
         img{
-            width: 100%;
+            width: 65%;
             border-radius: 20px;
         }
     }
@@ -125,7 +125,6 @@
             }
             p{
                 margin-left: 10px;
-                padding:5px  12px;
                 background-color: $_primary;
                 color: white;
                 border-radius: 50px;
@@ -149,7 +148,38 @@
         margin-bottom: 30px;
     }
 }
-
-button[name="upload-img"] {
-    background: $_primary;
+.button-box-upload{
+    text-align: center;
+    button[name="upload-img"] {
+        background: $_primary;
+        border-radius: 50px;
+    }
 }
+// .mantine-10fatya{
+//     width: 35%;
+//     border-radius: 20px;
+//     top: -200px;
+//     .container{
+//         margin-bottom: 30px;
+//         border-radius: 20px;
+//         img{
+//             width: 100%;
+//             margin-top: 0;
+//         }
+//         div[role="presentation"]{
+//             border-radius: 20px !important;
+//             border: 2px solid rgb(181, 181, 181) !important;
+
+//         }
+     
+//     }
+// }
+
+// .css-b62m3t-container{
+//  margin-bottom: 10px;
+//  border: 2px solid rgb(181, 181, 181);
+ 
+// }
+// .mantine-16pg774{
+//     overflow-y: unset;
+// }
