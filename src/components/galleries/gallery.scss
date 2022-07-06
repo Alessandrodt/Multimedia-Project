@@ -3,6 +3,14 @@
     margin: 0;
     overflow: hidden;
     border-radius: 20px;
+    //role for safari to fixed overflow:hidden
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
 
     span.title-tags {
         bottom: 20px;
@@ -13,19 +21,25 @@
         position: absolute;
         z-index: 99;
         transition: .5s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
     }
 
     &:hover span.title-tags {
         transition: .5s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
         opacity: 1;
     }
 
     img {
+        cursor: pointer;
         transition: .6s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
     }
 
     &:hover img {
         transition: .6s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
         transform: scale(1.2);
+        -webkit-transform: scale(1.2);
     }
 }
