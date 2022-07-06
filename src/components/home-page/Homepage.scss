@@ -101,13 +101,11 @@
 //   };
 
 .inner-box{
-    height: 600px;
     .img-box{
         text-align: center;
         overflow: scroll;
-        margin-bottom: 50px;
         img{
-            width: 100%;
+            height: 500px;
             border-radius: 20px;
         }
     }
@@ -126,7 +124,6 @@
             }
             p{
                 margin-left: 10px;
-                padding:5px  12px;
                 background-color: $_primary;
                 color: white;
                 border-radius: 50px;
@@ -150,7 +147,32 @@
         margin-bottom: 30px;
     }
 }
+.button-box-upload{
+    text-align: center;
+    button[name="upload-img"] {
+        background: $_primary;
+        border-radius: 50px;
+    }
+}
+.mantine-10fatya{
+    width: 35%;
+    border-radius: 20px;
+    top: -50px;
+    .container{
+        margin-bottom: 30px;
+        border: 2px solid rgb(181, 181, 181);
+        border-radius: 20px;
+        div{
+            height: 200px;
+            border-radius: 20px !important;
 
-button[name="upload-img"] {
-    background: $_primary;
+        }
+     
+    }
+}
+
+.css-b62m3t-container{
+ margin-bottom: 10px;
+ border: 2px solid rgb(181, 181, 181);
+ 
 }
