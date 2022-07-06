@@ -11,7 +11,12 @@ import defaultAvatar from '../../images/user.svg';
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
+// Errors
 import toast from "react-hot-toast";
+
+// Translation
+import { t } from "i18next";
+
 import add from "../../images/add.svg"
 
 export const Groups = () => {
@@ -53,15 +58,15 @@ export const Groups = () => {
                     e.preventDefault();
                     createGroup()
                     }}>
-                    <p>Nuovo Gruppo</p>
+                    <p>{t("new_group")}</p>
                     <div className="txt-imput-box-groups">
                     <TextInput 
                     className="txt-input"
                     defaultValue={groupName}
-                    label='Choose a title!'
+                    label={t("group_title")}
                     name='groupName'
                     onChange={handleChange}
-                    placeholder='Your title here'
+                    placeholder={t("group_title")}
                     required
                     />
                     <Button fullWidth type="submit">

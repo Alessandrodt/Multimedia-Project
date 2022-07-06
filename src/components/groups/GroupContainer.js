@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Paper, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { t } from 'i18next';
 
 export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
   return (
@@ -18,12 +19,12 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
         <div className="button-groups-action">
         <Link to={groupDetails}>
           <Button name="group-button" fullWidth mt='md'>
-            Manage
+            {t("manage")}
           </Button>
         </Link>
         <Link to={groupSharing}>
           <Button name="group-button" fullWidth mt='md'>
-              Sharing 
+            {t("share")}
           </Button>
         </Link>
         </div>

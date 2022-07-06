@@ -72,7 +72,7 @@ export function Upload({ setNewUploadImages }) {
           className={"upload-preview-btn"}
           name="upload-img"
         >
-          upload
+          Upload
         </Button>
       </div>
     </div>
