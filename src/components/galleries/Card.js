@@ -7,9 +7,9 @@ export function Card({ img, idImage }) {
   const modals = useModals();
 
   const styles = {
-    //padding: "10px",
     borderRadius: "20px",
     // added not to break everything
+    display: "block",
     width: "100%",
   };
 
@@ -20,7 +20,6 @@ export function Card({ img, idImage }) {
       children: <DetailImg idImage={idImage} />,
       overflow: "inside",
       size: "50%",
-
     });
   };
 
