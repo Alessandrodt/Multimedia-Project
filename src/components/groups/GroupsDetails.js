@@ -131,6 +131,7 @@ export const GroupsDetails = () => {
     <>
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
+      <div className="box-txt-table-groups">
       <h3>Membri</h3>
         <table className="wrapper-table " style={
           group.length === 0
@@ -138,6 +139,7 @@ export const GroupsDetails = () => {
           : { opacity : 1}}>
           <tbody>{rows}</tbody>
         </table>
+        </div>
         <div className="box-src-group">
           <div className="searchText">
           <h3>Aggiungi un utente</h3>

@@ -5,13 +5,12 @@ section.wrapper-group-details {
   display: flex;
   justify-content: space-between;
 }
+.box-txt-table-groups{
+ width: 45%;
+}
 
 table.wrapper-table {
   display: block;
-  width: 45%;
-  h3{
-    margin-top: 30px;
-  }
 
   tbody {
     border: 1px solid $_dark;
@@ -45,9 +44,7 @@ table.wrapper-table {
   width: 45%;
   
   .searchText {
-    margin: $s-2 0;
     margin-bottom: 10px;
-    margin-top: 30px;
   }
   ul{
     overflow: scroll;

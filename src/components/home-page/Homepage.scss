@@ -158,14 +158,17 @@
 .mantine-10fatya{
     width: 35%;
     border-radius: 20px;
-    top: -50px;
+    top: -200px;
     .container{
         margin-bottom: 30px;
-        border: 2px solid rgb(181, 181, 181);
         border-radius: 20px;
-        div{
-            height: 200px;
+        img{
+            width: 100%;
+            margin-top: 0;
+        }
+        div[role="presentation"]{
             border-radius: 20px !important;
+            border: 2px solid rgb(181, 181, 181) !important;
 
         }
      
@@ -176,4 +179,7 @@
  margin-bottom: 10px;
  border: 2px solid rgb(181, 181, 181);
  
+}
+.mantine-16pg774{
+    overflow-y: unset;
 }
