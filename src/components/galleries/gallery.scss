@@ -42,4 +42,26 @@
         transform: scale(1.2);
         -webkit-transform: scale(1.2);
     }
+
+
+    &::after {
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 11%, rgba(255,255,255,0) 100%);
+        bottom: 0;
+        content: '';
+        display: inline-block;
+        height: 50%;
+        width: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transition: .6s ease-in-out;
+        -webkit-transition: .6s ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: .5;
+        transition: .6s ease-in-out;
+        -webkit-transition: .6s ease-in-out;
+    }
 }
