@@ -101,13 +101,13 @@ export const SignUp = () => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
           setVisible(false);
-          toast.success(`A confirmation email was sent to ${newEmail}`);
+          toast.success(`${t("signup_email_send")} ${newEmail}`);
         }
         return response.data;
       })
       .catch(() => {
         setVisible(false);
-        toast.error(`${newEmail} is already in use.`);
+        toast.error(`${newEmail} ${t("signup_email_already_in_use")}`);
       });
   };
 

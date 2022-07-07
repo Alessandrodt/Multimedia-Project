@@ -63,6 +63,8 @@
   "upload_unsuccessful": "Non è stato possibile effettuare l'upload.",
   "login_credentials_invalid": "Email e/o Password errate.",
   "login_not_confirmed_yet": "Conferma la tua registrazione all'indirizzo email",
+  "signup_email_send": "È stata mandata una mail di conferma all'indirizzo email",
+  "signup_email_already_in_use": "è già in uso.",
   "error_401": "Sembrerebbe che tu non sia autenticato. Ricarica la pagina e rifai il login.",
   "error_403": "Errore. Non puoi eseguire questa azione.",
   "error_404": "Elemento non trovato.",
