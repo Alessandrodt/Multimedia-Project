@@ -138,7 +138,7 @@ export const Folder = ({
       closeOnClickOutside: false,
       children: <Upload setNewUploadImages={setNewUploadImages} />,
       overflow: "outside",
-      size: "70%",
+      size: "40%",
     });
   };
 

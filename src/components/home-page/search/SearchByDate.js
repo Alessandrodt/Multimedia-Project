@@ -25,7 +25,6 @@ export function SearchByDate({ setSelectedDate }) {
           }}
           isClearable={true}
         />
-        <span className="border-bottom"></span>
       </span>
     </>
   );

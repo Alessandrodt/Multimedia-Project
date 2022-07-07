@@ -74,7 +74,7 @@
 .wrapper-gallery {
     position: relative;
     top: 200px;
-    //padding-left: 20px;
+    padding: 0 $p-2;
 
     // ::-webkit-scrollbar {
     //     display: none;
@@ -193,7 +193,7 @@
 }
 
 .search-tags {
-    width: 70%;
+    width: 60%;
 }
 
 .folder-select {
@@ -210,31 +210,8 @@ button[name="upload-img"] {
     }
 }
 
-.calendar {
-    position: relative;
-
-    .data-picker {
-        border: none;
-        border-bottom: 2px solid $_primary;
-        outline: none;
-        padding-block: 5px;
-    }
-
-    .border-bottom {
-        background: $_dark;
-        bottom: 0;
-        height: 2px;
-        position: absolute;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform .25s ease-in-out;
-        left: 0;
-        width: 100%;
-    }
-
-    .data-picker:focus + .border-bottom,
-    .data-picker:valid + .border-bottom
-    {
-        transform: scaleX(1);
+.upload-img {
+    .css-1rhbuit-multiValue {
+        background: rgba($color: $_primary, $alpha: .30);
     }
 }

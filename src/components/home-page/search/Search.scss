@@ -1,0 +1,31 @@
+//search by date
+
+.calendar {
+
+    .data-picker {
+        border: none;
+        border-bottom: 2px solid $_primary;
+        outline: none;
+        padding-block: 5px;
+    }
+
+    .data-picker:focus  {
+        transition: .5s ease-in-out;
+        transform-origin: left;
+        border-bottom: 2px solid $_dark;
+    }
+
+    .react-datepicker__close-icon {
+        padding-left: 0;
+        right: -20px;
+    }
+}
+
+
+//search tags
+
+.search-tags {
+    .css-1rhbuit-multiValue, .css-g1d714-ValueContainer div:first-child {
+        width: auto!important;
+    }
+}

@@ -99,6 +99,9 @@ button[name="confirm"] {
 section.folder-gallery {
     margin: $m-auto;
     max-width: 1024px;
+    .infinite-scroll-component {
+        overflow: unset !important;
+    }
 
     @include media( "screen", ">minWidth", "<maxWidth" ){
         margin: $m-auto;
