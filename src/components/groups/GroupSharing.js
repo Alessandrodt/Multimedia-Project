@@ -50,17 +50,16 @@ export const GroupSharing = () => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
             setSharedFolders(sharedFolders.concat(res.data.folder));
-            console.log(`${f.name} is now being shared with this group`);
-            toast.success(`${f.name} is now being shared with this group`);
+            toast.success(`${f.name} ${t("group_sharing_success")}`);
             modal.closeModal();
         })
         .catch(err => {
             if (err.response.status === 401) {
-                toast.error('User is unauthorized');
+                toast.error(`${t("error_401")}`);
             } else if (err.response.status === 403) {
-                toast.error('This action is forbidden');
+                toast.error(`${t("error_403")}`);
             } else {
-                toast.error('Not found');
+                toast.error(`${t("group_folder_already_exists")}`);
             }
         });
     };
@@ -68,16 +67,16 @@ export const GroupSharing = () => {
     const removeFolderFromGroup = (f) => {
         folderSharingServices.removeFolderFromGroup(groupId, f.id)
         .then(res => {
-            toast(`${f.name} will not be shared with this group anymore`);
+            toast(`${f.name} ${t("group_sharing_removal_success")}`);
             setSharedFolders(sharedFolders.filter((sharedFolder) => sharedFolder.id !== f.id));
         })
         .catch(err => {
             if (err.response.status === 401) {
-                toast.error('User is unauthorized')
+                toast.error(`${t("error_401")}`)
             } else if (err.response.status === 403) {
-                toast.error('This action is forbidden')
+                toast.error(`${t("error_403")}`)
             } else {
-                toast.error('Not found')
+                toast.error(`${t("error_404")}`)
             }
         });
     };

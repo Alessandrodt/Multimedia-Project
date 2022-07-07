@@ -11,6 +11,9 @@ import { useModals } from "@mantine/modals";
 // Services
 import authServices from "../../services/authServices";
 
+// Translation
+import { t } from "i18next";
+
 
 export const Login = () => {
   const modals = useModals();
@@ -42,10 +45,10 @@ export const Login = () => {
       })
       .catch((error) => {
         if (error.response.status === 401) {
-          toast.error(`email or password are invalid`);
+          toast.error(`${t("login_credentials_invalid")}`);
         } else {
           toast.error(
-            `Go to your email address ${email} and confirm your subscription`
+            `${t("login_not_confirmed_yet")} ${email}`
           );
         }
         setVisible(false);

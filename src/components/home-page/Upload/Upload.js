@@ -14,6 +14,9 @@ import { useModals } from "@mantine/modals";
 // services
 import imagesServices from "../../../services/imagesServices";
 
+// Translation
+import { t } from "i18next";
+
 export function Upload({ setNewUploadImages }) {
   const [imagesToUpload, setNewImageUpload] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -33,10 +36,10 @@ export function Upload({ setNewUploadImages }) {
       .uploadImage(selectedFolder, imagesToUpload[0], selectedTags)
       .then((res) => {
         if (res && res.status === 201) {
-          toast.success(`the upload was successful`);
+          toast.success(`${t("upload_successful")}`);
           setNewUploadImages(res);
         } else {
-          toast.error(`the upload was unsuccessful, try again`);
+          toast.error(`${t("upload_unsuccessful")}`);
           console.log("failed");
         }
         setVisible(false);
@@ -44,7 +47,7 @@ export function Upload({ setNewUploadImages }) {
       })
       .catch((error) => {
         console.log(error);
-        toast.error(`there was an issue with the server, try again later`);
+        toast.error(`${t("error_500")}`);
         setVisible(false);
       });
   };
