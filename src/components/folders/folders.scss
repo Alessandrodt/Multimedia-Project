@@ -78,6 +78,23 @@ button[name="confirm"] {
         }
     }
 
+    span.upload-in-folders {
+        background: $_primary;
+        border-radius: $s-2;
+        bottom: $w-4;
+        cursor: pointer;
+        padding: $s-2;
+        position: fixed;
+        right: $w-3;
+
+        svg {
+            width: $w-4;
+            path {
+                fill: $_white;
+            }
+        }
+    }
+
     @include media( "screen", ">minWidth", "<maxWidth" ){
         margin: $m-auto;
         width: $w-90;
