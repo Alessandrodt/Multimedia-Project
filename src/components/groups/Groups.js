@@ -40,7 +40,7 @@ export const Groups = () => {
         })
         .catch(err => {
             if (err.response.status === 401) {
-             toast.error('red','You appear to not be logged in. Please refresh the page and authenticate yourself.');
+             toast.error(`${t("error_401")}`);
             };
         });
     }, [user.id]);
@@ -93,13 +93,13 @@ export const Groups = () => {
             .then(res => {
                 setGroups(groups.concat(res.data));
                 setGroupName('');
-                toast.success(`The group ${groupName} has been successfully added.`)
+                toast.success(`${groupName} ${t("group_created")}`)
             })
             .catch(err => {
                 if (err.response.status === 401) {
-                    toast.error('You appear to not be logged in. Please authenticate yourself.');
+                    toast.error(`${t("error_401")}`);
                 } else {
-                    toast.error('Group name must be at least 3 characters long!');
+                    toast.error(`${t("group_name_short")}`);
                 }
             })
         }
