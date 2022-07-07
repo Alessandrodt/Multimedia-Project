@@ -2,6 +2,7 @@ import { InputWithButton } from "../../navbar/search/Srcbar";
 import { Link } from "react-router-dom";
 
 import logo from "../../../images/picsmi.png";
+import { t } from "i18next";
 
 export const NavbarProfile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -19,14 +20,14 @@ export const NavbarProfile = () => {
             <div className="button">
               <span>
                 <Link to={`/users/${user.id}/groups`}>
-                  Groups
+                  {t("groups")}
                 </Link>
               </span>
             </div>
             <div className="button">
               <span className="">
                 <Link to={`/users/${user.id}/folders`}>
-                  Folders
+                {t("folders")}
                 </Link>
               </span>
             </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import defaultAvatar from "../../../images/user.svg";
 import logo from "../../../images/picsmi.png";
+import { t } from "i18next";
 
 export const NavbarFolders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -24,7 +25,7 @@ export const NavbarFolders = () => {
             </div>
             <div className="link-to link-to-groups">
               <Link to={`/users/${user.id}/groups`}>
-                Groups
+                {t("groups")}
               </Link>
             </div>
             <h6>

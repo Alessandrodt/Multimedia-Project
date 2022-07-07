@@ -19,6 +19,7 @@ import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 import add from "../../images/add.svg"
 import folder_icon from "../../images/folder_icon.svg"
+import { t } from "i18next";
 
 
 export const GroupSharing = () => {
@@ -86,7 +87,7 @@ export const GroupSharing = () => {
           children:  
             <ul className="folder-list-groups">
                 <h4>
-                    Scegli la cartella
+                    {t("group_sharing_choose")}
                 </h4>
                 {folders.map(folder => {
                     return (
@@ -112,13 +113,13 @@ export const GroupSharing = () => {
         <div className="back-box-groups">
         <div className="share-box-groups">
        <div>
-        <p>Condividi con i tuoi amici</p>
-        <Button onClick={() => {openContentAddModal()}}> Choose Folders </Button>
+        <p>{t("group_sharing_title")}</p>
+        <Button onClick={() => {openContentAddModal()}}> {t("group_sharing_choose")} </Button>
         </div> 
         <div>
         <Link to={`/users/${user.id}/groups`}>
           <span name="back-groups">
-             <p>Indietro</p>
+             <p>{t("group_back")}</p>
             </span>
         </Link>
         </div> 

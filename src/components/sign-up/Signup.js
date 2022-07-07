@@ -20,6 +20,9 @@ import { useModals } from "@mantine/modals";
 import avatarServices from "../../services/avatarServices";
 import authServices from "../../services/authServices";
 
+// Translation
+import { t } from "i18next";
+
 // Image
 import defaultAvatar from "../../images/user.svg";
 
@@ -146,13 +149,13 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 400 }} mx="auto">
       <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button className="primary reset-avatar" onClick={openContentModal}>Choose your Avatar here</Button>
+        <Button className="primary reset-avatar" onClick={openContentModal}>{t("avatar_button")}</Button>
         <div className="wrapper-info">
           <TextInput
             maxLength={15}
             className="change-width"
             required
-            label="Name"
+            label={t("form_name")}
             placeholder="Mario"
             {...form.getInputProps("name")}
             onChange={(event) => {
@@ -164,7 +167,7 @@ export const SignUp = () => {
             maxLength={15}
             className="change-width"
             required
-            label="Surname"
+            label={t("form_surname")}
             placeholder="Rossi"
             {...form.getInputProps("surname")}
             onChange={(event) => {
@@ -189,7 +192,7 @@ export const SignUp = () => {
           required
           label="Password"
           autoComplete="on"
-          placeholder="YourPasswordHere"
+          placeholder="Password"
           {...form.getInputProps("password")}
           onChange={(event) => {
             form.setFieldValue("password", event.currentTarget.value);
@@ -200,9 +203,9 @@ export const SignUp = () => {
           name="reset-input-signup"
           required
           mt="sm"
-          label="Confirm password"
+          label={t("form_confirm_password")}
           autoComplete="on"
-          placeholder="Confirm password"
+          placeholder={t("form_confirm_password")}
           {...form.getInputProps("confirmPassword")}
           onChange={(event) => {
             form.setFieldValue("confirmPassword", event.currentTarget.value);
@@ -212,7 +215,7 @@ export const SignUp = () => {
         <Checkbox
           required
           mt="md"
-          label="I agree to the Terms of Condition and Service."
+          label={t("form_terms_of_service")}
           {...form.getInputProps("termsOfService", { type: "input" })}
           onChange={(event) => {
             form.setFieldValue("termsOfService", event.currentTarget.value);
@@ -222,7 +225,7 @@ export const SignUp = () => {
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
           <Button className="primary" type="submit">
-            Sign-Up
+            {t("form_signup")}
           </Button>
         </Group>
       </form>
