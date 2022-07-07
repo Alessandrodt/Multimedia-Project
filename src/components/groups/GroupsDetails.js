@@ -53,11 +53,11 @@ export const GroupsDetails = () => {
     groupsServices.addUser(groupId, user.id)
     .then(res => {
       setGroup(group.concat(user))
-      toast.success(`${user.first_name} ${user.last_name} is now part of the group!`);
+      toast.success(`${user.first_name} ${user.last_name} ${t("group_add_user_success")}`);
     })
     .catch(err => {
       if (err.response.status === 422) {
-        toast.error("This user is already in the group!")
+        toast.error(`${user.first_name} ${user.last_name} ${t("group_add_user_exists")}`);
       }
     })
   };
@@ -67,16 +67,16 @@ export const GroupsDetails = () => {
       groupsServices.deleteUser(groupId, user.id)
       .then(res => {
       setGroup(group.filter((u) => u.id !== user.id));
-      toast.success(`${user.first_name} ${user.last_name} has been deleted from the group.`)
+      toast.success(`${user.first_name} ${user.last_name} ${t("group_remove_user")}`)
     })
     .catch(err => {
       if (err.response.status === 403) {
-        toast.error("You don't own this group so you don't have the authorization to remove this user, or you are trying to remove yourself, which can't be done.")
+        toast.error(`${t("group_remove_owner")}`)
       }
     })
     .catch(err => {
       if (err.response.status === 404) {
-        toast.error("red", "Group or user not found.")
+        toast.error(`${t("group_user_not_found")}`)
       }
     })
   };

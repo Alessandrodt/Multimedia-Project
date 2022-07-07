@@ -87,7 +87,7 @@ export const Groups = () => {
         const existingGroup = groups.find(g => g.name === groupName);
 
         if (existingGroup) {
-            toast.error(`A group named ${groupName} already exists!`)
+            toast.error(`${groupName} ${t("group_exists")}`)
         } else {
             groupsServices.createGroup(user.id, newGroup)
             .then(res => {
