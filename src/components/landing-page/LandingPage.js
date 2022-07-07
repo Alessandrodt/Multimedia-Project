@@ -194,7 +194,7 @@ export const LandingPage = () => {
               </p>
             </div>
           </div>
-          <div className="wrapper-about">
+          <div className="wrapper-about social">
             <h3>Social</h3>
             {/* facebook */}
             <div className="about-info">

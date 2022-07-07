@@ -1,7 +1,8 @@
 // Predefined Break-points
 $mediaMaxWidth: 1024px;
 $mediaBp1Width: 960px;
-$mediaBp2Width: 768px; //added for .work & img
+$mediaBp2Width: 768px; // added for .work & img
+$mediaBp3Width: 435px; // added footer
 $mediaMinWidth: 320px;
 
 @function translate-media-condition($c) {
@@ -15,6 +16,8 @@ $mediaMinWidth: 320px;
 		"<bp1Width": "(max-width: #{$mediaBp1Width})",
     ">bp2Width": "(min-width: #{$mediaBp2Width + 1})",
     "<bp2Width": "(max-width: #{$mediaBp2Width})",
+    ">bp3Width": "(min-width: #{$mediaBp3Width + 1})",
+    "<bp3Width": "(max-width: #{$mediaBp3Width})",
 		">minWidth": "(min-width: #{$mediaMinWidth})",
 		"<minWidth": "(max-width: #{$mediaMinWidth})"
 	);
@@ -51,6 +54,10 @@ $mediaMinWidth: 320px;
 //     };
 
 //   @include media( "screen", ">minWidth", "<bp2Width" ){
+
+// };
+
+//   @include media( "screen", ">minWidth", "<bp3Width" ){
 
 // };
 

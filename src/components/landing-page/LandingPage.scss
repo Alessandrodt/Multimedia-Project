@@ -230,6 +230,15 @@ footer {
             margin: 0 $s-1;
             width: 1rem;
         }
+
+        @include media( "screen", ">minWidth", "<bp3Width", ){
+            bottom: $s-2;
+        }
+    }
+
+    //responsive
+    @include media( "screen", ">minWidth", "<bp3Width", ){
+       height: 90vh;
     }
 }
 
@@ -333,7 +342,7 @@ section.wrapper-review {
 }
 
 .wrapper-footer {
-    bottom: 50px;
+    bottom: 40px;
     display: flex;
     left: 50%;
     position: fixed;
@@ -366,10 +375,34 @@ section.wrapper-review {
             align-items: baseline;
             display: flex;
         }
+
+            //responsive
+            @include media( "screen", ">minWidth", "<bp3Width", ){
+                display: block;
+                width: $w-90;
+                border-right: none;
+                border-bottom: 1px solid $_white;
+            }
     }
 
     //responsive
-    @include media( "screen", ">minWidth", "<maxWidth", ){
-        width: $w-100;
+    @include media( "screen", ">minWidth", "<bp3Width", ){
+        bottom: -120px;
+        display: block;
+        width: $w-90;
+    }
+}
+
+.wrapper-about.social .about-info {
+
+    @include media( "screen", ">minWidth", "<bp3Width", ){
+        display: inline-flex;
+        margin: $s-1 $m-50 0 0;
+    }
+
+    p {
+        @include media( "screen", ">minWidth", "<bp3Width", ){
+            display: none;
+        }
     }
 }
