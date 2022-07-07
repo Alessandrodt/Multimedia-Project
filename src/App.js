@@ -28,7 +28,6 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
-import { GitBranch } from "tabler-icons-react";
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -60,9 +59,9 @@ const App = () => {
   return (
     <MantineProvider theme={{ loader: "bars" }}>
       <Router>
-        <Toaster 
-           toastOptions={{
-            className: 'notification',
+        <Toaster
+          toastOptions={{
+            className: "notification",
             duration: 2500,
             style: {
               border: "1px solid #713200",
@@ -93,7 +92,7 @@ const App = () => {
               <Route
                 path="/users/:userId/groups/:groupId/share"
                 element={<GroupSharing />}
-              /> 
+              />
               <Route
                 path="/users/:userId/groups/shared"
                 element={<NotOwnedGroups />}

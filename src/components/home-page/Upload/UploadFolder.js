@@ -11,7 +11,7 @@ import { t } from "i18next";
 
 export function UploadFolder({ setSelectedFolder }) {
   const [allFolders, setAllFolders] = useState([]);
-
+  const [createDefault, setCreateDefault] = useState(false);
   /**
    * it gets the user's folders and sets the state locally
    */
@@ -21,10 +21,20 @@ export function UploadFolder({ setSelectedFolder }) {
     foldersServices
       .getFolderUpload(userId)
       .then((res) => {
-        setAllFolders(res.data);
+        if (createDefault && res.data.length === 0) {
+          foldersServices
+            .createFolder(userId, undefined, { name: "Default" })
+            .then((response) => {
+              setCreateDefault(true);
+              setAllFolders([response.data]);
+            });
+        } else {
+          setCreateDefault(true);
+          setAllFolders(res.data);
+        }
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [createDefault]);
 
   const mapOptions = (folder) => {
     if (folder) {

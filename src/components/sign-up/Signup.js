@@ -46,7 +46,7 @@ export const SignUp = () => {
       // Our GET call responds with 40 avatars. THIS IS A TEMPORARY FIX TO THIS BACKEND PROBLEM!
       setAvatar(response.data.slice(0, 10));
     });
-}, []);
+  }, []);
 
   const openContentModal = () => {
     modals.openModal({
@@ -62,12 +62,9 @@ export const SignUp = () => {
                   modals.closeModal(setProfilePic(avatar));
                   setAvatarStatus(true);
                 }}
-                key={avatar.id} >
-                <img
-                  src={`${avatar.link}`}
-                  alt={""}
-                  width={50}
-                ></img>
+                key={avatar.id}
+              >
+                <img src={`${avatar.link}`} alt={""} width={50}></img>
               </button>
             );
           })}
@@ -77,7 +74,11 @@ export const SignUp = () => {
   };
 
   let picture = (
-    <Avatar src={isAvatarPicked ? `${profilePic.link}`: defaultAvatar } size={80} mx="auto"/>
+    <Avatar
+      src={isAvatarPicked ? `${profilePic.link}` : defaultAvatar}
+      size={80}
+      mx="auto"
+    />
   );
 
   const newUser = {
@@ -93,23 +94,21 @@ export const SignUp = () => {
   };
 
   const addUser = () => {
-    setVisible(true)
+    setVisible(true);
     authServices
       .createUser(newUser)
       .then((response) => {
         if (response.status === 201) {
           setUser(users.concat(response.data));
-          setVisible(false)
-          toast.success(
-            `A confirmation email was sent to ${newEmail}`
-          );
+          setVisible(false);
+          toast.success(`A confirmation email was sent to ${newEmail}`);
         }
+        return response.data;
       })
       .catch(() => {
-        setVisible(false)
+        setVisible(false);
         toast.error(`${newEmail} is already in use.`);
       });
-      
   };
 
   const form = useForm({
@@ -149,7 +148,9 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 400 }} mx="auto">
       <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button className="primary reset-avatar" onClick={openContentModal}>{t("avatar_button")}</Button>
+        <Button className="primary reset-avatar" onClick={openContentModal}>
+          {t("avatar_button")}
+        </Button>
         <div className="wrapper-info">
           <TextInput
             maxLength={15}
@@ -175,7 +176,7 @@ export const SignUp = () => {
               setNewLastName(event.target.value);
             }}
           />
-        </div>  
+        </div>
         <TextInput
           className="email"
           required
