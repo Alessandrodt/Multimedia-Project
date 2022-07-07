@@ -28,4 +28,8 @@
     .css-1rhbuit-multiValue, .css-g1d714-ValueContainer div:first-child {
         width: auto!important;
     }
+
+    .css-1rhbuit-multiValue {
+        background: rgba($color: $_primary, $alpha: .25);
+    }
 }
