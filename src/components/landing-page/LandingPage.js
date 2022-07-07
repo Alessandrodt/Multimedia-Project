@@ -70,7 +70,7 @@ export const LandingPage = () => {
             </div>
             <div className="signUp">
               <span className="button-bg">
-                <a href="#signUp">{t("signupfree")}</a>
+                <a href="#signUp">{t("form_signup")}</a>
               </span>
             </div>
           </article>
@@ -118,11 +118,10 @@ export const LandingPage = () => {
               </div>
             </div>
             <div className="text end">
-              <h2>{t("serch_by_tag")}</h2>
+              <h2>{t("search_by_tag")}</h2>
               <p>
-                <strong>Search your images</strong> easily{" "}
-                <strong>by the tags</strong> you have previously assigned to
-                them.
+                <strong>{t("search_images_bold")}</strong> {" "}
+                {t("search_images_normal")}
               </p>
             </div>
           </article>
@@ -131,8 +130,8 @@ export const LandingPage = () => {
             <div className="text">
               <h2>{t("share_groups")}</h2>
               <p>
-                <strong>Create groups</strong> with your friends and share the
-                most exciting and meaningful images of your life with them.
+                <strong>{t("create_groups_bold")}</strong>
+                {t("create_groups")}
               </p>
             </div>
             <div className="video-remember">
@@ -163,9 +162,8 @@ export const LandingPage = () => {
           <div className="signUp">
             <div className="text-signUp">
               <p>
-                <strong>Welcome to PicSmi!</strong> <br />
-                Sign Up to start your <br />
-                experience.
+                <strong>{t("welcome_message")}</strong> <br />
+                {t("signup_welcome")}
               </p>
             </div>
             <div className="sign-up">
@@ -178,14 +176,13 @@ export const LandingPage = () => {
       <footer>
         <div className="wrapper-footer">
           <div className="wrapper-about">
-            <h3>About PicSmi</h3>
+            <h3>{t("about_us")}</h3>
             <p>
-              picSmi is an Italian company that has created an image publishing
-              application.
+              {t("about_us_text")}
             </p>
           </div>
           <div className="wrapper-about">
-            <h3>Contact Us</h3>
+            <h3>{t("contact_us")}</h3>
             <div className="about-info">
               {/* location-dot */}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
@@ -217,7 +214,7 @@ export const LandingPage = () => {
                   </clipPath>
                 </defs>
               </svg>
-              <p>facebook</p>
+              <p>Facebook</p>
             </div>
             {/* Twitter */}
             <div className="about-info">

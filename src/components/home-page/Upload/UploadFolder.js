@@ -6,6 +6,9 @@ import Select from "react-select";
 // services
 import foldersServices from "../../../services/foldersServices";
 
+// Translation
+import { t } from "i18next";
+
 export function UploadFolder({ setSelectedFolder }) {
   const [allFolders, setAllFolders] = useState([]);
 
@@ -40,7 +43,7 @@ export function UploadFolder({ setSelectedFolder }) {
       <Select
         className="folder-select"
         options={mapOptions(allFolders)}
-        placeholder={"Select a folder for your image..."}
+        placeholder={t("folder_select")}
         onChange={(obj) => handleChange(obj.value)}
       />
     </>

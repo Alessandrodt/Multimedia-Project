@@ -22,6 +22,7 @@ import groupsServices from "../../services/groupsServices";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 import add from "../../images/add.svg"
+import { t } from "i18next";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
@@ -100,7 +101,7 @@ export const GroupsDetails = () => {
     centered: true,
     children: (
       <Text size="sm">
-        Are you sure you want to delete {user.first_name} {user.last_name} from the group? You will be able to add them again at a later time.
+        {t("group_user_delete")}
       </Text>
     ),
     labels: { confirm: 'Delete user', cancel: "Cancel" },
@@ -122,7 +123,7 @@ export const GroupsDetails = () => {
             {user.email}
           </Text>
         </Group>
-        <Button className="deleteUser" color="red" onClick={() => openDeleteModal(user)}> Delete </Button>
+        <Button className="deleteUser" color="red" onClick={() => openDeleteModal(user)}> {t("group_user_delete_button")} </Button>
       </td>
     </tr>
   ));
@@ -132,7 +133,7 @@ export const GroupsDetails = () => {
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
       <div className="box-txt-table-groups">
-      <h3>Membri</h3>
+      <h3>{t("group_members")}</h3>
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
@@ -142,12 +143,12 @@ export const GroupsDetails = () => {
         </div>
         <div className="box-src-group">
           <div className="searchText">
-          <h3>Aggiungi un utente</h3>
+          <h3>{t("group_add_user")}</h3>
           </div>
           <div className="search-box-group">
             <Input
               icon={<Search size={20} />}
-              placeholder="Search users (at least 2 characters)"
+              placeholder={"group_search_user_email"}
               defaultValue={searchInput}
               onChange={handleSearch}
             />
@@ -164,8 +165,8 @@ export const GroupsDetails = () => {
           <div className="back">
           <Link to={`/users/${user.id}/groups`}>
               <span>
-               Indietro
-                </span>
+               {t("group_back")}
+              </span>
             </Link>
         </div>
         </div>

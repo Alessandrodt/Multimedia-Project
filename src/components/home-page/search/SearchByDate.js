@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 // libraries
 import DatePicker from "react-datepicker";
+
 // styles
 import "react-datepicker/dist/react-datepicker.css";
+
+// Translation
+import { t } from "i18next";
 
 export function SearchByDate({ setSelectedDate }) {
   const [dateRange, setDateRange] = useState([null, null]);
@@ -14,7 +18,7 @@ export function SearchByDate({ setSelectedDate }) {
       <span className="calendar">
         <DatePicker
           className="data-picker"
-          placeholderText="Search by date..."
+          placeholderText={t("search_date_picker_placeholder")}
           selectsRange={true}
           startDate={startDate}
           endDate={endDate}

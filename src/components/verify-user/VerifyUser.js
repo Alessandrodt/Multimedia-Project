@@ -2,6 +2,7 @@ import authServices from "../../services/authServices";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "@mantine/core";
+import { t } from "i18next";
 
 export const EmailVerify = () => {
   const {userId, hash} = useParams();
@@ -36,12 +37,12 @@ export const EmailVerify = () => {
           </span>
           <div className="success">
             <div className="text-success">
-              <h3>Thank you</h3>
-              <p>you are ready to start!</p>
+              <h3>{t("thanks")}</h3>
+              <p>{t("begin")}</p>
             </div>
             <div className="link-login">
               <Link to="/">
-                Go to Login
+                {t("login_redirect")}
               </Link>
             </div>      
           </div>

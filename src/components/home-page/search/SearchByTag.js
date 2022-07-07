@@ -7,6 +7,9 @@ import Select from "react-select";
 // services;
 import imagesServices from "../../../services/imagesServices";
 
+// Translation
+import { t } from "i18next";
+
 export function SearchByTags({ setSelectedTags }) {
   const [allTags, setAllTags] = useState([]);
 
@@ -28,7 +31,7 @@ export function SearchByTags({ setSelectedTags }) {
       onChange={(x) => setSelectedTags(x)}
       closeMenuOnSelect={false}
       components={animatedComponents}
-      placeholder={"search your tags..."}
+      placeholder={t("tags_search")}
       isMulti
     />
   );
