@@ -22,7 +22,6 @@ import groupsServices from "../../services/groupsServices";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 import add from "../../images/add.svg"
-import { t } from "i18next";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
@@ -86,7 +85,7 @@ export const GroupsDetails = () => {
     groupsServices.getUserGroups(user.id)
     .then(groups => {
       groups.data.map(item => item.users);
-      const i = groups.data.findIndex(item => item.id === groupId);
+      const i = groups.data.findIndex(item => item.id == groupId);
       setGroup((groups.data[i].users || [])); 
     })
   }, [user.id, groupId]);
@@ -101,7 +100,7 @@ export const GroupsDetails = () => {
     centered: true,
     children: (
       <Text size="sm">
-        {t("group_user_delete")}
+        Delete
       </Text>
     ),
     labels: { confirm: 'Delete user', cancel: "Cancel" },
@@ -123,7 +122,7 @@ export const GroupsDetails = () => {
             {user.email}
           </Text>
         </Group>
-        <Button className="deleteUser" color="red" onClick={() => openDeleteModal(user)}> {t("group_user_delete_button")} </Button>
+        <Button className="deleteUser" color="red" onClick={() => openDeleteModal(user)}>Delete</Button>
       </td>
     </tr>
   ));
@@ -133,7 +132,7 @@ export const GroupsDetails = () => {
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
       <div className="box-txt-table-groups">
-      <h3>{t("group_members")}</h3>
+      <h3>Membri</h3>
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
@@ -143,12 +142,12 @@ export const GroupsDetails = () => {
         </div>
         <div className="box-src-group">
           <div className="searchText">
-          <h3>{t("group_add_user")}</h3>
+          <h3>Aggiungi utente</h3>
           </div>
           <div className="search-box-group">
             <Input
               icon={<Search size={20} />}
-              placeholder={"group_search_user_email"}
+              placeholder={"Cerca utenti..."}
               defaultValue={searchInput}
               onChange={handleSearch}
             />
@@ -165,7 +164,7 @@ export const GroupsDetails = () => {
           <div className="back">
           <Link to={`/users/${user.id}/groups`}>
               <span>
-               {t("group_back")}
+               Back
               </span>
             </Link>
         </div>
