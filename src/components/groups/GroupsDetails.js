@@ -22,6 +22,7 @@ import groupsServices from "../../services/groupsServices";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
 import add from "../../images/add.svg"
+import { t } from "i18next";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
@@ -100,7 +101,7 @@ export const GroupsDetails = () => {
     centered: true,
     children: (
       <Text size="sm">
-        Delete
+        {t("group_user_delete")}
       </Text>
     ),
     labels: { confirm: 'Delete user', cancel: "Cancel" },
@@ -132,7 +133,7 @@ export const GroupsDetails = () => {
       <NavbarGroups></NavbarGroups>
       <section className="wrapper-group-details">
       <div className="box-txt-table-groups">
-      <h3>Membri</h3>
+      <h3>{t("group_members")}</h3>
         <table className="wrapper-table " style={
           group.length === 0
           ? { opacity : 0}
@@ -142,12 +143,12 @@ export const GroupsDetails = () => {
         </div>
         <div className="box-src-group">
           <div className="searchText">
-          <h3>Aggiungi utente</h3>
+          <h3>{t("group_add_user")}</h3>
           </div>
           <div className="search-box-group">
             <Input
               icon={<Search size={20} />}
-              placeholder={"Cerca utenti..."}
+              placeholder={t("group_search_user_email")}
               defaultValue={searchInput}
               onChange={handleSearch}
             />
@@ -164,7 +165,7 @@ export const GroupsDetails = () => {
           <div className="back">
           <Link to={`/users/${user.id}/groups`}>
               <span>
-               Back
+               {t('group_back')}
               </span>
             </Link>
         </div>

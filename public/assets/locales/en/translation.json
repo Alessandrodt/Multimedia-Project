@@ -41,7 +41,7 @@
   "group_user_delete_button": "Delete",
   "group_members": "Members",
   "group_add_user": "Add an user",
-  "group_search_user_email": "Search for an user email. Minimum of 3 characters.",
+  "group_search_user_email": "Search for an user email. Minimum of 2 characters.",
   "group_back": "Go back",
   "group_sharing_title": "Share with your friends",
   "group_sharing_choose": "Choose a folder",
