@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import defaultAvatar from "../../../images/user.svg";
 import logo from "../../../images/picsmi.png";
+import { t } from "i18next";
 
 export const NavbarGroups = () => {
     
@@ -22,7 +23,7 @@ const user = JSON.parse(sessionStorage.getItem('user'));
                             <span className="link-to link-to-home">Home</span>
                         </Link>
                         <Link to={`/users/${user.id}/folders`}>
-                            <span className="link-to link-to-folders">Folders</span>
+                            <span className="link-to link-to-folders">{t('folders')}</span>
                         </Link>
                         {/* Link User */}
                         <h6>
