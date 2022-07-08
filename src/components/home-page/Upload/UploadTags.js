@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 
 // libraries
 import CreatableSelect from "react-select/creatable";
+import { t } from "i18next";
 
 // services
 import imagesServices from "../../../services/imagesServices";
-
-// Translation
-import { t } from "i18next";
 
 export function UploadTags({ setSelectedTags, selectedTags }) {
   const [allTags, setAllTags] = useState([]);
