@@ -52,7 +52,7 @@ import { Link } from 'react-router-dom';
             been moved to another URL.
           </Text>
           <Group position="center">
-            <Link to='/'>
+            <Link to='/home'>
                <Button variant="subtle" size="md">
                 Take me back to home page
                </Button>
