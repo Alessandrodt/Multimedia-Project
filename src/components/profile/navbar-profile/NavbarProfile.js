@@ -1,6 +1,8 @@
 import { InputWithButton } from "../../navbar/search/Srcbar";
 import { Link } from "react-router-dom";
 
+import { LanguageSelect } from "../../language-select/LanguageSelect";
+
 import logo from "../../../images/picsmi.png";
 import { t } from "i18next";
 
@@ -17,6 +19,9 @@ export const NavbarProfile = () => {
             </Link>
           </div>
           <div className="wrapper-sign-home">
+            <div className="switchlng">
+              <LanguageSelect />
+            </div>
             <div className="button">
               <span>
                 <Link to={`/users/${user.id}/groups`}>
