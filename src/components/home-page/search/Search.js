@@ -10,7 +10,6 @@ export function Search({ setSearchParams }) {
 
   useEffect(() => {
     setSearchParams({ tags: selectedTags, date: selectedDate });
-    console.log(selectedTags, selectedDate);
   }, [selectedTags, selectedDate, setSearchParams]);
 
   return (
