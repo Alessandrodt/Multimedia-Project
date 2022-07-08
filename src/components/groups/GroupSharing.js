@@ -8,7 +8,6 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
-import groupsServices from "../../services/groupsServices";
 import foldersServices from "../../services/foldersServices";
 import folderSharingServices from "../../services/folderSharingServices";
 
@@ -25,19 +24,12 @@ import { t } from "i18next";
 export const GroupSharing = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const [sharedFolders, setSharedFolders] = useState([]);
-    const [groupsIds, setGroupsId] = useState([]);
     const [folders, setFolders] = useState([]);
     const { groupId, userId } = useParams();
     const modal = useModals();
 
     useEffect(() => {
-        groupsServices.getUserGroups(user.id)
-        .then(groups => {
-            const gId = groups.data.map(group => group.id)
-            setGroupsId(gId)
-        });
-
-        foldersServices.getFolder(userId).then((response) => {
+        foldersServices.getFolderUpload(userId).then((response) => {
           setFolders(response.data);
         });
 
