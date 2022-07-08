@@ -74,9 +74,13 @@ export function Upload({ setNewUploadImages }) {
           onClick={handleClick}
           className={"upload-preview-btn"}
           name="upload-img"
+          disabled={selectedTags.length === 0 || selectedFolder.length === 0}
         >
           Upload
         </Button>
+        <span className="hover">
+          Seleziona almeno un tag, e una cartella di riferimento per il tuo file
+        </span>
       </div>
     </div>
   );

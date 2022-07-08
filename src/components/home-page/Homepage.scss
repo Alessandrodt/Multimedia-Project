@@ -219,3 +219,11 @@ button[name="upload-img"] {
         background: rgba($color: $_primary, $alpha: .30);
     }
 }
+
+.hover {
+    opacity: 0;
+}
+
+.upload-preview-btn:hover + .hover {
+    opacity: 1;
+}
