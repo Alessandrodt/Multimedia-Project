@@ -1,4 +1,3 @@
-import { InputWithButton } from "../../navbar/search/Srcbar";
 import { Link } from "react-router-dom";
 
 import defaultAvatar from "../../../images/user.svg";

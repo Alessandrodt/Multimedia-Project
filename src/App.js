@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components imports
+import { EditProfile } from "./components/edit-profile/EditProfile";
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
@@ -85,6 +86,7 @@ const App = () => {
             <Route element={<RequireAuth />}>
               <Route path="/home" element={<HomePage />} />
               <Route path="/users/:userId/groups" element={<Groups />} />
+              <Route path="/users/:userId/editProfile" element={<EditProfile/>}/>
               <Route
                 path="/users/:userId/groups/:groupId/details"
                 element={<GroupsDetails />}
