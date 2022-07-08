@@ -55,7 +55,7 @@ i18n
   });
 
 const App = () => {
-  const { t } = useTranslation();
+  useTranslation();
 
   return (
     <MantineProvider theme={{ loader: "bars" }}>
