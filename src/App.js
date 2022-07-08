@@ -41,10 +41,9 @@ i18next
     interpolation: {
       escapeValue: false,
     },
-    debug: true,
     saveMissing: true,
     backend: {
-      loadPath: 'assets/locales/{{lng}}/{{ns}}.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     react:{
     }
