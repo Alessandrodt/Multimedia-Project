@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 // components
 import { Card } from "./Card";
 
-// services
+// Services
 import imagesServices from "../../services/imagesServices";
 
-//libraries
+//Libraries
 import Masonry from "@mui/lab/Masonry";
 import Box from "@mui/material/Box";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// styles
+// Styles
 import addNoMatchImage from "../../images/resultnomatch.png";
 
 export function Gallery({ folderId, userId, searchParams, newUploadImages }) {

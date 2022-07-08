@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
+// Libraries
+import { t } from "i18next";
+
+// Styles
 import defaultAvatar from "../../../images/user.svg";
 import logo from "../../../images/picsmi.png";
-import { t } from "i18next";
 
 export const NavbarFolders = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -18,14 +21,10 @@ export const NavbarFolders = () => {
           </div>
           <div className="sign-folders">
             <div className="link-to link-to-home">
-              <Link to={`/Home`}>
-                Home
-              </Link>
+              <Link to={`/Home`}>Home</Link>
             </div>
             <div className="link-to link-to-groups">
-              <Link to={`/users/${user.id}/groups`}>
-                {t("groups")}
-              </Link>
+              <Link to={`/users/${user.id}/groups`}>{t("groups")}</Link>
             </div>
             <h6>
               {user.first_name} {user.last_name}
@@ -43,7 +42,7 @@ export const NavbarFolders = () => {
                   alt="company logo"
                 />
               </Link>
-            </div> 
+            </div>
           </div>
         </div>
       </nav>

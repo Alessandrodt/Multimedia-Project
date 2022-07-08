@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
-// libraries
+// Libraries
 import DatePicker from "react-datepicker";
-
-// styles
-import "react-datepicker/dist/react-datepicker.css";
-
-// Translation
 import { t } from "i18next";
+
+// Styles
+import "react-datepicker/dist/react-datepicker.css";
 
 export function SearchByDate({ setSelectedDate }) {
   const [dateRange, setDateRange] = useState([null, null]);

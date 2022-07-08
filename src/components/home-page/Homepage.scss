@@ -221,12 +221,11 @@ button[name="upload-img"] {
 }
 
 .hover {
-    color: $_orange;
     display: inline-block;
     margin-top: 3%;
     opacity: 0;
 }
 
 .upload-preview-btn:hover + .hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
