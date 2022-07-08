@@ -32,25 +32,26 @@
         top: 20px;
 
         svg {
-            fill: $_success;
+            fill: green;
         }
     }
 
     .success {
+        align-items: flex-start;
         bottom: 60px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         left: 50%;
         position: absolute;
-        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
         text-align: center;
-        align-items: flex-start;
+        -webkit-transform: translateX(-50%);
 
         .link-login {
-            background: $_success;
+            background: green;
             border-radius: 20px;
+            margin-top: 20px;
             padding: $p-1;
             text-align: center;
             width: $w-100;
