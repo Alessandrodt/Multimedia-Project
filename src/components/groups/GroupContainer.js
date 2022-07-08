@@ -16,7 +16,7 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
           withBorder
       >
         <div className='group-name-svg'>
-        <img src={groupeople}></img>
+        <img src={groupeople} alt=''></img>
         <Text className='txt-group' align='center' size='lg' weight={500} mt='md'>
           {groupName}
         </Text>
@@ -24,12 +24,12 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
         <div className="button-groups-action">
         <Link to={groupDetails}>
           <Button name="group-button" fullWidth mt='md'>
-            <img className='settings' src={settings}></img>
+            <img className='settings' alt='' src={settings}></img>
           </Button>
         </Link>
         <Link to={groupSharing}>
           <Button name="group-button" fullWidth mt='md'>
-            <img src={addFolder}></img>
+            <img src={addFolder} alt=''></img>
           </Button>
         </Link>
         </div>

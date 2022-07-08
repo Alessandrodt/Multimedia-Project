@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import groupsServices from "../../services/groupsServices";
 
 // Mantine imports
-import { Avatar, Button, Card, SimpleGrid, TextInput } from '@mantine/core';
+import { Button, Card, SimpleGrid, TextInput } from '@mantine/core';
 
 // Components imports
-import defaultAvatar from '../../images/user.svg';
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
 
@@ -26,9 +25,9 @@ export const Groups = () => {
 
 
     // Conditional welcome message, checking the length of the groups state.
-    const initialMessage = groups.length 
-    ? <h4> These are your groups! </h4>
-    : <h4> It seems you have no groups... why don't you create one? </h4>
+    // const initialMessage = groups.length 
+    // ? <h4> These are your groups! </h4>
+    // : <h4> It seems you have no groups... why don't you create one? </h4>
 
     // useEffect hook, on page load all the groups created by the user are retrieved from the server.
     useEffect(() => {
@@ -70,7 +69,7 @@ export const Groups = () => {
                     required
                     />
                     <Button fullWidth type="submit">
-                        <img src={add}></img>
+                        <img src={add} alt=''></img>
                     </Button>
                     </div>
                 </form>
