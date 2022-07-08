@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // Components imports
 import { GroupContainer } from "./GroupContainer";
 import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { NotOwnedGroupContainer } from "./NotOwnedGroupContainer";
 
 // Services
 import groupsServices from "../../services/groupsServices";
@@ -20,7 +21,9 @@ import add from "../../images/add.svg";
 export const Groups = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
   const [groups, setGroups] = useState([]);
+  const [groupsNotOwned, setGroupsNotOwned] = useState([]);
   const [groupName, setGroupName] = useState("");
+  const [groupManager, setGroupManager] = useState(true);
 
   // Conditional welcome message, checking the length of the groups state.
   // const initialMessage = groups.length
@@ -29,12 +32,20 @@ export const Groups = () => {
 
   // useEffect hook, on page load all the groups created by the user are retrieved from the server.
   useEffect(() => {
+    let ownedGroups = [];
+    let notOwnedGroups = [];
+
     groupsServices
       .getUserGroups(user.id)
       .then((groups) => {
-        console.log("Groups Loaded");
-        console.log(groups.data);
-        setGroups(groups.data);
+        groups.data.forEach(group => {
+          group.pivot.is_owner
+            ? ownedGroups.push(group)
+            : notOwnedGroups.push(group);
+
+          setGroups(ownedGroups);
+          setGroupsNotOwned(notOwnedGroups);
+        });
       })
       .catch((err) => {
         if (err.response.status === 401) {
@@ -107,22 +118,46 @@ export const Groups = () => {
     }
   };
 
+  const showGroups = () => {
+    if (groupManager) {
+      return (
+        groups.map((group) => (
+          <GroupContainer
+            className="group-cont"
+            key={group.name}
+            groupName={group.name}
+            groupDetails={`/users/${user.id}/groups/${group.id}/details`}
+            groupSharing={`/users/${user.id}/groups/${group.id}/share`}
+          />
+        ))
+      )
+    } else {
+      return (
+        groupsNotOwned.map((group) => (
+          <NotOwnedGroupContainer
+          className="group-cont"
+          key={group.name}
+          groupName={group.name}
+          sharedGroup={`/users/${user.id}/groups/${group.id}/shared`}
+          />
+        ))
+      )
+    }
+  }
+
+  const buttonSwapper = groupManager
+    ? "My Groups"
+    : "Groups I am part of"
+
   return (
     <>
       <NavbarGroups />
       <section className="group-box">
         {groupForm}
+        <Button onClick={() => setGroupManager(!groupManager)}> {buttonSwapper} </Button>
         {/* A map to create a list item for each group name */}
         <SimpleGrid className="wrapper-grid" cols={3} spacing="lg">
-          {groups.map((group) => (
-            <GroupContainer
-              className="group-cont"
-              key={group.name}
-              groupName={group.name}
-              groupDetails={`/users/${user.id}/groups/${group.id}/details`}
-              groupSharing={`/users/${user.id}/groups/${group.id}/share`}
-            />
-          ))}
+          {showGroups()}
         </SimpleGrid>
       </section>
     </>

@@ -96,7 +96,7 @@ const App = () => {
                 element={<GroupSharing />}
               />
               <Route
-                path="/users/:userId/groups/shared"
+                path="/users/:userId/groups/:groupId/shared"
                 element={<NotOwnedGroups />}
               />
               <Route
