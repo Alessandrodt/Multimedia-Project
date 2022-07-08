@@ -1,5 +1,5 @@
 import { Avatar } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import defaultAvatar from "../../images/user.svg";
 //import Translate
@@ -34,9 +34,11 @@ export const Profile = () => {
         </h2>
         <p>{user.email}</p>
         <div className="wrapper-button">
+          <Link to={`/users/${user.id}/editProfile`}>
           <button type="submit" className="primary">
             <span>{t('edit_profile')}</span>
           </button>
+          </Link>
           <button onClick={() => logOut()} className="delete">
             <span>{t('logout')}</span>
           </button>
