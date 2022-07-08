@@ -50,7 +50,7 @@ export const SignUp = () => {
 
   const openContentModal = () => {
     modals.openModal({
-      title: "Choose your avatar:",
+      title: `${t("avatar_chooser")}`,
       centered: true,
       children: (
         <>
@@ -123,24 +123,24 @@ export const SignUp = () => {
     validate: {
       name: (value) =>
         value.length < 2
-          ? "the name has to be at least 2 characters long"
+          ? `${t("invalid_name")}`
           : null,
       surname: (value) =>
         value.length < 2
-          ? "the surname has to be at least 2 characters long"
+          ? `${t("invalid_surname")}`
           : null,
       email: (value) =>
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
           value
         )
           ? null
-          : "Invalid email",
+          : `${t("invalid_email")}`,
       password: (value) =>
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value)
           ? null
-          : "Password must have at least 1 capital letter, a number and be 8 characters long",
+          : `${t("invalid_password_signup")}`,
       confirmPassword: (value, values) =>
-        value !== values.password ? "Passwords did not match" : null,
+        value !== values.password ? `${t("password_confirmation")}` : null,
     },
   });
 

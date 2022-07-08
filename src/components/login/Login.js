@@ -68,11 +68,11 @@ export const Login = () => {
           value
         )
           ? null
-          : "Invalid email",
+          : `${t("invalid_email")}`,
       password: (value) =>
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value)
           ? null
-          : "Invalid password",
+          : `${t("invalid_password")}`,
     },
   });
 

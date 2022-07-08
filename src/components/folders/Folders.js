@@ -117,14 +117,14 @@ export const Folder = ({
 
   const openContentAddModalFolder = () => {
     modal.openModal({
-      title: "Choose your folder's name:",
+      title: `${t("folder_choose_name")}`,
       children: <AddFolderForm userId={userId} onSubmit={addFolder} />,
     });
   };
 
   const openContentEditModal = (id) => {
     modal.openModal({
-      title: "Choose your new folder's name:",
+      title: `${t("folder_choose_name")}`,
       children: (
         <EditFolderForm
           userId={userId}

@@ -97,14 +97,14 @@ export const GroupsDetails = () => {
 
   const openDeleteModal = (user) =>
     modals.openConfirmModal({
-    title: 'Delete user?',
+    title: `${t("delete_user_from_group")}`,
     centered: true,
     children: (
       <Text size="sm">
         {t("group_user_delete")}
       </Text>
     ),
-    labels: { confirm: 'Delete user', cancel: "Cancel" },
+    labels: { confirm: `${t("group_user_delete_button")}`, cancel: "No" },
     confirmProps: { color: 'red' },
     onCancel: () => console.log('Cancel'),
     onConfirm: () => deleteUser(user),

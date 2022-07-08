@@ -15,7 +15,7 @@ const AddFolderForm = (props) => {
     validate: {
       name: (value) =>
         value.length < 3
-          ? "the name has to be at least 3 characters long"
+          ? `${(t("add_folder_name_length"))}`
           : null,
     },
   });
