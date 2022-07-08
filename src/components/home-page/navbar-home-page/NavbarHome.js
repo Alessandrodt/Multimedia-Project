@@ -17,7 +17,9 @@ export const NavbarHome = ({ setSearchParams }) => {
       <nav>
         <div className="wrapper-navbar-home">
           <div className="log">
-            <img src={logo} title="logo smi" alt="company log" />
+            <Link to={`/Home`}>
+              <img src={logo} title="logo smi" alt="company log" />
+            </Link>
           </div>
           <div className="wrapper-search-bar-home">
             <Search setSearchParams={setSearchParams} />
