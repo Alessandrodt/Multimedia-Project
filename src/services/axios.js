@@ -1,6 +1,5 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
 
 // window could be omitted but React throws an error.
 const currentLocation = window.location;

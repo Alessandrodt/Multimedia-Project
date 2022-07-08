@@ -24,34 +24,30 @@ import { MantineProvider } from "@mantine/styles";
 import { Toaster } from "react-hot-toast";
 
 //import i18n
-import i18n from "i18next";
+import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import HttpApi from "i18next-http-backend";
+import Backend from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
 
-i18n
+i18next
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector)
-  .use(HttpApi)
+  .use(Backend)
   .init({
-    fallbackLng: "it-IT",
-    detection: {
-      order: [
-        "cookie",
-        "navigator",
-        "htmlTag",
-        "localStorage",
-        "path",
-        "subdomain",
-      ],
-      caches: ["cookie"],
+    lng: 'en',
+    supportedLngs:['en','it'],
+    fallbackLng: "it",
+    interpolation: {
+      escapeValue: false,
     },
-
+    debug: true,
+    saveMissing: true,
     backend: {
-      loadPath: "assets/locales/{{lng}}/translation.json",
+      loadPath: 'assets/locales/{{lng}}/{{ns}}.json',
     },
-    react: { useSuspense: false },
+    react:{
+    }
   });
 
 const App = () => {
