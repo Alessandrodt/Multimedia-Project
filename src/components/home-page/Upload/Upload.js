@@ -78,7 +78,7 @@ export function Upload({ setNewUploadImages }) {
         >
           Upload
         </Button>
-        <span className={"upload-hover-disabled"}>
+        <span className="hover">
           Seleziona almeno un tag, e una cartella di riferimento per il tuo file
         </span>
       </div>
