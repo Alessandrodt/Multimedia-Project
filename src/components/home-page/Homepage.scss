@@ -44,26 +44,27 @@
     right: 20px;
     border-radius: 50px;
     font-size: 130px;
-    background-color: rgba($color: $_black, $alpha: .05);
+    background-color: $_primary;
+
    
     svg {
     
         path {
-            fill: $_primary;
+            fill: white;
             transition: .5s ease-in-out;
         }
     }
     
 
     &:hover {
-        background-color: rgba($color: $_primary, $alpha: .50);
+        background-color: #c2c2c2 ;
         transition: .5s ease-in-out;
     }
 
     &:hover svg {
         
         path {
-            fill: $_white;
+            fill:$_primary;
             transition: .5s ease-in-out;
         }
 

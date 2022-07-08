@@ -8,28 +8,45 @@ section.group-box {
     }
 
 .wrapper-grid {
+    margin-top: 50px;
     row-gap: 40px;
 
     .paper-groups{
         border-radius: 1.5rem;
         box-shadow: 8px 8px 15px rgb(171, 171, 171);
         border: 2px solid rgb(236, 236, 236);
-        align-self: flex-end;
-
+        justify-content: space-between;
+        display: flex;
+        .group-name-svg{
+            display: flex;
+            img{
+                max-width: 35px;
+                
+            }
+            .txt-group{
+                border-radius: 1.5rem 1.5rem 0 0;
+                font-size: 16px;
+                margin-top: 5px;
+                margin: auto 10px;
+                margin-left: 20px;
+    
+            }
+        }
         .button-groups-action{
             text-align: center;
-            
-
+            margin-top: 10px;
+            display: flex;
             button[name="group-button"] {
-                background: $_primary;
-                display: inline;
+                background: transparent;
                 margin: 0 auto;
-                max-width: 100px;
                 border-radius: 50px;
-
-                &:first-child {
-                    margin-right: 10px;
-                    margin-bottom: 10px;
+                padding: 0;
+                .settings{
+                    max-width: 35px;
+                }
+                img{
+                    max-width: 35px;
+                    margin-left: 10px;
                 }
 
                 @include media( "screen", ">bp1Width", "<maxWidth" ){
@@ -37,13 +54,6 @@ section.group-box {
                 };
             }
       
-        }
-        .txt-group{
-            margin-bottom: 20px;
-            border-radius: 1.5rem 1.5rem 0 0;
-            font-size: 14px;
-            margin-top: 5px;
-
         }
 
         @include media( "screen", ">minWidth", "<bp2Width" ){
