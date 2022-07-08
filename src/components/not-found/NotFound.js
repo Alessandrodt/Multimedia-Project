@@ -54,7 +54,7 @@ import { Link } from 'react-router-dom';
           <Group position="center">
             <Link to='/home'>
                <Button variant="subtle" size="md">
-                Take me back to home page
+                Take me back to my home
                </Button>
             </Link>
           </Group>
