@@ -23,7 +23,7 @@ const EditFolderForm = (props) => {
                     placeholder={t("folder_name")}
                     {...form.getInputProps('name')}
                 />
-                <Button name="confirm" fullWidth type="submit">Confirm</Button>
+                <Button name="confirm" fullWidth type="submit">{t("confirm")}</Button>
             </form>
         </Box>
     );
