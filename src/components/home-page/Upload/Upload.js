@@ -79,7 +79,7 @@ export function Upload({ setNewUploadImages }) {
           Upload
         </Button>
         <span className="hover">
-          Seleziona almeno un tag, e una cartella di riferimento per il tuo file
+          {t("upload_hover_info")}
         </span>
       </div>
     </div>
