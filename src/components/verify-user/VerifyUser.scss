@@ -37,16 +37,16 @@
     }
 
     .success {
-        align-items: flex-start;
-        bottom: 100px;
+        bottom: 60px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        height: 100px;
         left: 50%;
         position: absolute;
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-        justify-content: space-between;
+        text-align: center;
+        align-items: flex-start;
 
         .link-login {
             background: $_success;
@@ -57,7 +57,9 @@
         }
 
         .text-success {
+
             p {
+                text-align: start;
                 margin-top: $s-1;
             }
         }
