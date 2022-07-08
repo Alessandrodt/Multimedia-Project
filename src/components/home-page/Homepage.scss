@@ -224,6 +224,6 @@ button[name="upload-img"] {
     opacity: 0;
 }
 
-.upload-preview-btn .hover {
+.upload-preview-btn:hover + .hover {
     opacity: 1;
 }
