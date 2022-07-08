@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// components
+// Components
 import { NavbarFolders } from "./navbar-folders/NavbarFolders";
 import { Folder } from "./Folders";
 
-// services
+// Services
 import foldersServices from "../../services/foldersServices";
 import { Gallery } from "../galleries/Gallery";
 

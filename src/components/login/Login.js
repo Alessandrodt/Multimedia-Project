@@ -3,17 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-// Mantine imports
-import { Button, Box, Group, LoadingOverlay, PasswordInput, TextInput } from "@mantine/core";
+// Libraries
+import {
+  Button,
+  Box,
+  Group,
+  LoadingOverlay,
+  PasswordInput,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+import { t } from "i18next";
 
 // Services
 import authServices from "../../services/authServices";
-
-// Translation
-import { t } from "i18next";
-
 
 export const Login = () => {
   const modals = useModals();
@@ -32,24 +36,22 @@ export const Login = () => {
   const getUser = () => {
     setVisible(true);
     authServices
-    .getUser(person)
-    .then((response) => {
+      .getUser(person)
+      .then((response) => {
         const singleUser = JSON.stringify(response.data);
         setUser(user.concat(response.data));
-        sessionStorage.setItem('user', singleUser);
+        sessionStorage.setItem("user", singleUser);
         // Need a more elegant solution to this Auth Token problem with interceptors.
-        sessionStorage.setItem('Auth Token', JSON.parse(singleUser).token);
+        sessionStorage.setItem("Auth Token", JSON.parse(singleUser).token);
         setVisible(false);
         modals.closeModal();
-        navigate('/home');
+        navigate("/home");
       })
       .catch((error) => {
         if (error.response.status === 401) {
           toast.error(`${t("login_credentials_invalid")}`);
         } else {
-          toast.error(
-            `${t("login_not_confirmed_yet")} ${email}`
-          );
+          toast.error(`${t("login_not_confirmed_yet")} ${email}`);
         }
         setVisible(false);
       });
@@ -104,7 +106,9 @@ export const Login = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button className="primary" type="submit">Login</Button>
+          <Button className="primary" type="submit">
+            Login
+          </Button>
         </Group>
       </form>
     </Box>

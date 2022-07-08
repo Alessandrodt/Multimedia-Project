@@ -1,9 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-// libraries
+// Libraries
 import { useDropzone } from "react-dropzone";
-
-// Translation
 import { t } from "i18next";
 
 export function UploadPreview({ imagesToUpload }) {

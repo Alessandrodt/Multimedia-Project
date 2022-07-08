@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-// libraries
+// Libraries
 import CreatableSelect from "react-select/creatable";
 import { t } from "i18next";
 
-// services
+// Services
 import imagesServices from "../../../services/imagesServices";
 
 export function UploadTags({ setSelectedTags, selectedTags }) {

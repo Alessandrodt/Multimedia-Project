@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
-// Mantine imports
+// Libraries
 import {
   Avatar,
   Box,
@@ -15,15 +15,13 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+import { t } from "i18next";
 
 // Services
 import avatarServices from "../../services/avatarServices";
 import authServices from "../../services/authServices";
 
-// Translation
-import { t } from "i18next";
-
-// Image
+// Styles
 import defaultAvatar from "../../images/user.svg";
 
 export const SignUp = () => {
@@ -121,14 +119,8 @@ export const SignUp = () => {
       confirmPassword: "",
     },
     validate: {
-      name: (value) =>
-        value.length < 2
-          ? `${t("invalid_name")}`
-          : null,
-      surname: (value) =>
-        value.length < 2
-          ? `${t("invalid_surname")}`
-          : null,
+      name: (value) => (value.length < 2 ? `${t("invalid_name")}` : null),
+      surname: (value) => (value.length < 2 ? `${t("invalid_surname")}` : null),
       email: (value) =>
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
           value

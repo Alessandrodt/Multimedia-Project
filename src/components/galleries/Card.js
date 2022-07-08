@@ -1,6 +1,7 @@
-//components
+// Components
 import { DetailImg } from "./DetailImg";
-//libraries
+
+//Libraries
 import { useModals } from "@mantine/modals";
 
 export function Card({ img, idImage }) {

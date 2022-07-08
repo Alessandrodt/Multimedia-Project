@@ -1,11 +1,14 @@
 import { useModals } from "@mantine/modals";
 import { Login } from "../../components/login/Login";
-import { Toggle } from "../toggle/Toggle";
-//import landingPageServices from "../../services/landingPageServices";
 
+// Components
 import { LanguageSelect } from "../language-select/LanguageSelect";
 import { SignUp } from "../../components/sign-up/Signup";
 
+// Libraries
+import { t } from "i18next";
+
+// Styles
 //import img
 import devices from "../../images/Devices.png";
 import logo from "../../images/picsmi.png";
@@ -14,9 +17,6 @@ import wireframe from "../../images/Wireframe.png";
 import group from "../../video/Group.mp4";
 import homepage from "../../video/homepage.mp4";
 import search from "../../video/Search.mp4";
-
-//import Language
-import { t } from "i18next";
 
 export const LandingPage = () => {
   const modals = useModals();
@@ -120,7 +120,7 @@ export const LandingPage = () => {
             <div className="text end">
               <h2>{t("search_by_tag")}</h2>
               <p>
-                <strong>{t("search_images_bold")}</strong> {" "}
+                <strong>{t("search_images_bold")}</strong>{" "}
                 {t("search_images_normal")}
               </p>
             </div>
@@ -177,9 +177,7 @@ export const LandingPage = () => {
         <div className="wrapper-footer">
           <div className="wrapper-about">
             <h3>{t("about_us")}</h3>
-            <p>
-              {t("about_us_text")}
-            </p>
+            <p>{t("about_us_text")}</p>
           </div>
           <div className="wrapper-about">
             <h3>{t("contact_us")}</h3>

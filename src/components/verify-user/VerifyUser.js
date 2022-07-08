@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-// components
+// Components
 import { Link, useParams } from "react-router-dom";
 
-// services
+// Services
 import authServices from "../../services/authServices";
 
-//libraries
+// Libraries
 import { Loader } from "@mantine/core";
 import { t } from "i18next";
 

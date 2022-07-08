@@ -221,9 +221,11 @@ button[name="upload-img"] {
 }
 
 .hover {
+    display: inline-block;
+    margin-top: 3%;
     opacity: 0;
 }
 
 .upload-preview-btn:hover + .hover {
-    opacity: 1;
+    opacity: 0.5;
 }
