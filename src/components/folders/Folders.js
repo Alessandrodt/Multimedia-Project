@@ -44,12 +44,12 @@ export const Folder = ({
       .createFolder(userId, folderId, values)
       .then((response) => {
         setFolders(folders.concat(response.data));
-        toast.success(`${values.name} was created successfully`);
+        toast.success(`${t("folder")} ${values.name} ${t("folder_creation_success")}`);
         modal.closeModal();
       })
       .catch((error) => {
         if (error.response.status === 422) {
-          toast.error(`the folder ${values.name} already exists`);
+          toast.error(`${t("folder")} ${values.name} ${t("group_exists")}`);
           modal.closeModal();
         }
       });
@@ -65,13 +65,13 @@ export const Folder = ({
           )
         );
         modal.closeModal();
-        toast.success(`the folder has been modified successfully`);
+        toast.success(`${t("folder_modify_success")}`);
       })
       .catch((error) => {
         if (error.message.status === 403) {
-          toast.error(`you don't have the rights to modify this folder`);
+          toast.error(`${t("folder_modify_no_rights")}`);
         } else if (error.response.status === 422) {
-          toast.error(`the folder ${values.name} already exists`);
+          toast.error(`${t("folder")} ${values.name} ${t("group_exists")}`);
         }
         modal.closeModal();
       });
