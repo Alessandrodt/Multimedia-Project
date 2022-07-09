@@ -42,7 +42,7 @@
 
     .log {
         //width: 17%;
-        //width: 150px;
+        width: 150px;
 
         a {
             width: 100%;
@@ -60,6 +60,10 @@
                 }
 
                 @include media( "screen", ">minWidth", "<bp3Width", ){
+                    width: 100px;
+                }
+
+                @include media( "screen", ">bp3Width", "<bp2Width", ){
                     width: 100px;
                 }
 
