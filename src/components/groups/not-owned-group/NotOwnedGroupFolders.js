@@ -1,15 +1,20 @@
-// Services
-import foldersServices from "../../../services/foldersServices";
+// React
+import { useParams } from "react-router-dom";
 
 // Components
-import { FoldersList } from "../../folders/FoldersList";
 import { Gallery } from "../../galleries/Gallery";
 
-export const NotOwnedGroupFolders = ({folders, setFolders, crumbs, setCrumbs}) =>  {
-
+export const NotOwnedGroupFolders = () =>  {
+    const { folderId } = useParams();
     return (
         <>
-          
+            <section className="folder-gallery">
+                <Gallery
+                folderId={folderId}
+                key={folderId}
+                >
+                </Gallery>
+          </section>
         </>
     )
 }

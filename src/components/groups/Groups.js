@@ -145,16 +145,17 @@ export const Groups = () => {
     }
   }
 
-  const buttonSwapper = groupManager
-    ? "My Groups"
-    : "Groups I am part of"
+  const groupInfo = groupManager
+    ? `${t("my_groups")}`
+    : `${t("not_owned_groups")}`
 
   return (
     <>
       <NavbarGroups />
       <section className="group-box">
         {groupForm}
-        <Button onClick={() => setGroupManager(!groupManager)}> {buttonSwapper} </Button>
+        <Button onClick={() => setGroupManager(!groupManager)}> {t("groups_switch")} </Button>
+        <h3> {groupInfo} </h3>
         {/* A map to create a list item for each group name */}
         <SimpleGrid className="wrapper-grid" cols={3} spacing="lg">
           {showGroups()}

@@ -12,8 +12,6 @@ const getSharedFolders = (userId, groupId) => {
     return axios.get(`https://smi-laravel.fly.dev/api/v1/users/${userId}/folders?filter[groups]=${groupId}&include=folders,groups,groups.users`);
 }
 
-
-// https://smi-laravel.fly.dev/api/v1/users/${userId}/folders?filter[groups]=${groupsIds}
 const folderSharingServices = { addFolderToGroup, removeFolderFromGroup, getSharedFolders }
 
 export default folderSharingServices
