@@ -42,7 +42,7 @@ section.group-box {
                 border-radius: 50px;
                 padding: 0;
                 .settings{
-                    max-width: 35px;
+                    max-width: 30px;
                 }
                 img{
                     max-width: 35px;
@@ -93,6 +93,10 @@ section.group-box {
         width: 24%;
         position: relative;
         top: 14px;
+
+        @include media( "screen", ">minWidth", "<bp3Width") {
+            width: 41%;
+        }
     }
     button:hover{
         background-color: transparent;

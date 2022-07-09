@@ -33,6 +33,7 @@ export const LandingPage = () => {
         <div className="wrapper-nav">
           <div className="logo">
             <a href="#landing-page">
+              {/* logo */}
               <svg viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M86.7891 44.2882C86.6689 36.2926 84.4956 28.4746 80.4931 21.6391C76.4906 14.8037 70.8034 9.19774 64.0171 5.39844V57.4001L86.7891 44.2882Z" fill="#00D1E0"/>
                 <path d="M65.2113 83.8953C71.5656 80.0513 76.8724 74.5944 80.6326 68.0381C84.3927 61.4817 86.4826 54.0414 86.7056 46.417L43.9678 70.7711L65.2113 83.8953Z" fill="#00D1E0"/>

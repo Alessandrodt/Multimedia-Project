@@ -27,8 +27,28 @@
     }
 
     .logo {
-        img {
-            width: ($w-6) * 2;
+
+        a {
+            svg {
+                width: 100px;
+
+                .text-logo {
+
+                    @include media( "screen", ">minWidth", "<bp3Width" ){
+                        display: none;
+                    };
+                }
+            }
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            width: 48px;
+        };
+
+        h6 {
+            @include media( "screen", ">minWidth", "<bp3Width" ){
+                display: none;
+            };
         }
     }
 
@@ -42,6 +62,17 @@
         column-gap: $s-3;
         display: flex;
         justify-content: flex-end;
+
+        h6 {
+            @include media( "screen", ">minWidth", "<bp3Width") {
+                display: none;
+            }
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width") {
+            gap: 0.5rem;
+        }
+
     }
     
     .user {
