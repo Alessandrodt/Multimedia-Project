@@ -8,12 +8,10 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
-import groupsServices from "../../../services/groupsServices";
 import foldersServices from "../../../services/foldersServices";
 import folderSharingServices from "../../../services/folderSharingServices";
 
 // Style imports
-import folderEmpty from "../../../images/folder_icon_empty.svg";
 import toast from "react-hot-toast";
 import { NavbarGroups } from "../navbar-groups/NavbarGroups";
 
@@ -122,7 +120,7 @@ export const GroupSharing = () => {
                     return (
                         <Paper className="paper-details-groups" p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
                             <div className="box-flex-folder-groups">
-                            <img src={folderEmpty} alt={`Folder ${sharedFolder.name}`}/>
+                            <img src={folder_icon} alt={`Folder ${sharedFolder.name}`}/>
                             <Text className="txt-folders-groups" align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
                             </div>
                             <Button name="button-detail-groups" fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> 
