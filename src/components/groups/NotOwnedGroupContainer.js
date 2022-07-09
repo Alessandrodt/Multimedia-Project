@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Components
-import { NotOwnedGroups } from "./NotOwnedGroups";
 import { Button, Paper, Text } from "@mantine/core";
 
-import addFolder from "../../images/addFolder.svg";
+import folderWithElement from "../../images/folder_icon.svg";
 import groupeople from "../../images/groupeople.svg";
 
 export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
@@ -26,7 +25,7 @@ export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
       <div className="button-groups-action">
         <Link to={sharedGroup}>
           <Button name="group-button" fullWidth mt="md">
-            <img src={addFolder} alt=""></img>
+            <img src={folderWithElement} alt=""></img>
           </Button>
         </Link>
       </div>

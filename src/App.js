@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components imports
 import { EditProfile } from "./components/edit-profile/EditProfile";
 import { EmailVerify } from "./components/verify-user/VerifyUser";
+import { NotOwnedGroupFolders } from "./components/groups/NotOwnedGroupFolders";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
 import { GroupsDetails } from "./components/groups/GroupsDetails";
@@ -10,7 +11,7 @@ import { GroupSharing } from "./components/groups/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
-import { NotOwnedGroups } from "./components/groups/NotOwnedGroups";
+import { NotOwnedGroup } from "./components/groups/NotOwnedGroup";
 import { Profile } from "./components/profile/Profile";
 import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
@@ -92,7 +93,11 @@ const App = () => {
               />
               <Route
                 path="/users/:userId/groups/:groupId/shared"
-                element={<NotOwnedGroups />}
+                element={<NotOwnedGroup />}
+              />
+              <Route
+                path="/users/:userId/groups/:groupId/shared/:folderId"
+                element={<NotOwnedGroupFolders />}
               />
               <Route
                 path="/users/:userId/folders/:folderId"
