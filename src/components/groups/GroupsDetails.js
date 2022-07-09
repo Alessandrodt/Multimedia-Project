@@ -114,7 +114,7 @@ export const GroupsDetails = () => {
     <tr key={user.id}>
       <td>
         <Group spacing="sm">
-          <Avatar size={30} src={user.avatar} radius={30} />
+          <Avatar size={30} src={`https://smi-laravel.fly.dev/images/avatars/avatar-${user.avatar_id}.svg`} radius={30} />
           <Text size="sm" weight={500}>
             {user.first_name} {user.last_name}
           </Text>
