@@ -27,10 +27,11 @@
     }
 
     .logo {
-
+        width: ($w-5) + 100;
+        
         a {
             svg {
-                width: 100px;
+                width: ($w-4) + 100;
 
                 .text-logo {
 
@@ -41,15 +42,16 @@
             }
         }
 
-        @include media( "screen", ">minWidth", "<bp3Width" ){
-            width: 48px;
-        };
-
         h6 {
             @include media( "screen", ">minWidth", "<bp3Width" ){
                 display: none;
             };
         }
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            width: 60px;
+        };
+
     }
 
     .search-bar {
@@ -69,7 +71,7 @@
             }
         }
 
-        @include media( "screen", ">minWidth", "<bp3Width") {
+        @include media( "screen", ">minWidth", "<bp2Width") {
             gap: 0.5rem;
         }
 
