@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components imports
 import { EditProfile } from "./components/edit-profile/EditProfile";
 import { EmailVerify } from "./components/verify-user/VerifyUser";
-import { NotOwnedGroupFolders } from "./components/groups/NotOwnedGroupFolders";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
-import { GroupsDetails } from "./components/groups/GroupsDetails";
-import { GroupSharing } from "./components/groups/GroupSharing";
+import { GroupsDetails } from "./components/groups/group-details/GroupsDetails";
+import { GroupSharing } from "./components/groups/group-sharing/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
-import { NotOwnedGroup } from "./components/groups/NotOwnedGroup";
+import { NotOwnedGroup } from "./components/groups/not-owned-group/NotOwnedGroup";
+import { NotOwnedGroupFolders } from "./components/groups/not-owned-group/NotOwnedGroupFolders";
 import { Profile } from "./components/profile/Profile";
-import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
+import { SignUp } from "./components/sign-up/Signup";
 
 // import style scss
 import "./App.scss";

@@ -8,17 +8,17 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
-import groupsServices from "../../services/groupsServices";
-import foldersServices from "../../services/foldersServices";
-import folderSharingServices from "../../services/folderSharingServices";
+import groupsServices from "../../../services/groupsServices";
+import foldersServices from "../../../services/foldersServices";
+import folderSharingServices from "../../../services/folderSharingServices";
 
 // Style imports
-import folderEmpty from "../../images/folder_icon_empty.svg";
+import folderEmpty from "../../../images/folder_icon_empty.svg";
 import toast from "react-hot-toast";
-import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { NavbarGroups } from "../navbar-groups/NavbarGroups";
 
-import add from "../../images/add.svg"
-import folder_icon from "../../images/folder_icon.svg"
+import add from "../../../images/add.svg"
+import folder_icon from "../../../images/folder_icon.svg"
 import { t } from "i18next";
 
 

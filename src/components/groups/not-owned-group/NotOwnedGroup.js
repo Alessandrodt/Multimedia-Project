@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 // Services
-import folderSharingServices from "../../services/folderSharingServices";
-import groupsServices from "../../services/groupsServices";
+import folderSharingServices from "../../../services/folderSharingServices";
+import groupsServices from "../../../services/groupsServices";
 
 // Mantine imports
 import { Avatar, Card, Group, Text } from "@mantine/core";
 
 // Style
-import folderEmpty from "../../images/folder_icon_empty.svg";
-import folderWithElement from "../../images/folder_icon.svg";
+import folderEmpty from "../../../images/folder_icon_empty.svg";
+import folderWithElement from "../../../images/folder_icon.svg";
 
 export const NotOwnedGroup = () => {
   const { groupId, userId } = useParams();

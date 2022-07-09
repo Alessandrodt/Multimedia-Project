@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Components
-import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { NavbarGroups } from "../navbar-groups/NavbarGroups";
 
 // Services
-import groupsServices from "../../services/groupsServices";
+import groupsServices from "../../../services/groupsServices";
 
 // Libraries
 import { Avatar, Group, Text, Button, Input } from "@mantine/core";
@@ -16,7 +16,7 @@ import { useModals } from "@mantine/modals";
 import { t } from "i18next";
 
 // Styles
-import add from "../../images/add.svg";
+import add from "../../../images/add.svg";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
