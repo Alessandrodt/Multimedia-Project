@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Components
-import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { NavbarGroups } from "../navbar-groups/NavbarGroups";
 
 // Services
-import groupsServices from "../../services/groupsServices";
+import groupsServices from "../../../services/groupsServices";
 
 // Libraries
 import { Avatar, Group, Text, Button, Input } from "@mantine/core";
@@ -16,7 +16,7 @@ import { useModals } from "@mantine/modals";
 import { t } from "i18next";
 
 // Styles
-import add from "../../images/add.svg";
+import add from "../../../images/add.svg";
 
 export const GroupsDetails = () => {
   const { groupId } = useParams();
@@ -114,7 +114,7 @@ export const GroupsDetails = () => {
     <tr key={user.id}>
       <td>
         <Group spacing="sm">
-          <Avatar size={30} src={user.avatar} radius={30} />
+          <Avatar size={30} src={`https://smi-laravel.fly.dev/images/avatars/avatar-${user.avatar_id}.svg`} radius={30} />
           <Text size="sm" weight={500}>
             {user.first_name} {user.last_name}
           </Text>

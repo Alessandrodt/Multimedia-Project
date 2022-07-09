@@ -5,15 +5,16 @@ import { EditProfile } from "./components/edit-profile/EditProfile";
 import { EmailVerify } from "./components/verify-user/VerifyUser";
 import { FoldersList } from "./components/folders/FoldersList";
 import { Groups } from "./components/groups/Groups";
-import { GroupsDetails } from "./components/groups/GroupsDetails";
-import { GroupSharing } from "./components/groups/GroupSharing";
+import { GroupsDetails } from "./components/groups/group-details/GroupsDetails";
+import { GroupSharing } from "./components/groups/group-sharing/GroupSharing";
 import { HomePage } from "./components/home-page/HomePage";
 import { LandingPage } from "./components/landing-page/LandingPage";
 import { NotFound } from "./components/not-found/NotFound";
-import { NotOwnedGroups } from "./components/groups/NotOwnedGroups";
+import { NotOwnedGroup } from "./components/groups/not-owned-group/NotOwnedGroup";
+import { NotOwnedGroupFolders } from "./components/groups/not-owned-group/NotOwnedGroupFolders";
 import { Profile } from "./components/profile/Profile";
-import { SignUp } from "./components/sign-up/Signup";
 import { RequireAuth } from "./components/require-auth/RequireAuth";
+import { SignUp } from "./components/sign-up/Signup";
 
 // import style scss
 import "./App.scss";
@@ -24,34 +25,29 @@ import { MantineProvider } from "@mantine/styles";
 import { Toaster } from "react-hot-toast";
 
 //import i18n
-import i18n from "i18next";
+import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import HttpApi from "i18next-http-backend";
+import Backend from "i18next-http-backend";
 import { useTranslation } from "react-i18next";
 
-i18n
+i18next
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector)
-  .use(HttpApi)
+  .use(Backend)
   .init({
-    fallbackLng: "it-IT",
-    detection: {
-      order: [
-        "cookie",
-        "navigator",
-        "htmlTag",
-        "localStorage",
-        "path",
-        "subdomain",
-      ],
-      caches: ["cookie"],
+    lng: 'en',
+    supportedLngs:['en','it'],
+    fallbackLng: "it",
+    interpolation: {
+      escapeValue: false,
     },
-
+    saveMissing: true,
     backend: {
-      loadPath: "assets/locales/{{lng}}/translation.json",
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-    react: { useSuspense: false },
+    react:{
+    }
   });
 
 const App = () => {
@@ -96,8 +92,12 @@ const App = () => {
                 element={<GroupSharing />}
               />
               <Route
-                path="/users/:userId/groups/shared"
-                element={<NotOwnedGroups />}
+                path="/users/:userId/groups/:groupId/shared"
+                element={<NotOwnedGroup />}
+              />
+              <Route
+                path="/users/:userId/groups/:groupId/shared/:folderId"
+                element={<NotOwnedGroupFolders />}
               />
               <Route
                 path="/users/:userId/folders/:folderId"

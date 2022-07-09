@@ -8,36 +8,27 @@ import { useModals } from "@mantine/modals";
 import { Button, Paper, SimpleGrid, Text } from "@mantine/core";
 
 // Services imports
-import groupsServices from "../../services/groupsServices";
-import foldersServices from "../../services/foldersServices";
-import folderSharingServices from "../../services/folderSharingServices";
+import foldersServices from "../../../services/foldersServices";
+import folderSharingServices from "../../../services/folderSharingServices";
 
 // Style imports
-import folderEmpty from "../../images/folder_icon_empty.svg";
 import toast from "react-hot-toast";
-import { NavbarGroups } from "./navbar-groups/NavbarGroups";
+import { NavbarGroups } from "../navbar-groups/NavbarGroups";
 
-import add from "../../images/add.svg"
-import folder_icon from "../../images/folder_icon.svg"
+import add from "../../../images/add.svg"
+import folder_icon from "../../../images/folder_icon.svg"
 import { t } from "i18next";
 
 
 export const GroupSharing = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const [sharedFolders, setSharedFolders] = useState([]);
-    const [groupsIds, setGroupsId] = useState([]);
     const [folders, setFolders] = useState([]);
     const { groupId, userId } = useParams();
     const modal = useModals();
 
     useEffect(() => {
-        groupsServices.getUserGroups(user.id)
-        .then(groups => {
-            const gId = groups.data.map(group => group.id)
-            setGroupsId(gId)
-        });
-
-        foldersServices.getFolder(userId).then((response) => {
+        foldersServices.getFolderUpload(userId).then((response) => {
           setFolders(response.data);
         });
 
@@ -129,7 +120,7 @@ export const GroupSharing = () => {
                     return (
                         <Paper className="paper-details-groups" p='md'radius='md' shadow='xs' withBorder key={sharedFolder.id}>
                             <div className="box-flex-folder-groups">
-                            <img src={folderEmpty} alt={`Folder ${sharedFolder.name}`}/>
+                            <img src={folder_icon} alt={`Folder ${sharedFolder.name}`}/>
                             <Text className="txt-folders-groups" align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
                             </div>
                             <Button name="button-detail-groups" fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> 
