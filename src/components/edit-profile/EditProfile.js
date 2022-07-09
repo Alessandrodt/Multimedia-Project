@@ -6,7 +6,8 @@ import { t } from "i18next";
 
 export const EditProfile = () => {
   return (
-    <div className="background-img">
+    <div className="edit-profile">
+      <div className="background-img">
       <section className="notFound">
         <div className="img">
           <img
@@ -19,9 +20,10 @@ export const EditProfile = () => {
           />
         </div>
         <div className="text">
-          <h1>{t("oopsie")}</h1>
-          <h2>{t("oopsie_not_available")}</h2>
-          <h3>{t("oopsie_back_to_home")}</h3>
+          <h2 className="title-text">{t("oopsie")}</h2>
+          <h3 className="title-text">{t("oopsie_not_available")}</h3>
+          <h4 className="title-text">{t("oopsie_back_to_home")}</h4>
+          <div className="choose-profile">
           <Link className="yes" to={`/home`}>
             {t("oopsie_yes")}
           </Link>
@@ -32,8 +34,10 @@ export const EditProfile = () => {
           >
             NO
           </a>
+          </div>
         </div>
       </section>
+    </div>
     </div>
   );
 };

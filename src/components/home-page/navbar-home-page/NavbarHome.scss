@@ -41,12 +41,33 @@
     }
 
     .log {
-        img {
-            width: ($w-6) * 2;
+        //width: 17%;
+        width: 150px;
 
+        a {
+            width: 100%;
+            display: inline-block;
+
+            svg {
+                width: 140px;
+
+                .text-logo {
+                    @include media( "screen", ">minWidth", "<bp3Width", ){
+                        display: none;
+                    }
+                }
+
+                @include media( "screen", ">minWidth", "<bp3Width", ){
+                    width: 100px;
+                }
+
+            }
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width", ){
+            width: 50px;
         }
     }
-
     .wrapper-sign-home {
         align-items: center;
         display: flex;
