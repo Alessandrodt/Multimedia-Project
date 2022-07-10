@@ -19,7 +19,7 @@ section.group-box {
             overflow: visible!important;
         }
         
-        button.switch {
+        button.switch-group {
             background: transparent;
             //overflow: hidden;
 
@@ -105,7 +105,7 @@ section.group-box {
             opacity: 0;
         }
 
-        button.switch:hover + span.group-switch {
+        button.switch-group:hover + span.group-switch {
             transition: .5s ease-in-out;
             opacity: 1;
         } 
