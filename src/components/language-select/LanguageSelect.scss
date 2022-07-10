@@ -7,6 +7,13 @@
   top: -9.5px;
 }
   
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  /*your rules for chrome*/
+  #cange{ 
+      position:relative;
+      top:-2px; 
+  }
+}
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;

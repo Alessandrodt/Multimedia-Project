@@ -17,7 +17,7 @@ export const LanguageSelect = () => {
     <>
       <div className="switch-box">
         <div>
-          <label className="switch">
+          <label id="cange" className="switch">
             <input type="checkbox"></input>
             <span className="sliderr round" onClick={() => languageSwitch(lng)}>
               <div className="language-box">
