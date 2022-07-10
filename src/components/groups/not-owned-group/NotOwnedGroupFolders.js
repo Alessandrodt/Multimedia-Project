@@ -9,6 +9,7 @@ import { Gallery } from "../../galleries/Gallery";
 // Translation
 import { t } from "i18next";
 
+// This component is responsible for showing the actual images shared inside the folders.
 export const NotOwnedGroupFolders = () =>  {
     const { folderId, groupId } = useParams();
     const user = JSON.parse(sessionStorage.getItem("user"));

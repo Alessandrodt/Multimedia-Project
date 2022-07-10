@@ -9,6 +9,7 @@ import groupeople from "../../images/groupeople.svg";
 import addFolder from "../../images/addFolder.svg";
 import settings from "../../images/settings.svg";
 
+// GroupContainer is a simple component used to store the owned group infos displayed in the Groups page.
 export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
   return (
     <Paper p="md" className="paper-groups" radius="md" shadow="xs" withBorder>

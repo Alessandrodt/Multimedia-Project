@@ -25,16 +25,14 @@ export const Groups = () => {
   const [groupName, setGroupName] = useState("");
   const [groupManager, setGroupManager] = useState(true);
 
-  // Conditional welcome message, checking the length of the groups state.
-  // const initialMessage = groups.length
-  // ? <h4> These are your groups! </h4>
-  // : <h4> It seems you have no groups... why don't you create one? </h4>
-
-  // useEffect hook, on page load all the groups created by the user are retrieved from the server.
+  // useEffect hook, on page load all the groups where the user is present.
+  // Then the data is passed through a forEach, where the is_owner status is checked.
+  // If it's true, the group item is pushed in the ownedGroups, else into notOwnedGroups.
+  // After this process, both arrays get stored into two separate states.
   useEffect(() => {
     let ownedGroups = [];
     let notOwnedGroups = [];
-
+    
     groupsServices
       .getUserGroups(user.id)
       .then((groups) => {
@@ -96,8 +94,10 @@ export const Groups = () => {
 
   // Function responsible for adding a group.
   const createGroup = () => {
+    // This const searches through a find method for matching group names.
     const existingGroup = groups.find((g) => g.name === groupName);
 
+    // If a group name already exists, displays an error.
     if (existingGroup) {
       toast.error(`${groupName} ${t("group_exists")}`);
     } else {
@@ -118,6 +118,8 @@ export const Groups = () => {
     }
   };
 
+  // This function checks the boolean state groupManager.
+  // On boolean change the two group states are switched and shown.
   const showGroups = () => {
     if (groupManager) {
       return (
@@ -145,6 +147,7 @@ export const Groups = () => {
     }
   }
 
+  // A simple text box to display what kind of groups the user is looking at.
   const groupInfo = groupManager
     ? `${t("my_groups")}`
     : `${t("not_owned_groups")}`

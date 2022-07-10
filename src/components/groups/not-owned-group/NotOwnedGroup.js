@@ -26,18 +26,20 @@ export const NotOwnedGroup = () => {
   const [sharedFolders, setSharedFolders] = useState([]);
 
   useEffect(() => {
+    // Stolen from GroupDetails.
     groupsServices.getUserGroups(userId).then((groups) => {
       const i = groups.data.findIndex((item) => item.id == groupId);
       setGroupUsers(groups.data[i].users || []);
     });
 
+    // This function gets the shared folders and displays them in a state.
     folderSharingServices.getSharedFolders(userId, groupId).then((folders) => {
       console.log(folders.data);
       setSharedFolders(folders.data);
     })
   }, [groupId, userId]);
 
-  
+  // This is responsible for loading the group users info.
   const rows = groupUsers.map((user) => (
     <tr key={user.id}>
       <td>
