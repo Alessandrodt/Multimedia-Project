@@ -104,19 +104,35 @@ button[name="confirm"] {
 
 .slider {
     align-items: center;
+    border-radius: 0.5rem;
     display: flex;
-    column-gap: $s-2;
-    height: $h-100;
-    width: $w-100;
+    text-align: center;
+    padding: 0.3rem;
+    width: 290px;
+    color: #00D1E0;
+    justify-content: space-between;
+
+    img{
+        width: 40px;
+    }
 
     p {
         color: $_primary;
-    }
+        margin:auto 20px ;
+
+        }
 }
 
 section.folder-gallery {
     margin: $m-auto;
+    margin-top: 100px;
     max-width: 1024px;
+
+    .back{
+        position: fixed;
+        right: 100px;
+        top: 100px;
+    }
     .infinite-scroll-component {
         overflow: unset !important;
     }
@@ -147,9 +163,10 @@ section.wrapper-slider {
     flex-wrap: wrap;
     margin: $m-auto;
     max-width: 1224px;
-    padding: 1rem;
     row-gap: $s-3;
-    justify-content: flex-start;
+    .flex-slider{
+        display: flex;
+    }
 
     .card {
         align-items: center;
@@ -217,7 +234,7 @@ section.wrapper-slider {
         display: flex;
         column-gap: 10px;
         max-width: 150px;
-        padding-left: 1rem;
+        padding-left: 0.7rem;
 
         span.add-icon-folder {
             display: inline-block;

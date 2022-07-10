@@ -121,7 +121,6 @@ section.group-box {
             border: 2px solid rgb(236, 236, 236);
             justify-content: space-between;
             display: flex;
-            
             .group-name-svg {
                 display: flex;
 
@@ -136,6 +135,7 @@ section.group-box {
                     margin-top: 5px;
                     margin: auto 10px;
                     margin-left: 20px;
+                    color: $_primary;
         
                 }
             }

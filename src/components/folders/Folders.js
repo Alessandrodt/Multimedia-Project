@@ -219,9 +219,9 @@ export const Folder = ({
         {folders.map((folder) => {
           return (
             <Card className="card" key={folder.id}>
+              <span  className="slider">
               <Link to={`/users/${user.id}/folders/${folder.id}`}>
-                <span
-                  className="slider"
+                <span className="flex-slider"
                   onClick={() => folderTracker(folder.name, folder.id)}
                 >
                   <img
@@ -251,6 +251,7 @@ export const Folder = ({
                   </svg>
                 </span>
               </div>
+              </span>
             </Card>
           );
         })}

@@ -7,6 +7,7 @@ import { Button, Paper, Text } from "@mantine/core";
 import folderWithElement from "../../images/folder_icon.svg";
 import groupeople from "../../images/groupeople.svg";
 
+// GroupContainer is a simple component used to store the non owned group infos displayed in the Groups page.
 export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
   return (
     <Paper p="md" className="paper-groups" radius="md" shadow="xs" withBorder>
@@ -23,12 +24,13 @@ export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
         </Text>
       </div>
       <div className="button-groups-action">
-        <Link to={sharedGroup}>
+      <Link className="link-groups" to={sharedGroup}>
           <Button name="group-button" fullWidth mt="md">
             <img src={folderWithElement} alt=""></img>
           </Button>
-        </Link>
+      </Link>
       </div>
+     
     </Paper>
   );
 };

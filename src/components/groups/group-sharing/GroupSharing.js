@@ -28,15 +28,22 @@ export const GroupSharing = () => {
     const modal = useModals();
 
     useEffect(() => {
+        // This function takes the folder owned by the user and stores them in a state.
+        // They will later be displayed in a modal through a map.
         foldersServices.getFolderUpload(userId).then((response) => {
           setFolders(response.data);
         });
 
+        // This function gets the folder currently being shared by the user and store them in a state.
+        // They will later be displayed in a modal through a map.
         folderSharingServices.getSharedFolders(userId, groupId).then((response) => {
             setSharedFolders(response.data)
         })
     }, [userId, groupId, user.id]);
 
+    // This function is used to add a Folder to a group.
+    // It takes a single parameter, f, which is a single folder istance
+    // retrieved through the use of map.
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
@@ -55,6 +62,9 @@ export const GroupSharing = () => {
         });
     };
 
+    // This function is used to remove a Folder to a group.
+    // It takes a single parameter, f, which is a single folder istance
+    // retrieved through the use of map function.
     const removeFolderFromGroup = (f) => {
         folderSharingServices.removeFolderFromGroup(groupId, f.id)
         .then(res => {
@@ -124,7 +134,7 @@ export const GroupSharing = () => {
                             <Text className="txt-folders-groups" align='center' size='lg' weight={500} mt='md'> {sharedFolder.name} </Text>
                             </div>
                             <Button name="button-detail-groups" fullWidth mt='md' onClick={() => removeFolderFromGroup(sharedFolder)}> 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 448 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="red" width="20px" viewBox="0 0 448 512">
                                 <path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z" />
                             </svg>
                             </Button>
