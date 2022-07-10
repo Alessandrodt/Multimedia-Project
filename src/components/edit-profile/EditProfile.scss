@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .edit-profile {
+    width: 100%;
+    height: 100%;
+
     .background-img {
         background-color: #000000;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='58' viewBox='0 0 42 58'%3E%3Cg fill='%23dddcdd' fill-opacity='0.23'%3E%3Cpath fill-rule='evenodd' d='M12 18h12v18h6v4H18V22h-6v-4zm-6-2v-4H0V0h36v6h6v36h-6v4h6v12H6v-6H0V16h6zM34 2H2v8h24v24h8V2zM6 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM2 50h32v-8H10V18H2v32zm28-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0-8a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0-8a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0-8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z'/%3E%3C/g%3E%3C/svg%3E");
@@ -8,10 +11,15 @@
         font-family: 'Press Start 2P';
         color: #FFFFFF;
         text-align: center;
+        height: 100vh;
     }
     
     .choose-profile {
         margin-top: 30px;
+
+        @include media( "screen", ">minWidth", "<bp1Width" ){
+            margin-top: 0;
+        }
     }
 
     section.notFound {
@@ -24,24 +32,43 @@
         //responsive
         @include media( "screen", ">minWidth", "<bp1Width" ){
             flex-direction: column;
-        };
+        }
     }
     
     section.notFound h2 {
         color: red;
         font-size: 4rem;
+
+        @include media( "screen", ">minWidth", "<bp2Width" ){
+            font-size: 2.2rem;
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            font-size: 2rem;
+        }
     }
     
     section.notFound h3, h4 {
         font-size: 1.5rem;
+
+        @include media( "screen", ">minWidth", "<bp2Width" ){
+            font-size:1rem;
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            font-size: .8rem;
+        }
     }
     
     section.notFound h1, h2, h3, h4 {
         margin-bottom: 30px;
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            margin-bottom: 10px;
+        };
     }
     
     div.text {
-        height: 50vh;
     
         .title-text {
             display: inline-block;
@@ -50,6 +77,10 @@
 
         @include media( "screen", ">minWidth", "<bp1Width" ){
             margin-top: 80px;
+        };
+
+        @include media( "screen", ">minWidth", "<bp2Width" ){
+            margin-top: 20px;
         };
     }
     
@@ -68,6 +99,14 @@
 
         img {
             width: 500px;
+
+            @include media( "screen", ">minWidth", "<bp2Width" ){
+                width: 100px; 
+            };
+
+            @include media( "screen", ">minWidth", "<bp1Width" ){
+                width: 310px; 
+            };
         }
     }
 }
