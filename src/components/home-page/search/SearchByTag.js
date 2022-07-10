@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-// libraries
+// Libraries
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
-
-// services;
-import imagesServices from "../../../services/imagesServices";
-
-// Translation
 import { t } from "i18next";
+
+// Services;
+import imagesServices from "../../../services/imagesServices";
 
 export function SearchByTags({ setSelectedTags }) {
   const [allTags, setAllTags] = useState([]);

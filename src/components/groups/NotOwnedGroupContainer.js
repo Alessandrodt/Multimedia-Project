@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 // Components
 import { Button, Paper, Text } from "@mantine/core";
 
-// Styles
+import folderWithElement from "../../images/folder_icon.svg";
 import groupeople from "../../images/groupeople.svg";
-import addFolder from "../../images/addFolder.svg";
-import settings from "../../images/settings.svg";
 
-export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
+export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
   return (
     <Paper p="md" className="paper-groups" radius="md" shadow="xs" withBorder>
       <div className="group-name-svg">
@@ -25,14 +23,9 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
         </Text>
       </div>
       <div className="button-groups-action">
-        <Link to={groupDetails}>
+        <Link to={sharedGroup}>
           <Button name="group-button" fullWidth mt="md">
-            <img className="settings" alt="" src={settings}></img>
-          </Button>
-        </Link>
-        <Link to={groupSharing}>
-          <Button name="group-button" fullWidth mt="md">
-            <img src={addFolder} alt=""></img>
+            <img src={folderWithElement} alt=""></img>
           </Button>
         </Link>
       </div>

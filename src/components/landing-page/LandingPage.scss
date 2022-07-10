@@ -25,19 +25,37 @@ nav {
         margin: $m-auto;
         padding: $s-1 $s-3;
         max-width: 1440px;
-        .switchlng{
-            margin-left: 100px;
-        }
+
+        // .switchlng{
+        //     margin-left: 100px;
+        // }
 
         .logo {
-            width: 17%;
+            //width: 17%;
+            width: 150px;
 
             a {
+                width: 100%;
                 display: inline-block;
+
+                svg {
+                    width: 140px;
+
+                    .text-logo {
+                        @include media( "screen", ">minWidth", "<bp3Width", ){
+                            display: none;
+                        }
+                    }
+
+                    @include media( "screen", ">minWidth", "<bp3Width", ){
+                        width: 100px;
+                    }
+
+                }
             }
     
-            img {
-                width: ($w-6) * 2;
+            @include media( "screen", ">minWidth", "<bp3Width", ){
+                width: 50px;
             }
         }
         
@@ -52,6 +70,10 @@ nav {
                 text-align: center;
                 width: 100px;
             }
+        }
+
+        @include media( "screen", ">minWidth", "<bp3Width", ){
+            padding: .25rem .5rem;
         }
     }
 }

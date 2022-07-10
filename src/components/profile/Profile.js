@@ -1,10 +1,14 @@
-import { Avatar } from "@mantine/core";
 import { Link, useNavigate } from "react-router-dom";
 
-import defaultAvatar from "../../images/user.svg";
-//import Translate
-import { t } from "i18next"
+// Components
 import { NavbarProfile } from "./navbar-profile/NavbarProfile";
+
+// Libraries
+import { Avatar } from "@mantine/core";
+import { t } from "i18next";
+
+// Styles
+import defaultAvatar from "../../images/user.svg";
 
 export const Profile = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -19,7 +23,7 @@ export const Profile = () => {
 
   return (
     <div>
-      <NavbarProfile/> 
+      <NavbarProfile />
       <div className="wrapper-user">
         <Avatar
           src={
@@ -35,12 +39,12 @@ export const Profile = () => {
         <p>{user.email}</p>
         <div className="wrapper-button">
           <Link to={`/users/${user.id}/editProfile`}>
-          <button type="submit" className="primary">
-            <span>{t('edit_profile')}</span>
-          </button>
+            <button type="submit" className="primary">
+              <span>{t("edit_profile")}</span>
+            </button>
           </Link>
           <button onClick={() => logOut()} className="delete">
-            <span>{t('logout')}</span>
+            <span>{t("logout")}</span>
           </button>
         </div>
       </div>

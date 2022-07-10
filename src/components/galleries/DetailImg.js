@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 //Services
 import imagesServices from "../../services/imagesServices";
 
@@ -24,10 +25,10 @@ export const DetailImg = ({ idImage }) => {
           <div className="tag-box">
             <h6> Tags: </h6>
             <div className="tag-cont-style">
-            {imageDetail.tags
-              ? imageDetail.tags.map((x) => <span>{x.name}</span>)
-              : "no tags, no nothing"}
-              </div>
+              {imageDetail.tags
+                ? imageDetail.tags.map((x) => <span key={x.id}>{x.name}</span>)
+                : "no tags, no nothing"}
+            </div>
           </div>
         </div>
       </div>

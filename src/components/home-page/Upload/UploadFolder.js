@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-// libraries
+// Libraries
 import Select from "react-select";
-
-// services
-import foldersServices from "../../../services/foldersServices";
-
-// Translation
 import { t } from "i18next";
+
+// Services
+import foldersServices from "../../../services/foldersServices";
 
 export function UploadFolder({ setSelectedFolder }) {
   const [allFolders, setAllFolders] = useState([]);

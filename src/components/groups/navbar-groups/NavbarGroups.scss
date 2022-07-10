@@ -16,11 +16,24 @@
     }
 
     .logo {
-        width: 13%;
+        width: ($w-5) + 100;
 
-        img {
-            width: ($w-6) * 2;
+        a {
+            svg {
+                width: ($w-4) + 100;
+
+                .text-logo {
+
+                    @include media( "screen", ">minWidth", "<bp3Width" ){
+                        display: none;
+                    };
+                }
+            }
         }
+
+        @include media( "screen", ">minWidth", "<bp3Width" ){
+            width: 60px;
+        };
     }
 
     .wrapper-info-groups {
@@ -46,6 +59,17 @@
         button:hover {
             box-shadow: 0 0 0 6px #f3f3f3;
         }
+
+        h6 {
+            @include media( "screen", ">minWidth", "<bp3Width" ){
+                display: none;
+            };
+        }
+
+        @include media( "screen", ">minWidth", "<bp2Width") {
+            gap: .5rem;
+        }
+
     }
 }
 

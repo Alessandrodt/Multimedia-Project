@@ -7,105 +7,222 @@ section.group-box {
         margin: $s-3 auto;
     }
 
-.wrapper-grid {
-    margin-top: 50px;
-    row-gap: 40px;
-
-    .paper-groups{
-        border-radius: 1.5rem;
-        box-shadow: 8px 8px 15px rgb(171, 171, 171);
-        border: 2px solid rgb(236, 236, 236);
-        justify-content: space-between;
+    .group-form {
         display: flex;
-        .group-name-svg{
-            display: flex;
-            img{
-                max-width: 35px;
-                
-            }
-            .txt-group{
-                border-radius: 1.5rem 1.5rem 0 0;
-                font-size: 16px;
-                margin-top: 5px;
-                margin: auto 10px;
-                margin-left: 20px;
-    
-            }
-        }
-        .button-groups-action{
-            text-align: center;
-            margin-top: 10px;
-            display: flex;
-            button[name="group-button"] {
-                background: transparent;
-                margin: 0 auto;
-                border-radius: 50px;
-                padding: 0;
-                .settings{
-                    max-width: 35px;
-                }
-                img{
-                    max-width: 35px;
-                    margin-left: 10px;
+    }
+
+    .wrapper-switch {
+        align-items: center;
+        display: flex;
+
+        button.switch {
+            background: transparent;
+            //overflow: hidden;
+
+            svg {
+                fill: $_primary;
+                position: relative;
+                width: 25px;
+                overflow: visible;
+
+                span.mantine-qo1k2.mantine-Button-label {
+                    overflow: visible;
                 }
 
-                @include media( "screen", ">bp1Width", "<maxWidth" ){
-                    margin-bottom: 10px;
-                };
+                &:hover {
+                    fill: $_dark;
+                }
+
+                .left-arrow {
+                    transition: .5s ease-in-out;
+                    -webkit-transition: .5 ease-in-out;
+                    -moz-transition: .5 ease-in-out;
+                    -o-transition: .5 ease-in-out;
+                    transform: translate(0, 0);
+                    -webkit-transform: translate(0, 0);
+                    -moz-transition: translate(0, 0);
+                    -o-transition: translate(0,0);
+                }
+
+                // .left-arrow-hover {
+                //     transition: .4s ease-in-out;
+                //     transform: translate(10px, 0);
+                // }
+
+                // &:hover .left-arrow-hover {
+                //     transition: 1s ease-in-out;
+                //     transform: translate(0, 0);
+                // }
+
+                &:hover .left-arrow {
+                    transition: .5s ease-in-out;
+                    -webkit-transition: .5 ease-in-out;
+                    -moz-transition: .5 ease-in-out;
+                    -o-transition: .5 ease-in-out;
+                    transform: translate(-40px, 0);
+                    -webkit-transform: translate(-40, 0);
+                    -moz-transition: translate(-40, 0);
+                    -o-transition: translate(-40,0);
+                }
+
+                .right-arrow {
+                    transition: .5s ease-in-out;
+                    -webkit-transition: .5 ease-in-out;
+                    -moz-transition: .5 ease-in-out;
+                    -o-transition: .5 ease-in-out;
+                    transform: translate(0, 0);
+                    -webkit-transform: translate(0, 0);
+                    -moz-transition: translate(0, 0);
+                    -o-transition: translate(0,0);
+                }
+
+                // .right-arrow-hover {
+                //     transition: .4s ease-in-out;
+                //     transform: translate(-40px, 0);
+                // }
+
+                // &:hover .right-arrow-hover {
+                //     transition: 1s ease-in-out;
+                //     transform: translate(0, 0);
+                // }
+
+                &:hover .right-arrow {
+                    transition: .5s ease-in-out;
+                    -webkit-transition: .5 ease-in-out;
+                    -moz-transition: .5 ease-in-out;
+                    -o-transition: .5 ease-in-out;
+                    transform: translate(40px, 0);
+                    -webkit-transform: translate(40, 0);
+                    -moz-transition: translate(40, 0);
+                    -o-transition: translate(40,0);
+                }
             }
-      
+
+        }
+        
+        span.group-switch {
+            transition: .5s ease-in-out;
+            opacity: 0;
         }
 
+        button.switch:hover + span.group-switch {
+            transition: .5s ease-in-out;
+            opacity: 1;
+        } 
+    }
+
+    .wrapper-grid {
+        margin-top: 50px;
+        row-gap: 40px;
+
+        .paper-groups {
+            border-radius: 1.5rem;
+            box-shadow: 8px 8px 15px rgb(171, 171, 171);
+            border: 2px solid rgb(236, 236, 236);
+            justify-content: space-between;
+            display: flex;
+            
+            .group-name-svg {
+                display: flex;
+
+                img {
+                    max-width: 35px;
+                    
+                }
+
+                .txt-group {
+                    border-radius: 1.5rem 1.5rem 0 0;
+                    font-size: 16px;
+                    margin-top: 5px;
+                    margin: auto 10px;
+                    margin-left: 20px;
+        
+                }
+            }
+
+            .button-groups-action {
+                text-align: center;
+                margin-top: 10px;
+                display: flex;
+
+                button[name="group-button"] {
+                    background: transparent;
+                    margin: 0 auto;
+                    border-radius: 50px;
+                    padding: 0;
+
+                    .settings {
+                        max-width: 30px;
+                    }
+
+                    img {
+                        max-width: 35px;
+                        margin-left: 10px;
+                    }
+
+                    @include media( "screen", ">bp1Width", "<maxWidth" ){
+                        margin-bottom: 10px;
+                    };
+                }
+        
+            }
+
+            @include media( "screen", ">minWidth", "<bp2Width" ){
+                margin-bottom: $m-30;
+            };
+        }
+
+        //responsive grid group
         @include media( "screen", ">minWidth", "<bp2Width" ){
-            margin-bottom: $m-30;
+            display: block;
+            width: $w-80;
+            margin: $m-auto;
         };
     }
 
-    //responsive grid group
-    @include media( "screen", ">minWidth", "<bp2Width" ){
-        display: block;
-        width: $w-80;
+    .wrapper-group {
+        box-shadow: 8px 8px 15px rgb(171, 171, 171);
+        border: 2px solid rgb(174, 174, 174);
+        border-radius: 1.5rem;
         margin: $m-auto;
-    };
-}
+        padding: $s-3;
+        max-width: 340px;
+        padding-top: 1rem;
 
-.wrapper-group {
-    box-shadow: 8px 8px 15px rgb(171, 171, 171);
-    border: 2px solid rgb(174, 174, 174);
-    border-radius: 1.5rem;
-    margin: $m-auto;
-    padding: $s-3;
-    max-width: 340px;
-    padding-top: 1rem;
+        .txt-imput-box-groups{
+            display: flex;
+            align-items: center;
+        }
 
-    .txt-imput-box-groups{
-        display: flex;
-        align-items: center;
-    }
+        p {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-    p{
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    button{
-        background-color: transparent;
-        width: 24%;
-        position: relative;
-        top: 14px;
-    }
-    button:hover{
-        background-color: transparent;
-    }
-    .txt-input{
-        width: 75%;
-    }
+        button {
+            background-color: transparent;
+            width: 24%;
+            position: relative;
+            top: 14px;
 
-    @include media( "screen", ">minWidth", "<bp2Width" ){
-        max-width: $w-80;
-    };
-}
+            @include media( "screen", ">minWidth", "<bp3Width") {
+                width: 41%;
+            }
+        }
 
+        button:hover {
+            background-color: transparent;
+        }
+
+        .txt-input {
+            width: 75%;
+        }
+
+        @include media( "screen", ">minWidth", "<bp2Width" ){
+            max-width: $w-80;
+        };
+    }
 }
 
 .p0 {

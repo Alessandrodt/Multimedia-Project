@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-// components
+// Components
 import { SearchByTags } from "./SearchByTag";
 import { SearchByDate } from "./SearchByDate";
 

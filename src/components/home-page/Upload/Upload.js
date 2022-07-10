@@ -2,20 +2,18 @@ import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-// components
+// Components
 import { UploadPreview } from "./UploadPreview";
 import { UploadTags } from "./UploadTags";
 import { UploadFolder } from "./UploadFolder";
 
-// libraries
+// Libraries
 import { Button, LoadingOverlay } from "@mantine/core";
 import { useModals } from "@mantine/modals";
-
-// services
-import imagesServices from "../../../services/imagesServices";
-
-// Translation
 import { t } from "i18next";
+
+// Services
+import imagesServices from "../../../services/imagesServices";
 
 export function Upload({ setNewUploadImages }) {
   const [imagesToUpload, setNewImageUpload] = useState([]);
@@ -74,9 +72,11 @@ export function Upload({ setNewUploadImages }) {
           onClick={handleClick}
           className={"upload-preview-btn"}
           name="upload-img"
+          disabled={selectedTags.length === 0 || selectedFolder.length === 0}
         >
           Upload
         </Button>
+        <span className="hover">{t("upload_hover_info")}</span>
       </div>
     </div>
   );

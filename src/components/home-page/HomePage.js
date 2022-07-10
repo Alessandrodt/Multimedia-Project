@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-// components
+// Components
 import { NavbarHome } from "./navbar-home-page/NavbarHome";
 import { Gallery } from "../galleries/Gallery";
 import { Upload } from "./Upload/Upload";
 
-// libraries
+// Libraries
 import { Button } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 

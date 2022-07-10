@@ -188,12 +188,6 @@
 //     }
 // }
 
-.wrapper-search {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
 .search-tags {
     width: 60%;
 }
@@ -216,4 +210,14 @@ button[name="upload-img"] {
     .css-1rhbuit-multiValue {
         background: rgba($color: $_primary, $alpha: .30);
     }
+}
+
+.hover {
+    display: inline-block;
+    margin-top: 3%;
+    opacity: 0;
+}
+
+.upload-preview-btn:hover + .hover {
+    opacity: 0.5;
 }

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
-// Mantine imports
+// Libraries
 import {
   Avatar,
   Box,
@@ -15,15 +15,13 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useModals } from "@mantine/modals";
+import { t } from "i18next";
 
 // Services
 import avatarServices from "../../services/avatarServices";
 import authServices from "../../services/authServices";
 
-// Translation
-import { t } from "i18next";
-
-// Image
+// Styles
 import defaultAvatar from "../../images/user.svg";
 
 export const SignUp = () => {
@@ -50,7 +48,7 @@ export const SignUp = () => {
 
   const openContentModal = () => {
     modals.openModal({
-      title: "Choose your avatar:",
+      title: `${t("avatar_chooser")}`,
       centered: true,
       children: (
         <>
@@ -121,26 +119,20 @@ export const SignUp = () => {
       confirmPassword: "",
     },
     validate: {
-      name: (value) =>
-        value.length < 2
-          ? "the name has to be at least 2 characters long"
-          : null,
-      surname: (value) =>
-        value.length < 2
-          ? "the surname has to be at least 2 characters long"
-          : null,
+      name: (value) => (value.length < 2 ? `${t("invalid_name")}` : null),
+      surname: (value) => (value.length < 2 ? `${t("invalid_surname")}` : null),
       email: (value) =>
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
           value
         )
           ? null
-          : "Invalid email",
+          : `${t("invalid_email")}`,
       password: (value) =>
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value)
           ? null
-          : "Password must have at least 1 capital letter, a number and be 8 characters long",
+          : `${t("invalid_password_signup")}`,
       confirmPassword: (value, values) =>
-        value !== values.password ? "Passwords did not match" : null,
+        value !== values.password ? `${t("password_confirmation")}` : null,
     },
   });
 
