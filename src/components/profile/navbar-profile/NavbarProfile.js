@@ -27,10 +27,10 @@ export const NavbarProfile = () => {
               </svg>
             </Link>
           </div>
+          <div className="switchlng">
+            <LanguageSelect />
+          </div>
           <div className="wrapper-sign-profile">
-            <div className="switchlng">
-              <LanguageSelect />
-            </div>
             <div className="button">
               <span>
                 <Link to={`/users/${user.id}/groups`}>

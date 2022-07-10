@@ -19,7 +19,23 @@ section.wrapper-group-details {
 
   .box-notowned-folders{
     width: 45%;
+    .slider-groups-style{
+      align-items: center;
+      border-radius: 0.5rem;
+      display: flex;
+      text-align: center;
+      padding: 0.8rem;
+      width: 290px;
+      color: #00D1E0;
+      box-shadow: 0px 0px 9px rgba($color: $_black, $alpha: .25);
 
+    }
+    img{
+      width: 40px;
+    }
+    p{
+      margin-left: 20px;
+    }
     h2{
       margin-left: 18px;
     }
@@ -47,6 +63,7 @@ table.wrapper-table {
       td {
         display: flex;
         justify-content: space-between;
+
         button{
           background-color: transparent;
           border: 0;
@@ -57,6 +74,7 @@ table.wrapper-table {
           }
           svg:hover{
             fill: $_dark-red;
+            transition: .4s ease-in-out;
           }
         }
       }

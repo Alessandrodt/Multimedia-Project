@@ -132,6 +132,7 @@
               }
               svg:hover{
                 fill: $_dark-red;
+                transition: .4s ease-in-out;
               }
         }
     }
