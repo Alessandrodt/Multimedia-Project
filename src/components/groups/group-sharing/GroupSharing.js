@@ -28,15 +28,22 @@ export const GroupSharing = () => {
     const modal = useModals();
 
     useEffect(() => {
+        // This function takes the folder owned by the user and stores them in a state.
+        // They will later be displayed in a modal through a map.
         foldersServices.getFolderUpload(userId).then((response) => {
           setFolders(response.data);
         });
 
+        // This function gets the folder currently being shared by the user and store them in a state.
+        // They will later be displayed in a modal through a map.
         folderSharingServices.getSharedFolders(userId, groupId).then((response) => {
             setSharedFolders(response.data)
         })
     }, [userId, groupId, user.id]);
 
+    // This function is used to add a Folder to a group.
+    // It takes a single parameter, f, which is a single folder istance
+    // retrieved through the use of map.
     const addFolderToGroup = (f) => {
         folderSharingServices.addFolderToGroup(groupId, f.id)
         .then(res => {
@@ -55,6 +62,9 @@ export const GroupSharing = () => {
         });
     };
 
+    // This function is used to remove a Folder to a group.
+    // It takes a single parameter, f, which is a single folder istance
+    // retrieved through the use of map function.
     const removeFolderFromGroup = (f) => {
         folderSharingServices.removeFolderFromGroup(groupId, f.id)
         .then(res => {
