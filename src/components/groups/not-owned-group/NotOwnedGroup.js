@@ -13,6 +13,7 @@ import { Avatar, Card, Group, Text } from "@mantine/core";
 import { t } from "i18next";
 
 // Style
+import defaultAvatar from "../../../images/user.svg";
 import folderEmpty from "../../../images/folder_icon_empty.svg";
 import folderWithElement from "../../../images/folder_icon.svg";
 
@@ -38,7 +39,7 @@ export const NotOwnedGroup = () => {
     <tr key={user.id}>
       <td>
         <Group spacing="sm">
-          <Avatar size={30} src={`https://smi-laravel.fly.dev/images/avatars/avatar-${user.avatar_id}.svg`} radius={30} />
+          <Avatar size={30} src={ user?.avatar_id ?`https://smi-laravel.fly.dev/images/avatars/avatar-${user?.avatar_id}.svg` : defaultAvatar} radius={30} />
           <Text size="sm" weight={500}>
             {user.first_name} {user.last_name}
           </Text>
