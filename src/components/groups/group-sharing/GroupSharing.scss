@@ -127,6 +127,12 @@
             margin-left: 1px;
             background-color: transparent;
             border-radius: 50px;
+            svg{
+                cursor: pointer;
+              }
+              svg:hover{
+                fill: $_dark-red;
+              }
         }
     }
 }

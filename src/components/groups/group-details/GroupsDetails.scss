@@ -55,6 +55,9 @@ table.wrapper-table {
           svg{
             cursor: pointer;
           }
+          svg:hover{
+            fill: $_dark-red;
+          }
         }
       }
     }
