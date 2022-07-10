@@ -160,7 +160,7 @@ export const Groups = () => {
         <div className="group-form">
         <h3> {groupInfo}: </h3>
         <div className="wrapper-switch">
-          <Button className="switch" onClick={() => setGroupManager(!groupManager)}>
+          <Button className="switch-group" onClick={() => setGroupManager(!groupManager)}>
             {/* icon switch */}
             <svg viewBox="0 0 169 163" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path className="left-arrow" d="M44.4 32.7C45.6 33.2 46.6 33 47.5 33C83.5 33 119.5 33 155.5 33C160.9 33 165.2 34.9 167.4 40C171.3 48.6 165.5 57.3 156 57.4C119.8 57.4 83.7 57.4 47.5 57.4C46.5 57.4 45.6 57.4 44.2 57.4C45.8 59.7 47.6 61.1 49.3 62.6C52.1 65.2 55.1 67.6 57.6 70.6C61.7 75.4 61.5 82.1 57 86.7C52.6 91.2 46 91.8 41.2 87.7C33.7 81.2 26.4 74.5 19.1 67.8C14.4 63.6 9.80002 59.3 5.10002 55C-1.39998 49.1 -1.69998 41 4.70002 35.1C16.1 24.4 27.8 13.9 39.4 3.50001C43.8 -0.499986 50 -0.999986 54.7 1.90001C59.2 4.70001 61.5 10.7 60.1 15.6C59.3 18.4 57.5 20.4 55.4 22.3C51.9 25.5 48.4 28.8 45 32C44.8 32.1 44.7 32.3 44.4 32.7Z" />
