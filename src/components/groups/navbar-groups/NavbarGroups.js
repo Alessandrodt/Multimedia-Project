@@ -5,7 +5,6 @@ import { t } from "i18next";
 
 // Styles
 import defaultAvatar from "../../../images/user.svg";
-import logo from "../../../images/picsmi.png";
 
 export const NavbarGroups = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));
