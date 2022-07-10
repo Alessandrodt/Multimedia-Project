@@ -42,7 +42,7 @@ export const NotOwnedGroup = () => {
     <tr key={user.id}>
       <td>
         <Group spacing="sm">
-          <Avatar size={30} src={ user?.avatar_id ?`https://smi-laravel.fly.dev/images/avatars/avatar-${user?.avatar_id}.svg` : defaultAvatar} radius={30} />
+          <Avatar size={40} src={ user?.avatar_id ?`https://smi-laravel.fly.dev/images/avatars/avatar-${user?.avatar_id}.svg` : defaultAvatar} radius={30} />
           <Text size="sm" weight={500}>
             {user.first_name} {user.last_name}
           </Text>
@@ -78,7 +78,7 @@ export const NotOwnedGroup = () => {
               <Card className="card" key={sharedFolder.id}>
                   <Link to={`/users/${userId}/groups/${groupId}/shared/${sharedFolder.id}`}>
                     <span
-                      className="slider"
+                      className="slider-groups-style"
                     >
                       <img
                         src={
