@@ -15,6 +15,10 @@ section.group-box {
         align-items: center;
         display: flex;
 
+        .mantine-qo1k2.mantine-Button-label, .mantine-qo1k2 {
+            overflow: visible!important;
+        }
+        
         button.switch {
             background: transparent;
             //overflow: hidden;
@@ -24,10 +28,6 @@ section.group-box {
                 position: relative;
                 width: 25px;
                 overflow: visible;
-
-                span.mantine-qo1k2.mantine-Button-label {
-                    overflow: visible;
-                }
 
                 &:hover {
                     fill: $_dark;
