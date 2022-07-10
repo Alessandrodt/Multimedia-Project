@@ -42,14 +42,14 @@
 
     .log {
         //width: 17%;
-        width: 100px;
+        width: 150px;
 
         a {
             width: 100%;
             display: inline-block;
 
             svg {
-                width: 100px;
+                width: 140px;
                 .text-logo {
                     @include media( "screen", ">minWidth", "<bp3Width", ){
                         display: none;

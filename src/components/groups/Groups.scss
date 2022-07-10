@@ -141,12 +141,15 @@ section.group-box {
             }
 
             .button-groups-action {
-                text-align: center;
-                margin-top: 10px;
+                align-items: center;
                 display: flex;
+                gap: $w-1;
+                margin-top: 10px;
+                text-align: center;
 
                 button[name="group-button"] {
                     background: transparent;
+                    height: auto;
                     margin: 0 auto;
                     border-radius: 50px;
                     padding: 0;
@@ -155,9 +158,59 @@ section.group-box {
                         max-width: 30px;
                     }
 
-                    img {
-                        max-width: 35px;
-                        margin-left: 10px;
+                    // img {
+                    //     max-width: 35px;
+                    //     margin-left: 10px;
+                    // }
+
+                    svg {
+                        fill: $_primary;
+                        width: 35px;
+
+                        &:hover {
+                            fill: $_dark;
+                        }
+
+                        path.top {
+                            -ms-transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg); 
+                            transform: rotate(0deg);
+                            transform-origin: 30% 30%;
+                            -ms-transform-origin: 30% 30%;
+                            -webkit-transform-origin: 30% 30%;
+                            transition: 1.3s ease-in-out;
+                        }
+
+                        &:hover path.top {
+                            transform: rotate(-180deg);
+                            -ms-transform: rotate(-180deg);
+                            -webkit-transform: rotate(-180deg);
+                            transform-origin: 30% 30%;
+                            -ms-transform-origin: 30% 30%;
+                            -webkit-transform-origin: 30% 30%;
+                            transition: 1.3s ease-in-out;
+                        }
+
+                        path.bottom {
+                            -ms-transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg); 
+                            transform: rotate(0deg);
+                            transform-origin: 70% 70%;
+                            -ms-transform-origin: 70% 70%;
+                            -webkit-transform-origin: 70% 70%;
+                            transition: 1.3s ease-in-out;
+                        }
+
+                        &:hover path.bottom {
+                            transform: rotate(180deg);
+                            -ms-transform: rotate(180deg); /* IE 9 */
+                            -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+                            transform-origin: 70% 70%;
+                            -ms-transform-origin: 70% 70%;
+                            -webkit-transform-origin: 70% 70%;
+                            transition: 1.3s ease-in-out;
+                        }
+                    
                     }
 
                     @include media( "screen", ">bp1Width", "<maxWidth" ){
