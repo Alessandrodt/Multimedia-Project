@@ -23,12 +23,13 @@ export const NotOwnedGroupContainer = ({ groupName, sharedGroup }) => {
         </Text>
       </div>
       <div className="button-groups-action">
-        <Link to={sharedGroup}>
+      <Link className="link-groups" to={sharedGroup}>
           <Button name="group-button" fullWidth mt="md">
             <img src={folderWithElement} alt=""></img>
           </Button>
-        </Link>
+      </Link>
       </div>
+     
     </Paper>
   );
 };

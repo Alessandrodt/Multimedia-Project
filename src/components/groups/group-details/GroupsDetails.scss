@@ -5,8 +5,22 @@ section.wrapper-group-details {
   display: flex;
   justify-content: space-between;
 }
-.box-txt-table-groups{
- width: 45%;
+.box-wrapper-folders-notowned{
+  margin-top: 60px;
+  display: flex;
+  padding: 2rem;
+  .box-txt-table-groups{
+  width: 45%;
+  margin-right: 5%;
+  }
+
+  .box-notowned-folders{
+    width: 45%;
+
+    h2{
+      margin-left: 18px;
+    }
+  }
 }
 
 table.wrapper-table {
@@ -103,4 +117,8 @@ table.wrapper-table {
     font-size: 18px;
     text-align: center;
   }
+}
+
+.box-back{
+  margin-right: 30px;
 }

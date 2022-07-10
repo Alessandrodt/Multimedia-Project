@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link} from "react-router-dom";
 
 // Components
 import { NavbarFolders } from "./navbar-folders/NavbarFolders";
 import { Folder } from "./Folders";
+
+// Translation
+import { t } from "i18next";
 
 // Services
 import foldersServices from "../../services/foldersServices";
@@ -13,6 +17,7 @@ export const FoldersList = () => {
   const folderPath = "Folders";
 
   const { userId, folderId } = useParams();
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const [folders, setFolders] = useState([]);
   const [crumbs, setCrumbs] = useState([
     { name: folderPath, path: `/users/${userId}/folders` },

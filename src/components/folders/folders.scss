@@ -103,19 +103,33 @@ button[name="confirm"] {
 
 .slider {
     align-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
     display: flex;
-    column-gap: $s-2;
-    height: $h-100;
-    width: $w-100;
+    text-align: center;
+    padding: 0.3rem;
+    width: 290px;
+    color: #00D1E0;
+    img{
+        width: 40px;
+    }
 
     p {
         color: $_primary;
+        margin-left: 20px;
     }
 }
 
 section.folder-gallery {
     margin: $m-auto;
+    margin-top: 100px;
     max-width: 1024px;
+
+    .back{
+        position: fixed;
+        right: 100px;
+        top: 100px;
+    }
     .infinite-scroll-component {
         overflow: unset !important;
     }
