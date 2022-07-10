@@ -8,10 +8,9 @@ import { Gallery } from "../../galleries/Gallery";
 
 // Translation
 import { t } from "i18next";
-import { Navbar } from "@mantine/core";
 
 export const NotOwnedGroupFolders = () =>  {
-    const { folderId, groupid } = useParams();
+    const { folderId, groupId } = useParams();
     const user = JSON.parse(sessionStorage.getItem("user"));
     return (
         <>
@@ -23,7 +22,7 @@ export const NotOwnedGroupFolders = () =>  {
                 >
                 </Gallery>
                 <div className="back">
-                    <Link to={`/users/${user.id}/groups/${groupid}/shared`}>
+                    <Link to={`/users/${user.id}/groups/${groupId}/shared`}>
                     <span>{t("group_back")}</span>
                     </Link>
                 </div>

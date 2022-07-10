@@ -4,6 +4,9 @@ section.wrapper-group-details {
   width: 90%;
   display: flex;
   justify-content: space-between;
+  .box-txt-table-groups{
+    width: 45%;
+  }
 }
 .box-wrapper-folders-notowned{
   margin-top: 60px;
@@ -45,9 +48,13 @@ table.wrapper-table {
         display: flex;
         justify-content: space-between;
         button{
-          border-radius: 50px;
+          background-color: transparent;
+          border: 0;
           height: 28px;
           width: 80px;
+          svg{
+            cursor: pointer;
+          }
         }
       }
     }
