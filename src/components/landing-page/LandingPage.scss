@@ -31,7 +31,6 @@ nav {
         // }
 
         .logo {
-            //width: 17%;
             width: 150px;
 
             a {
@@ -230,7 +229,6 @@ article.memories {
 
     }
 }
-//end
 
 footer {
     background: $_black;
@@ -254,14 +252,19 @@ footer {
         }
 
         @include media( "screen", ">minWidth", "<bp3Width", ){
-            bottom: $s-2;
+            bottom: $s-3;
         }
     }
 
     //responsive
-    @include media( "screen", ">minWidth", "<bp3Width", ){
-       height: 90vh;
+    @include media( "screen", ">minWidth", "<bp2Width", ){
+       height: 80vh;
     }
+
+    //responsive
+    @include media( "screen", ">minWidth", "<bp3Width", ){
+        height: 60vh;
+     }
 }
 
 // section
@@ -277,6 +280,7 @@ section.wrapper-review {
     margin-top: ($m-50) + 10;
 }
 
+//main container
 .wireframe {
     background: $_white;
     width: $w-100;
@@ -364,12 +368,12 @@ section.wrapper-review {
 }
 
 .wrapper-footer {
-    bottom: 40px;
+    bottom: 0px;
     display: flex;
     left: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
-    max-width: 1024px;
+    width: 90%;
     justify-content: space-evenly;
 
     .wrapper-about {
@@ -397,19 +401,24 @@ section.wrapper-review {
             align-items: baseline;
             display: flex;
         }
+        //responsive
+        @include media( "screen", ">minWidth", "<bp2Width", ){
+            display: block;
+            width: $w-90;
+            border-right: none;
+            border-bottom: 1px solid $_white;
+        }
+    }
 
-            //responsive
-            @include media( "screen", ">minWidth", "<bp3Width", ){
-                display: block;
-                width: $w-90;
-                border-right: none;
-                border-bottom: 1px solid $_white;
-            }
+    @include media( "screen", ">minWidth", "<bp2Width", ){
+        bottom: -150px;
+        display: block;
+        width: $w-90;
     }
 
     //responsive
     @include media( "screen", ">minWidth", "<bp3Width", ){
-        bottom: -120px;
+        bottom: -70px;
         display: block;
         width: $w-90;
     }
