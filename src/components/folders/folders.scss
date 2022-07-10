@@ -89,6 +89,7 @@ button[name="confirm"] {
 
         svg {
             width: $w-4;
+
             path {
                 fill: $_white;
             }
@@ -179,7 +180,7 @@ section.wrapper-slider {
 
         %custom-folder-icon {
             cursor: pointer;
-            opacity: 0;
+            //opacity: 0;
             transition: .6s ease-in-out;
         }
 
@@ -203,10 +204,10 @@ section.wrapper-slider {
             }
         }
 
-        &:hover .button-folder-delete, &:hover .button-folder-edit {
-            opacity: 1;
-            transition: .6s ease-in-out;
-        }
+        // &:hover .button-folder-delete, &:hover .button-folder-edit {
+        //     opacity: 1;
+        //     transition: .6s ease-in-out;
+        // }
     }
 
     img {

@@ -6,6 +6,7 @@
     margin-top: 120px;
 
     .share-box-groups {
+
         span[name="back-groups"]{
             padding: 0.45rem 0.8rem;
             display: inline-block;
@@ -15,15 +16,17 @@
             box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
             cursor: pointer;
             text-align: center;
-            p{
+
+            p {
                 font-size: 18px;
             }
         }
-        p{
+
+        p {
             font-size: 22px;
         }
 
-        button{
+        button {
             background-color: $_primary;
             border-radius: 50px;
             padding: 0.45rem 0.8rem;
@@ -31,7 +34,7 @@
             margin-left: 40px;
         }
 
-        button:hover{
+        button:hover {
             background-color: $_primary;
         }
 
@@ -42,7 +45,8 @@
         width: 100%;
         justify-content: space-between;
         display: flex;
-        p,button{
+
+        p, button {
             display: inline-block;
         }
 
@@ -53,7 +57,8 @@
     height: 400px;
     overflow: scroll;
     overflow-x: hidden;
-    h4{
+
+    h4 {
         position: fixed;
         top: 20px;
         padding: 1% 25%;
@@ -85,11 +90,10 @@
     }
 }
 
-
 .simplegrid-detail-groups {
     display: flex;
     gap: 10px;
-      row-gap: 10px;
+    row-gap: 10px;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 40px auto;
@@ -108,19 +112,22 @@
         width: 290px;
         color: #00D1E0;
         justify-content: space-between;
-        .box-flex-folder-groups{
-            display: flex;
-        .txt-folders-groups{
+
+        .box-flex-folder-groups {
+        display: flex;
+
+        .txt-folders-groups {
             margin-top: 4px;
             font-size: 16px;
             margin-left: 20px;
         }
+
         img {
             width: 40px;
             margin-left: 8px;
         }
     }
-        button[name="button-detail-groups"]{
+        button[name="button-detail-groups"] {
             width: 60px;
             display: block;
             margin: 1px;
