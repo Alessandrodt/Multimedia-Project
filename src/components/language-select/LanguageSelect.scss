@@ -7,6 +7,18 @@
   top: -9.5px;
 }
   
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+  .switch {
+      top: 0;
+  }
+}
+
+@-moz-document url-prefix() {
+  .switch{
+      top: -9.5px;
+  }
+}
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
