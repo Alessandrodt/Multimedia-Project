@@ -28,7 +28,8 @@ export const NotOwnedGroup = () => {
   useEffect(() => {
     // Stolen from GroupDetails.
     groupsServices.getUserGroups(userId).then((groups) => {
-      const i = groups.data.findIndex((item) => item.id === groupId);
+      // eslint-disable-next-line eqeqeq
+      const i = groups.data.findIndex((item) => item.id == groupId);
       setGroupUsers(groups.data[i].users || []);
     });
 
