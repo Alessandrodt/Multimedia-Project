@@ -100,7 +100,7 @@
   "upload_hover_info": "Select at least one tag and a folder for your file",
   "upload_preview" : "Drag and drop an image here, or click to choose one.",
   "upload_successful": "The file has been uploaded successfully!",
-  "upload_tags": "Choose some tags for your image",
+  "upload_tags": "Choose some tags for your image...",
   "upload_unsuccessful": "The upload was unsuccessful.",
   "Welcome": "Find your memories.",
   "welcome_message": "Welcome to PicSmi!"
