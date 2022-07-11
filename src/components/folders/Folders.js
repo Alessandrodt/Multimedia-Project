@@ -216,7 +216,7 @@ export const Folder = ({
               </clipPath>
             </defs>
           </svg>
-          <span className="text-upload">Upload here your images</span>
+          <span className="text-upload">{t("folder_upload_hover")}</span>
         </div>
       </div>
       <section className="wrapper-slider">
