@@ -226,10 +226,59 @@ section.wrapper-slider {
         width: 290px;
         justify-content: space-between;
 
-        img {
-            width: $w-4;
+        %custom-folder-icon {
+            cursor: pointer;
+            opacity: 1;
+            transition: .6s ease-in-out;
         }
-    }    
+
+        .button-folder-delete {
+            // @include button;
+            // background: $_delete;
+            @extend %custom-folder-icon;
+
+            svg {
+                fill: $_delete;
+
+                &:hover {
+                    fill: $_dark-red;
+                }
+            }
+        }
+        
+        .button-folder-edit {
+            // @include button;
+            //background: $_success;
+            @extend %custom-folder-icon;
+        
+            svg {
+                fill: $_primary;
+
+                &:hover {
+                    fill: $_dark;
+                }
+            }
+        }
+
+        .wrapper-button-folder {
+            display: flex;
+            gap: $s-2;
+            width: $w-5;
+            opacity: 0;
+    
+            svg {
+                width: $w-80;
+            }
+        }
+
+        &:hover .wrapper-button-folder {
+            opacity: 1;
+        }
+    }
+
+    img {
+        width: $w-4;
+    }
 }
 
 .wrapper-icon-folder {
