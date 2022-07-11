@@ -142,7 +142,11 @@ table.wrapper-table {
   
   }
 }
-.back{
+
+.back {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
   height: 50px;
   width: 100%;
   text-align: end;
