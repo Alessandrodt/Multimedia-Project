@@ -161,7 +161,7 @@ button[name="confirm"] {
 
 section.folder-gallery {
     margin: $m-auto;
-    margin-top: 100px;
+    margin-top: 50px;
     max-width: 1024px;
 
     .back{
@@ -195,8 +195,10 @@ section.wrapper-slider {
     flex-wrap: wrap;
     margin: $m-auto;
     max-width: 1224px;
+    padding: $s-2;
     row-gap: $s-3;
-    .flex-slider{
+
+    .flex-slider {
         display: flex;
     }
 
@@ -261,12 +263,21 @@ section.wrapper-slider {
     img {
         width: $w-4;
     }
+
+    // @include media( "screen", ">minWidth", "<maxWidth" ){
+    //     width: 97%;
+    // };
+
+    @include media( "screen", "<minWidth" ){
+        justify-content: center
+    };
 }
 
 .wrapper-icon-folder {
     align-items: center;
     display: flex;
     margin: $m-auto;
+    padding-bottom: 1%;
     max-width: 1224px;
 
     .icon-folder {
@@ -309,10 +320,15 @@ section.wrapper-slider {
             background: $_primary;
             border-radius: $s-2;
             padding: $s-1;
-            width: $w-4;
+            width: $w-3-4;
 
             path {
                 fill: $_white;
+            }
+
+            &:hover {
+                background: $_dark;
+                transition: .6s ease-in-out;
             }
 
             &:hover + span.text-upload {
