@@ -20,7 +20,11 @@ section.wrapper-group-details {
   }
 
   .box-notowned-folders {
-    width: 45%;
+    //width: 45%;
+
+    .card {
+      max-width: 320px;
+    }
 
     .slider-groups-style{
       align-items: center;
