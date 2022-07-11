@@ -73,6 +73,7 @@ export const Groups = () => {
               className="txt-input"
               defaultValue={groupName}
               label={t("group_title")}
+              maxLength={20}
               name="groupName"
               onChange={handleChange}
               placeholder={t("group_title")}
