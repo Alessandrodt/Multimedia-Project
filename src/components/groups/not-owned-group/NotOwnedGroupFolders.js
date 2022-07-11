@@ -17,11 +17,13 @@ export const NotOwnedGroupFolders = () =>  {
         <>
         <NavbarGroups></NavbarGroups>
             <section className="folder-gallery">
-                <Gallery
-                folderId={folderId}
-                key={folderId}
-                >
-                </Gallery>
+                <div className="shared-group-gallery">
+                    <Gallery
+                    folderId={folderId}
+                    key={folderId}
+                    >
+                    </Gallery>
+                </div>
                 <div className="back">
                     <Link to={`/users/${user.id}/groups/${groupId}/shared`}>
                     <span>{t("group_back")}</span>
