@@ -267,6 +267,7 @@ section.wrapper-slider {
     align-items: center;
     display: flex;
     margin: $m-auto;
+    padding-bottom: 1%;
     max-width: 1224px;
 
     .icon-folder {
@@ -309,7 +310,7 @@ section.wrapper-slider {
             background: $_primary;
             border-radius: $s-2;
             padding: $s-1;
-            width: $w-4;
+            width: $w-3-4;
 
             path {
                 fill: $_white;
