@@ -113,7 +113,51 @@ button[name="confirm"] {
         color: $_primary;
         margin:auto 20px ;
 
+    }
+
+    %custom-folder-icon {
+        cursor: pointer;
+        transition: .6s ease-in-out;
+    }
+
+    .button-folder-delete {
+        @extend %custom-folder-icon;
+
+        svg {
+            fill: $_delete;
+
+            &:hover {
+                fill: $_dark-red;
+            }
         }
+    }
+    
+    .button-folder-edit {
+        @extend %custom-folder-icon;
+    
+        svg {
+            fill: $_primary;
+
+            &:hover {
+                fill: $_dark;
+            }
+        }
+    }
+
+    .wrapper-button-folder {
+        display: flex;
+        gap: $s-2;
+        width: $w-5;
+        opacity: 0;
+
+        svg {
+            width: $w-80;
+        }
+    }
+
+    &:hover .wrapper-button-folder {
+        opacity: 1;
+    }
 }
 
 section.folder-gallery {
@@ -167,64 +211,10 @@ section.wrapper-slider {
         width: 290px;
         justify-content: space-between;
 
-        %custom-folder-icon {
-            cursor: pointer;
-            //opacity: 0;
-            transition: .6s ease-in-out;
+        img {
+            width: $w-4;
         }
-
-        .button-folder-delete {
-            // @include button;
-            // background: $_delete;
-            @extend %custom-folder-icon;
-
-            svg {
-                fill: $_delete;
-
-                &:hover {
-                    fill: $_dark-red;
-                }
-            }
-        }
-        
-        .button-folder-edit {
-            // @include button;
-            //background: $_success;
-            @extend %custom-folder-icon;
-        
-            svg {
-                fill: $_primary;
-
-                &:hover {
-                    fill: $_dark;
-                }
-            }
-        }
-
-        // &:hover .button-folder-delete, &:hover .button-folder-edit {
-        //     opacity: 1;
-        //     transition: .6s ease-in-out;
-        // }
-    }
-
-    img {
-        width: $w-4;
-    }
-
-    .wrapper-button-folder {
-        display: flex;
-        gap: $s-2;
-        width: $w-5;
-        opacity: 0;
-
-        svg {
-            width: $w-80;
-        }
-    }
-
-    &:hover .wrapper-button-folder {
-        opacity: 1;
-    }
+    }    
 }
 
 .wrapper-icon-folder {
