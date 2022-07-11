@@ -73,6 +73,7 @@ export const Groups = () => {
               className="txt-input"
               defaultValue={groupName}
               label={t("group_title")}
+              maxLength={20}
               name="groupName"
               onChange={handleChange}
               placeholder={t("group_title")}
@@ -157,6 +158,7 @@ export const Groups = () => {
       <NavbarGroups />
       <section className="group-box">
         {groupForm}
+        <div className="wrapper-group-style">
         <div className="group-form">
         <h3> {groupInfo}: </h3>
         <div className="wrapper-switch">
@@ -176,6 +178,7 @@ export const Groups = () => {
         <SimpleGrid className="wrapper-grid" cols={4} spacing="lg">
           {showGroups()}
         </SimpleGrid>
+        </div>
       </section>
     </>
   );
