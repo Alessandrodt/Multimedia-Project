@@ -17,7 +17,7 @@ export function Card({ img, idImage }) {
   const detailComponent = () => {
     modals.openModal({
       centered: true,
-      closeOnClickOutside: false,
+      closeOnClickOutside: true,
       children: <DetailImg idImage={idImage} />,
       size: "50%",
     });
