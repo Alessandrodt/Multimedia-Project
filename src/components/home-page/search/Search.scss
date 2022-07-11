@@ -25,11 +25,15 @@
 //search tags
 
 .search-tags {
-    .css-1rhbuit-multiValue, .css-g1d714-ValueContainer div:first-child {
+    .css-1rhbuit-multiValue {
         width: auto!important;
     }
 
     .css-1rhbuit-multiValue {
         background: rgba($color: $_primary, $alpha: .25);
     }
+}
+
+.wrapper-search div:nth-child(1) div:nth-child(1) div:nth-child(1) {
+    width: auto !important;
 }
