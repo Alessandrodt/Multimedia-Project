@@ -153,6 +153,11 @@ export const GroupsDetails = () => {
   return (
     <>
       <NavbarGroups></NavbarGroups>
+      <div className="back">
+            <Link to={`/users/${user.id}/groups`}>
+              <span>{t("group_back")}</span>
+            </Link>
+          </div>
       <section className="wrapper-group-details">
         <div className="box-txt-table-groups">
           <h3>{t("group_members")}</h3>
@@ -204,11 +209,6 @@ export const GroupsDetails = () => {
                 ))
               : ""}
           </ul>
-          <div className="back">
-            <Link to={`/users/${user.id}/groups`}>
-              <span>{t("group_back")}</span>
-            </Link>
-          </div>
         </div>
       </section>
     </>
