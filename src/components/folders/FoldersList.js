@@ -41,7 +41,6 @@ export const FoldersList = () => {
           />
         </section>
         {folderId ? (
-          // add style in scss to gallery
           <section className="folder-gallery">
             <Gallery
               folderId={folderId}
