@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 // Components
 import { Button, Paper, Text } from "@mantine/core";
 
-// Styles
-import groupeople from "../../images/groupeople.svg";
-
 // GroupContainer is a simple component used to store the owned group infos displayed in the Groups page.
 export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
   return (

@@ -24,8 +24,7 @@ export const Groups = () => {
   const [groupsNotOwned, setGroupsNotOwned] = useState([]);
   const [groupName, setGroupName] = useState("");
   const [groupManager, setGroupManager] = useState(true);
-  console.log(groups);
-  console.log(groupsNotOwned);
+
   // useEffect hook, on page load all the groups where the user is present.
   // Then the data is passed through a forEach, where the is_owner status is checked.
   // If it's true, the group item is pushed in the ownedGroups, else into notOwnedGroups.
