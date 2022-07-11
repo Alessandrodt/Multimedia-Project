@@ -6,10 +6,14 @@ section.group-box {
     .group-avatar {
         margin: $s-3 auto;
     }
-
+    .wrapper-group-style{
+        margin: 0 auto;
+        max-width: 1224px;
+        cursor: pointer;
+    }
     .group-form {
         display: flex;
-        margin-left: 150px;
+        margin-bottom: 50px;
     }
     }
 
@@ -224,7 +228,7 @@ section.group-box {
     }
 
     .wrapper-group {
-        box-shadow: 8px 8px 15px rgb(171, 171, 171);
+        box-shadow: 8px 8px 7px rgb(171, 171, 171);
         border-radius: 1.5rem;
         margin: $m-auto;
         padding: $s-3;

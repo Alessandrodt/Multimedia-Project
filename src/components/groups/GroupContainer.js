@@ -12,7 +12,6 @@ export const GroupContainer = ({ groupName, groupDetails, groupSharing }) => {
   return (
     <Paper p="md" className="paper-groups" radius="md" shadow="xs" withBorder>
       <div className="group-name-svg">
-        <img src={groupeople} alt=""></img>
         <Text
           className="txt-group"
           align="center"

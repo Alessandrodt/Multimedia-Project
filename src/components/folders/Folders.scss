@@ -261,13 +261,11 @@ section.wrapper-slider {
         }
 
         .wrapper-button-folder {
-            display: flex;
-            gap: $s-2;
-            width: $w-5;
+            width: $w-3;
             opacity: 0;
     
             svg {
-                width: $w-80;
+                width: $w-70;
             }
         }
 
