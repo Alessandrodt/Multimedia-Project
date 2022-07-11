@@ -113,10 +113,12 @@ section.group-box {
             display: flex;
             justify-content: space-between;
             padding: $s-2;
-            width: 290px;
+            //width: 290px;
             
             .group-name-svg {
+                align-items: center;
                 display: flex;
+                gap: 10px;
 
                 img {
                     max-width: 35px;
@@ -125,11 +127,9 @@ section.group-box {
 
                 .txt-group {
                     border-radius: 1.5rem 1.5rem 0 0;
-                    font-size: 16px;
-                    margin-top: 5px;
-                    margin-left: 20px;
                     color: $_primary;
-        
+                    font-size: 16px;
+                    margin-top: 0;
                 }
             }
 
