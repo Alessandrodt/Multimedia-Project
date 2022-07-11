@@ -36,7 +36,6 @@ i18next
   .use(LanguageDetector)
   .use(Backend)
   .init({
-    debug: true,
     lng: 'en',
     supportedLngs:['en','it'],
     fallbackLng: "it",
