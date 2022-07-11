@@ -33,7 +33,7 @@ export const Profile = () => {
           }
           size={150}
         />
-        <h2>
+        <h2 className="h2-user-name">
           {user.first_name} {user.last_name}
         </h2>
         <p>{user.email}</p>
