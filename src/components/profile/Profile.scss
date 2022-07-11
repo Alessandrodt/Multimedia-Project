@@ -16,7 +16,7 @@
     display: flex;
     margin: 200px auto 0;
     flex-direction: column;
-    font-size: 15px;
+    font-size: 20px;
     justify-content: center;
     max-width: 1024px;
 
@@ -37,7 +37,7 @@
     }
 
     p {
-        margin: $w-2 0;
+        margin: $w-1 0;
     }
 
     .primary {
