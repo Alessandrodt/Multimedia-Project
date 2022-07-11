@@ -20,6 +20,7 @@
       top: -9.5px;
   }
 }
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
@@ -27,25 +28,25 @@
   width: 0;
 }
   
-  /* The slider */
-  .sliderr {
+/* The slider */
+.sliderr {
    display: inline-block;
     cursor: pointer;
     -webkit-transition: .4s;
     transition: .4s;
     background-color: rgb(230, 230, 230);
-  }
+}
   
-  .sliderr:before {
+.sliderr:before {
     content: "";
     height: 22px;
     width: 72px;
     bottom: 4px;
     transition: 0.4s;
     background-color: transparent;
-  }
+}
   
-  input:checked + .sliderr {
+input:checked + .sliderr {
     background-color: rgb(230, 230, 230);
     .language-box {
       display: flex;
@@ -54,17 +55,17 @@
     }
 }
   
-  input:focus + .sliderr {
+input:focus + .sliderr {
     box-shadow: 0 0 1px rgb(227, 227, 227);
 }
   
-  input:checked +  .sliderr:before {
+input:checked +  .sliderr:before {
     -webkit-transform: translateX(58px);
     -ms-transform: translateX(58px);
     transform: translateX(58px);
     // background-image: url("../../images/britishFlag_small.svg");
     background-color: trasparent;
-  }
+}
   
   /* Rounded sliders */
   .sliderr.round {
@@ -75,9 +76,9 @@
 
  }
   
-  .sliderr.round:before {
+.sliderr.round:before {
     border-radius: 50px;
-  }
+}
 
   
 .check {
@@ -98,7 +99,7 @@
   margin-top: -2px;
 }
 
- .switch-box {
+.switch-box {
   // display: flex;
 
   .switch-img {

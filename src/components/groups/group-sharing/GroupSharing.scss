@@ -1,20 +1,28 @@
 .back-box-groups{
-    width: 80%;
-    display: flex;
     align-items: baseline;
+    display: flex;
     margin: 10px auto;
     margin-top: 120px;
+    width: 80%;
 
     .share-box-groups {
 
+        border: 1px solid rgb(226, 226, 226);
+        border-radius: 20px;
+        box-shadow: 8px 8px 15px rgb(218, 218, 218);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        width: $w-100;
+
         span[name="back-groups"]{
-            padding: 0.45rem 0.8rem;
-            display: inline-block;
-            background-color: #00D1E0;
+            background: $_primary;
             border: 0;
             border-radius: 2rem;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
             cursor: pointer;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            padding: 0.45rem 0.8rem;
             text-align: center;
 
             p {
@@ -37,43 +45,35 @@
         button:hover {
             background-color: $_primary;
         }
-
-        box-shadow: 8px 8px 15px rgb(218, 218, 218);
-        border-radius: 20px;
-        padding: 1rem;
-        border: 1px solid rgb(226, 226, 226);
-        width: 100%;
-        justify-content: space-between;
-        display: flex;
-
+        
         p, button {
             display: inline-block;
         }
 
     }
 }
-.folder-list-groups {
 
+.folder-list-groups {
     height: 400px;
     overflow: scroll;
     overflow-x: hidden;
 
     h4 {
+        padding: 1% 25%;
         position: fixed;
         top: 20px;
-        padding: 1% 25%;
     }
     
     li{
 
         img {
-            width: 30px;
             height: 30px;
+            width: 30px;
         }
 
         p {
-            width: 250px;
             margin-left: 15px;
+            width: 250px;
         }
 
         button {
@@ -93,12 +93,12 @@
 .simplegrid-detail-groups {
     display: flex;
     gap: 10px;
-    row-gap: 10px;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 40px auto;
     max-width: 1224px;
     padding: 1rem;
+    //row-gap: 10px;
     row-gap: 1.5rem;
     justify-content: flex-start;
 
@@ -109,38 +109,40 @@
         display: flex;
         text-align: center;
         padding: 0.3rem;
-        width: 290px;
-        color: #00D1E0;
+        color: $_primary;
         justify-content: space-between;
+        width: 290px;
 
         .box-flex-folder-groups {
         display: flex;
 
         .txt-folders-groups {
-            margin-top: 4px;
             font-size: 16px;
+            margin-top: 4px;
             margin-left: 20px;
         }
 
         img {
-            width: 40px;
             margin-left: 8px;
+            width: 40px;
         }
     }
         button[name="button-detail-groups"] {
-            width: 60px;
+            background-color: transparent;
+            border-radius: 50px;
             display: block;
             margin: 1px;
             margin-left: 1px;
-            background-color: transparent;
-            border-radius: 50px;
-            svg{
+            width: 60px;
+
+            svg {
                 cursor: pointer;
-              }
-              svg:hover{
+            }
+
+            svg:hover{
                 fill: $_dark-red;
                 transition: .4s ease-in-out;
-              }
+            }
         }
     }
 }

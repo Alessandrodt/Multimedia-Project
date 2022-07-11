@@ -1,8 +1,8 @@
 .box-gallery-home {
-    position: relative;
-    margin: 0;
     border-radius: 20px;
+    margin: 0;
     overflow: hidden;
+    position: relative;
     //role for safari to fixed overflow:hidden
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -19,15 +19,15 @@
         mix-blend-mode: unset;
         opacity: 0;
         position: absolute;
-        z-index: 99;
         transition: .5s ease-in-out;
+        z-index: 99;
         -webkit-transition: .5s ease-in-out;
     }
 
     &:hover span.title-tags {
+        opacity: 1;
         transition: .5s ease-in-out;
         -webkit-transition: .5s ease-in-out;
-        opacity: 1;
     }
 
     img {
@@ -37,10 +37,10 @@
     }
 
     &:hover img {
-        transition: .6s ease-in-out;
-        -webkit-transition: .5s ease-in-out;
         transform: scale(1.2);
         -webkit-transform: scale(1.08);
+        transition: .6s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
     }
 
 
@@ -51,11 +51,11 @@
         content: '';
         display: inline-block;
         height: 10%;
-        width: 100%;
         left: 0;
         opacity: 0;
         position: absolute;
         transition: .6s ease-in-out;
+        width: 100%;
         -webkit-transition: .6s ease-in-out;
     }
 
@@ -65,23 +65,3 @@
         -webkit-transition: .6s ease-in-out;
     }
 }
-
-// .mantine-l0ham1{
-//     margin-top: -100px;
-//     width: auto;
-//     border-radius: 20px;
- 
-//   }
-
-// .mantine-20iurd{
-//     overflow:unset;
-//     height: 500x;
-//     height: 600px;
-// }
-// .mantine-l0ham1{
-//     margin-top: 0;
-// }
-// .mantine-16pg774{
-//     top: unset;
-
-// }

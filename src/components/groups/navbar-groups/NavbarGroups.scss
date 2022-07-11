@@ -6,8 +6,8 @@
     align-items: center;
     display: flex;
     margin: $m-auto;
-    padding: .5rem $s-3;
     max-width: 1440px;
+    padding: .5rem $s-3;
     justify-content: space-between;
 
     h4 {
@@ -74,8 +74,8 @@
 }
 
 .wrapper-na .log {
-    margin-top: $m-10;
     margin-left: $m-10;
+    margin-top: $m-10;
 }
 
 .icon {

@@ -1,28 +1,24 @@
 .avatar {
+    border-radius: 50px;
     height: 50px;
-    width: 50px;
     margin: 10px;
     margin-left: 150px;
-    border-radius: 50px;
+    width: 50px;
 }
 
 .logo-home {
+    border-radius: 50px;
     height: 50px;
-    width: 50px;
     margin: 10px;
     margin-left: 33px;
     margin-right: 150px;
-    border-radius: 50px;
+    width: 50px;
 }
 
-// .mantine-16pg774 {
-//     top: 66px;
-// }
-
 .navbar {
-    width: 100%;
     background-color: $_white;
     display: flex;
+    width: 100%;
 }
 
 .upload {
@@ -30,21 +26,21 @@
 }
 
 .uppics {
-    height: 50px;
-    width: 50px;
-    margin: 10px;
     border-radius: 50px;
+    height: 50px;
+    margin: 10px;
+    width: 50px;
 }
 
 .upload-btn {
-    position: fixed;
-    bottom: 20px;
-    width: ($w-6) + 10;
-    height: ($w-6) + 10;
-    right: 20px;
-    border-radius: 50px;
-    font-size: 130px;
     background-color: $_primary;
+    border-radius: 50px;
+    bottom: 20px;
+    font-size: 130px;
+    height: ($w-6) + 10;
+    position: fixed;
+    right: 20px;
+    width: ($w-6) + 10;
 
    
     svg {
@@ -73,13 +69,10 @@
 }
 
 .wrapper-gallery {
+    padding: 0 $p-2;
     position: relative;
     top: 200px;
-    padding: 0 $p-2;
 
-    // ::-webkit-scrollbar {
-    //     display: none;
-    // }
     .infinite-scroll-component {
         overflow-y: hidden !important;
         overflow-x: hidden !important;
@@ -88,19 +81,6 @@
 
 }
 
-
-// const styles = {
-//     container: {
-//       margin: 0,
-//       padding: 0,
-//       width: "80%",
-//       position: "absolute",
-//       left: "50%",
-//       transform: "translateX(-50%)",
-//       top: "120px",
-//     },
-//   };
-
 .inner-box{
     
     .img-box{
@@ -108,12 +88,13 @@
         margin-bottom: 10px;
       
         img{
-            width: 100%;
+            border-radius: 4px;
             height: 100%;
             overflow: scroll;
-            border-radius: 4px;
+            width: 100%;
         }
     }
+
     .info-external-box{
         border-radius: 20px;
 
@@ -122,71 +103,58 @@
             color: rgb(90, 90, 90);
         }
         .tag-box{
+
             .tag-cont-style{
                 overflow: scroll;
                 height: 100px;
-            span{
-                background: $_primary;
-                border-radius: $s-3;
-                color: $_white;
-                box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
-                padding: $s-2 $s-3;
-                margin: 8px;
-                display: inline-block;
-                margin-left: 0;
-            }
-            p{
-                margin-left: 10px;
-                background-color: $_primary;
-                color: white;
-                border-radius: 50px;
-                font-size: 20px;
+
+                span {
+                    background: $_primary;
+                    border-radius: $s-3;
+                    box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
+                    color: $_white;
+                    display: inline-block;
+                    margin: 8px;
+                    margin-left: 0;
+                    padding: $s-2 $s-3;
+                }
+
+                p {
+                    background: $_primary;
+                    border-radius: 50px;
+                    color: $_white;
+                    font-size: 20px;
+                    margin-left: 10px;
+                }
             }
         }
     }
-}
 
 }
 
-.external-button-box{
+.external-button-box {
     text-align: center;
-    .button-action{
+
+    .button-action {
         background-color: $_red;
+        border: 0;
         border-radius: 50px;
         color: $_white;
-        border: 0;
-        width: 120px;
-        height: 40px;
         font-size: 20px;
+        height: 40px;
         margin-bottom: 30px;
+        width: 120px;
     }
 }
-.button-box-upload{
+
+.button-box-upload {
     text-align: center;
+
     button[name="upload-img"] {
         background: $_primary;
         border-radius: 50px;
     }
 }
-// .mantine-10fatya{
-//     width: 35%;
-//     border-radius: 20px;
-//     top: -200px;
-//     .container{
-//         margin-bottom: 30px;
-//         border-radius: 20px;
-//         img{
-//             width: 100%;
-//             margin-top: 0;
-//         }
-//         div[role="presentation"]{
-//             border-radius: 20px !important;
-//             border: 2px solid rgb(181, 181, 181) !important;
-
-//         }
-     
-//     }
-// }
 
 .search-tags {
     width: 60%;
@@ -207,6 +175,7 @@ button[name="upload-img"] {
 }
 
 .upload-img {
+    
     .css-1rhbuit-multiValue {
         background: rgba($color: $_primary, $alpha: .30);
     }

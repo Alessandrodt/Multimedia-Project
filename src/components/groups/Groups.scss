@@ -25,9 +25,9 @@ section.group-box {
 
             svg {
                 fill: $_primary;
+                overflow: visible;
                 position: relative;
                 width: 25px;
-                overflow: visible;
 
                 &:hover {
                     fill: $_dark;
@@ -43,16 +43,6 @@ section.group-box {
                     -moz-transition: translate(0, 0);
                     -o-transition: translate(0,0);
                 }
-
-                // .left-arrow-hover {
-                //     transition: .4s ease-in-out;
-                //     transform: translate(10px, 0);
-                // }
-
-                // &:hover .left-arrow-hover {
-                //     transition: 1s ease-in-out;
-                //     transform: translate(0, 0);
-                // }
 
                 &:hover .left-arrow {
                     transition: .5s ease-in-out;
@@ -75,16 +65,6 @@ section.group-box {
                     -moz-transition: translate(0, 0);
                     -o-transition: translate(0,0);
                 }
-
-                // .right-arrow-hover {
-                //     transition: .4s ease-in-out;
-                //     transform: translate(-40px, 0);
-                // }
-
-                // &:hover .right-arrow-hover {
-                //     transition: 1s ease-in-out;
-                //     transform: translate(0, 0);
-                // }
 
                 &:hover .right-arrow {
                     transition: .5s ease-in-out;
@@ -172,9 +152,9 @@ section.group-box {
                         }
 
                         path.top {
+                            transform: rotate(0deg);
                             -ms-transform: rotate(0deg);
                             -webkit-transform: rotate(0deg); 
-                            transform: rotate(0deg);
                             transform-origin: 30% 30%;
                             -ms-transform-origin: 30% 30%;
                             -webkit-transform-origin: 30% 30%;
@@ -192,9 +172,9 @@ section.group-box {
                         }
 
                         path.bottom {
+                            transform: rotate(0deg);
                             -ms-transform: rotate(0deg);
                             -webkit-transform: rotate(0deg); 
-                            transform: rotate(0deg);
                             transform-origin: 70% 70%;
                             -ms-transform-origin: 70% 70%;
                             -webkit-transform-origin: 70% 70%;

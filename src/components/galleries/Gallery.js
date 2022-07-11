@@ -83,7 +83,7 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
   };
 
   return (
-    <div>
+    <main>
       <InfiniteScroll
         dataLength={galleryImages ? galleryImages.length : 0}
         next={fetchMoreData}
@@ -103,6 +103,6 @@ export function Gallery({ folderId, userId, searchParams, newUploadImages }) {
           </Masonry>
         </Box>
       </InfiniteScroll>
-    </div>
+    </main>
   );
 }

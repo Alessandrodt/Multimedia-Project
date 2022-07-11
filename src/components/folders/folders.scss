@@ -1,10 +1,3 @@
-// @mixin button {
-//     color: $_white;
-//     cursor: pointer;
-//     border-radius: $s-1;
-//     padding: $s-1;
-// }
-
 article.wrapper-folder {
     width: $w-100;
     margin-top: ($m-50) * 2;
@@ -151,10 +144,6 @@ section.folder-list {
 section.wrapper-folder {
     margin-top: ($m-50) + 20;
 }
-
-// .messageError {
-//     margin-top: 90px;
-// }
 
 section.wrapper-slider {
     display: flex;
