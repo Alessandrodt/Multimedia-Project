@@ -89,21 +89,6 @@ button[name="confirm"] {
         }
     }
 
-    span.upload-in-folders {
-        background: $_primary;
-        border-radius: $s-2;
-        cursor: pointer;
-        padding: $s-2;
-
-        svg {
-            width: $w-4;
-
-            path {
-                fill: $_white;
-            }
-        }
-    }
-
     @include media( "screen", ">minWidth", "<maxWidth" ){
         margin: $m-auto;
         width: $w-90;
@@ -279,6 +264,8 @@ section.wrapper-slider {
 }
 
 .wrapper-icon-folder {
+    align-items: center;
+    display: flex;
     margin: $m-auto;
     max-width: 1224px;
 
@@ -297,16 +284,48 @@ section.wrapper-slider {
                 cursor: pointer;
                 width: $w-100;
             }
+
+            &:hover + span.add-folder {
+                opacity: 1;
+                transition: .6s ease-in-out;
+            }
         }
 
         span.add-folder {
             opacity: 0;
             transition: .6s ease-in-out;
         }
+    }
 
-        &:hover span.add-folder {
-            opacity: 1;
+    .upload-in-folders {
+        align-items: center;
+        border-radius: $s-2;
+        cursor: pointer;
+        display:flex;
+        gap: 10px;
+        padding: $s-2;
+
+        svg {
+            background: $_primary;
+            border-radius: $s-2;
+            padding: $s-1;
+            width: $w-4;
+
+            path {
+                fill: $_white;
+            }
+
+            &:hover + span.text-upload {
+                opacity: 1;
+                transition: .6s ease-in-out;
+            }
+        }
+
+        span.text-upload {
+            opacity: 0;
             transition: .6s ease-in-out;
         }
+
+
     }
 }
