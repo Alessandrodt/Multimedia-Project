@@ -150,13 +150,13 @@ export const Folder = ({
       <div className="messageError"></div>
       <div className="folderAddButton">
         <Breadcrumbs className="breadcrumbs">{items}</Breadcrumbs>
-        </div>
+      </div>
       
-        <div className="wrapper-icon-folder">
-          <div className="icon-folder">
-            <span className="add-icon-folder" onClick={openContentAddModalFolder}>
-              {/* add image icon */}
-              <svg
+      <div className="wrapper-icon-folder">
+        <div className="icon-folder">
+          <span className="add-icon-folder" onClick={openContentAddModalFolder}>
+            {/* add image icon */}
+            <svg
                 width="73"
                 height="63"
                 viewBox="0 0 73 63"
@@ -179,14 +179,14 @@ export const Folder = ({
                   d="M69.3708 22.4264C70.0218 22.4453 70.5338 22.9879 70.5149 23.6388C70.5068 23.9631 70.3655 24.2535 70.1458 24.4608C69.9261 24.6681 69.6279 24.7912 69.3027 24.7815L63.8161 24.624L63.6553 30.1096C63.6471 30.4364 63.506 30.7265 63.2866 30.9336C63.0672 31.1407 62.7696 31.2645 62.4427 31.2538C61.7917 31.235 61.2797 30.6924 61.2986 30.0414L61.4577 24.5524L55.9699 24.3946C55.3189 24.3758 54.8069 23.8332 54.8258 23.1822C54.8446 22.5312 55.3872 22.0192 56.0382 22.0381L61.5278 22.1991L61.6869 16.7101C61.7058 16.0591 62.2483 15.5471 62.8993 15.566C63.5503 15.5848 64.0623 16.1274 64.0434 16.7784L63.8844 22.2674L69.3708 22.4264Z"
                   fill="#00EDFE"
                 />
-              </svg>
-            </span>
-            <span className="add-folder">{t("add_folder")}</span>
-          </div>
+            </svg>
+          </span>
+          <span className="add-folder">{t("add_folder")}</span>
+        </div>
 
-          <div className="upload-in-folders" onClick={openContentAddModalUpload}>
-            {/* Upload */}
-            <svg
+        <div className="upload-in-folders" onClick={openContentAddModalUpload}>
+          {/* Upload */}
+          <svg
             viewBox="0 0 96 96"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -215,10 +215,10 @@ export const Folder = ({
                 <rect width="96" height="96" fill="white" />
               </clipPath>
             </defs>
-            </svg>
-            <span className="text-upload">Upload here your images</span>
-          </div>
+          </svg>
+          <span className="text-upload">{t("folder_upload_hover")}</span>
         </div>
+      </div>
       <section className="wrapper-slider">
         {folders.map((folder) => {
           return (
