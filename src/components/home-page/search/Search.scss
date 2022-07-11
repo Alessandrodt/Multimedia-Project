@@ -5,6 +5,7 @@
     .data-picker {
         border: none;
         border-bottom: 2px solid $_primary;
+        caret-color: $_primary;
         outline: none;
         padding-block: 5px;
     }
@@ -25,6 +26,8 @@
 //search tags
 
 .search-tags {
+    caret-color: $_primary;
+
     .css-1rhbuit-multiValue {
         width: auto!important;
     }
