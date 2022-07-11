@@ -68,6 +68,11 @@ export const NotOwnedGroup = () => {
   return (
     <>
       <NavbarGroups />
+      <div className="back">
+          <Link to={`/users/${user.id}/groups`}>
+            <span>{t("group_back")}</span>
+          </Link>
+        </div>
       <div className="box-wrapper-folders-notowned">
         <div className="box-txt-table-groups">
           <h3>{t("group_members")}</h3>
@@ -101,13 +106,6 @@ export const NotOwnedGroup = () => {
               </Card>
             );
           })}
-        </div>
-      </div>
-      <div className="box-back">
-        <div className="back">
-          <Link to={`/users/${user.id}/groups`}>
-            <span>{t("group_back")}</span>
-          </Link>
         </div>
       </div>
     </>
