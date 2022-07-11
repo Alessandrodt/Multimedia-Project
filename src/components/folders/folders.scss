@@ -169,7 +169,7 @@ section.wrapper-slider {
 
         %custom-folder-icon {
             cursor: pointer;
-            //opacity: 0;
+            opacity: 1;
             transition: .6s ease-in-out;
         }
 
@@ -201,29 +201,24 @@ section.wrapper-slider {
             }
         }
 
-        // &:hover .button-folder-delete, &:hover .button-folder-edit {
-        //     opacity: 1;
-        //     transition: .6s ease-in-out;
-        // }
+        .wrapper-button-folder {
+            display: flex;
+            gap: $s-2;
+            width: $w-5;
+            opacity: 0;
+    
+            svg {
+                width: $w-80;
+            }
+        }
+
+        &:hover .wrapper-button-folder {
+            opacity: 1;
+        }
     }
 
     img {
         width: $w-4;
-    }
-
-    .wrapper-button-folder {
-        display: flex;
-        gap: $s-2;
-        width: $w-5;
-        opacity: 0;
-
-        svg {
-            width: $w-80;
-        }
-    }
-
-    &:hover .wrapper-button-folder {
-        opacity: 1;
     }
 }
 
