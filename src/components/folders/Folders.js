@@ -236,7 +236,7 @@ export const Folder = ({
                 </span>
               </Link>
               {/* button Edit / Delete */}
-              <div className="wrapper-button">
+              <div className="wrapper-button-folder">
                 <span
                   className="button-folder-edit"
                   onClick={() => openContentEditModal(folder.id)}

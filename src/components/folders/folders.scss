@@ -191,6 +191,10 @@ section.wrapper-slider {
 
             svg {
                 fill: $_delete;
+
+                &:hover {
+                    fill: $_dark-red;
+                }
             }
         }
         
@@ -201,6 +205,10 @@ section.wrapper-slider {
         
             svg {
                 fill: $_primary;
+
+                &:hover {
+                    fill: $_dark;
+                }
             }
         }
 
@@ -214,14 +222,19 @@ section.wrapper-slider {
         width: $w-4;
     }
 
-    .wrapper-button {
+    .wrapper-button-folder {
         display: flex;
         gap: $s-2;
         width: $w-5;
+        opacity: 0;
 
         svg {
             width: $w-80;
         }
+    }
+
+    &:hover .wrapper-button-folder {
+        opacity: 1;
     }
 }
 
