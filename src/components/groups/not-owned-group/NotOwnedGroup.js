@@ -35,7 +35,6 @@ export const NotOwnedGroup = () => {
 
     // This function gets the shared folders and displays them in a state.
     folderSharingServices.getSharedFolders(userId, groupId).then((folders) => {
-      console.log(folders.data);
       setSharedFolders(folders.data);
     });
   }, [groupId, userId]);

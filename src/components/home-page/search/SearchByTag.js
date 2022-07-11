@@ -31,6 +31,7 @@ export function SearchByTags({ setSelectedTags }) {
       components={animatedComponents}
       placeholder={t("tags_search")}
       isMulti
+      aria-label="tag"
     />
   );
 }

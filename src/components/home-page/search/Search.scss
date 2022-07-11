@@ -5,6 +5,7 @@
     .data-picker {
         border: none;
         border-bottom: 2px solid $_primary;
+        caret-color: $_primary;
         outline: none;
         padding-block: 5px;
     }
@@ -25,11 +26,17 @@
 //search tags
 
 .search-tags {
-    .css-1rhbuit-multiValue, .css-g1d714-ValueContainer div:first-child {
+    caret-color: $_primary;
+
+    .css-1rhbuit-multiValue {
         width: auto!important;
     }
 
     .css-1rhbuit-multiValue {
         background: rgba($color: $_primary, $alpha: .25);
     }
+}
+
+.wrapper-search div:nth-child(1) div:nth-child(1) div:nth-child(1) {
+    width: auto !important;
 }
