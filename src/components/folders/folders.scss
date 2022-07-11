@@ -23,62 +23,77 @@ button[name="confirm"] {
 
 .folderAddButton {
     align-items: center;
+    backface-visibility: hidden;
+    background: $_white;
     display: flex;
-    flex-wrap: nowrap;
     margin: $m-auto;
-    max-width: 1224px;
+    max-width: 1024px;
     padding: $spacer;
-    text-align: end;
     justify-content: space-between;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
 
-    .breadcrumbs {
-        align-items: center;
-    }
-    
-    span.folder {
-        color: $_white;
-        cursor: pointer;
-        background: $_primary;
-        border-radius: $s-3;
-        display: inline-block;
-        padding: $s-2 $s-3;
+    .fixed-folder-add-button {
+        //position: fixed;
+        display: flex;
+        justify-content: space-between;
+        width: 1024px;
+        margin: $m-auto;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
 
-        img {
+        .breadcrumbs {
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        span.folder {
+            color: $_white;
             cursor: pointer;
-            opacity: .8;
-            width: $w-100;
-
-            &:hover {
-                opacity: 1;
+            background: $_primary;
+            border-radius: $s-3;
+            display: inline-block;
+            padding: $s-2 $s-3;
+    
+            img {
+                cursor: pointer;
+                opacity: .8;
+                width: $w-100;
+    
+                &:hover {
+                    opacity: 1;
+                }
             }
-        }
-
-        p {
-            color: $_primary;
-            opacity: 0;
-            transition: .5s ease-in-out;
-            -webkit-transition: .5s ease-in-out;
-            -o-transition: .5s ease-in-out;
-            -moz-transition: .5s ease-in-out;
-        }
-
-        &:hover p {
-            opacity: 1;
-            transition: .5s ease-in-out;
-            -webkit-transition: .5s ease-in-out;
-            -o-transition: .5s ease-in-out;
-            -moz-transition: .5s ease-in-out;
+    
+            p {
+                color: $_primary;
+                opacity: 0;
+                transition: .5s ease-in-out;
+                -webkit-transition: .5s ease-in-out;
+                -o-transition: .5s ease-in-out;
+                -moz-transition: .5s ease-in-out;
+            }
+    
+            &:hover p {
+                opacity: 1;
+                transition: .5s ease-in-out;
+                -webkit-transition: .5s ease-in-out;
+                -o-transition: .5s ease-in-out;
+                -moz-transition: .5s ease-in-out;
+            }
         }
     }
 
     span.upload-in-folders {
         background: $_primary;
         border-radius: $s-2;
-        bottom: $w-4;
         cursor: pointer;
         padding: $s-2;
-        position: fixed;
-        right: $w-3;
 
         svg {
             width: $w-4;
@@ -113,7 +128,51 @@ button[name="confirm"] {
         color: $_primary;
         margin:auto 20px ;
 
+    }
+
+    %custom-folder-icon {
+        cursor: pointer;
+        transition: .6s ease-in-out;
+    }
+
+    .button-folder-delete {
+        @extend %custom-folder-icon;
+
+        svg {
+            fill: $_delete;
+
+            &:hover {
+                fill: $_dark-red;
+            }
         }
+    }
+    
+    .button-folder-edit {
+        @extend %custom-folder-icon;
+    
+        svg {
+            fill: $_primary;
+
+            &:hover {
+                fill: $_dark;
+            }
+        }
+    }
+
+    .wrapper-button-folder {
+        display: flex;
+        gap: $s-2;
+        width: $w-5;
+        opacity: 0;
+
+        svg {
+            width: $w-80;
+        }
+    }
+
+    &:hover .wrapper-button-folder {
+        opacity: 1;
+    }
 }
 
 section.folder-gallery {
@@ -169,7 +228,7 @@ section.wrapper-slider {
 
         %custom-folder-icon {
             cursor: pointer;
-            //opacity: 0;
+            opacity: 1;
             transition: .6s ease-in-out;
         }
 
@@ -201,29 +260,24 @@ section.wrapper-slider {
             }
         }
 
-        // &:hover .button-folder-delete, &:hover .button-folder-edit {
-        //     opacity: 1;
-        //     transition: .6s ease-in-out;
-        // }
+        .wrapper-button-folder {
+            display: flex;
+            gap: $s-2;
+            width: $w-5;
+            opacity: 0;
+    
+            svg {
+                width: $w-80;
+            }
+        }
+
+        &:hover .wrapper-button-folder {
+            opacity: 1;
+        }
     }
 
     img {
         width: $w-4;
-    }
-
-    .wrapper-button-folder {
-        display: flex;
-        gap: $s-2;
-        width: $w-5;
-        opacity: 0;
-
-        svg {
-            width: $w-80;
-        }
-    }
-
-    &:hover .wrapper-button-folder {
-        opacity: 1;
     }
 }
 
