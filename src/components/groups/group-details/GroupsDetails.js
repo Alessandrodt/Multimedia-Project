@@ -91,7 +91,8 @@ export const GroupsDetails = () => {
   useEffect(() => {
     groupsServices.getUserGroups(user.id).then((groups) => {
       groups.data.map((item) => item.users);
-      const i = groups.data.findIndex((item) => item.id === groupId);
+      // eslint-disable-next-line eqeqeq
+      const i = groups.data.findIndex((item) => item.id == groupId);
       setGroup(groups.data[i].users || []);
     });
   }, [user.id, groupId]);
