@@ -23,7 +23,7 @@ const EditFolderForm = (props) => {
         )}
       >
         <TextInput
-          maxLength={25}
+          maxLength={22}
           required
           data-autofocus
           placeholder={t("folder_name")}
