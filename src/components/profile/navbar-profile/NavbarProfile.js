@@ -60,14 +60,14 @@ export const NavbarProfile = () => {
             <LanguageSelect />
           </div>
           <div className="wrapper-sign-profile">
-            <div className="button">
-              <span>
-                <Link to={`/users/${user.id}/groups`}>{t("groups")}</Link>
+          <div className="button">
+              <span className="">
+                <Link to={`/users/${user.id}/folders`}>{t("folders")}</Link>
               </span>
             </div>
             <div className="button">
-              <span className="">
-                <Link to={`/users/${user.id}/folders`}>{t("folders")}</Link>
+              <span>
+                <Link to={`/users/${user.id}/groups`}>{t("groups")}</Link>
               </span>
             </div>
           </div>
