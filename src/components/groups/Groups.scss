@@ -9,6 +9,8 @@ section.group-box {
 
     .group-form {
         display: flex;
+        margin-left: 150px;
+    }
     }
 
     .wrapper-switch {
@@ -94,13 +96,21 @@ section.group-box {
     .wrapper-grid {
         margin-top: 50px;
         row-gap: 40px;
+        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 1224px;
+        row-gap: 1.5rem;
 
         .paper-groups {
-            border-radius: 1.5rem;
+            border-radius: 0.5rem;
             box-shadow: 8px 8px 15px rgb(171, 171, 171);
-            border: 2px solid rgb(236, 236, 236);
             justify-content: space-between;
             display: flex;
+            height: 75px;
+            width: 290px;
+            
             .group-name-svg {
                 display: flex;
 
@@ -215,7 +225,6 @@ section.group-box {
 
     .wrapper-group {
         box-shadow: 8px 8px 15px rgb(171, 171, 171);
-        border: 2px solid rgb(174, 174, 174);
         border-radius: 1.5rem;
         margin: $m-auto;
         padding: $s-3;
@@ -256,7 +265,6 @@ section.group-box {
             max-width: $w-80;
         };
     }
-}
 
 .p0 {
     padding: 0;

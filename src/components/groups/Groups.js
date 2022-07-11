@@ -173,7 +173,7 @@ export const Groups = () => {
         </div>
         </div>
         {/* A map to create a list item for each group name */}
-        <SimpleGrid className="wrapper-grid" cols={3} spacing="lg">
+        <SimpleGrid className="wrapper-grid" cols={4} spacing="lg">
           {showGroups()}
         </SimpleGrid>
       </section>
