@@ -106,7 +106,7 @@ export const Login = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button className="primary" type="submit">
+          <Button className="text-white background-primary" type="submit" name="submit">
             Login
           </Button>
         </Group>

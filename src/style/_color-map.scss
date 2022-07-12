@@ -6,23 +6,39 @@ $_dark-blue: #008993 !default;
 $_dark-red:  #c70101 !default;
 $_green:     #69BE67 !default;
 $_input:     #b3bcc3 !default;
-$_red:       #ff0000 !default;
 $_orange:    #ffb934 !default;
+$_red:       #ff0000 !default;
 $_white:     #ffffff !default;
 
 // scss-docs-start colors-map
 $colors: (
   "bg":          $_bg,
   "black":       $_black,
-  "blue":        $_blue,
   "dark-blue":   $_dark-blue,
-  "dark-red":   $_dark-red,
+  "dark-red":    $_dark-red,
   "delete":      $_red,
   "hover":       $_dark-blue,
+  "orange":      $_orange, 
+  "primary":     $_blue,
   "success":     $_green,
   "white":       $_white,
 ) !default;
 
+
+//button landing page
+@each $key, $val in $colors {
+  .text-#{$key} {
+    color: $val
+  }
+
+  .background-#{$key} {
+    background: $val
+  }
+
+  .hover-#{$key} {
+    background: $val
+  }
+}
 
 // scss-docs-start theme-color-variables
 $_dark:         $_dark-blue;

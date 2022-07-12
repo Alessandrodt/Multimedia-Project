@@ -1,7 +1,7 @@
 @mixin button-bg {
-    background: $_primary;
+    //background: $_primary;
     border-radius: $s-3;
-    color: $_white;
+    //color: $_white;
     padding: $s-2 $s-3;
     box-shadow: 5px 5px 10px rgba($color: $_black, $alpha: .25);
 }

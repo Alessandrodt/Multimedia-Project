@@ -3,3 +3,7 @@ form.form-login {
         height: 34px;
     }
 }
+
+button[name="submit"]:hover {
+    background: $_dark;
+}

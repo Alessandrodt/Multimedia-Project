@@ -140,7 +140,7 @@ export const SignUp = () => {
     <Box sx={{ maxWidth: 400 }} mx="auto">
       <form className="form-sign-up" onSubmit={form.onSubmit(addUser)}>
         {picture}
-        <Button className="primary reset-avatar" onClick={openContentModal}>
+        <Button className="text-white background-primary reset-avatar" onClick={openContentModal}>
           {t("avatar_button")}
         </Button>
         <div className="wrapper-info">
@@ -217,7 +217,7 @@ export const SignUp = () => {
         />
         <LoadingOverlay visible={visible} />
         <Group position="right" mt="md">
-          <Button className="primary" type="submit">
+          <Button className="text-white background-primary" type="submit">
             {t("form_signup")}
           </Button>
         </Group>
