@@ -6,17 +6,19 @@ section.group-box {
     .group-avatar {
         margin: $s-3 auto;
     }
+
     .wrapper-group-style{
         margin: 0 auto;
         max-width: 1224px;
     }
+
     .group-form {
         display: flex;
         margin-bottom: 50px;
     }
-    }
+}
 
-    .wrapper-switch {
+.wrapper-switch {
         align-items: center;
         display: flex;
 
@@ -94,9 +96,9 @@ section.group-box {
             transition: .5s ease-in-out;
             opacity: 1;
         } 
-    }
+}
 
-    .wrapper-grid {
+.wrapper-grid {
         margin-top: 50px;
         row-gap: 40px;
         gap: 10px;
@@ -222,9 +224,9 @@ section.group-box {
             width: $w-80;
             margin: $m-auto;
         };
-    }
+}
 
-    .wrapper-group {
+.wrapper-group {
         box-shadow: 8px 8px 7px rgb(171, 171, 171);
         border-radius: 1.5rem;
         margin: $m-auto;
@@ -265,7 +267,7 @@ section.group-box {
         @include media( "screen", ">minWidth", "<bp2Width" ){
             max-width: $w-80;
         };
-    }
+}
 
 .shared-group-gallery {
     margin-top: 150px;
